@@ -1,0 +1,68 @@
+voc:
+person
+bicycle
+bus
+car
+motorbike
+train
+
+//code
+#include <stdio.h>
+void mvFile(string file ,string path,string name)
+{
+  FILE *op,*inp;
+
+  op=fopen(file.c_str(),"rb");
+
+  inp=fopen((path+name).c_str(),"wb");
+
+  unsigned char buf[1024] ;
+  while(!feof(op))
+
+  {
+  //方法二
+
+  int size = fread(buf,1,1024,op);
+  fwrite(buf,1,size,inp);
+
+  }
+
+  fclose(inp);
+
+  fclose(op);
+
+}
+//convert_annoset.cpp by caffe 195.h
+bool is=false;
+int size = anno_datum.annotation_group_size();
+for(int i=0;i<size;++i)
+{
+LOG(INFO)<<"for";
+const caffe::AnnotationGroup &g = anno_datum.annotation_group(i);
+  switch(g.group_label())
+  {
+  case 2://bicycle
+  case 6://bus
+  case 7://car
+  case 14://motobike
+  case 15://person
+  case 19://train
+  is = true;
+  LOG(INFO)<<"true";
+  break;
+  default:
+  break;
+  }
+}
+string file = lines[line_id].first;
+string lablen = boost::get<std::string>(lines[line_id].second);
+string path_data = "/home/zoson/detector/data/voc/";
+string path_label = "/home/zoson/detector/data/voc/";
+if(is){
+LOG(INFO)<<"copy "<<file<<" "<<lablen;
+mvFile(filename,path_data,file);
+  mvFile(filename,path_label,lablen);
+}else
+{
+LOG(INFO)<<"no copy";
+}

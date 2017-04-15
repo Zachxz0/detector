@@ -1,0 +1,7 @@
+name: "detector"
+model: "models/VGGNet/VOC0712/SSD_300x300/train.prototxt"
+istrain: true
+snapshot: "models/VGGNet/VOC0712/SSD_300x300/VGG_VOC0712_SSD_300x300_iter_109000.solverstate"
+solver: "models/VGGNet/VOC0712/SSD_300x300/solver.prototxt"
+weight: "models/VGGNet/VOC0712/SSD_300x300/VGG_VOC0712_SSD_300x300_iter_109000.caffemodel"
+

@@ -1,0 +1,3 @@
+name: "detector"
+model: "models/VGGNet/VOC0712/SSD_300x300_zoson/test.prototxt"
+weight: "models/VGGNet/VOC0712/SSD_300x300/VGG_VOC0712_SSD_300x300_iter_109000.caffemodel"
