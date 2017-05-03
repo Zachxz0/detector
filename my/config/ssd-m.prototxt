@@ -1,0 +1,5 @@
+name: "detector"
+model: "models/ssd-m/train.prototxt"
+istrain: true
+solver: "models/ssd-m/solver.prototxt"
+weight: "models/ssd-m/VGG_ILSVRC_16_layers_fc_reduced.caffemodel"

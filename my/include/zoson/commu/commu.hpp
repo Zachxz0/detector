@@ -8,6 +8,7 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/thread/thread.hpp>
 #include <commu/reactor.hpp>
+//#include <utils/block_queue.hpp>
 using namespace std;
 namespace zoson
 {
@@ -21,8 +22,8 @@ public:
 	void connect();
 	void sendMessage(::google::protobuf::Message&);
 	
-	void addService(const string& name,shared_ptr<Reactor> reactor);
-	shared_ptr<Reactor> getService(const string& name);
+	void addService(const string& name,boost::shared_ptr<Reactor> reactor);
+	boost::shared_ptr<Reactor> getService(const string& name);
 	//ServerCallback interface
 	void getClientMessage(int fd,const char *buf,int size);
 	void hasClientConn(int fd);
@@ -30,6 +31,7 @@ protected:
 	void initByParam(const CommuParameter &param);
 	Communicator(const Communicator&){}
 	static void onConnect(Communicator*);
+	static void onSend(Communicator*);
 	const char* get();
 private:
 	boost::shared_ptr<Server> m_server;
@@ -39,8 +41,11 @@ private:
 	map<string,boost::shared_ptr<Reactor> > m_server_map;
 	vector<boost::shared_ptr<Reactor> >m_service;
 	vector<int> m_id;
-	boost::shared_ptr<boost::thread> thr_ser;
+	boost::shared_ptr<boost::thread> thr_ser_rec;
+	boost::shared_ptr<boost::thread> thr_send;
 	bool isConn;
+
+	//BlockingQueue<int> msg_queue;
 };
 
 }

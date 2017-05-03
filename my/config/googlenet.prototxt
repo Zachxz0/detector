@@ -1,0 +1,9 @@
+name: "google"
+model: "models/bvlc-googlenet/bvlc-googlenet-deploy.prototxt"
+weight: "models/bvlc-googlenet/bvlc-googlenet.caffemodel"
+use_gpu: 0
+mean{
+	value:104
+	value:117
+	value:123
+}

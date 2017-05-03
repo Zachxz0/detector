@@ -1,0 +1,6 @@
+model {
+	path:"/home/zoson/detector/my/config/ssd-m.prototxt"
+}
+#model {
+#	path:"/home/zoson/detector/my/config/scene.prototxt"
+#}

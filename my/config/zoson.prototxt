@@ -1,0 +1,5 @@
+name: "zoson"
+model: "models/zoson/1st/train.prototxt"
+istrain: true
+solver: "models/zoson/1st/solver.prototxt"
+

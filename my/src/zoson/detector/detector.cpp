@@ -1,7 +1,7 @@
 #include <detector/detector.hpp>
 #include <iostream>
 #include <string>
-
+#include <google/protobuf/message.h>
 #include <utils/common.hpp>
 #include "caffe/caffe.hpp"
 #include "caffe/util/signal_handler.h"
@@ -10,20 +10,14 @@
 #include <google/protobuf/text_format.h>
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
-
+#include "caffe/util/io.hpp"
+#include "caffe/layers/input_layer.hpp"
 using namespace cv;
 using namespace google::protobuf;
 using namespace google::protobuf::io;
 using namespace std;
-
-using caffe::Net;
 using namespace boost;
 using namespace caffe;
-using caffe::Caffe;
-using caffe::Layer;
-using caffe::Blob;
-using caffe::Solver;
-
 
 using namespace std;
 namespace zoson
@@ -40,18 +34,19 @@ Detector::Detector(const string& param_file):
 {
 	DetectorParameter param;
 	read_proto_txt(&param,param_file);
+	this->m_param = param;
 	initByParam((const DetectorParameter)param);
 }
 
 void Detector::initByParam(const DetectorParameter &param)
 {
+	isTrain = false;
 	model_path = param.model();
 	weight_path = param.weight();
-	threshold  = param.threshold();
 	if(param.istrain())
 	{
+		isTrain = true;
 		solver_path = param.solver();
-		snapshot_path = param.snapshot();
 	}
 }
 
@@ -60,33 +55,55 @@ Detector::~Detector()
 	if(m_caffe_net!=NULL)delete m_caffe_net;
 }
 
+int Detector::init()
+{
+	if(isTrain)
+	{
+		initForTrain();
+	}else{
+		initForTest();
+	}
+}
+
 int Detector::initForTest()
 {
 	isTrain = false;
-	vector<int> gpus;
-	gpus.push_back(0);
-	if (gpus.size() != 0) {
-		Caffe::SetDevice(gpus[0]);
+	if(m_param.has_mean_file())
+	{
+		BlobProto blob_proto;
+	    ReadProtoFromBinaryFileOrDie(m_param.mean_file().c_str(), &blob_proto);
+	    mean_blob.FromProto(blob_proto);
+	}
+	if (m_param.use_gpu().size()>0 ) {
+		int gpu_size = m_param.use_gpu().size();
+		for(int i=0;i<gpu_size;++i)
+		{
+			Caffe::SetDevice(m_param.use_gpu(i));
+		}
 		Caffe::set_mode(Caffe::GPU);
 	} else {
 		Caffe::set_mode(Caffe::CPU);
 	}
 	m_caffe_net = new Net<float>(model_path,caffe::TEST,0,NULL);
 	m_caffe_net->CopyTrainedLayersFrom(weight_path);
-	inputLayer = (ZosonDataLayer<float>*)((m_caffe_net->layer_by_name("data")).get());
-	outputResult = m_caffe_net->blob_by_name("detection_out").get();
+	outputResult = m_caffe_net->blob_by_name(m_param.out_name()).get();
 //copy from initFortrain
 	const vector<shared_ptr<Layer<float> > >& layers = m_caffe_net->layers();
 	const vector<string> & layer_names = m_caffe_net->layer_names();
+	inputLayer = (InputLayer<float>*)layers[0].get();//"data"
 	vector<bool>& layer_need_backward = const_cast<vector<bool>& >(m_caffe_net->layer_need_backward());
 	for(int i=0;i<layers.size();++i)
 	{
 		const char* type = layers[i]->type();
-		if(strcmp(type,"Convolution")==0||strcmp(type,"Pooling")==0){
+		if(strcmp(type,"Convolution")==0||strcmp(type,"Pooling")==0||strcmp(type,"Normalize")==0||strcmp(type,"Bn")==0||strcmp(type,"Deconvolution")==0||strcmp(type,"Unpooling")==0){
 			deconv_able_layers.push_back(layers[i]);
 			deconv_able_layer_names.push_back(layer_names[i]);
 			deconv_able_layer_types.push_back(type);
 			deconv_able_layer_index.push_back(i);
+			if(strcmp(type,"Convolution")==0||strcmp(type,"Deconvolution")==0)
+			{
+				lr_able_layer_names.push_back(layer_names[i]);
+			}
 		}
 		// if(i<layers.size()-2){
 		// 	layer_need_backward[i] = true;
@@ -96,46 +113,137 @@ int Detector::initForTest()
 
 void Detector::deInitForTest()
 {
-	cout<<"detector deinit"<<endl;
 	delete m_caffe_net;
 	m_caffe_net = NULL;
+}
+
+bool Detector::load_data(Mat input)
+{
+	if(m_caffe_net->has_blob(m_param.in_name()))
+	{
+		//cout<<"has data blob"<<endl;
+	}else{
+		//cout<<"has no data blob"<<endl;
+		return false;
+	}
+	Blob<float> *data = m_caffe_net->blobs()[0].get();
+	bool has_mean_file = m_param.has_mean_file();
+	bool has_mean = m_param.has_mean();
+	if(has_mean_file)
+	{
+		if(data->channels()==mean_blob.channels()&&data->height()==mean_blob.height()&&data->width()==mean_blob.width())
+		{
+			has_mean_file = true;
+		}else{
+			has_mean_file = false;
+		}
+	}else if(has_mean){
+		if(m_param.mean().value().size()==data->channels())
+		{
+			has_mean = true;
+		}else{
+			has_mean = false;
+		}
+	}
+	int channels = data->channels();
+	int height = data->height();
+	int width = data->width();
+	cv::Mat scale_mat;
+    cv::resize(input, scale_mat, cv::Size(width, height ),(0, 0), (0, 0), cv::INTER_LINEAR);
+	int pixel_index = 0;
+	unsigned char *input_data = scale_mat.data;
+	float* data_cpu = (data->mutable_cpu_data());
+	const float*mean_data = NULL;
+	if(m_param.has_mean_file())mean_data = mean_blob.cpu_data();
+	for(int h=0;h<height;++h)
+	{
+		for(int w=0;w<width;++w)
+		{
+			for(int c=0;c<channels;++c)
+			{
+				float mean_value = 0;
+				if(has_mean_file&&mean_data!=NULL)
+				{
+					mean_value = mean_data[c*w*h+h*w+w];
+				}else if(has_mean)
+				{
+					mean_value = m_param.mean().value(c);
+				}
+				data_cpu[c*width*height+h*height+w] = (scale_mat.data[pixel_index++] - mean_value)*m_param.mean().scale();
+			}
+		}
+	}
+	return true;
+
 }
 
 shared_ptr<DetectOutput> Detector::doDetect(Mat input)
 {
 	shared_ptr<DetectOutput> ptr(new DetectOutput());
-
 	float iter_loss;
-	inputLayer->load_data(input);
+	load_data(input);
 	m_caffe_net->Forward(&iter_loss);//(&iter_loss);
-
+	if(outputResult==NULL)return ptr;
+	//for SSD
 	const float* result = outputResult->cpu_data();
 	const int num_det = outputResult->height();
 	if(num_det==0){
 		cerr<<"detect failed"<<endl;
 		return ptr;
+	}	
+	//cout<<"nm::"<<outputResult->num()<<" channel:"<<outputResult->channels()<<" width::"<<outputResult->width()<<" height:"<<outputResult->height()<<endl; 
+	if(m_param.type()==DetectorParameter_Type_DETECTOR)
+	{
+		int width = input.rows;
+		int height = input.cols;
+		cout<<"c++------------------------"<<endl;
+		for(int i=0;i<num_det;++i){
+			if(result[i*7+2]<0.5f)continue;
+			float score = result[i*7+2];
+			float label = result[i*7+1];
+			float xmin = result[i*7+3]*width;
+			float ymin = result[i*7+4]*height;
+			float xmax = result[i*7+5]*width;
+			float ymax = result[i*7+6]*height;
+
+			Result *res = ptr->add_results();
+			res->set_xmax(xmax);
+			res->set_xmin(xmin);
+			res->set_ymax(ymax);
+			res->set_ymin(ymin);
+			res->set_score(score);
+			cout<<"c++ count:"<num_det<<endl;
+			res->set_clazz(label);
+			cout<<"c++ score:"<<score<<endl;
+			cout<<"c++ label:"<<label<<endl;	
+			cout<<"c++ xmin:"<<xmin<<endl;
+			cout<<"c++ ymin:"<<ymin<<endl;
+			cout<<"c++ xman:"<<xmax<<endl;
+			cout<<"c++ yman:"<<ymax<<endl;	
+		}
+		cout<<"c++-----------------------"<<endl;	
+	}else if(m_param.type()==DetectorParameter_Type_CLASSIFIER)
+	{
+		int count = outputResult->count();
+		float score  = 0.0f;
+		int index =-1;
+		for(int i=0;i<count;++i)
+		{
+			if(result[i]>score)
+			{
+				index = i;
+				score = result[i];
+			}
+		}
+		Result *res = ptr->add_results();
+		res->set_xmax(0);
+		res->set_xmin(0);
+		res->set_ymax(0);
+		res->set_ymin(0);
+		res->set_score(score);
+		res->set_clazz(index);
 	}
 	
-	int width = input.rows;
-	int height = input.cols;
-
-	for(int i=0;i<num_det;++i){
-		if(result[i*7+2]<0.5f)continue;
-		float score = result[i*7+2];
-		float label = result[i*7+1];
-		float xmin = result[i*7+3]*width;
-		float ymin = result[i*7+4]*height;
-		float xmax = result[i*7+5]*width;
-		float ymax = result[i*7+6]*height;
-
-		Result *res = ptr->add_results();
-		res->set_xmax(xmax);
-		res->set_xmin(xmin);
-		res->set_ymax(ymax);
-		res->set_ymin(ymin);
-		res->set_score(score);
-		res->set_clazz(label);
-	}
 	return ptr;
 }
 
@@ -195,11 +303,15 @@ int Detector::initForTrain()
 	for(int i=0;i<layers.size();++i)
 	{
 		const char* type = layers[i]->type();
-		if(strcmp(type,"Convolution")==0||strcmp(type,"Pooling")==0){
+		if(strcmp(type,"Convolution")==0||strcmp(type,"Pooling")==0||strcmp(type,"Normalize")==0||strcmp(type,"Bn")==0||strcmp(type,"Deconvolution")==0||strcmp(type,"Unpooling")==0){
 			deconv_able_layers.push_back(layers[i]);
 			deconv_able_layer_names.push_back(layer_names[i]);
 			deconv_able_layer_types.push_back(type);
 			deconv_able_layer_index.push_back(i);
+			if(strcmp(type,"Convolution")==0||strcmp(type,"Deconvolution")==0)
+			{
+				lr_able_layer_names.push_back(layer_names[i]);
+			}
 		}
 	}
 	shared_ptr<Solver<float> > solver_ptr(m_solver);
@@ -210,6 +322,11 @@ int Detector::initForTrain()
 		solver_ptr->Solve();
 	}
 	return 0;
+}
+
+int Detector::deInit()
+{
+
 }
 
 int Detector::deInitForTrain()
@@ -414,7 +531,10 @@ void Detector::on_gradients_ready()
 	if(state.has_input()&&state.input()>=0)getOriginalImage(state.input(),all_ptr->add_response());
 	if(state.has_deconv()&&state.deconv().do_deconv())getDeconvImage(state.deconv(),all_ptr->add_response());
 	if(state.has_map())getFeatureMap(state.map(),all_ptr->add_response());
-	if(state.has_weight()&&state.weight().index()>=0&&deconv_able_layer_types[state.weight().index()]=="Convolution")getWeightForTest(state.weight(),all_ptr->add_response());
+	if(state.has_weight()&&state.weight().index()>=0&&(deconv_able_layer_types[state.weight().index()]=="Convolution"||deconv_able_layer_types[state.weight().index()]=="Deconvolution"))
+	{
+		getWeightForTest(state.weight(),all_ptr->add_response());
+	}
 	string out;
 	if(all_ptr->response_size()<1)return;
 	all_ptr->SerializeToString(&out);
@@ -431,7 +551,23 @@ void Detector::getWeightForTest(const VReqWeight &req,VResponse* rep_ptr)
 		cerr<<"getWeightForTest VResponse point is null"<<endl;
 		return ;
 	}
-	shared_ptr<Blob<float> > blob = deconv_able_layers[req.index()]->blobs()[0];
+	shared_ptr<Blob<float> > blob = deconv_able_layers[req.index()]->blobs()[0]; //todo
+	// string layer_name = deconv_able_layer_names[req.index()];
+	// int lr_able_layers_size = lr_able_layer_names.size();
+	// int index = -1;
+	// const vector<Blob<float>* > &lr_param = m_caffe_net->learnable_params();
+	// for(int i=0;i<lr_able_layers_size;++i)
+	// {
+	// 	index++;
+	// 	if(layer_name==lr_able_layer_names[i])
+	// 	{
+	// 		break;
+	// 	}
+	// }
+	// cout<<index<<endl;
+	// Blob<float>* blob = lr_param[index*2];
+	cout<<blob->num()<<" "<<blob->channels()<<" "<<blob->width()<<" "<<blob->height();
+
 	int num = blob->num();
 	int w = blob->width();
 	int h = blob->height();
@@ -460,7 +596,12 @@ void Detector::getWeightForTest(const VReqWeight &req,VResponse* rep_ptr)
 			normTo255((unsigned char*)const_cast<char*>(weights.data()+i*size),fl_weight+i*size,size);
 		}
 	}
-
+	// cout<<"count::"<<count<<endl;
+	// for(int i=0;i<count;++i)
+	// {
+	// 	cout<<"|"<<fl_weight[i]<<" "<<(int)weights[i]<<"|";
+	// }
+	cout<<endl;
 	VFeatureMap* feature = new VFeatureMap();
 	feature->set_width(w);
 	feature->set_height(h);

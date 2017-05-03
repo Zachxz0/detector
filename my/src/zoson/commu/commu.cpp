@@ -27,8 +27,8 @@ void Communicator::connect()
 	}
 	isConn = true;
 	boost::shared_ptr<boost::thread> thr_ptr(new boost::thread(onConnect,this));
-	this->thr_ser = thr_ptr;
-	thr_ser->join();
+	this->thr_ser_rec = thr_ptr;
+	thr_ser_rec->join();
 }
 
 void Communicator::initByParam(const CommuParameter& param)
@@ -44,7 +44,7 @@ void Communicator::initByParam(const CommuParameter& param)
 
 const char* get()
 {
-	return "";
+	return "Commu";
 }
 
 void Communicator::getClientMessage(int fd,const char *buf,int size)
@@ -56,12 +56,18 @@ void Communicator::getClientMessage(int fd,const char *buf,int size)
 void Communicator::hasClientConn(int fd)
 {
 	cout<<"hasClientConn client fd :: "<<fd<<endl;
-
+	this->m_id.push_back(fd);
 }
 
 void Communicator::onConnect(Communicator* comm)
 {
 	comm->m_server->startServer();
 }
+
+void Communicator::onSend(Communicator* comm)
+{
+	
+}
+
 
 }

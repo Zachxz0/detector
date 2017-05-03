@@ -1,3 +1,7 @@
-name: "detector"
-model: "models/caffenet-yos/caffenet-yos-deploy.prototxt"
-weight: "models/caffenet-yos/caffenet-yos-weights"
+name: "caffe"
+model: "/home/zoson/detector/my/models/caffenet-yos/caffenet-yos-deploy.prototxt"
+weight: "/home/zoson/detector/my/models/caffenet-yos/caffenet-yos-weights"
+type: CLASSIFIER
+out_name:"prob"
+use_gpu: 0
+mean_file: ilsvrc_2012_mean.npy

@@ -1,4 +1,4 @@
-SUBDIRS=proto utils net detector
+SUBDIRS=proto utils net detector commu app
 export CC INCLUDE BUILD_DIR
 
 all:$(SUBDIRS)

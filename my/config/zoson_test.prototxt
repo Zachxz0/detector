@@ -1,0 +1,4 @@
+name: "zoson"
+model: "models/zoson/deploy.prototxt"
+weight: "models/zoson/DECONV_VGG_ZOSON_300x300_iter_3595.caffemodel"
+

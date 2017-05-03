@@ -1,0 +1,11 @@
+name: "scene"
+model: "/home/zoson/detector/my/models/scene/ResNet_50_train_val.prototxt"
+weight: "/home/zoson/detector/my/models/scene/resnet_iter_42000.caffemodel"
+use_gpu:0
+type: CLASSIFIER
+out_name:"prob"
+mean{
+    value: 104.0
+    value: 117.0
+    value: 123.0
+}

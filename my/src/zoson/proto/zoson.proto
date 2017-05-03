@@ -7,19 +7,44 @@ message TestProto
 	repeated int32 dim = 2;
 }
 
+message DContextParameter
+{
+	repeated DModel model = 1;//prototxt path
+	optional CommuParameter commu = 3;
+}
+
+message DModel
+{
+	optional string path = 1;//param prototxt
+	optional DetectorParameter model = 2;
+}
+
 message DetectorParameter
 {
 	required string name = 1;
 	required string model = 2;
 	required string weight = 3;
-	optional bool use_gpu = 4 [default = true];
-	optional bool do_vis = 5 [default = false];
-	optional int32 fq_vis = 6 [default = 10];
-	optional float threshold = 7 [default = 0.5];
-	optional bool shared = 8 [default = false];
-	optional bool istrain = 9 [default = false];
-	optional string solver = 10;
-	optional string snapshot = 11;
+	optional string label = 4;
+	repeated int32 use_gpu = 5 ;
+	optional bool istrain = 8 [default = false];
+	optional string solver = 9;
+	optional string mean_file = 10;
+	optional MeanValue mean = 11;
+	optional Type type = 12 [default = DETECTOR];
+	optional string in_name = 13 [default = "data"];
+	optional string out_name = 14 [default = "detection_out"];
+
+	enum Type
+	{
+		DETECTOR = 1;
+		CLASSIFIER = 2;
+	} 
+}
+
+message MeanValue
+{
+	repeated float value = 1;
+	optional float scale = 2[default = 1.0]; 
 }
 
 message DetectInput
@@ -150,7 +175,13 @@ message VResponse
 		ALL = 6;
 		STATE = 7;
 		SETTING = 8;
+		REC = 9;
 	}
+}
+
+message VRecState
+{
+	required int32 state=1;// 0 For succ,-1 for fail
 }
 
 message VAll

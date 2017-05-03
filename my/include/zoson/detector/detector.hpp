@@ -1,26 +1,35 @@
 #ifndef _DETECTOR_H_
 #define _DETECTOR_H_
 
+#include <caffe/caffe.hpp>
 #include <string>
 #include <proto/zoson.pb.h>
-#include <caffe/caffe.hpp>
-#include "caffe/layers/zoson_data_layer.hpp" 
-#include <google/protobuf/message.h>
-//#include "detector/idetector.hpp"
 namespace boost{
 template<typename point>
 class shared_ptr;
 }
 
-using caffe::Net;
-using namespace boost;
+namespace google
+{
+namespace protobuf
+{
+class Message;
+}
+}
+
+namespace cv
+{
+class Mat;
+}
+
+namespace caffe
+{
+template<typename dtype>
+class InputLayer;
+}
+
 using namespace std;
-using namespace cv;
 using namespace caffe;
-using caffe::Caffe;
-using caffe::Layer;
-using caffe::Blob;
-using caffe::Solver;
 
 namespace zoson
 {
@@ -37,14 +46,18 @@ public:
 	Detector(const string& param_file);
 	virtual ~Detector();
 
+	int init();
+	int deInit();
+	bool ifTrain(){return isTrain;};
 	//test phase
 	int initForTest();
 	void deInitForTest();
-    boost::shared_ptr<DetectOutput> doDetect(Mat input);
+    boost::shared_ptr<DetectOutput> doDetect(cv::Mat input);
 	//train phase
 	void doTrain();
 	int initForTrain();
 	int deInitForTrain();
+	bool load_data(cv::Mat input);
 
     void getFeatureMap(const VReqFeature& reqFeature,VResponse*);
 	void getDeconvAbleLayers(VResponse*);
@@ -59,8 +72,10 @@ public:
 	void on_start();
 	void on_gradients_ready();
 	//Reactor
-	// void onTranact(::google::protobuf::Message& data){};
-	// void tranact(::google::protobuf::Message& data){};
+	//void onTranact(::google::protobuf::Message& data){};
+	//void tranact(::google::protobuf::Message& data){};
+
+	string getName(){return m_param.name();}
 protected:
 	Detector(const Detector&){};
 	void initByParam(const DetectorParameter& param);
@@ -74,6 +89,9 @@ private:
     vector<boost::shared_ptr<Layer<float> > > deconv_able_layers;
 	vector<string> deconv_able_layer_types;
 	vector<int> deconv_able_layer_index;
+	vector<string> lr_able_layer_names;// default conv 
+	//vector<int> lr_able_layer_index;// default conv 
+
 
 	DetectorParameter m_param;
 	string model_path;
@@ -82,13 +100,14 @@ private:
 	string snapshot_path;
 	float threshold;
 
-    ZosonDataLayer<float>* inputLayer;
+    InputLayer<float>* inputLayer;
 	Blob<float>* outputResult;
 
 	vector<Callback*> listeners;
 	VState state; 
 	bool isTrain;
 	
+	Blob<float> mean_blob;
 };
 
 }
