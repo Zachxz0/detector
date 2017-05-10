@@ -6,6 +6,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <detector/detector.hpp>
+#include <commu/commu.hpp>
 #include <google/protobuf/text_format.h>
 #include <google/protobuf/io/zero_copy_stream.h>
 #include <google/protobuf/io/zero_copy_stream_impl.h>
@@ -21,6 +22,7 @@
 
 #include <boost/thread/thread.hpp>
 #include <boost/thread/mutex.hpp>
+#include <app/dcontext.hpp>
 //#include <boost/thread/detail/lock.hpp>
 
 //ffmpeg 
@@ -77,6 +79,8 @@ bool test_net_proto();
 bool test_glog();
 bool test_commu();
 bool testAsio();
+bool test_dcontext();
+
 void DisplayYUV(Detector&, unsigned char**,int,int);
 int main()
 {
@@ -96,10 +100,11 @@ int main()
 	//WriteYuv();
 	//DisplayYUV();
     //test_detecor_train();
-    test_net_proto();
+    //test_net_proto();
     //test_glog();
     //test_commu();
     //testAsio();
+    test_dcontext();
 }
 
 
@@ -146,10 +151,10 @@ bool test_zoson_module_proto()
 	return re;
 }
 
-char* imageName[3] = {"./data/test/cat.jpg","./data/test/boat.jpg","./data/test/timg.jpg"};
+char* imageName[3] = {"./data/test/ly.jpg","./data/test/boat.jpg","./data/test/timg.jpg"};
 Mat getCVMatImage(int i)
 {
-	Mat image = imread( imageName[i%3], CV_LOAD_IMAGE_COLOR);
+	Mat image = imread( imageName[0], CV_LOAD_IMAGE_COLOR);
 	return image;
 }
 
@@ -452,7 +457,9 @@ bool test_detecor_train()
 // }
 Server* server;
 boost::mutex io_mutex;
-void senddata(boost::shared_ptr<VResponse> rep_ptr)
+boost::mutex rec_mutex;
+int rec_state = 0;
+void senddata(boost::shared_ptr<VResponse> rep_ptr,int nocontin = 0)
 {
     boost::mutex::scoped_lock lock(io_mutex);
     string out;
@@ -461,9 +468,23 @@ void senddata(boost::shared_ptr<VResponse> rep_ptr)
     Bytetranfer bytes;
     bytes.set_count(out.size());
     bytes.SerializeToString(&count);
-    server->sendMessage(count.c_str(),count.size());
-    usleep(1);
-    server->sendMessage(out.c_str(),out.size());
+    // if(!nocontin)
+    // {
+    //     boost::mutex::scoped_lock rec_lock(rec_mutex);
+    //     if(rec_state==0)
+    //     {
+    //         cout<<"send contin";
+    //         server->sendMessage(count.c_str(),count.size());
+    //         usleep(1);
+    //         server->sendMessage(out.c_str(),out.size());
+    //         rec_state=-1;
+    //     }
+    // }else{
+        server->sendMessage(count.c_str(),count.size());
+        usleep(1);
+        server->sendMessage(out.c_str(),out.size());
+    //}
+    
 }
 
 
@@ -491,7 +512,8 @@ public:
             {
                 boost::shared_ptr<VResponse> rep_ptr(new VResponse);
                 detector->getDeconvAbleLayers(rep_ptr.get());
-                senddata(rep_ptr);
+                senddata(rep_ptr,1);
+                cout<<"VResponse_Type_LAYERINFOS "<<endl;
                 // string out;
                 // rep_ptr->SerializeToString(&out);
                 // string count;
@@ -533,12 +555,30 @@ public:
                 detector->setState(state);;
             }
             break;
+            case VResponse_Type_REC:
+            {
+                boost::mutex::scoped_lock lock(rec_mutex);
+                VRecState vrec_state;
+                vrec_state.ParseFromString(req.data());
+                if(vrec_state.state()==0){
+                    rec_state = 0;
+                }else{
+                    rec_state = -1;
+                }
+                cout<<"VResponse_Type_REC "<<rec_state<<endl;
+            }
+            break;
         }
     }
 
     void hasClientConn(int fd)
     {
 
+    }
+
+    void hasClientClose(int fd)
+    {
+        
     }
 };
 
@@ -575,21 +615,22 @@ bool  test_net_proto()
 {
     boost::thread th(&serverConn);
 
-    // detector = new Detector("./config/detector_train.prototxt");
+    // detector = new Detector("./config/train.prototxt");
     //     detector->addListeners(new DecCb());
     // detector->initForTrain();
 
-    detector = new Detector("./config/detector.prototxt");
+    detector = new Detector("./config/googlenet.prototxt");
     detector->initForTest();
     detector->addListeners(new DecCb());
 
     for(int i=0;i<1000000;i++)
     {
         Mat get = getCVMatImage(i);
-            detector->doDetect(get);
-            detector->on_gradients_ready();
+        //detector->doDetect(get);
+        while(1){
+            //detector->on_gradients_ready();
             sleep(2);
-        
+        }
     }
     th.join();
     
@@ -633,4 +674,34 @@ bool testAsio()
     //boost::thread th2(&asio_client);
     th.join();
     //th2.join();
+}
+
+bool test_dcontext()
+{
+    //boost::thread th(&serverConn);
+    DContext dcontext("./config/dcontext.prototxt");
+    shared_ptr<Detector> detector_ptr = dcontext.getDetector("detector");
+    detector = detector_ptr.get();
+    shared_ptr<Communicator> commu_ptr =  dcontext.getCommu();
+    commu_ptr->connect();
+    if(!detector->ifTrain())
+    {
+        detector->initForTest();
+        //detector->addListeners(new DecCb());
+
+        for(int i=0;i<1000000;i++)
+        {
+            Mat get = getCVMatImage(i);
+            detector->doDetect(get);
+            //while(1){
+                detector->on_gradients_ready();
+                sleep(2);
+           // }
+        }
+    }else{
+        //detector->addListeners(new DecCb());
+        detector->initForTrain();
+    }
+    commu_ptr->join();
+    //th.join();
 }
