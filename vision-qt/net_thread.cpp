@@ -27,24 +27,42 @@ void NetThread::run()
     zoson::Data data;
     Bytetranfer bytes ;
     bool bytesget = false;
+
+    //for validation
+    string ser;
+    Bytetranfer forcount;
+    forcount.set_count(-1);
+    forcount.SerializeToString(&ser);
+
     while(is){
-        string ser;
-        Bytetranfer forcount;
-        forcount.set_count(-1);
-        forcount.SerializeToString(&ser);
+//        VResponse rep_state;
+//        rep_state.set_type(VResponse_Type_REC);
+//        VRecState vrec_state;
+//        vrec_state.set_state(0);
+//        string state_str;
+//        vrec_state.SerializeToString(&state_str);
+//        rep_state.set_data(state_str);
+//        string rep_str;
+//        rep_state.SerializeToString(&rep_str);
+//        zoson::Data state_data;
+//        state_data.load_data((unsigned char*)const_cast<char*>(rep_str.data()),rep_str.size());
+//        client->sendData(&state_data);
+
         is = this->client->recData(&data);
-        if(data.size==0)break;
         string str_data = (char*)data.buf;
         bytes.ParseFromString(str_data);
-
         is &= this->client->recData(&data,bytes.count());
-        if(!is)continue;
-        if(data.size==0)break;
+
         string msg = (char*)data.buf;
-        VResponse *rep = new VResponse ;
-        rep->ParseFromString(msg);
-        handleResponse(rep);
-        delete rep;
+        VResponse rep  ;
+        is &=rep.ParseFromString(msg);
+        if(!is){
+            cout<<"flush"<<endl;
+            //client->flush();
+            is = true;
+            continue;
+        }
+        handleResponse(&rep);
     }
     exec();
 }
@@ -154,8 +172,7 @@ void NetThread::getLayerInfos()
     rep.set_type(VResponse_Type_LAYERINFOS);
     string out;
     rep.SerializeToString(&out);
-    data.size = out.size();
-    data.buf = (unsigned char*)const_cast<char*>(out.c_str());
+    data.load_data((unsigned char*)(const_cast<char*>(out.c_str())),out.size());
     client->sendData(&data);
 }
 
@@ -198,9 +215,7 @@ void SendThread::requestFeature(int i_layer,int i_image,bool isDiff)
     resp.set_data(state_str.c_str(),state_str.size());
     string out;
     resp.SerializeToString(&out);
-    senddata.size = out.size();
-    senddata.buf = new unsigned char[senddata.size];
-    memcpy(senddata.buf,(out.c_str()),senddata.size);
+    senddata.load_data((unsigned char*)const_cast<char*>(out.c_str()),out.size());
     client->sendData(&senddata);
 
 //    zoson::Data data;
@@ -233,9 +248,7 @@ void SendThread::requestLayerInfo(int )
     rep.set_type(VResponse_Type_LAYERINFOS);
     string out;
     rep.SerializeToString(&out);
-    data.size = out.size();
-    data.buf = new unsigned char[data.size];
-    memcpy( data.buf,(out.c_str()),data.size);
+    data.load_data((unsigned char*)const_cast<char*>(out.c_str()),out.size());
     client->sendData(&data);
 }
 
@@ -251,9 +264,7 @@ void SendThread::requestWeight(int i)
     resp.set_data(state_str.c_str(),state_str.size());
     string out;
     resp.SerializeToString(&out);
-    senddata.size = out.size();
-    senddata.buf = new unsigned char[senddata.size];
-    memcpy(senddata.buf,(out.c_str()),senddata.size);
+    senddata.load_data((unsigned char*)const_cast<char*>(out.c_str()),out.size());
     client->sendData(&senddata);
 
 //    zoson::Data senddata;
@@ -278,9 +289,7 @@ void SendThread::requestInput(int i)
     resp.set_data(state_str.c_str(),state_str.size());
     string out;
     resp.SerializeToString(&out);
-    senddata.size = out.size();
-    senddata.buf = new unsigned char[senddata.size];
-    memcpy(senddata.buf,(out.c_str()),senddata.size);
+    senddata.load_data((unsigned char*)const_cast<char*>(out.c_str()),out.size());
     client->sendData(&senddata);
     cout<<"size "<<senddata.size<<endl;
 //    zoson::Data senddata;
@@ -315,9 +324,7 @@ void SendThread::requestOutput(int l,int m)
     resp.set_data(state_str.c_str(),state_str.size());
     string out;
     resp.SerializeToString(&out);
-    senddata.size = out.size();
-    senddata.buf = new unsigned char[senddata.size];
-    memcpy(senddata.buf,(out.c_str()),senddata.size);
+    senddata.load_data((unsigned char*)const_cast<char*>(out.c_str()),out.size());
     client->sendData(&senddata);
 }
 
@@ -334,9 +341,7 @@ void SendThread::requestWeightDiff()
     resp.set_data(state_str.c_str(),state_str.size());
     string out;
     resp.SerializeToString(&out);
-    senddata.size = out.size();
-    senddata.buf = new unsigned char[senddata.size];
-    memcpy(senddata.buf,(out.c_str()),senddata.size);
+    senddata.load_data((unsigned char*)const_cast<char*>(out.c_str()),out.size());
     client->sendData(&senddata);
 }
 
@@ -361,9 +366,7 @@ void SendThread::run()
     resp.set_data(state_str.c_str(),state_str.size());
     string out;
     resp.SerializeToString(&out);
-    senddata.size = out.size();
-    senddata.buf = new unsigned char[senddata.size];
-    memcpy(senddata.buf,(out.c_str()),senddata.size);
+    senddata.load_data((unsigned char*)const_cast<char*>(out.c_str()),out.size());
     client->sendData(&senddata);
     exec();
 }

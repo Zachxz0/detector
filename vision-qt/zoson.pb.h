@@ -34,6 +34,7 @@ void protobuf_ShutdownFile_zoson_2eproto();
 
 class TestProto;
 class DetectorParameter;
+class MeanValue;
 class DetectInput;
 class DetectOutput;
 class Result;
@@ -49,6 +50,7 @@ class VImage;
 class VReqDeconv;
 class VSetting;
 class VResponse;
+class VRecState;
 class VAll;
 class VReqFeature;
 class VReqWeight;
@@ -105,11 +107,12 @@ enum VResponse_Type {
   VResponse_Type_DECONV = 5,
   VResponse_Type_ALL = 6,
   VResponse_Type_STATE = 7,
-  VResponse_Type_SETTING = 8
+  VResponse_Type_SETTING = 8,
+  VResponse_Type_REC = 9
 };
 bool VResponse_Type_IsValid(int value);
 const VResponse_Type VResponse_Type_Type_MIN = VResponse_Type_WEIGHT;
-const VResponse_Type VResponse_Type_Type_MAX = VResponse_Type_SETTING;
+const VResponse_Type VResponse_Type_Type_MAX = VResponse_Type_REC;
 const int VResponse_Type_Type_ARRAYSIZE = VResponse_Type_Type_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* VResponse_Type_descriptor();
@@ -305,52 +308,29 @@ class DetectorParameter : public ::google::protobuf::Message {
   inline ::std::string* release_weight();
   inline void set_allocated_weight(::std::string* weight);
 
-  // optional bool use_gpu = 4 [default = true];
-  inline bool has_use_gpu() const;
+  // repeated int32 use_gpu = 4;
+  inline int use_gpu_size() const;
   inline void clear_use_gpu();
   static const int kUseGpuFieldNumber = 4;
-  inline bool use_gpu() const;
-  inline void set_use_gpu(bool value);
+  inline ::google::protobuf::int32 use_gpu(int index) const;
+  inline void set_use_gpu(int index, ::google::protobuf::int32 value);
+  inline void add_use_gpu(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      use_gpu() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_use_gpu();
 
-  // optional bool do_vis = 5 [default = false];
-  inline bool has_do_vis() const;
-  inline void clear_do_vis();
-  static const int kDoVisFieldNumber = 5;
-  inline bool do_vis() const;
-  inline void set_do_vis(bool value);
-
-  // optional int32 fq_vis = 6 [default = 10];
-  inline bool has_fq_vis() const;
-  inline void clear_fq_vis();
-  static const int kFqVisFieldNumber = 6;
-  inline ::google::protobuf::int32 fq_vis() const;
-  inline void set_fq_vis(::google::protobuf::int32 value);
-
-  // optional float threshold = 7 [default = 0.5];
-  inline bool has_threshold() const;
-  inline void clear_threshold();
-  static const int kThresholdFieldNumber = 7;
-  inline float threshold() const;
-  inline void set_threshold(float value);
-
-  // optional bool shared = 8 [default = false];
-  inline bool has_shared() const;
-  inline void clear_shared();
-  static const int kSharedFieldNumber = 8;
-  inline bool shared() const;
-  inline void set_shared(bool value);
-
-  // optional bool istrain = 9 [default = false];
+  // optional bool istrain = 5 [default = false];
   inline bool has_istrain() const;
   inline void clear_istrain();
-  static const int kIstrainFieldNumber = 9;
+  static const int kIstrainFieldNumber = 5;
   inline bool istrain() const;
   inline void set_istrain(bool value);
 
-  // optional string solver = 10;
+  // optional string solver = 6;
   inline bool has_solver() const;
   inline void clear_solver();
-  static const int kSolverFieldNumber = 10;
+  static const int kSolverFieldNumber = 6;
   inline const ::std::string& solver() const;
   inline void set_solver(const ::std::string& value);
   inline void set_solver(const char* value);
@@ -359,17 +339,26 @@ class DetectorParameter : public ::google::protobuf::Message {
   inline ::std::string* release_solver();
   inline void set_allocated_solver(::std::string* solver);
 
-  // optional string snapshot = 11;
-  inline bool has_snapshot() const;
-  inline void clear_snapshot();
-  static const int kSnapshotFieldNumber = 11;
-  inline const ::std::string& snapshot() const;
-  inline void set_snapshot(const ::std::string& value);
-  inline void set_snapshot(const char* value);
-  inline void set_snapshot(const char* value, size_t size);
-  inline ::std::string* mutable_snapshot();
-  inline ::std::string* release_snapshot();
-  inline void set_allocated_snapshot(::std::string* snapshot);
+  // optional string mean_file = 7;
+  inline bool has_mean_file() const;
+  inline void clear_mean_file();
+  static const int kMeanFileFieldNumber = 7;
+  inline const ::std::string& mean_file() const;
+  inline void set_mean_file(const ::std::string& value);
+  inline void set_mean_file(const char* value);
+  inline void set_mean_file(const char* value, size_t size);
+  inline ::std::string* mutable_mean_file();
+  inline ::std::string* release_mean_file();
+  inline void set_allocated_mean_file(::std::string* mean_file);
+
+  // optional .MeanValue mean = 8;
+  inline bool has_mean() const;
+  inline void clear_mean();
+  static const int kMeanFieldNumber = 8;
+  inline const ::MeanValue& mean() const;
+  inline ::MeanValue* mutable_mean();
+  inline ::MeanValue* release_mean();
+  inline void set_allocated_mean(::MeanValue* mean);
 
   // @@protoc_insertion_point(class_scope:DetectorParameter)
  private:
@@ -379,22 +368,14 @@ class DetectorParameter : public ::google::protobuf::Message {
   inline void clear_has_model();
   inline void set_has_weight();
   inline void clear_has_weight();
-  inline void set_has_use_gpu();
-  inline void clear_has_use_gpu();
-  inline void set_has_do_vis();
-  inline void clear_has_do_vis();
-  inline void set_has_fq_vis();
-  inline void clear_has_fq_vis();
-  inline void set_has_threshold();
-  inline void clear_has_threshold();
-  inline void set_has_shared();
-  inline void clear_has_shared();
   inline void set_has_istrain();
   inline void clear_has_istrain();
   inline void set_has_solver();
   inline void clear_has_solver();
-  inline void set_has_snapshot();
-  inline void clear_has_snapshot();
+  inline void set_has_mean_file();
+  inline void clear_has_mean_file();
+  inline void set_has_mean();
+  inline void clear_has_mean();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -403,20 +384,109 @@ class DetectorParameter : public ::google::protobuf::Message {
   ::std::string* name_;
   ::std::string* model_;
   ::std::string* weight_;
-  ::google::protobuf::int32 fq_vis_;
-  bool use_gpu_;
-  bool do_vis_;
-  bool shared_;
-  bool istrain_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > use_gpu_;
   ::std::string* solver_;
-  ::std::string* snapshot_;
-  float threshold_;
+  ::std::string* mean_file_;
+  ::MeanValue* mean_;
+  bool istrain_;
   friend void  protobuf_AddDesc_zoson_2eproto();
   friend void protobuf_AssignDesc_zoson_2eproto();
   friend void protobuf_ShutdownFile_zoson_2eproto();
 
   void InitAsDefaultInstance();
   static DetectorParameter* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MeanValue : public ::google::protobuf::Message {
+ public:
+  MeanValue();
+  virtual ~MeanValue();
+
+  MeanValue(const MeanValue& from);
+
+  inline MeanValue& operator=(const MeanValue& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MeanValue& default_instance();
+
+  void Swap(MeanValue* other);
+
+  // implements Message ----------------------------------------------
+
+  MeanValue* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MeanValue& from);
+  void MergeFrom(const MeanValue& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated float value = 1;
+  inline int value_size() const;
+  inline void clear_value();
+  static const int kValueFieldNumber = 1;
+  inline float value(int index) const;
+  inline void set_value(int index, float value);
+  inline void add_value(float value);
+  inline const ::google::protobuf::RepeatedField< float >&
+      value() const;
+  inline ::google::protobuf::RepeatedField< float >*
+      mutable_value();
+
+  // optional float scale = 2 [default = 1];
+  inline bool has_scale() const;
+  inline void clear_scale();
+  static const int kScaleFieldNumber = 2;
+  inline float scale() const;
+  inline void set_scale(float value);
+
+  // @@protoc_insertion_point(class_scope:MeanValue)
+ private:
+  inline void set_has_scale();
+  inline void clear_has_scale();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedField< float > value_;
+  float scale_;
+  friend void  protobuf_AddDesc_zoson_2eproto();
+  friend void protobuf_AssignDesc_zoson_2eproto();
+  friend void protobuf_ShutdownFile_zoson_2eproto();
+
+  void InitAsDefaultInstance();
+  static MeanValue* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -1990,6 +2060,7 @@ class VResponse : public ::google::protobuf::Message {
   static const Type ALL = VResponse_Type_ALL;
   static const Type STATE = VResponse_Type_STATE;
   static const Type SETTING = VResponse_Type_SETTING;
+  static const Type REC = VResponse_Type_REC;
   static inline bool Type_IsValid(int value) {
     return VResponse_Type_IsValid(value);
   }
@@ -2051,6 +2122,85 @@ class VResponse : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static VResponse* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class VRecState : public ::google::protobuf::Message {
+ public:
+  VRecState();
+  virtual ~VRecState();
+
+  VRecState(const VRecState& from);
+
+  inline VRecState& operator=(const VRecState& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const VRecState& default_instance();
+
+  void Swap(VRecState* other);
+
+  // implements Message ----------------------------------------------
+
+  VRecState* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const VRecState& from);
+  void MergeFrom(const VRecState& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 state = 1;
+  inline bool has_state() const;
+  inline void clear_state();
+  static const int kStateFieldNumber = 1;
+  inline ::google::protobuf::int32 state() const;
+  inline void set_state(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:VRecState)
+ private:
+  inline void set_has_state();
+  inline void clear_has_state();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::int32 state_;
+  friend void  protobuf_AddDesc_zoson_2eproto();
+  friend void protobuf_AssignDesc_zoson_2eproto();
+  friend void protobuf_ShutdownFile_zoson_2eproto();
+
+  void InitAsDefaultInstance();
+  static VRecState* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -2740,135 +2890,45 @@ inline void DetectorParameter::set_allocated_weight(::std::string* weight) {
   // @@protoc_insertion_point(field_set_allocated:DetectorParameter.weight)
 }
 
-// optional bool use_gpu = 4 [default = true];
-inline bool DetectorParameter::has_use_gpu() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void DetectorParameter::set_has_use_gpu() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void DetectorParameter::clear_has_use_gpu() {
-  _has_bits_[0] &= ~0x00000008u;
+// repeated int32 use_gpu = 4;
+inline int DetectorParameter::use_gpu_size() const {
+  return use_gpu_.size();
 }
 inline void DetectorParameter::clear_use_gpu() {
-  use_gpu_ = true;
-  clear_has_use_gpu();
+  use_gpu_.Clear();
 }
-inline bool DetectorParameter::use_gpu() const {
+inline ::google::protobuf::int32 DetectorParameter::use_gpu(int index) const {
   // @@protoc_insertion_point(field_get:DetectorParameter.use_gpu)
-  return use_gpu_;
+  return use_gpu_.Get(index);
 }
-inline void DetectorParameter::set_use_gpu(bool value) {
-  set_has_use_gpu();
-  use_gpu_ = value;
+inline void DetectorParameter::set_use_gpu(int index, ::google::protobuf::int32 value) {
+  use_gpu_.Set(index, value);
   // @@protoc_insertion_point(field_set:DetectorParameter.use_gpu)
 }
+inline void DetectorParameter::add_use_gpu(::google::protobuf::int32 value) {
+  use_gpu_.Add(value);
+  // @@protoc_insertion_point(field_add:DetectorParameter.use_gpu)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+DetectorParameter::use_gpu() const {
+  // @@protoc_insertion_point(field_list:DetectorParameter.use_gpu)
+  return use_gpu_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+DetectorParameter::mutable_use_gpu() {
+  // @@protoc_insertion_point(field_mutable_list:DetectorParameter.use_gpu)
+  return &use_gpu_;
+}
 
-// optional bool do_vis = 5 [default = false];
-inline bool DetectorParameter::has_do_vis() const {
+// optional bool istrain = 5 [default = false];
+inline bool DetectorParameter::has_istrain() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void DetectorParameter::set_has_do_vis() {
+inline void DetectorParameter::set_has_istrain() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void DetectorParameter::clear_has_do_vis() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void DetectorParameter::clear_do_vis() {
-  do_vis_ = false;
-  clear_has_do_vis();
-}
-inline bool DetectorParameter::do_vis() const {
-  // @@protoc_insertion_point(field_get:DetectorParameter.do_vis)
-  return do_vis_;
-}
-inline void DetectorParameter::set_do_vis(bool value) {
-  set_has_do_vis();
-  do_vis_ = value;
-  // @@protoc_insertion_point(field_set:DetectorParameter.do_vis)
-}
-
-// optional int32 fq_vis = 6 [default = 10];
-inline bool DetectorParameter::has_fq_vis() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void DetectorParameter::set_has_fq_vis() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void DetectorParameter::clear_has_fq_vis() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void DetectorParameter::clear_fq_vis() {
-  fq_vis_ = 10;
-  clear_has_fq_vis();
-}
-inline ::google::protobuf::int32 DetectorParameter::fq_vis() const {
-  // @@protoc_insertion_point(field_get:DetectorParameter.fq_vis)
-  return fq_vis_;
-}
-inline void DetectorParameter::set_fq_vis(::google::protobuf::int32 value) {
-  set_has_fq_vis();
-  fq_vis_ = value;
-  // @@protoc_insertion_point(field_set:DetectorParameter.fq_vis)
-}
-
-// optional float threshold = 7 [default = 0.5];
-inline bool DetectorParameter::has_threshold() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void DetectorParameter::set_has_threshold() {
-  _has_bits_[0] |= 0x00000040u;
-}
-inline void DetectorParameter::clear_has_threshold() {
-  _has_bits_[0] &= ~0x00000040u;
-}
-inline void DetectorParameter::clear_threshold() {
-  threshold_ = 0.5f;
-  clear_has_threshold();
-}
-inline float DetectorParameter::threshold() const {
-  // @@protoc_insertion_point(field_get:DetectorParameter.threshold)
-  return threshold_;
-}
-inline void DetectorParameter::set_threshold(float value) {
-  set_has_threshold();
-  threshold_ = value;
-  // @@protoc_insertion_point(field_set:DetectorParameter.threshold)
-}
-
-// optional bool shared = 8 [default = false];
-inline bool DetectorParameter::has_shared() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
-}
-inline void DetectorParameter::set_has_shared() {
-  _has_bits_[0] |= 0x00000080u;
-}
-inline void DetectorParameter::clear_has_shared() {
-  _has_bits_[0] &= ~0x00000080u;
-}
-inline void DetectorParameter::clear_shared() {
-  shared_ = false;
-  clear_has_shared();
-}
-inline bool DetectorParameter::shared() const {
-  // @@protoc_insertion_point(field_get:DetectorParameter.shared)
-  return shared_;
-}
-inline void DetectorParameter::set_shared(bool value) {
-  set_has_shared();
-  shared_ = value;
-  // @@protoc_insertion_point(field_set:DetectorParameter.shared)
-}
-
-// optional bool istrain = 9 [default = false];
-inline bool DetectorParameter::has_istrain() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
-}
-inline void DetectorParameter::set_has_istrain() {
-  _has_bits_[0] |= 0x00000100u;
-}
 inline void DetectorParameter::clear_has_istrain() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void DetectorParameter::clear_istrain() {
   istrain_ = false;
@@ -2884,15 +2944,15 @@ inline void DetectorParameter::set_istrain(bool value) {
   // @@protoc_insertion_point(field_set:DetectorParameter.istrain)
 }
 
-// optional string solver = 10;
+// optional string solver = 6;
 inline bool DetectorParameter::has_solver() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void DetectorParameter::set_has_solver() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void DetectorParameter::clear_has_solver() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void DetectorParameter::clear_solver() {
   if (solver_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
@@ -2960,80 +3020,179 @@ inline void DetectorParameter::set_allocated_solver(::std::string* solver) {
   // @@protoc_insertion_point(field_set_allocated:DetectorParameter.solver)
 }
 
-// optional string snapshot = 11;
-inline bool DetectorParameter::has_snapshot() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+// optional string mean_file = 7;
+inline bool DetectorParameter::has_mean_file() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void DetectorParameter::set_has_snapshot() {
-  _has_bits_[0] |= 0x00000400u;
+inline void DetectorParameter::set_has_mean_file() {
+  _has_bits_[0] |= 0x00000040u;
 }
-inline void DetectorParameter::clear_has_snapshot() {
-  _has_bits_[0] &= ~0x00000400u;
+inline void DetectorParameter::clear_has_mean_file() {
+  _has_bits_[0] &= ~0x00000040u;
 }
-inline void DetectorParameter::clear_snapshot() {
-  if (snapshot_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    snapshot_->clear();
+inline void DetectorParameter::clear_mean_file() {
+  if (mean_file_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    mean_file_->clear();
   }
-  clear_has_snapshot();
+  clear_has_mean_file();
 }
-inline const ::std::string& DetectorParameter::snapshot() const {
-  // @@protoc_insertion_point(field_get:DetectorParameter.snapshot)
-  return *snapshot_;
+inline const ::std::string& DetectorParameter::mean_file() const {
+  // @@protoc_insertion_point(field_get:DetectorParameter.mean_file)
+  return *mean_file_;
 }
-inline void DetectorParameter::set_snapshot(const ::std::string& value) {
-  set_has_snapshot();
-  if (snapshot_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    snapshot_ = new ::std::string;
+inline void DetectorParameter::set_mean_file(const ::std::string& value) {
+  set_has_mean_file();
+  if (mean_file_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    mean_file_ = new ::std::string;
   }
-  snapshot_->assign(value);
-  // @@protoc_insertion_point(field_set:DetectorParameter.snapshot)
+  mean_file_->assign(value);
+  // @@protoc_insertion_point(field_set:DetectorParameter.mean_file)
 }
-inline void DetectorParameter::set_snapshot(const char* value) {
-  set_has_snapshot();
-  if (snapshot_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    snapshot_ = new ::std::string;
+inline void DetectorParameter::set_mean_file(const char* value) {
+  set_has_mean_file();
+  if (mean_file_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    mean_file_ = new ::std::string;
   }
-  snapshot_->assign(value);
-  // @@protoc_insertion_point(field_set_char:DetectorParameter.snapshot)
+  mean_file_->assign(value);
+  // @@protoc_insertion_point(field_set_char:DetectorParameter.mean_file)
 }
-inline void DetectorParameter::set_snapshot(const char* value, size_t size) {
-  set_has_snapshot();
-  if (snapshot_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    snapshot_ = new ::std::string;
+inline void DetectorParameter::set_mean_file(const char* value, size_t size) {
+  set_has_mean_file();
+  if (mean_file_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    mean_file_ = new ::std::string;
   }
-  snapshot_->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:DetectorParameter.snapshot)
+  mean_file_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:DetectorParameter.mean_file)
 }
-inline ::std::string* DetectorParameter::mutable_snapshot() {
-  set_has_snapshot();
-  if (snapshot_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    snapshot_ = new ::std::string;
+inline ::std::string* DetectorParameter::mutable_mean_file() {
+  set_has_mean_file();
+  if (mean_file_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    mean_file_ = new ::std::string;
   }
-  // @@protoc_insertion_point(field_mutable:DetectorParameter.snapshot)
-  return snapshot_;
+  // @@protoc_insertion_point(field_mutable:DetectorParameter.mean_file)
+  return mean_file_;
 }
-inline ::std::string* DetectorParameter::release_snapshot() {
-  clear_has_snapshot();
-  if (snapshot_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+inline ::std::string* DetectorParameter::release_mean_file() {
+  clear_has_mean_file();
+  if (mean_file_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     return NULL;
   } else {
-    ::std::string* temp = snapshot_;
-    snapshot_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    ::std::string* temp = mean_file_;
+    mean_file_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     return temp;
   }
 }
-inline void DetectorParameter::set_allocated_snapshot(::std::string* snapshot) {
-  if (snapshot_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete snapshot_;
+inline void DetectorParameter::set_allocated_mean_file(::std::string* mean_file) {
+  if (mean_file_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete mean_file_;
   }
-  if (snapshot) {
-    set_has_snapshot();
-    snapshot_ = snapshot;
+  if (mean_file) {
+    set_has_mean_file();
+    mean_file_ = mean_file;
   } else {
-    clear_has_snapshot();
-    snapshot_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    clear_has_mean_file();
+    mean_file_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
-  // @@protoc_insertion_point(field_set_allocated:DetectorParameter.snapshot)
+  // @@protoc_insertion_point(field_set_allocated:DetectorParameter.mean_file)
+}
+
+// optional .MeanValue mean = 8;
+inline bool DetectorParameter::has_mean() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void DetectorParameter::set_has_mean() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void DetectorParameter::clear_has_mean() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void DetectorParameter::clear_mean() {
+  if (mean_ != NULL) mean_->::MeanValue::Clear();
+  clear_has_mean();
+}
+inline const ::MeanValue& DetectorParameter::mean() const {
+  // @@protoc_insertion_point(field_get:DetectorParameter.mean)
+  return mean_ != NULL ? *mean_ : *default_instance_->mean_;
+}
+inline ::MeanValue* DetectorParameter::mutable_mean() {
+  set_has_mean();
+  if (mean_ == NULL) mean_ = new ::MeanValue;
+  // @@protoc_insertion_point(field_mutable:DetectorParameter.mean)
+  return mean_;
+}
+inline ::MeanValue* DetectorParameter::release_mean() {
+  clear_has_mean();
+  ::MeanValue* temp = mean_;
+  mean_ = NULL;
+  return temp;
+}
+inline void DetectorParameter::set_allocated_mean(::MeanValue* mean) {
+  delete mean_;
+  mean_ = mean;
+  if (mean) {
+    set_has_mean();
+  } else {
+    clear_has_mean();
+  }
+  // @@protoc_insertion_point(field_set_allocated:DetectorParameter.mean)
+}
+
+// -------------------------------------------------------------------
+
+// MeanValue
+
+// repeated float value = 1;
+inline int MeanValue::value_size() const {
+  return value_.size();
+}
+inline void MeanValue::clear_value() {
+  value_.Clear();
+}
+inline float MeanValue::value(int index) const {
+  // @@protoc_insertion_point(field_get:MeanValue.value)
+  return value_.Get(index);
+}
+inline void MeanValue::set_value(int index, float value) {
+  value_.Set(index, value);
+  // @@protoc_insertion_point(field_set:MeanValue.value)
+}
+inline void MeanValue::add_value(float value) {
+  value_.Add(value);
+  // @@protoc_insertion_point(field_add:MeanValue.value)
+}
+inline const ::google::protobuf::RepeatedField< float >&
+MeanValue::value() const {
+  // @@protoc_insertion_point(field_list:MeanValue.value)
+  return value_;
+}
+inline ::google::protobuf::RepeatedField< float >*
+MeanValue::mutable_value() {
+  // @@protoc_insertion_point(field_mutable_list:MeanValue.value)
+  return &value_;
+}
+
+// optional float scale = 2 [default = 1];
+inline bool MeanValue::has_scale() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MeanValue::set_has_scale() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MeanValue::clear_has_scale() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MeanValue::clear_scale() {
+  scale_ = 1;
+  clear_has_scale();
+}
+inline float MeanValue::scale() const {
+  // @@protoc_insertion_point(field_get:MeanValue.scale)
+  return scale_;
+}
+inline void MeanValue::set_scale(float value) {
+  set_has_scale();
+  scale_ = value;
+  // @@protoc_insertion_point(field_set:MeanValue.scale)
 }
 
 // -------------------------------------------------------------------
@@ -4926,6 +5085,34 @@ inline void VResponse::set_allocated_data(::std::string* data) {
     data_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   // @@protoc_insertion_point(field_set_allocated:VResponse.data)
+}
+
+// -------------------------------------------------------------------
+
+// VRecState
+
+// required int32 state = 1;
+inline bool VRecState::has_state() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void VRecState::set_has_state() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void VRecState::clear_has_state() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void VRecState::clear_state() {
+  state_ = 0;
+  clear_has_state();
+}
+inline ::google::protobuf::int32 VRecState::state() const {
+  // @@protoc_insertion_point(field_get:VRecState.state)
+  return state_;
+}
+inline void VRecState::set_state(::google::protobuf::int32 value) {
+  set_has_state();
+  state_ = value;
+  // @@protoc_insertion_point(field_set:VRecState.state)
 }
 
 // -------------------------------------------------------------------

@@ -48,7 +48,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::getWeightMap(int w,int h,int c,int n,unsigned char* image)
 {
-    cout<<"channels "<<c<<" num "<<n<<endl;
     if((weights_num!=c*n&&c!=3)||(weights_num!=n&&c==3))
     {
         ui->tw_weight->clear();
@@ -74,25 +73,25 @@ void MainWindow::getWeightMap(int w,int h,int c,int n,unsigned char* image)
     if(c==3){
         size = c*w*h;
         num = n;
-        row = (int)qSqrt((double)n);
+        row = (int)qSqrt((double)num);
         if(row>=20)row = 20;
     }else{
         size = w*h;
         num = c*n;
-        row = (int)qSqrt((double)(n*c));
+        row = (int)qSqrt((double)(num));
         if(row>=20)row = 20;
     }
     int scale = (tw_width-tw_width*0.01)/row;
 
     ui->tw_weight->setColumnCount(row);
     ui->tw_weight->setRowCount(((double)num/row)+0.9);
-
        //以下是设置第一行的所有列的图片
     for(int r=0;r<ui->tw_weight->rowCount();++r){
         for(int col=0; col<ui->tw_weight->columnCount(); col++)
         {
-            if(r*row+col>num)break;
+            if(r*row+col>=num)break;
             QImage *tm_img;
+            QImage *save_weight;
             if(c==3)
             {
                 tm_img = new QImage(image+(r*row+col)*size,w,h,QImage::Format_RGB888);
@@ -100,7 +99,7 @@ void MainWindow::getWeightMap(int w,int h,int c,int n,unsigned char* image)
                 tm_img = new QImage(image+(r*row+col)*size,w,h,QImage::Format_Grayscale8);
             }
             QPixmap pix = QPixmap::fromImage(*tm_img);
-            this->weights[r*row+col] = pix;
+            this->weights[r*row+col] = pix.copy(0,0,w,h);
             QTableWidgetItem *item = new  QTableWidgetItem;
             ui->tw_weight->setColumnWidth(col,scale-scale/30);
             ui->tw_weight->setRowHeight(r,scale-scale/30);
@@ -115,41 +114,81 @@ void MainWindow::getWeightMap(int w,int h,int c,int n,unsigned char* image)
 
 void MainWindow::getFeatureMap(int w,int h,int c,int n,unsigned char* map)
 {
-    int size = w*h;
-    if(maps_num!=n*c){
-        ui->tw_map->clear();
-        if(maps!=NULL){
-            delete []maps;
-            maps = new QPixmap[c*n];
+    if(c!=3)
+    {
+        int size = w*h;
+        if(maps_num!=n*c){
+            ui->tw_map->clear();
+            if(maps!=NULL){
+                delete []maps;
+                maps = new QPixmap[c*n];
+            }
         }
-    }
-    if(maps == NULL)maps = new QPixmap[c*n];
-    maps_num = n*c;
-    int tw_width = ui->tw_map->width();
-    int tw_height = ui->tw_map->height();
-    int row;
-    row = (int)qSqrt((double)c);
+        if(maps == NULL)maps = new QPixmap[c*n];
+        maps_num = n*c;
+        int tw_width = ui->tw_map->width();
+        int tw_height = ui->tw_map->height();
+        int row;
+        row = (int)qSqrt((double)c);
 
-    int scale = (float)tw_width/row;
-    ui->tw_map->setColumnCount(row);
-    ui->tw_map->setRowCount(row);
+        int scale = (float)tw_width/row;
+        ui->tw_map->setColumnCount(row);
+        ui->tw_map->setRowCount(row);
 
-       //以下是设置第一行的所有列的图片
-    for(int r=0;r<ui->tw_map->rowCount();++r){
-        for(int col=0; col<ui->tw_map->columnCount(); col++)
-        {
-            if(r*row+col>=c)break;
-            QImage* tm_img;
-            tm_img = new QImage(map+w*h*(r*row+col),w,h,QImage::Format_Grayscale8);
-            QPixmap pix = QPixmap::fromImage(*tm_img);
-            maps[r*row+col] = pix;
-            //pix = pix.scaled(scale,scale);
-            QTableWidgetItem *item = new QTableWidgetItem;
-            ui->tw_map->setColumnWidth(col,scale);
-            ui->tw_map->setRowHeight(r,scale);
-            item->setData(Qt::DisplayRole,QVariant::fromValue<QPixmap>(pix));
-            ui->tw_map->setItem(r,col, item);
-            delete tm_img;
+           //以下是设置第一行的所有列的图片
+        for(int r=0;r<ui->tw_map->rowCount();++r){
+            for(int col=0; col<ui->tw_map->columnCount(); col++)
+            {
+                if(r*row+col>=c)break;
+                QImage* tm_img;
+                tm_img = new QImage(map+w*h*(r*row+col),w,h,QImage::Format_Grayscale8);
+                QPixmap pix = QPixmap::fromImage(*tm_img);
+                maps[r*row+col] = pix.copy(0,0,w,h);
+                QTableWidgetItem *item = new QTableWidgetItem;
+                ui->tw_map->setColumnWidth(col,scale);
+                ui->tw_map->setRowHeight(r,scale);
+                item->setData(Qt::DisplayRole,QVariant::fromValue<QPixmap>(pix));
+                ui->tw_map->setItem(r,col, item);
+                delete tm_img;
+            }
+        }
+
+    }else if(c==3){
+        int size = w*h*c;
+        if(maps_num!=n){
+            ui->tw_map->clear();
+            if(maps!=NULL){
+                delete []maps;
+                maps = new QPixmap[n];
+            }
+        }
+        if(maps == NULL)maps = new QPixmap[n];
+        maps_num = n;
+        int tw_width = ui->tw_map->width();
+        int tw_height = ui->tw_map->height();
+        int row;
+        row = (int)qSqrt((double)n);
+
+        int scale = (float)tw_width/row;
+        ui->tw_map->setColumnCount(row);
+        ui->tw_map->setRowCount(row);
+
+           //以下是设置第一行的所有列的图片
+        for(int r=0;r<ui->tw_map->rowCount();++r){
+            for(int col=0; col<ui->tw_map->columnCount(); col++)
+            {
+                if(r*row+col>=n)break;
+                QImage* tm_img;
+                tm_img = new QImage(map+w*h*(r*row+col)*3,w,h,QImage::Format_RGB888);
+                QPixmap pix = QPixmap::fromImage(*tm_img);
+                maps[r*row+col] = pix.copy(0,0,w,h);
+                QTableWidgetItem *item = new QTableWidgetItem;
+                ui->tw_map->setColumnWidth(col,scale);
+                ui->tw_map->setRowHeight(r,scale);
+                item->setData(Qt::DisplayRole,QVariant::fromValue<QPixmap>(pix));
+                ui->tw_map->setItem(r,col, item);
+                delete tm_img;
+            }
         }
     }
     delete map;
@@ -234,7 +273,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_tw_map_clicked(const QModelIndex &index)
 {
     delete im_map->scene();
-    QPixmap &pix = maps[index.row()*tw_map->rowCount()+index.column()];
+    QPixmap &pix = maps[index.row()*tw_map->columnCount()+index.column()];
     QPixmap pix2 = pix.scaled(im_map->width(),im_map->height());
     QGraphicsScene *scene = new QGraphicsScene;
     im_map->setScene(scene);
@@ -250,7 +289,7 @@ void MainWindow::on_lv_layers_clicked(const QModelIndex &index)
 
 void MainWindow::on_tw_weight_clicked(const QModelIndex &index)
 {
-    QPixmap &pix = weights[index.row()*tw_weight->rowCount()+index.column()];
+    QPixmap pix = weights[index.row()*tw_weight->columnCount()+index.column()];
     QPixmap pix2 = pix.scaled(im_map->width(),im_map->height());
     QGraphicsScene *scene = new QGraphicsScene;
     im_map->setScene(scene);

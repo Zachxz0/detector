@@ -40,6 +40,12 @@ bool NetClient::sendData(const Data* data)
     return true;
 }
 
+void NetClient::flush()
+{
+    unsigned char buf[4096];
+    while(recv(mSockfd, buf, 4096,0)>0);
+}
+
 bool NetClient::recData(Data* data,int reqcount)
 {
     if(mSockfd<0)return false;

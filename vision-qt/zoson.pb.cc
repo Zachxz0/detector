@@ -24,6 +24,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* DetectorParameter_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   DetectorParameter_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MeanValue_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MeanValue_reflection_ = NULL;
 const ::google::protobuf::Descriptor* DetectInput_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   DetectInput_reflection_ = NULL;
@@ -72,6 +75,9 @@ const ::google::protobuf::Descriptor* VResponse_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   VResponse_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* VResponse_Type_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* VRecState_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  VRecState_reflection_ = NULL;
 const ::google::protobuf::Descriptor* VAll_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   VAll_reflection_ = NULL;
@@ -111,18 +117,15 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(TestProto));
   DetectorParameter_descriptor_ = file->message_type(1);
-  static const int DetectorParameter_offsets_[11] = {
+  static const int DetectorParameter_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, model_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, weight_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, use_gpu_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, do_vis_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, fq_vis_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, threshold_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, shared_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, istrain_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, solver_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, snapshot_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, mean_file_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, mean_),
   };
   DetectorParameter_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -135,7 +138,23 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DetectorParameter));
-  DetectInput_descriptor_ = file->message_type(2);
+  MeanValue_descriptor_ = file->message_type(2);
+  static const int MeanValue_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MeanValue, value_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MeanValue, scale_),
+  };
+  MeanValue_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      MeanValue_descriptor_,
+      MeanValue::default_instance_,
+      MeanValue_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MeanValue, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MeanValue, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(MeanValue));
+  DetectInput_descriptor_ = file->message_type(3);
   static const int DetectInput_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectInput, width_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectInput, height_),
@@ -153,7 +172,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DetectInput));
   DetectInput_Format_descriptor_ = DetectInput_descriptor_->enum_type(0);
-  DetectOutput_descriptor_ = file->message_type(3);
+  DetectOutput_descriptor_ = file->message_type(4);
   static const int DetectOutput_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectOutput, results_),
   };
@@ -168,7 +187,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DetectOutput));
-  Result_descriptor_ = file->message_type(4);
+  Result_descriptor_ = file->message_type(5);
   static const int Result_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Result, xmin_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Result, ymin_),
@@ -188,7 +207,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Result));
-  CommuParameter_descriptor_ = file->message_type(5);
+  CommuParameter_descriptor_ = file->message_type(6);
   static const int CommuParameter_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CommuParameter, address_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CommuParameter, port_),
@@ -207,7 +226,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CommuParameter));
   CommuParameter_Type_descriptor_ = CommuParameter_descriptor_->enum_type(0);
-  ClassMaps_descriptor_ = file->message_type(6);
+  ClassMaps_descriptor_ = file->message_type(7);
   static const int ClassMaps_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClassMaps, item_),
   };
@@ -222,7 +241,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ClassMaps));
-  ClassMap_descriptor_ = file->message_type(7);
+  ClassMap_descriptor_ = file->message_type(8);
   static const int ClassMap_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClassMap, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClassMap, label_),
@@ -239,7 +258,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ClassMap));
-  Cookie_descriptor_ = file->message_type(8);
+  Cookie_descriptor_ = file->message_type(9);
   static const int Cookie_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Cookie, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Cookie, name_),
@@ -255,7 +274,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Cookie));
-  Bytetranfer_descriptor_ = file->message_type(9);
+  Bytetranfer_descriptor_ = file->message_type(10);
   static const int Bytetranfer_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Bytetranfer, count_),
   };
@@ -270,7 +289,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Bytetranfer));
-  VLayerInfos_descriptor_ = file->message_type(10);
+  VLayerInfos_descriptor_ = file->message_type(11);
   static const int VLayerInfos_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VLayerInfos, infos_),
   };
@@ -285,7 +304,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(VLayerInfos));
-  VLayerInfo_descriptor_ = file->message_type(11);
+  VLayerInfo_descriptor_ = file->message_type(12);
   static const int VLayerInfo_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VLayerInfo, index_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VLayerInfo, name_),
@@ -302,7 +321,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(VLayerInfo));
-  VFeatureMap_descriptor_ = file->message_type(12);
+  VFeatureMap_descriptor_ = file->message_type(13);
   static const int VFeatureMap_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VFeatureMap, width_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VFeatureMap, height_),
@@ -321,7 +340,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(VFeatureMap));
-  VImage_descriptor_ = file->message_type(13);
+  VImage_descriptor_ = file->message_type(14);
   static const int VImage_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VImage, width_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VImage, height_),
@@ -339,7 +358,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(VImage));
-  VReqDeconv_descriptor_ = file->message_type(14);
+  VReqDeconv_descriptor_ = file->message_type(15);
   static const int VReqDeconv_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VReqDeconv, i_layer_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VReqDeconv, i_map_),
@@ -356,7 +375,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(VReqDeconv));
-  VSetting_descriptor_ = file->message_type(15);
+  VSetting_descriptor_ = file->message_type(16);
   static const int VSetting_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VSetting, model_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VSetting, solver_),
@@ -374,7 +393,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(VSetting));
-  VResponse_descriptor_ = file->message_type(16);
+  VResponse_descriptor_ = file->message_type(17);
   static const int VResponse_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VResponse, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VResponse, data_),
@@ -391,7 +410,22 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(VResponse));
   VResponse_Type_descriptor_ = VResponse_descriptor_->enum_type(0);
-  VAll_descriptor_ = file->message_type(17);
+  VRecState_descriptor_ = file->message_type(18);
+  static const int VRecState_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VRecState, state_),
+  };
+  VRecState_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      VRecState_descriptor_,
+      VRecState::default_instance_,
+      VRecState_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VRecState, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VRecState, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(VRecState));
+  VAll_descriptor_ = file->message_type(19);
   static const int VAll_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VAll, response_),
   };
@@ -406,7 +440,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(VAll));
-  VReqFeature_descriptor_ = file->message_type(18);
+  VReqFeature_descriptor_ = file->message_type(20);
   static const int VReqFeature_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VReqFeature, i_layer_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VReqFeature, i_image_),
@@ -423,7 +457,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(VReqFeature));
-  VReqWeight_descriptor_ = file->message_type(19);
+  VReqWeight_descriptor_ = file->message_type(21);
   static const int VReqWeight_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VReqWeight, index_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VReqWeight, diff_),
@@ -439,7 +473,7 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(VReqWeight));
-  VState_descriptor_ = file->message_type(20);
+  VState_descriptor_ = file->message_type(22);
   static const int VState_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VState, auto__),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VState, input_),
@@ -475,6 +509,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     DetectorParameter_descriptor_, &DetectorParameter::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    MeanValue_descriptor_, &MeanValue::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     DetectInput_descriptor_, &DetectInput::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     DetectOutput_descriptor_, &DetectOutput::default_instance());
@@ -505,6 +541,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     VResponse_descriptor_, &VResponse::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    VRecState_descriptor_, &VRecState::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     VAll_descriptor_, &VAll::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     VReqFeature_descriptor_, &VReqFeature::default_instance());
@@ -521,6 +559,8 @@ void protobuf_ShutdownFile_zoson_2eproto() {
   delete TestProto_reflection_;
   delete DetectorParameter::default_instance_;
   delete DetectorParameter_reflection_;
+  delete MeanValue::default_instance_;
+  delete MeanValue_reflection_;
   delete DetectInput::default_instance_;
   delete DetectInput_reflection_;
   delete DetectOutput::default_instance_;
@@ -553,6 +593,8 @@ void protobuf_ShutdownFile_zoson_2eproto() {
   delete VSetting_reflection_;
   delete VResponse::default_instance_;
   delete VResponse_reflection_;
+  delete VRecState::default_instance_;
+  delete VRecState_reflection_;
   delete VAll::default_instance_;
   delete VAll_reflection_;
   delete VReqFeature::default_instance_;
@@ -571,55 +613,56 @@ void protobuf_AddDesc_zoson_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\013zoson.proto\"+\n\tTestProto\022\021\n\tclazz_num\030"
-    "\001 \002(\005\022\013\n\003dim\030\002 \003(\005\"\353\001\n\021DetectorParameter"
+    "\001 \002(\005\022\013\n\003dim\030\002 \003(\005\"\246\001\n\021DetectorParameter"
     "\022\014\n\004name\030\001 \002(\t\022\r\n\005model\030\002 \002(\t\022\016\n\006weight\030"
-    "\003 \002(\t\022\025\n\007use_gpu\030\004 \001(\010:\004true\022\025\n\006do_vis\030\005"
-    " \001(\010:\005false\022\022\n\006fq_vis\030\006 \001(\005:\00210\022\026\n\tthres"
-    "hold\030\007 \001(\002:\0030.5\022\025\n\006shared\030\010 \001(\010:\005false\022\026"
-    "\n\007istrain\030\t \001(\010:\005false\022\016\n\006solver\030\n \001(\t\022\020"
-    "\n\010snapshot\030\013 \001(\t\"y\n\013DetectInput\022\r\n\005width"
-    "\030\002 \002(\005\022\016\n\006height\030\003 \002(\005\022\014\n\004data\030\004 \002(\014\"=\n\006"
-    "Format\022\007\n\003JPG\020\000\022\007\n\003PNG\020\001\022\007\n\003RGB\020\002\022\013\n\007YOV"
-    "_420\020\003\022\013\n\007YOV_422\020\004\"(\n\014DetectOutput\022\030\n\007r"
-    "esults\030\001 \003(\0132\007.Result\"^\n\006Result\022\014\n\004xmin\030"
-    "\001 \002(\002\022\014\n\004ymin\030\002 \002(\002\022\014\n\004xmax\030\003 \002(\002\022\014\n\004yma"
-    "x\030\004 \002(\002\022\r\n\005clazz\030\005 \002(\005\022\r\n\005score\030\006 \002(\002\"\261\001"
-    "\n\016CommuParameter\022\032\n\007address\030\001 \001(\t:\tlocal"
-    "host\022\023\n\004port\030\002 \001(\005:\00510086\022\030\n\013client_name"
-    "\030\003 \001(\t:\003web\022\'\n\004type\030\004 \001(\0162\024.CommuParamet"
-    "er.Type:\003LOC\"+\n\004Type\022\007\n\003LOC\020\000\022\007\n\003IPC\020\001\022\007"
-    "\n\003TCP\020\003\022\010\n\004RTMP\020\004\"$\n\tClassMaps\022\027\n\004item\030\001"
-    " \003(\0132\t.ClassMap\"=\n\010ClassMap\022\014\n\004name\030\001 \002("
-    "\t\022\r\n\005label\030\002 \002(\005\022\024\n\014display_name\030\003 \002(\t\"\""
-    "\n\006Cookie\022\n\n\002ID\030\001 \002(\t\022\014\n\004name\030\002 \002(\t\"\034\n\013By"
-    "tetranfer\022\r\n\005count\030\002 \002(\005\")\n\013VLayerInfos\022"
-    "\032\n\005infos\030\001 \003(\0132\013.VLayerInfo\"7\n\nVLayerInf"
-    "o\022\r\n\005index\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\014\n\004type\030\003"
-    " \002(\t\"X\n\013VFeatureMap\022\r\n\005width\030\001 \002(\005\022\016\n\006he"
-    "ight\030\002 \002(\005\022\013\n\003num\030\003 \002(\005\022\017\n\007channel\030\004 \002(\005"
-    "\022\014\n\004data\030\005 \002(\014\"F\n\006VImage\022\r\n\005width\030\001 \002(\005\022"
-    "\016\n\006height\030\002 \002(\005\022\017\n\007channel\030\003 \002(\005\022\014\n\004data"
-    "\030\004 \002(\014\"F\n\nVReqDeconv\022\017\n\007i_layer\030\001 \002(\005\022\r\n"
-    "\005i_map\030\002 \002(\005\022\030\n\tdo_deconv\030\003 \001(\010:\005false\"M"
-    "\n\010VSetting\022\r\n\005model\030\001 \002(\t\022\016\n\006solver\030\002 \002("
-    "\t\022\014\n\004test\030\003 \002(\t\022\024\n\010interval\030\004 \001(\005:\002-1\"\244\001"
-    "\n\tVResponse\022\035\n\004type\030\001 \002(\0162\017.VResponse.Ty"
-    "pe\022\014\n\004data\030\002 \001(\014\"j\n\004Type\022\n\n\006WEIGHT\020\001\022\016\n\n"
-    "FEATUREMAP\020\002\022\016\n\nLAYERINFOS\020\003\022\t\n\005INPUT\020\004\022"
-    "\n\n\006DECONV\020\005\022\007\n\003ALL\020\006\022\t\n\005STATE\020\007\022\013\n\007SETTI"
-    "NG\020\010\"$\n\004VAll\022\034\n\010response\030\001 \003(\0132\n.VRespon"
-    "se\"D\n\013VReqFeature\022\017\n\007i_layer\030\001 \002(\005\022\017\n\007i_"
-    "image\030\002 \002(\005\022\023\n\004diff\030\003 \001(\010:\005false\"0\n\nVReq"
-    "Weight\022\r\n\005index\030\001 \002(\005\022\023\n\004diff\030\002 \001(\010:\005fal"
-    "se\"\204\001\n\006VState\022\022\n\004auto\030\001 \001(\010:\004true\022\021\n\005inp"
-    "ut\030\002 \001(\005:\002-1\022\031\n\003map\030\003 \001(\0132\014.VReqFeature\022"
-    "\033\n\006deconv\030\004 \001(\0132\013.VReqDeconv\022\033\n\006weight\030\005"
-    " \001(\0132\013.VReqWeightB\'\n\031com.zoson.detection"
-    ".protoB\nZosonProto", 1818);
+    "\003 \002(\t\022\017\n\007use_gpu\030\004 \003(\005\022\026\n\007istrain\030\005 \001(\010:"
+    "\005false\022\016\n\006solver\030\006 \001(\t\022\021\n\tmean_file\030\007 \001("
+    "\t\022\030\n\004mean\030\010 \001(\0132\n.MeanValue\",\n\tMeanValue"
+    "\022\r\n\005value\030\001 \003(\002\022\020\n\005scale\030\002 \001(\002:\0011\"y\n\013Det"
+    "ectInput\022\r\n\005width\030\002 \002(\005\022\016\n\006height\030\003 \002(\005\022"
+    "\014\n\004data\030\004 \002(\014\"=\n\006Format\022\007\n\003JPG\020\000\022\007\n\003PNG\020"
+    "\001\022\007\n\003RGB\020\002\022\013\n\007YOV_420\020\003\022\013\n\007YOV_422\020\004\"(\n\014"
+    "DetectOutput\022\030\n\007results\030\001 \003(\0132\007.Result\"^"
+    "\n\006Result\022\014\n\004xmin\030\001 \002(\002\022\014\n\004ymin\030\002 \002(\002\022\014\n\004"
+    "xmax\030\003 \002(\002\022\014\n\004ymax\030\004 \002(\002\022\r\n\005clazz\030\005 \002(\005\022"
+    "\r\n\005score\030\006 \002(\002\"\261\001\n\016CommuParameter\022\032\n\007add"
+    "ress\030\001 \001(\t:\tlocalhost\022\023\n\004port\030\002 \001(\005:\005100"
+    "86\022\030\n\013client_name\030\003 \001(\t:\003web\022\'\n\004type\030\004 \001"
+    "(\0162\024.CommuParameter.Type:\003LOC\"+\n\004Type\022\007\n"
+    "\003LOC\020\000\022\007\n\003IPC\020\001\022\007\n\003TCP\020\003\022\010\n\004RTMP\020\004\"$\n\tCl"
+    "assMaps\022\027\n\004item\030\001 \003(\0132\t.ClassMap\"=\n\010Clas"
+    "sMap\022\014\n\004name\030\001 \002(\t\022\r\n\005label\030\002 \002(\005\022\024\n\014dis"
+    "play_name\030\003 \002(\t\"\"\n\006Cookie\022\n\n\002ID\030\001 \002(\t\022\014\n"
+    "\004name\030\002 \002(\t\"\034\n\013Bytetranfer\022\r\n\005count\030\002 \002("
+    "\005\")\n\013VLayerInfos\022\032\n\005infos\030\001 \003(\0132\013.VLayer"
+    "Info\"7\n\nVLayerInfo\022\r\n\005index\030\001 \002(\005\022\014\n\004nam"
+    "e\030\002 \002(\t\022\014\n\004type\030\003 \002(\t\"X\n\013VFeatureMap\022\r\n\005"
+    "width\030\001 \002(\005\022\016\n\006height\030\002 \002(\005\022\013\n\003num\030\003 \002(\005"
+    "\022\017\n\007channel\030\004 \002(\005\022\014\n\004data\030\005 \002(\014\"F\n\006VImag"
+    "e\022\r\n\005width\030\001 \002(\005\022\016\n\006height\030\002 \002(\005\022\017\n\007chan"
+    "nel\030\003 \002(\005\022\014\n\004data\030\004 \002(\014\"F\n\nVReqDeconv\022\017\n"
+    "\007i_layer\030\001 \002(\005\022\r\n\005i_map\030\002 \002(\005\022\030\n\tdo_deco"
+    "nv\030\003 \001(\010:\005false\"M\n\010VSetting\022\r\n\005model\030\001 \002"
+    "(\t\022\016\n\006solver\030\002 \002(\t\022\014\n\004test\030\003 \002(\t\022\024\n\010inte"
+    "rval\030\004 \001(\005:\002-1\"\255\001\n\tVResponse\022\035\n\004type\030\001 \002"
+    "(\0162\017.VResponse.Type\022\014\n\004data\030\002 \001(\014\"s\n\004Typ"
+    "e\022\n\n\006WEIGHT\020\001\022\016\n\nFEATUREMAP\020\002\022\016\n\nLAYERIN"
+    "FOS\020\003\022\t\n\005INPUT\020\004\022\n\n\006DECONV\020\005\022\007\n\003ALL\020\006\022\t\n"
+    "\005STATE\020\007\022\013\n\007SETTING\020\010\022\007\n\003REC\020\t\"\032\n\tVRecSt"
+    "ate\022\r\n\005state\030\001 \002(\005\"$\n\004VAll\022\034\n\010response\030\001"
+    " \003(\0132\n.VResponse\"D\n\013VReqFeature\022\017\n\007i_lay"
+    "er\030\001 \002(\005\022\017\n\007i_image\030\002 \002(\005\022\023\n\004diff\030\003 \001(\010:"
+    "\005false\"0\n\nVReqWeight\022\r\n\005index\030\001 \002(\005\022\023\n\004d"
+    "iff\030\002 \001(\010:\005false\"\204\001\n\006VState\022\022\n\004auto\030\001 \001("
+    "\010:\004true\022\021\n\005input\030\002 \001(\005:\002-1\022\031\n\003map\030\003 \001(\0132"
+    "\014.VReqFeature\022\033\n\006deconv\030\004 \001(\0132\013.VReqDeco"
+    "nv\022\033\n\006weight\030\005 \001(\0132\013.VReqWeightB\'\n\031com.z"
+    "oson.detection.protoB\nZosonProto", 1832);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "zoson.proto", &protobuf_RegisterTypes);
   TestProto::default_instance_ = new TestProto();
   DetectorParameter::default_instance_ = new DetectorParameter();
+  MeanValue::default_instance_ = new MeanValue();
   DetectInput::default_instance_ = new DetectInput();
   DetectOutput::default_instance_ = new DetectOutput();
   Result::default_instance_ = new Result();
@@ -639,12 +682,14 @@ void protobuf_AddDesc_zoson_2eproto() {
   VReqDeconv::default_instance_ = new VReqDeconv();
   VSetting::default_instance_ = new VSetting();
   VResponse::default_instance_ = new VResponse();
+  VRecState::default_instance_ = new VRecState();
   VAll::default_instance_ = new VAll();
   VReqFeature::default_instance_ = new VReqFeature();
   VReqWeight::default_instance_ = new VReqWeight();
   VState::default_instance_ = new VState();
   TestProto::default_instance_->InitAsDefaultInstance();
   DetectorParameter::default_instance_->InitAsDefaultInstance();
+  MeanValue::default_instance_->InitAsDefaultInstance();
   DetectInput::default_instance_->InitAsDefaultInstance();
   DetectOutput::default_instance_->InitAsDefaultInstance();
   Result::default_instance_->InitAsDefaultInstance();
@@ -660,6 +705,7 @@ void protobuf_AddDesc_zoson_2eproto() {
   VReqDeconv::default_instance_->InitAsDefaultInstance();
   VSetting::default_instance_->InitAsDefaultInstance();
   VResponse::default_instance_->InitAsDefaultInstance();
+  VRecState::default_instance_->InitAsDefaultInstance();
   VAll::default_instance_->InitAsDefaultInstance();
   VReqFeature::default_instance_->InitAsDefaultInstance();
   VReqWeight::default_instance_->InitAsDefaultInstance();
@@ -949,13 +995,10 @@ const int DetectorParameter::kNameFieldNumber;
 const int DetectorParameter::kModelFieldNumber;
 const int DetectorParameter::kWeightFieldNumber;
 const int DetectorParameter::kUseGpuFieldNumber;
-const int DetectorParameter::kDoVisFieldNumber;
-const int DetectorParameter::kFqVisFieldNumber;
-const int DetectorParameter::kThresholdFieldNumber;
-const int DetectorParameter::kSharedFieldNumber;
 const int DetectorParameter::kIstrainFieldNumber;
 const int DetectorParameter::kSolverFieldNumber;
-const int DetectorParameter::kSnapshotFieldNumber;
+const int DetectorParameter::kMeanFileFieldNumber;
+const int DetectorParameter::kMeanFieldNumber;
 #endif  // !_MSC_VER
 
 DetectorParameter::DetectorParameter()
@@ -965,6 +1008,7 @@ DetectorParameter::DetectorParameter()
 }
 
 void DetectorParameter::InitAsDefaultInstance() {
+  mean_ = const_cast< ::MeanValue*>(&::MeanValue::default_instance());
 }
 
 DetectorParameter::DetectorParameter(const DetectorParameter& from)
@@ -980,14 +1024,10 @@ void DetectorParameter::SharedCtor() {
   name_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   model_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   weight_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  use_gpu_ = true;
-  do_vis_ = false;
-  fq_vis_ = 10;
-  threshold_ = 0.5f;
-  shared_ = false;
   istrain_ = false;
   solver_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  snapshot_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  mean_file_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  mean_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1009,10 +1049,11 @@ void DetectorParameter::SharedDtor() {
   if (solver_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete solver_;
   }
-  if (snapshot_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete snapshot_;
+  if (mean_file_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete mean_file_;
   }
   if (this != default_instance_) {
+    delete mean_;
   }
 }
 
@@ -1038,18 +1079,7 @@ DetectorParameter* DetectorParameter::New() const {
 }
 
 void DetectorParameter::Clear() {
-#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
-  &reinterpret_cast<DetectorParameter*>(16)->f) - \
-   reinterpret_cast<char*>(16))
-
-#define ZR_(first, last) do {                              \
-    size_t f = OFFSET_OF_FIELD_(first);                    \
-    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
-    ::memset(&first, 0, n);                                \
-  } while (0)
-
-  if (_has_bits_[0 / 32] & 255) {
-    ZR_(do_vis_, shared_);
+  if (_has_bits_[0 / 32] & 247) {
     if (has_name()) {
       if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         name_->clear();
@@ -1065,27 +1095,22 @@ void DetectorParameter::Clear() {
         weight_->clear();
       }
     }
-    use_gpu_ = true;
-    fq_vis_ = 10;
-    threshold_ = 0.5f;
-  }
-  if (_has_bits_[8 / 32] & 1792) {
     istrain_ = false;
     if (has_solver()) {
       if (solver_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         solver_->clear();
       }
     }
-    if (has_snapshot()) {
-      if (snapshot_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        snapshot_->clear();
+    if (has_mean_file()) {
+      if (mean_file_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        mean_file_->clear();
       }
     }
+    if (has_mean()) {
+      if (mean_ != NULL) mean_->::MeanValue::Clear();
+    }
   }
-
-#undef OFFSET_OF_FIELD_
-#undef ZR_
-
+  use_gpu_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -1150,84 +1175,28 @@ bool DetectorParameter::MergePartialFromCodedStream(
         break;
       }
 
-      // optional bool use_gpu = 4 [default = true];
+      // repeated int32 use_gpu = 4;
       case 4: {
         if (tag == 32) {
          parse_use_gpu:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &use_gpu_)));
-          set_has_use_gpu();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 32, input, this->mutable_use_gpu())));
+        } else if (tag == 34) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_use_gpu())));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(40)) goto parse_do_vis;
+        if (input->ExpectTag(32)) goto parse_use_gpu;
+        if (input->ExpectTag(40)) goto parse_istrain;
         break;
       }
 
-      // optional bool do_vis = 5 [default = false];
+      // optional bool istrain = 5 [default = false];
       case 5: {
         if (tag == 40) {
-         parse_do_vis:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &do_vis_)));
-          set_has_do_vis();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(48)) goto parse_fq_vis;
-        break;
-      }
-
-      // optional int32 fq_vis = 6 [default = 10];
-      case 6: {
-        if (tag == 48) {
-         parse_fq_vis:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &fq_vis_)));
-          set_has_fq_vis();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(61)) goto parse_threshold;
-        break;
-      }
-
-      // optional float threshold = 7 [default = 0.5];
-      case 7: {
-        if (tag == 61) {
-         parse_threshold:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, &threshold_)));
-          set_has_threshold();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(64)) goto parse_shared;
-        break;
-      }
-
-      // optional bool shared = 8 [default = false];
-      case 8: {
-        if (tag == 64) {
-         parse_shared:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &shared_)));
-          set_has_shared();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(72)) goto parse_istrain;
-        break;
-      }
-
-      // optional bool istrain = 9 [default = false];
-      case 9: {
-        if (tag == 72) {
          parse_istrain:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -1236,13 +1205,13 @@ bool DetectorParameter::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(82)) goto parse_solver;
+        if (input->ExpectTag(50)) goto parse_solver;
         break;
       }
 
-      // optional string solver = 10;
-      case 10: {
-        if (tag == 82) {
+      // optional string solver = 6;
+      case 6: {
+        if (tag == 50) {
          parse_solver:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_solver()));
@@ -1253,20 +1222,33 @@ bool DetectorParameter::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(90)) goto parse_snapshot;
+        if (input->ExpectTag(58)) goto parse_mean_file;
         break;
       }
 
-      // optional string snapshot = 11;
-      case 11: {
-        if (tag == 90) {
-         parse_snapshot:
+      // optional string mean_file = 7;
+      case 7: {
+        if (tag == 58) {
+         parse_mean_file:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_snapshot()));
+                input, this->mutable_mean_file()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->snapshot().data(), this->snapshot().length(),
+            this->mean_file().data(), this->mean_file().length(),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "snapshot");
+            "mean_file");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(66)) goto parse_mean;
+        break;
+      }
+
+      // optional .MeanValue mean = 8;
+      case 8: {
+        if (tag == 66) {
+         parse_mean:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_mean()));
         } else {
           goto handle_unusual;
         }
@@ -1329,54 +1311,41 @@ void DetectorParameter::SerializeWithCachedSizes(
       3, this->weight(), output);
   }
 
-  // optional bool use_gpu = 4 [default = true];
-  if (has_use_gpu()) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->use_gpu(), output);
+  // repeated int32 use_gpu = 4;
+  for (int i = 0; i < this->use_gpu_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      4, this->use_gpu(i), output);
   }
 
-  // optional bool do_vis = 5 [default = false];
-  if (has_do_vis()) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->do_vis(), output);
-  }
-
-  // optional int32 fq_vis = 6 [default = 10];
-  if (has_fq_vis()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->fq_vis(), output);
-  }
-
-  // optional float threshold = 7 [default = 0.5];
-  if (has_threshold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(7, this->threshold(), output);
-  }
-
-  // optional bool shared = 8 [default = false];
-  if (has_shared()) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(8, this->shared(), output);
-  }
-
-  // optional bool istrain = 9 [default = false];
+  // optional bool istrain = 5 [default = false];
   if (has_istrain()) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(9, this->istrain(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->istrain(), output);
   }
 
-  // optional string solver = 10;
+  // optional string solver = 6;
   if (has_solver()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->solver().data(), this->solver().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "solver");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      10, this->solver(), output);
+      6, this->solver(), output);
   }
 
-  // optional string snapshot = 11;
-  if (has_snapshot()) {
+  // optional string mean_file = 7;
+  if (has_mean_file()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->snapshot().data(), this->snapshot().length(),
+      this->mean_file().data(), this->mean_file().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "snapshot");
+      "mean_file");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      11, this->snapshot(), output);
+      7, this->mean_file(), output);
+  }
+
+  // optional .MeanValue mean = 8;
+  if (has_mean()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      8, this->mean(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1422,37 +1391,18 @@ void DetectorParameter::SerializeWithCachedSizes(
         3, this->weight(), target);
   }
 
-  // optional bool use_gpu = 4 [default = true];
-  if (has_use_gpu()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->use_gpu(), target);
+  // repeated int32 use_gpu = 4;
+  for (int i = 0; i < this->use_gpu_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(4, this->use_gpu(i), target);
   }
 
-  // optional bool do_vis = 5 [default = false];
-  if (has_do_vis()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->do_vis(), target);
-  }
-
-  // optional int32 fq_vis = 6 [default = 10];
-  if (has_fq_vis()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->fq_vis(), target);
-  }
-
-  // optional float threshold = 7 [default = 0.5];
-  if (has_threshold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(7, this->threshold(), target);
-  }
-
-  // optional bool shared = 8 [default = false];
-  if (has_shared()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(8, this->shared(), target);
-  }
-
-  // optional bool istrain = 9 [default = false];
+  // optional bool istrain = 5 [default = false];
   if (has_istrain()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(9, this->istrain(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->istrain(), target);
   }
 
-  // optional string solver = 10;
+  // optional string solver = 6;
   if (has_solver()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->solver().data(), this->solver().length(),
@@ -1460,18 +1410,25 @@ void DetectorParameter::SerializeWithCachedSizes(
       "solver");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        10, this->solver(), target);
+        6, this->solver(), target);
   }
 
-  // optional string snapshot = 11;
-  if (has_snapshot()) {
+  // optional string mean_file = 7;
+  if (has_mean_file()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->snapshot().data(), this->snapshot().length(),
+      this->mean_file().data(), this->mean_file().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "snapshot");
+      "mean_file");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        11, this->snapshot(), target);
+        7, this->mean_file(), target);
+  }
+
+  // optional .MeanValue mean = 8;
+  if (has_mean()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        8, this->mean(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1507,55 +1464,43 @@ int DetectorParameter::ByteSize() const {
           this->weight());
     }
 
-    // optional bool use_gpu = 4 [default = true];
-    if (has_use_gpu()) {
-      total_size += 1 + 1;
-    }
-
-    // optional bool do_vis = 5 [default = false];
-    if (has_do_vis()) {
-      total_size += 1 + 1;
-    }
-
-    // optional int32 fq_vis = 6 [default = 10];
-    if (has_fq_vis()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->fq_vis());
-    }
-
-    // optional float threshold = 7 [default = 0.5];
-    if (has_threshold()) {
-      total_size += 1 + 4;
-    }
-
-    // optional bool shared = 8 [default = false];
-    if (has_shared()) {
-      total_size += 1 + 1;
-    }
-
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional bool istrain = 9 [default = false];
+    // optional bool istrain = 5 [default = false];
     if (has_istrain()) {
       total_size += 1 + 1;
     }
 
-    // optional string solver = 10;
+    // optional string solver = 6;
     if (has_solver()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->solver());
     }
 
-    // optional string snapshot = 11;
-    if (has_snapshot()) {
+    // optional string mean_file = 7;
+    if (has_mean_file()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->snapshot());
+          this->mean_file());
+    }
+
+    // optional .MeanValue mean = 8;
+    if (has_mean()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->mean());
     }
 
   }
+  // repeated int32 use_gpu = 4;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->use_gpu_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->use_gpu(i));
+    }
+    total_size += 1 * this->use_gpu_size() + data_size;
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -1581,6 +1526,7 @@ void DetectorParameter::MergeFrom(const ::google::protobuf::Message& from) {
 
 void DetectorParameter::MergeFrom(const DetectorParameter& from) {
   GOOGLE_CHECK_NE(&from, this);
+  use_gpu_.MergeFrom(from.use_gpu_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_name()) {
       set_name(from.name());
@@ -1591,31 +1537,17 @@ void DetectorParameter::MergeFrom(const DetectorParameter& from) {
     if (from.has_weight()) {
       set_weight(from.weight());
     }
-    if (from.has_use_gpu()) {
-      set_use_gpu(from.use_gpu());
-    }
-    if (from.has_do_vis()) {
-      set_do_vis(from.do_vis());
-    }
-    if (from.has_fq_vis()) {
-      set_fq_vis(from.fq_vis());
-    }
-    if (from.has_threshold()) {
-      set_threshold(from.threshold());
-    }
-    if (from.has_shared()) {
-      set_shared(from.shared());
-    }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_istrain()) {
       set_istrain(from.istrain());
     }
     if (from.has_solver()) {
       set_solver(from.solver());
     }
-    if (from.has_snapshot()) {
-      set_snapshot(from.snapshot());
+    if (from.has_mean_file()) {
+      set_mean_file(from.mean_file());
+    }
+    if (from.has_mean()) {
+      mutable_mean()->::MeanValue::MergeFrom(from.mean());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1644,14 +1576,11 @@ void DetectorParameter::Swap(DetectorParameter* other) {
     std::swap(name_, other->name_);
     std::swap(model_, other->model_);
     std::swap(weight_, other->weight_);
-    std::swap(use_gpu_, other->use_gpu_);
-    std::swap(do_vis_, other->do_vis_);
-    std::swap(fq_vis_, other->fq_vis_);
-    std::swap(threshold_, other->threshold_);
-    std::swap(shared_, other->shared_);
+    use_gpu_.Swap(&other->use_gpu_);
     std::swap(istrain_, other->istrain_);
     std::swap(solver_, other->solver_);
-    std::swap(snapshot_, other->snapshot_);
+    std::swap(mean_file_, other->mean_file_);
+    std::swap(mean_, other->mean_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -1663,6 +1592,269 @@ void DetectorParameter::Swap(DetectorParameter* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = DetectorParameter_descriptor_;
   metadata.reflection = DetectorParameter_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int MeanValue::kValueFieldNumber;
+const int MeanValue::kScaleFieldNumber;
+#endif  // !_MSC_VER
+
+MeanValue::MeanValue()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:MeanValue)
+}
+
+void MeanValue::InitAsDefaultInstance() {
+}
+
+MeanValue::MeanValue(const MeanValue& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:MeanValue)
+}
+
+void MeanValue::SharedCtor() {
+  _cached_size_ = 0;
+  scale_ = 1;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+MeanValue::~MeanValue() {
+  // @@protoc_insertion_point(destructor:MeanValue)
+  SharedDtor();
+}
+
+void MeanValue::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void MeanValue::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* MeanValue::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return MeanValue_descriptor_;
+}
+
+const MeanValue& MeanValue::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_zoson_2eproto();
+  return *default_instance_;
+}
+
+MeanValue* MeanValue::default_instance_ = NULL;
+
+MeanValue* MeanValue::New() const {
+  return new MeanValue;
+}
+
+void MeanValue::Clear() {
+  scale_ = 1;
+  value_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool MeanValue::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:MeanValue)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated float value = 1;
+      case 1: {
+        if (tag == 13) {
+         parse_value:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 1, 13, input, this->mutable_value())));
+        } else if (tag == 10) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, this->mutable_value())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(13)) goto parse_value;
+        if (input->ExpectTag(21)) goto parse_scale;
+        break;
+      }
+
+      // optional float scale = 2 [default = 1];
+      case 2: {
+        if (tag == 21) {
+         parse_scale:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &scale_)));
+          set_has_scale();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:MeanValue)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:MeanValue)
+  return false;
+#undef DO_
+}
+
+void MeanValue::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:MeanValue)
+  // repeated float value = 1;
+  for (int i = 0; i < this->value_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(
+      1, this->value(i), output);
+  }
+
+  // optional float scale = 2 [default = 1];
+  if (has_scale()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->scale(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:MeanValue)
+}
+
+::google::protobuf::uint8* MeanValue::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:MeanValue)
+  // repeated float value = 1;
+  for (int i = 0; i < this->value_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteFloatToArray(1, this->value(i), target);
+  }
+
+  // optional float scale = 2 [default = 1];
+  if (has_scale()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->scale(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:MeanValue)
+  return target;
+}
+
+int MeanValue::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    // optional float scale = 2 [default = 1];
+    if (has_scale()) {
+      total_size += 1 + 4;
+    }
+
+  }
+  // repeated float value = 1;
+  {
+    int data_size = 0;
+    data_size = 4 * this->value_size();
+    total_size += 1 * this->value_size() + data_size;
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void MeanValue::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const MeanValue* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const MeanValue*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void MeanValue::MergeFrom(const MeanValue& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  value_.MergeFrom(from.value_);
+  if (from._has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    if (from.has_scale()) {
+      set_scale(from.scale());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void MeanValue::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void MeanValue::CopyFrom(const MeanValue& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MeanValue::IsInitialized() const {
+
+  return true;
+}
+
+void MeanValue::Swap(MeanValue* other) {
+  if (other != this) {
+    value_.Swap(&other->value_);
+    std::swap(scale_, other->scale_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata MeanValue::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = MeanValue_descriptor_;
+  metadata.reflection = MeanValue_reflection_;
   return metadata;
 }
 
@@ -6224,6 +6416,7 @@ bool VResponse_Type_IsValid(int value) {
     case 6:
     case 7:
     case 8:
+    case 9:
       return true;
     default:
       return false;
@@ -6239,6 +6432,7 @@ const VResponse_Type VResponse::DECONV;
 const VResponse_Type VResponse::ALL;
 const VResponse_Type VResponse::STATE;
 const VResponse_Type VResponse::SETTING;
+const VResponse_Type VResponse::REC;
 const VResponse_Type VResponse::Type_MIN;
 const VResponse_Type VResponse::Type_MAX;
 const int VResponse::Type_ARRAYSIZE;
@@ -6516,6 +6710,229 @@ void VResponse::Swap(VResponse* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = VResponse_descriptor_;
   metadata.reflection = VResponse_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int VRecState::kStateFieldNumber;
+#endif  // !_MSC_VER
+
+VRecState::VRecState()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:VRecState)
+}
+
+void VRecState::InitAsDefaultInstance() {
+}
+
+VRecState::VRecState(const VRecState& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:VRecState)
+}
+
+void VRecState::SharedCtor() {
+  _cached_size_ = 0;
+  state_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+VRecState::~VRecState() {
+  // @@protoc_insertion_point(destructor:VRecState)
+  SharedDtor();
+}
+
+void VRecState::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void VRecState::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* VRecState::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return VRecState_descriptor_;
+}
+
+const VRecState& VRecState::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_zoson_2eproto();
+  return *default_instance_;
+}
+
+VRecState* VRecState::default_instance_ = NULL;
+
+VRecState* VRecState::New() const {
+  return new VRecState;
+}
+
+void VRecState::Clear() {
+  state_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool VRecState::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:VRecState)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 state = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &state_)));
+          set_has_state();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:VRecState)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:VRecState)
+  return false;
+#undef DO_
+}
+
+void VRecState::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:VRecState)
+  // required int32 state = 1;
+  if (has_state()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->state(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:VRecState)
+}
+
+::google::protobuf::uint8* VRecState::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:VRecState)
+  // required int32 state = 1;
+  if (has_state()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->state(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:VRecState)
+  return target;
+}
+
+int VRecState::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 state = 1;
+    if (has_state()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->state());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void VRecState::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const VRecState* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const VRecState*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void VRecState::MergeFrom(const VRecState& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_state()) {
+      set_state(from.state());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void VRecState::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void VRecState::CopyFrom(const VRecState& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool VRecState::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void VRecState::Swap(VRecState* other) {
+  if (other != this) {
+    std::swap(state_, other->state_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata VRecState::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = VRecState_descriptor_;
+  metadata.reflection = VRecState_reflection_;
   return metadata;
 }
 

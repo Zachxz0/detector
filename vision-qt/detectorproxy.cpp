@@ -44,15 +44,40 @@ void DetectorProxy::getFeatureMap(ITCMsg* itcmsg)
     if(w>100)res = 160;
     if(w>150)res = 200;
     unsigned char *map_data = new unsigned char[c*n*res*res];
-       //以下是设置第一行的所有列的图片
-    for(int i=0; i<c*n; i++)
+    if(c==3)
     {
-        cv::Mat image(h,w,CV_8UC1);
-        memcpy(image.data,weights+i*w*h,w*h);
-        cv::Mat dst;
-        cv::resize(image, dst, cv::Size(res, res ),(0, 0), (0, 0), cv::INTER_LINEAR);
-        memcpy(map_data+res*res*i,dst.data,res*res*sizeof(unsigned char));
+        int image_index=0;
+        //以下是设置第一行的所有列的图片
+         for(int i=0; i<n; i++)
+         {
+             cv::Mat image(h,w,CV_8UC3);
+             for(int a=0;a<h;++a)
+             {
+                 for(int j=0;j<w;++j)
+                 {
+                     for(int k=0;k<3;++k)
+                     {
+                         image.data[image_index++] = weights[k*w*h+h*a+j+res*res*c*i];
+                     }
+                 }
+             }
+             //memcpy(image.data,weights+i*w*h,w*h);
+             cv::Mat dst;
+             cv::resize(image, dst, cv::Size(res, res ),(0, 0), (0, 0), cv::INTER_LINEAR);
+             memcpy(map_data+res*res*i*c,dst.data,3*res*res*sizeof(unsigned char));
+         }
+    }else{
+        //以下是设置第一行的所有列的图片
+         for(int i=0; i<c*n; i++)
+         {
+             cv::Mat image(h,w,CV_8UC1);
+             memcpy(image.data,weights+i*w*h,w*h);
+             cv::Mat dst;
+             cv::resize(image, dst, cv::Size(res, res ),(0, 0), (0, 0), cv::INTER_LINEAR);
+             memcpy(map_data+res*res*i,dst.data,res*res*sizeof(unsigned char));
+         }
     }
+
 
     emit this->recFeature(res,res,c,n,map_data);
     delete itcmsg;
@@ -66,21 +91,37 @@ void DetectorProxy::getDeconv(ITCMsg* itcmsg)
     int h = im->height();
     int c = im->channel();
     unsigned char* weights = (unsigned char*)const_cast<char*>(im->data().data());
-    unsigned char* image = new unsigned char[w*h*c];
     int image_index = 0;
+    cv::Mat rgb(h,w,CV_8UC3);
     for(int i=0;i<h;++i)
     {
         for(int j=0;j<w;++j)
         {
             for(int k=0;k<3;++k)
             {
-                image[image_index++] = weights[k*w*h+h*i+j];
+                rgb.data[image_index++] = weights[k*w*h+h*i+j];
             }
         }
     }
+    int num = 0;//weishu
+    while(w>10)
+    {
+        w/=10;
+        num++;
+    }
+    for(int i=0;i<num;++i)w*=10;
+    while(h>10)
+    {
+        h/=10;
+        num++;
+    }
+    for(int i=0;i<num;++i)h*=10;
+    cv::Mat dst;
+    cv::resize(rgb, dst, cv::Size(w, h ),(0, 0), (0, 0), cv::INTER_LINEAR);
+    unsigned char* image = new unsigned char[w*h*c];
+    memcpy(image,dst.data,w*h*c);
     emit this->recDeconv(w,h,c,image);
     delete itcmsg;
-    //delete image;
 }
 
 void DetectorProxy::getInput(ITCMsg* itcmsg)
@@ -90,7 +131,7 @@ void DetectorProxy::getInput(ITCMsg* itcmsg)
     int h = im->height();
     int c = im->channel();
     unsigned char* weights = (unsigned char*)const_cast<char*>(im->data().c_str());
-    unsigned char* image = new unsigned char[w*h*c];
+    cv::Mat rgb(h,w,CV_8UC3);
     int image_index = 0;
     for(int i=0;i<h;++i)
     {
@@ -98,14 +139,29 @@ void DetectorProxy::getInput(ITCMsg* itcmsg)
         {
             for(int k=0;k<3;++k)
             {
-                image[image_index++] = weights[k*w*h+h*i+j];
+                rgb.data[image_index++] = weights[k*w*h+h*i+j];
             }
         }
     }
+    int num = 0;//weishu
+    while(w>10)
+    {
+        w/=10;
+        num++;
+    }
+    for(int i=0;i<num;++i)w*=10;
+    while(h>10)
+    {
+        h/=10;
+        num++;
+    }
+    for(int i=0;i<num;++i)h*=10;
+    cv::Mat dst;
+    cv::resize(rgb, dst, cv::Size(w, h ),(0, 0), (0, 0), cv::INTER_LINEAR);
+    unsigned char* image = new unsigned char[w*h*c];
+    memcpy(image,dst.data,w*h*c);
     emit this->recInput(w,h,c,image);
     delete itcmsg;
-    //delete image;
-
 }
 
 void DetectorProxy::getLayerInfo(ITCMsg*itcmsg)
