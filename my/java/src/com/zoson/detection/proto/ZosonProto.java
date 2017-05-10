@@ -8,10 +8,10 @@ public final class ZosonProto {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface TestProtoOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface TestProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:TestProto)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required int32 clazz_num = 1;
     /**
      * <code>required int32 clazz_num = 1;</code>
      */
@@ -21,7 +21,6 @@ public final class ZosonProto {
      */
     int getClazzNum();
 
-    // repeated int32 dim = 2;
     /**
      * <code>repeated int32 dim = 2;</code>
      */
@@ -39,8 +38,9 @@ public final class ZosonProto {
    * Protobuf type {@code TestProto}
    */
   public static final class TestProto extends
-      com.google.protobuf.GeneratedMessage
-      implements TestProtoOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:TestProto)
+      TestProtoOrBuilder {
     // Use TestProto.newBuilder() to construct.
     private TestProto(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -155,7 +155,6 @@ public final class ZosonProto {
     }
 
     private int bitField0_;
-    // required int32 clazz_num = 1;
     public static final int CLAZZ_NUM_FIELD_NUMBER = 1;
     private int clazzNum_;
     /**
@@ -171,7 +170,6 @@ public final class ZosonProto {
       return clazzNum_;
     }
 
-    // repeated int32 dim = 2;
     public static final int DIM_FIELD_NUMBER = 2;
     private java.util.List<java.lang.Integer> dim_;
     /**
@@ -201,7 +199,8 @@ public final class ZosonProto {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasClazzNum()) {
         memoizedIsInitialized = 0;
@@ -324,8 +323,9 @@ public final class ZosonProto {
      * Protobuf type {@code TestProto}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.TestProtoOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:TestProto)
+        com.zoson.detection.proto.ZosonProto.TestProtoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.zoson.detection.proto.ZosonProto.internal_static_TestProto_descriptor;
@@ -459,7 +459,6 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // required int32 clazz_num = 1;
       private int clazzNum_ ;
       /**
        * <code>required int32 clazz_num = 1;</code>
@@ -492,7 +491,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // repeated int32 dim = 2;
       private java.util.List<java.lang.Integer> dim_ = java.util.Collections.emptyList();
       private void ensureDimIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
@@ -544,7 +542,8 @@ public final class ZosonProto {
       public Builder addAllDim(
           java.lang.Iterable<? extends java.lang.Integer> values) {
         ensureDimIsMutable();
-        super.addAll(values, dim_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, dim_);
         onChanged();
         return this;
       }
@@ -569,84 +568,87 @@ public final class ZosonProto {
     // @@protoc_insertion_point(class_scope:TestProto)
   }
 
-  public interface ContextParameterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface DContextParameterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DContextParameter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .DetectorParameter detector = 1;
     /**
-     * <code>required .DetectorParameter detector = 1;</code>
+     * <code>repeated .DModel model = 1;</code>
+     *
+     * <pre>
+     *prototxt path
+     * </pre>
      */
-    boolean hasDetector();
+    java.util.List<com.zoson.detection.proto.ZosonProto.DModel> 
+        getModelList();
     /**
-     * <code>required .DetectorParameter detector = 1;</code>
+     * <code>repeated .DModel model = 1;</code>
+     *
+     * <pre>
+     *prototxt path
+     * </pre>
      */
-    com.zoson.detection.proto.ZosonProto.DetectorParameter getDetector();
+    com.zoson.detection.proto.ZosonProto.DModel getModel(int index);
     /**
-     * <code>required .DetectorParameter detector = 1;</code>
+     * <code>repeated .DModel model = 1;</code>
+     *
+     * <pre>
+     *prototxt path
+     * </pre>
      */
-    com.zoson.detection.proto.ZosonProto.DetectorParameterOrBuilder getDetectorOrBuilder();
+    int getModelCount();
+    /**
+     * <code>repeated .DModel model = 1;</code>
+     *
+     * <pre>
+     *prototxt path
+     * </pre>
+     */
+    java.util.List<? extends com.zoson.detection.proto.ZosonProto.DModelOrBuilder> 
+        getModelOrBuilderList();
+    /**
+     * <code>repeated .DModel model = 1;</code>
+     *
+     * <pre>
+     *prototxt path
+     * </pre>
+     */
+    com.zoson.detection.proto.ZosonProto.DModelOrBuilder getModelOrBuilder(
+        int index);
 
-    // required .InputParameter input = 2;
     /**
-     * <code>required .InputParameter input = 2;</code>
-     */
-    boolean hasInput();
-    /**
-     * <code>required .InputParameter input = 2;</code>
-     */
-    com.zoson.detection.proto.ZosonProto.InputParameter getInput();
-    /**
-     * <code>required .InputParameter input = 2;</code>
-     */
-    com.zoson.detection.proto.ZosonProto.InputParameterOrBuilder getInputOrBuilder();
-
-    // optional .OutputParameter output = 3;
-    /**
-     * <code>optional .OutputParameter output = 3;</code>
-     */
-    boolean hasOutput();
-    /**
-     * <code>optional .OutputParameter output = 3;</code>
-     */
-    com.zoson.detection.proto.ZosonProto.OutputParameter getOutput();
-    /**
-     * <code>optional .OutputParameter output = 3;</code>
-     */
-    com.zoson.detection.proto.ZosonProto.OutputParameterOrBuilder getOutputOrBuilder();
-
-    // optional .CommuParameter commu = 4;
-    /**
-     * <code>optional .CommuParameter commu = 4;</code>
+     * <code>optional .CommuParameter commu = 3;</code>
      */
     boolean hasCommu();
     /**
-     * <code>optional .CommuParameter commu = 4;</code>
+     * <code>optional .CommuParameter commu = 3;</code>
      */
     com.zoson.detection.proto.ZosonProto.CommuParameter getCommu();
     /**
-     * <code>optional .CommuParameter commu = 4;</code>
+     * <code>optional .CommuParameter commu = 3;</code>
      */
     com.zoson.detection.proto.ZosonProto.CommuParameterOrBuilder getCommuOrBuilder();
   }
   /**
-   * Protobuf type {@code ContextParameter}
+   * Protobuf type {@code DContextParameter}
    */
-  public static final class ContextParameter extends
-      com.google.protobuf.GeneratedMessage
-      implements ContextParameterOrBuilder {
-    // Use ContextParameter.newBuilder() to construct.
-    private ContextParameter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+  public static final class DContextParameter extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:DContextParameter)
+      DContextParameterOrBuilder {
+    // Use DContextParameter.newBuilder() to construct.
+    private DContextParameter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private ContextParameter(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private DContextParameter(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final ContextParameter defaultInstance;
-    public static ContextParameter getDefaultInstance() {
+    private static final DContextParameter defaultInstance;
+    public static DContextParameter getDefaultInstance() {
       return defaultInstance;
     }
 
-    public ContextParameter getDefaultInstanceForType() {
+    public DContextParameter getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -656,7 +658,7 @@ public final class ZosonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private ContextParameter(
+    private DContextParameter(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -680,47 +682,16 @@ public final class ZosonProto {
               break;
             }
             case 10: {
-              com.zoson.detection.proto.ZosonProto.DetectorParameter.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = detector_.toBuilder();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                model_ = new java.util.ArrayList<com.zoson.detection.proto.ZosonProto.DModel>();
+                mutable_bitField0_ |= 0x00000001;
               }
-              detector_ = input.readMessage(com.zoson.detection.proto.ZosonProto.DetectorParameter.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(detector_);
-                detector_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 18: {
-              com.zoson.detection.proto.ZosonProto.InputParameter.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = input_.toBuilder();
-              }
-              input_ = input.readMessage(com.zoson.detection.proto.ZosonProto.InputParameter.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(input_);
-                input_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000002;
+              model_.add(input.readMessage(com.zoson.detection.proto.ZosonProto.DModel.PARSER, extensionRegistry));
               break;
             }
             case 26: {
-              com.zoson.detection.proto.ZosonProto.OutputParameter.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                subBuilder = output_.toBuilder();
-              }
-              output_ = input.readMessage(com.zoson.detection.proto.ZosonProto.OutputParameter.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(output_);
-                output_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000004;
-              break;
-            }
-            case 34: {
               com.zoson.detection.proto.ZosonProto.CommuParameter.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
                 subBuilder = commu_.toBuilder();
               }
               commu_ = input.readMessage(com.zoson.detection.proto.ZosonProto.CommuParameter.PARSER, extensionRegistry);
@@ -728,7 +699,979 @@ public final class ZosonProto {
                 subBuilder.mergeFrom(commu_);
                 commu_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000001;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          model_ = java.util.Collections.unmodifiableList(model_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.zoson.detection.proto.ZosonProto.internal_static_DContextParameter_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.zoson.detection.proto.ZosonProto.internal_static_DContextParameter_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.zoson.detection.proto.ZosonProto.DContextParameter.class, com.zoson.detection.proto.ZosonProto.DContextParameter.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<DContextParameter> PARSER =
+        new com.google.protobuf.AbstractParser<DContextParameter>() {
+      public DContextParameter parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DContextParameter(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DContextParameter> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int MODEL_FIELD_NUMBER = 1;
+    private java.util.List<com.zoson.detection.proto.ZosonProto.DModel> model_;
+    /**
+     * <code>repeated .DModel model = 1;</code>
+     *
+     * <pre>
+     *prototxt path
+     * </pre>
+     */
+    public java.util.List<com.zoson.detection.proto.ZosonProto.DModel> getModelList() {
+      return model_;
+    }
+    /**
+     * <code>repeated .DModel model = 1;</code>
+     *
+     * <pre>
+     *prototxt path
+     * </pre>
+     */
+    public java.util.List<? extends com.zoson.detection.proto.ZosonProto.DModelOrBuilder> 
+        getModelOrBuilderList() {
+      return model_;
+    }
+    /**
+     * <code>repeated .DModel model = 1;</code>
+     *
+     * <pre>
+     *prototxt path
+     * </pre>
+     */
+    public int getModelCount() {
+      return model_.size();
+    }
+    /**
+     * <code>repeated .DModel model = 1;</code>
+     *
+     * <pre>
+     *prototxt path
+     * </pre>
+     */
+    public com.zoson.detection.proto.ZosonProto.DModel getModel(int index) {
+      return model_.get(index);
+    }
+    /**
+     * <code>repeated .DModel model = 1;</code>
+     *
+     * <pre>
+     *prototxt path
+     * </pre>
+     */
+    public com.zoson.detection.proto.ZosonProto.DModelOrBuilder getModelOrBuilder(
+        int index) {
+      return model_.get(index);
+    }
+
+    public static final int COMMU_FIELD_NUMBER = 3;
+    private com.zoson.detection.proto.ZosonProto.CommuParameter commu_;
+    /**
+     * <code>optional .CommuParameter commu = 3;</code>
+     */
+    public boolean hasCommu() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional .CommuParameter commu = 3;</code>
+     */
+    public com.zoson.detection.proto.ZosonProto.CommuParameter getCommu() {
+      return commu_;
+    }
+    /**
+     * <code>optional .CommuParameter commu = 3;</code>
+     */
+    public com.zoson.detection.proto.ZosonProto.CommuParameterOrBuilder getCommuOrBuilder() {
+      return commu_;
+    }
+
+    private void initFields() {
+      model_ = java.util.Collections.emptyList();
+      commu_ = com.zoson.detection.proto.ZosonProto.CommuParameter.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      for (int i = 0; i < getModelCount(); i++) {
+        if (!getModel(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < model_.size(); i++) {
+        output.writeMessage(1, model_.get(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(3, commu_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < model_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, model_.get(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, commu_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.zoson.detection.proto.ZosonProto.DContextParameter parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zoson.detection.proto.ZosonProto.DContextParameter parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.DContextParameter parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zoson.detection.proto.ZosonProto.DContextParameter parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.DContextParameter parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.DContextParameter parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.DContextParameter parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.DContextParameter parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.DContextParameter parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.DContextParameter parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.zoson.detection.proto.ZosonProto.DContextParameter prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code DContextParameter}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:DContextParameter)
+        com.zoson.detection.proto.ZosonProto.DContextParameterOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_DContextParameter_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_DContextParameter_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.zoson.detection.proto.ZosonProto.DContextParameter.class, com.zoson.detection.proto.ZosonProto.DContextParameter.Builder.class);
+      }
+
+      // Construct using com.zoson.detection.proto.ZosonProto.DContextParameter.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getModelFieldBuilder();
+          getCommuFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (modelBuilder_ == null) {
+          model_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          modelBuilder_.clear();
+        }
+        if (commuBuilder_ == null) {
+          commu_ = com.zoson.detection.proto.ZosonProto.CommuParameter.getDefaultInstance();
+        } else {
+          commuBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_DContextParameter_descriptor;
+      }
+
+      public com.zoson.detection.proto.ZosonProto.DContextParameter getDefaultInstanceForType() {
+        return com.zoson.detection.proto.ZosonProto.DContextParameter.getDefaultInstance();
+      }
+
+      public com.zoson.detection.proto.ZosonProto.DContextParameter build() {
+        com.zoson.detection.proto.ZosonProto.DContextParameter result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.zoson.detection.proto.ZosonProto.DContextParameter buildPartial() {
+        com.zoson.detection.proto.ZosonProto.DContextParameter result = new com.zoson.detection.proto.ZosonProto.DContextParameter(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (modelBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            model_ = java.util.Collections.unmodifiableList(model_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.model_ = model_;
+        } else {
+          result.model_ = modelBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (commuBuilder_ == null) {
+          result.commu_ = commu_;
+        } else {
+          result.commu_ = commuBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.zoson.detection.proto.ZosonProto.DContextParameter) {
+          return mergeFrom((com.zoson.detection.proto.ZosonProto.DContextParameter)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.DContextParameter other) {
+        if (other == com.zoson.detection.proto.ZosonProto.DContextParameter.getDefaultInstance()) return this;
+        if (modelBuilder_ == null) {
+          if (!other.model_.isEmpty()) {
+            if (model_.isEmpty()) {
+              model_ = other.model_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureModelIsMutable();
+              model_.addAll(other.model_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.model_.isEmpty()) {
+            if (modelBuilder_.isEmpty()) {
+              modelBuilder_.dispose();
+              modelBuilder_ = null;
+              model_ = other.model_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              modelBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getModelFieldBuilder() : null;
+            } else {
+              modelBuilder_.addAllMessages(other.model_);
+            }
+          }
+        }
+        if (other.hasCommu()) {
+          mergeCommu(other.getCommu());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        for (int i = 0; i < getModelCount(); i++) {
+          if (!getModel(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.zoson.detection.proto.ZosonProto.DContextParameter parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.zoson.detection.proto.ZosonProto.DContextParameter) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.zoson.detection.proto.ZosonProto.DModel> model_ =
+        java.util.Collections.emptyList();
+      private void ensureModelIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          model_ = new java.util.ArrayList<com.zoson.detection.proto.ZosonProto.DModel>(model_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.zoson.detection.proto.ZosonProto.DModel, com.zoson.detection.proto.ZosonProto.DModel.Builder, com.zoson.detection.proto.ZosonProto.DModelOrBuilder> modelBuilder_;
+
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public java.util.List<com.zoson.detection.proto.ZosonProto.DModel> getModelList() {
+        if (modelBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(model_);
+        } else {
+          return modelBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public int getModelCount() {
+        if (modelBuilder_ == null) {
+          return model_.size();
+        } else {
+          return modelBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public com.zoson.detection.proto.ZosonProto.DModel getModel(int index) {
+        if (modelBuilder_ == null) {
+          return model_.get(index);
+        } else {
+          return modelBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public Builder setModel(
+          int index, com.zoson.detection.proto.ZosonProto.DModel value) {
+        if (modelBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureModelIsMutable();
+          model_.set(index, value);
+          onChanged();
+        } else {
+          modelBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public Builder setModel(
+          int index, com.zoson.detection.proto.ZosonProto.DModel.Builder builderForValue) {
+        if (modelBuilder_ == null) {
+          ensureModelIsMutable();
+          model_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          modelBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public Builder addModel(com.zoson.detection.proto.ZosonProto.DModel value) {
+        if (modelBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureModelIsMutable();
+          model_.add(value);
+          onChanged();
+        } else {
+          modelBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public Builder addModel(
+          int index, com.zoson.detection.proto.ZosonProto.DModel value) {
+        if (modelBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureModelIsMutable();
+          model_.add(index, value);
+          onChanged();
+        } else {
+          modelBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public Builder addModel(
+          com.zoson.detection.proto.ZosonProto.DModel.Builder builderForValue) {
+        if (modelBuilder_ == null) {
+          ensureModelIsMutable();
+          model_.add(builderForValue.build());
+          onChanged();
+        } else {
+          modelBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public Builder addModel(
+          int index, com.zoson.detection.proto.ZosonProto.DModel.Builder builderForValue) {
+        if (modelBuilder_ == null) {
+          ensureModelIsMutable();
+          model_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          modelBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public Builder addAllModel(
+          java.lang.Iterable<? extends com.zoson.detection.proto.ZosonProto.DModel> values) {
+        if (modelBuilder_ == null) {
+          ensureModelIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, model_);
+          onChanged();
+        } else {
+          modelBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public Builder clearModel() {
+        if (modelBuilder_ == null) {
+          model_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          modelBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public Builder removeModel(int index) {
+        if (modelBuilder_ == null) {
+          ensureModelIsMutable();
+          model_.remove(index);
+          onChanged();
+        } else {
+          modelBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public com.zoson.detection.proto.ZosonProto.DModel.Builder getModelBuilder(
+          int index) {
+        return getModelFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public com.zoson.detection.proto.ZosonProto.DModelOrBuilder getModelOrBuilder(
+          int index) {
+        if (modelBuilder_ == null) {
+          return model_.get(index);  } else {
+          return modelBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public java.util.List<? extends com.zoson.detection.proto.ZosonProto.DModelOrBuilder> 
+           getModelOrBuilderList() {
+        if (modelBuilder_ != null) {
+          return modelBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(model_);
+        }
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public com.zoson.detection.proto.ZosonProto.DModel.Builder addModelBuilder() {
+        return getModelFieldBuilder().addBuilder(
+            com.zoson.detection.proto.ZosonProto.DModel.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public com.zoson.detection.proto.ZosonProto.DModel.Builder addModelBuilder(
+          int index) {
+        return getModelFieldBuilder().addBuilder(
+            index, com.zoson.detection.proto.ZosonProto.DModel.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .DModel model = 1;</code>
+       *
+       * <pre>
+       *prototxt path
+       * </pre>
+       */
+      public java.util.List<com.zoson.detection.proto.ZosonProto.DModel.Builder> 
+           getModelBuilderList() {
+        return getModelFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.zoson.detection.proto.ZosonProto.DModel, com.zoson.detection.proto.ZosonProto.DModel.Builder, com.zoson.detection.proto.ZosonProto.DModelOrBuilder> 
+          getModelFieldBuilder() {
+        if (modelBuilder_ == null) {
+          modelBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.zoson.detection.proto.ZosonProto.DModel, com.zoson.detection.proto.ZosonProto.DModel.Builder, com.zoson.detection.proto.ZosonProto.DModelOrBuilder>(
+                  model_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          model_ = null;
+        }
+        return modelBuilder_;
+      }
+
+      private com.zoson.detection.proto.ZosonProto.CommuParameter commu_ = com.zoson.detection.proto.ZosonProto.CommuParameter.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.zoson.detection.proto.ZosonProto.CommuParameter, com.zoson.detection.proto.ZosonProto.CommuParameter.Builder, com.zoson.detection.proto.ZosonProto.CommuParameterOrBuilder> commuBuilder_;
+      /**
+       * <code>optional .CommuParameter commu = 3;</code>
+       */
+      public boolean hasCommu() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional .CommuParameter commu = 3;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.CommuParameter getCommu() {
+        if (commuBuilder_ == null) {
+          return commu_;
+        } else {
+          return commuBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .CommuParameter commu = 3;</code>
+       */
+      public Builder setCommu(com.zoson.detection.proto.ZosonProto.CommuParameter value) {
+        if (commuBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          commu_ = value;
+          onChanged();
+        } else {
+          commuBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .CommuParameter commu = 3;</code>
+       */
+      public Builder setCommu(
+          com.zoson.detection.proto.ZosonProto.CommuParameter.Builder builderForValue) {
+        if (commuBuilder_ == null) {
+          commu_ = builderForValue.build();
+          onChanged();
+        } else {
+          commuBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .CommuParameter commu = 3;</code>
+       */
+      public Builder mergeCommu(com.zoson.detection.proto.ZosonProto.CommuParameter value) {
+        if (commuBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              commu_ != com.zoson.detection.proto.ZosonProto.CommuParameter.getDefaultInstance()) {
+            commu_ =
+              com.zoson.detection.proto.ZosonProto.CommuParameter.newBuilder(commu_).mergeFrom(value).buildPartial();
+          } else {
+            commu_ = value;
+          }
+          onChanged();
+        } else {
+          commuBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <code>optional .CommuParameter commu = 3;</code>
+       */
+      public Builder clearCommu() {
+        if (commuBuilder_ == null) {
+          commu_ = com.zoson.detection.proto.ZosonProto.CommuParameter.getDefaultInstance();
+          onChanged();
+        } else {
+          commuBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+      /**
+       * <code>optional .CommuParameter commu = 3;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.CommuParameter.Builder getCommuBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getCommuFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .CommuParameter commu = 3;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.CommuParameterOrBuilder getCommuOrBuilder() {
+        if (commuBuilder_ != null) {
+          return commuBuilder_.getMessageOrBuilder();
+        } else {
+          return commu_;
+        }
+      }
+      /**
+       * <code>optional .CommuParameter commu = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.zoson.detection.proto.ZosonProto.CommuParameter, com.zoson.detection.proto.ZosonProto.CommuParameter.Builder, com.zoson.detection.proto.ZosonProto.CommuParameterOrBuilder> 
+          getCommuFieldBuilder() {
+        if (commuBuilder_ == null) {
+          commuBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.zoson.detection.proto.ZosonProto.CommuParameter, com.zoson.detection.proto.ZosonProto.CommuParameter.Builder, com.zoson.detection.proto.ZosonProto.CommuParameterOrBuilder>(
+                  getCommu(),
+                  getParentForChildren(),
+                  isClean());
+          commu_ = null;
+        }
+        return commuBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:DContextParameter)
+    }
+
+    static {
+      defaultInstance = new DContextParameter(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:DContextParameter)
+  }
+
+  public interface DModelOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DModel)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string path = 1;</code>
+     *
+     * <pre>
+     *param prototxt
+     * </pre>
+     */
+    boolean hasPath();
+    /**
+     * <code>optional string path = 1;</code>
+     *
+     * <pre>
+     *param prototxt
+     * </pre>
+     */
+    java.lang.String getPath();
+    /**
+     * <code>optional string path = 1;</code>
+     *
+     * <pre>
+     *param prototxt
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getPathBytes();
+
+    /**
+     * <code>optional .DetectorParameter model = 2;</code>
+     */
+    boolean hasModel();
+    /**
+     * <code>optional .DetectorParameter model = 2;</code>
+     */
+    com.zoson.detection.proto.ZosonProto.DetectorParameter getModel();
+    /**
+     * <code>optional .DetectorParameter model = 2;</code>
+     */
+    com.zoson.detection.proto.ZosonProto.DetectorParameterOrBuilder getModelOrBuilder();
+  }
+  /**
+   * Protobuf type {@code DModel}
+   */
+  public static final class DModel extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:DModel)
+      DModelOrBuilder {
+    // Use DModel.newBuilder() to construct.
+    private DModel(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private DModel(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final DModel defaultInstance;
+    public static DModel getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public DModel getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DModel(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              path_ = bs;
+              break;
+            }
+            case 18: {
+              com.zoson.detection.proto.ZosonProto.DetectorParameter.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = model_.toBuilder();
+              }
+              model_ = input.readMessage(com.zoson.detection.proto.ZosonProto.DetectorParameter.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(model_);
+                model_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
               break;
             }
           }
@@ -745,146 +1688,122 @@ public final class ZosonProto {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.zoson.detection.proto.ZosonProto.internal_static_ContextParameter_descriptor;
+      return com.zoson.detection.proto.ZosonProto.internal_static_DModel_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.zoson.detection.proto.ZosonProto.internal_static_ContextParameter_fieldAccessorTable
+      return com.zoson.detection.proto.ZosonProto.internal_static_DModel_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.zoson.detection.proto.ZosonProto.ContextParameter.class, com.zoson.detection.proto.ZosonProto.ContextParameter.Builder.class);
+              com.zoson.detection.proto.ZosonProto.DModel.class, com.zoson.detection.proto.ZosonProto.DModel.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<ContextParameter> PARSER =
-        new com.google.protobuf.AbstractParser<ContextParameter>() {
-      public ContextParameter parsePartialFrom(
+    public static com.google.protobuf.Parser<DModel> PARSER =
+        new com.google.protobuf.AbstractParser<DModel>() {
+      public DModel parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ContextParameter(input, extensionRegistry);
+        return new DModel(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<ContextParameter> getParserForType() {
+    public com.google.protobuf.Parser<DModel> getParserForType() {
       return PARSER;
     }
 
     private int bitField0_;
-    // required .DetectorParameter detector = 1;
-    public static final int DETECTOR_FIELD_NUMBER = 1;
-    private com.zoson.detection.proto.ZosonProto.DetectorParameter detector_;
+    public static final int PATH_FIELD_NUMBER = 1;
+    private java.lang.Object path_;
     /**
-     * <code>required .DetectorParameter detector = 1;</code>
+     * <code>optional string path = 1;</code>
+     *
+     * <pre>
+     *param prototxt
+     * </pre>
      */
-    public boolean hasDetector() {
+    public boolean hasPath() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .DetectorParameter detector = 1;</code>
+     * <code>optional string path = 1;</code>
+     *
+     * <pre>
+     *param prototxt
+     * </pre>
      */
-    public com.zoson.detection.proto.ZosonProto.DetectorParameter getDetector() {
-      return detector_;
+    public java.lang.String getPath() {
+      java.lang.Object ref = path_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          path_ = s;
+        }
+        return s;
+      }
     }
     /**
-     * <code>required .DetectorParameter detector = 1;</code>
+     * <code>optional string path = 1;</code>
+     *
+     * <pre>
+     *param prototxt
+     * </pre>
      */
-    public com.zoson.detection.proto.ZosonProto.DetectorParameterOrBuilder getDetectorOrBuilder() {
-      return detector_;
+    public com.google.protobuf.ByteString
+        getPathBytes() {
+      java.lang.Object ref = path_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        path_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
-    // required .InputParameter input = 2;
-    public static final int INPUT_FIELD_NUMBER = 2;
-    private com.zoson.detection.proto.ZosonProto.InputParameter input_;
+    public static final int MODEL_FIELD_NUMBER = 2;
+    private com.zoson.detection.proto.ZosonProto.DetectorParameter model_;
     /**
-     * <code>required .InputParameter input = 2;</code>
+     * <code>optional .DetectorParameter model = 2;</code>
      */
-    public boolean hasInput() {
+    public boolean hasModel() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required .InputParameter input = 2;</code>
+     * <code>optional .DetectorParameter model = 2;</code>
      */
-    public com.zoson.detection.proto.ZosonProto.InputParameter getInput() {
-      return input_;
+    public com.zoson.detection.proto.ZosonProto.DetectorParameter getModel() {
+      return model_;
     }
     /**
-     * <code>required .InputParameter input = 2;</code>
+     * <code>optional .DetectorParameter model = 2;</code>
      */
-    public com.zoson.detection.proto.ZosonProto.InputParameterOrBuilder getInputOrBuilder() {
-      return input_;
-    }
-
-    // optional .OutputParameter output = 3;
-    public static final int OUTPUT_FIELD_NUMBER = 3;
-    private com.zoson.detection.proto.ZosonProto.OutputParameter output_;
-    /**
-     * <code>optional .OutputParameter output = 3;</code>
-     */
-    public boolean hasOutput() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional .OutputParameter output = 3;</code>
-     */
-    public com.zoson.detection.proto.ZosonProto.OutputParameter getOutput() {
-      return output_;
-    }
-    /**
-     * <code>optional .OutputParameter output = 3;</code>
-     */
-    public com.zoson.detection.proto.ZosonProto.OutputParameterOrBuilder getOutputOrBuilder() {
-      return output_;
-    }
-
-    // optional .CommuParameter commu = 4;
-    public static final int COMMU_FIELD_NUMBER = 4;
-    private com.zoson.detection.proto.ZosonProto.CommuParameter commu_;
-    /**
-     * <code>optional .CommuParameter commu = 4;</code>
-     */
-    public boolean hasCommu() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    /**
-     * <code>optional .CommuParameter commu = 4;</code>
-     */
-    public com.zoson.detection.proto.ZosonProto.CommuParameter getCommu() {
-      return commu_;
-    }
-    /**
-     * <code>optional .CommuParameter commu = 4;</code>
-     */
-    public com.zoson.detection.proto.ZosonProto.CommuParameterOrBuilder getCommuOrBuilder() {
-      return commu_;
+    public com.zoson.detection.proto.ZosonProto.DetectorParameterOrBuilder getModelOrBuilder() {
+      return model_;
     }
 
     private void initFields() {
-      detector_ = com.zoson.detection.proto.ZosonProto.DetectorParameter.getDefaultInstance();
-      input_ = com.zoson.detection.proto.ZosonProto.InputParameter.getDefaultInstance();
-      output_ = com.zoson.detection.proto.ZosonProto.OutputParameter.getDefaultInstance();
-      commu_ = com.zoson.detection.proto.ZosonProto.CommuParameter.getDefaultInstance();
+      path_ = "";
+      model_ = com.zoson.detection.proto.ZosonProto.DetectorParameter.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
-      if (!hasDetector()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasInput()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!getDetector().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!getInput().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
+      if (hasModel()) {
+        if (!getModel().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
       memoizedIsInitialized = 1;
       return true;
@@ -894,16 +1813,10 @@ public final class ZosonProto {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, detector_);
+        output.writeBytes(1, getPathBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, input_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(3, output_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeMessage(4, commu_);
+        output.writeMessage(2, model_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -916,19 +1829,11 @@ public final class ZosonProto {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, detector_);
+          .computeBytesSize(1, getPathBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, input_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, output_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, commu_);
+          .computeMessageSize(2, model_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -942,53 +1847,53 @@ public final class ZosonProto {
       return super.writeReplace();
     }
 
-    public static com.zoson.detection.proto.ZosonProto.ContextParameter parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.DModel parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.zoson.detection.proto.ZosonProto.ContextParameter parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.DModel parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.zoson.detection.proto.ZosonProto.ContextParameter parseFrom(byte[] data)
+    public static com.zoson.detection.proto.ZosonProto.DModel parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.zoson.detection.proto.ZosonProto.ContextParameter parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.DModel parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.zoson.detection.proto.ZosonProto.ContextParameter parseFrom(java.io.InputStream input)
+    public static com.zoson.detection.proto.ZosonProto.DModel parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.zoson.detection.proto.ZosonProto.ContextParameter parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.DModel parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.zoson.detection.proto.ZosonProto.ContextParameter parseDelimitedFrom(java.io.InputStream input)
+    public static com.zoson.detection.proto.ZosonProto.DModel parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.zoson.detection.proto.ZosonProto.ContextParameter parseDelimitedFrom(
+    public static com.zoson.detection.proto.ZosonProto.DModel parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.zoson.detection.proto.ZosonProto.ContextParameter parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.DModel parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.zoson.detection.proto.ZosonProto.ContextParameter parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.DModel parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -997,7 +1902,7 @@ public final class ZosonProto {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.zoson.detection.proto.ZosonProto.ContextParameter prototype) {
+    public static Builder newBuilder(com.zoson.detection.proto.ZosonProto.DModel prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -1009,24 +1914,25 @@ public final class ZosonProto {
       return builder;
     }
     /**
-     * Protobuf type {@code ContextParameter}
+     * Protobuf type {@code DModel}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.ContextParameterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:DModel)
+        com.zoson.detection.proto.ZosonProto.DModelOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.zoson.detection.proto.ZosonProto.internal_static_ContextParameter_descriptor;
+        return com.zoson.detection.proto.ZosonProto.internal_static_DModel_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.zoson.detection.proto.ZosonProto.internal_static_ContextParameter_fieldAccessorTable
+        return com.zoson.detection.proto.ZosonProto.internal_static_DModel_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.zoson.detection.proto.ZosonProto.ContextParameter.class, com.zoson.detection.proto.ZosonProto.ContextParameter.Builder.class);
+                com.zoson.detection.proto.ZosonProto.DModel.class, com.zoson.detection.proto.ZosonProto.DModel.Builder.class);
       }
 
-      // Construct using com.zoson.detection.proto.ZosonProto.ContextParameter.newBuilder()
+      // Construct using com.zoson.detection.proto.ZosonProto.DModel.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1038,10 +1944,7 @@ public final class ZosonProto {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getDetectorFieldBuilder();
-          getInputFieldBuilder();
-          getOutputFieldBuilder();
-          getCommuFieldBuilder();
+          getModelFieldBuilder();
         }
       }
       private static Builder create() {
@@ -1050,30 +1953,14 @@ public final class ZosonProto {
 
       public Builder clear() {
         super.clear();
-        if (detectorBuilder_ == null) {
-          detector_ = com.zoson.detection.proto.ZosonProto.DetectorParameter.getDefaultInstance();
-        } else {
-          detectorBuilder_.clear();
-        }
+        path_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        if (inputBuilder_ == null) {
-          input_ = com.zoson.detection.proto.ZosonProto.InputParameter.getDefaultInstance();
+        if (modelBuilder_ == null) {
+          model_ = com.zoson.detection.proto.ZosonProto.DetectorParameter.getDefaultInstance();
         } else {
-          inputBuilder_.clear();
+          modelBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
-        if (outputBuilder_ == null) {
-          output_ = com.zoson.detection.proto.ZosonProto.OutputParameter.getDefaultInstance();
-        } else {
-          outputBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000004);
-        if (commuBuilder_ == null) {
-          commu_ = com.zoson.detection.proto.ZosonProto.CommuParameter.getDefaultInstance();
-        } else {
-          commuBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -1083,56 +1970,36 @@ public final class ZosonProto {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.zoson.detection.proto.ZosonProto.internal_static_ContextParameter_descriptor;
+        return com.zoson.detection.proto.ZosonProto.internal_static_DModel_descriptor;
       }
 
-      public com.zoson.detection.proto.ZosonProto.ContextParameter getDefaultInstanceForType() {
-        return com.zoson.detection.proto.ZosonProto.ContextParameter.getDefaultInstance();
+      public com.zoson.detection.proto.ZosonProto.DModel getDefaultInstanceForType() {
+        return com.zoson.detection.proto.ZosonProto.DModel.getDefaultInstance();
       }
 
-      public com.zoson.detection.proto.ZosonProto.ContextParameter build() {
-        com.zoson.detection.proto.ZosonProto.ContextParameter result = buildPartial();
+      public com.zoson.detection.proto.ZosonProto.DModel build() {
+        com.zoson.detection.proto.ZosonProto.DModel result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.zoson.detection.proto.ZosonProto.ContextParameter buildPartial() {
-        com.zoson.detection.proto.ZosonProto.ContextParameter result = new com.zoson.detection.proto.ZosonProto.ContextParameter(this);
+      public com.zoson.detection.proto.ZosonProto.DModel buildPartial() {
+        com.zoson.detection.proto.ZosonProto.DModel result = new com.zoson.detection.proto.ZosonProto.DModel(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        if (detectorBuilder_ == null) {
-          result.detector_ = detector_;
-        } else {
-          result.detector_ = detectorBuilder_.build();
-        }
+        result.path_ = path_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        if (inputBuilder_ == null) {
-          result.input_ = input_;
+        if (modelBuilder_ == null) {
+          result.model_ = model_;
         } else {
-          result.input_ = inputBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        if (outputBuilder_ == null) {
-          result.output_ = output_;
-        } else {
-          result.output_ = outputBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        if (commuBuilder_ == null) {
-          result.commu_ = commu_;
-        } else {
-          result.commu_ = commuBuilder_.build();
+          result.model_ = modelBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -1140,48 +2007,34 @@ public final class ZosonProto {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.zoson.detection.proto.ZosonProto.ContextParameter) {
-          return mergeFrom((com.zoson.detection.proto.ZosonProto.ContextParameter)other);
+        if (other instanceof com.zoson.detection.proto.ZosonProto.DModel) {
+          return mergeFrom((com.zoson.detection.proto.ZosonProto.DModel)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.ContextParameter other) {
-        if (other == com.zoson.detection.proto.ZosonProto.ContextParameter.getDefaultInstance()) return this;
-        if (other.hasDetector()) {
-          mergeDetector(other.getDetector());
+      public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.DModel other) {
+        if (other == com.zoson.detection.proto.ZosonProto.DModel.getDefaultInstance()) return this;
+        if (other.hasPath()) {
+          bitField0_ |= 0x00000001;
+          path_ = other.path_;
+          onChanged();
         }
-        if (other.hasInput()) {
-          mergeInput(other.getInput());
-        }
-        if (other.hasOutput()) {
-          mergeOutput(other.getOutput());
-        }
-        if (other.hasCommu()) {
-          mergeCommu(other.getCommu());
+        if (other.hasModel()) {
+          mergeModel(other.getModel());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasDetector()) {
-          
-          return false;
-        }
-        if (!hasInput()) {
-          
-          return false;
-        }
-        if (!getDetector().isInitialized()) {
-          
-          return false;
-        }
-        if (!getInput().isInitialized()) {
-          
-          return false;
+        if (hasModel()) {
+          if (!getModel().isInitialized()) {
+            
+            return false;
+          }
         }
         return true;
       }
@@ -1190,11 +2043,11 @@ public final class ZosonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.zoson.detection.proto.ZosonProto.ContextParameter parsedMessage = null;
+        com.zoson.detection.proto.ZosonProto.DModel parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.zoson.detection.proto.ZosonProto.ContextParameter) e.getUnfinishedMessage();
+          parsedMessage = (com.zoson.detection.proto.ZosonProto.DModel) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1205,489 +2058,237 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // required .DetectorParameter detector = 1;
-      private com.zoson.detection.proto.ZosonProto.DetectorParameter detector_ = com.zoson.detection.proto.ZosonProto.DetectorParameter.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
-          com.zoson.detection.proto.ZosonProto.DetectorParameter, com.zoson.detection.proto.ZosonProto.DetectorParameter.Builder, com.zoson.detection.proto.ZosonProto.DetectorParameterOrBuilder> detectorBuilder_;
+      private java.lang.Object path_ = "";
       /**
-       * <code>required .DetectorParameter detector = 1;</code>
+       * <code>optional string path = 1;</code>
+       *
+       * <pre>
+       *param prototxt
+       * </pre>
        */
-      public boolean hasDetector() {
+      public boolean hasPath() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required .DetectorParameter detector = 1;</code>
+       * <code>optional string path = 1;</code>
+       *
+       * <pre>
+       *param prototxt
+       * </pre>
        */
-      public com.zoson.detection.proto.ZosonProto.DetectorParameter getDetector() {
-        if (detectorBuilder_ == null) {
-          return detector_;
-        } else {
-          return detectorBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>required .DetectorParameter detector = 1;</code>
-       */
-      public Builder setDetector(com.zoson.detection.proto.ZosonProto.DetectorParameter value) {
-        if (detectorBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
+      public java.lang.String getPath() {
+        java.lang.Object ref = path_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            path_ = s;
           }
-          detector_ = value;
-          onChanged();
+          return s;
         } else {
-          detectorBuilder_.setMessage(value);
+          return (java.lang.String) ref;
         }
-        bitField0_ |= 0x00000001;
-        return this;
       }
       /**
-       * <code>required .DetectorParameter detector = 1;</code>
+       * <code>optional string path = 1;</code>
+       *
+       * <pre>
+       *param prototxt
+       * </pre>
        */
-      public Builder setDetector(
-          com.zoson.detection.proto.ZosonProto.DetectorParameter.Builder builderForValue) {
-        if (detectorBuilder_ == null) {
-          detector_ = builderForValue.build();
-          onChanged();
+      public com.google.protobuf.ByteString
+          getPathBytes() {
+        java.lang.Object ref = path_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          path_ = b;
+          return b;
         } else {
-          detectorBuilder_.setMessage(builderForValue.build());
+          return (com.google.protobuf.ByteString) ref;
         }
-        bitField0_ |= 0x00000001;
-        return this;
       }
       /**
-       * <code>required .DetectorParameter detector = 1;</code>
+       * <code>optional string path = 1;</code>
+       *
+       * <pre>
+       *param prototxt
+       * </pre>
        */
-      public Builder mergeDetector(com.zoson.detection.proto.ZosonProto.DetectorParameter value) {
-        if (detectorBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              detector_ != com.zoson.detection.proto.ZosonProto.DetectorParameter.getDefaultInstance()) {
-            detector_ =
-              com.zoson.detection.proto.ZosonProto.DetectorParameter.newBuilder(detector_).mergeFrom(value).buildPartial();
-          } else {
-            detector_ = value;
-          }
-          onChanged();
-        } else {
-          detectorBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000001;
-        return this;
-      }
-      /**
-       * <code>required .DetectorParameter detector = 1;</code>
-       */
-      public Builder clearDetector() {
-        if (detectorBuilder_ == null) {
-          detector_ = com.zoson.detection.proto.ZosonProto.DetectorParameter.getDefaultInstance();
-          onChanged();
-        } else {
-          detectorBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000001);
-        return this;
-      }
-      /**
-       * <code>required .DetectorParameter detector = 1;</code>
-       */
-      public com.zoson.detection.proto.ZosonProto.DetectorParameter.Builder getDetectorBuilder() {
-        bitField0_ |= 0x00000001;
+      public Builder setPath(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        path_ = value;
         onChanged();
-        return getDetectorFieldBuilder().getBuilder();
+        return this;
       }
       /**
-       * <code>required .DetectorParameter detector = 1;</code>
+       * <code>optional string path = 1;</code>
+       *
+       * <pre>
+       *param prototxt
+       * </pre>
        */
-      public com.zoson.detection.proto.ZosonProto.DetectorParameterOrBuilder getDetectorOrBuilder() {
-        if (detectorBuilder_ != null) {
-          return detectorBuilder_.getMessageOrBuilder();
-        } else {
-          return detector_;
-        }
+      public Builder clearPath() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        path_ = getDefaultInstance().getPath();
+        onChanged();
+        return this;
       }
       /**
-       * <code>required .DetectorParameter detector = 1;</code>
+       * <code>optional string path = 1;</code>
+       *
+       * <pre>
+       *param prototxt
+       * </pre>
        */
-      private com.google.protobuf.SingleFieldBuilder<
-          com.zoson.detection.proto.ZosonProto.DetectorParameter, com.zoson.detection.proto.ZosonProto.DetectorParameter.Builder, com.zoson.detection.proto.ZosonProto.DetectorParameterOrBuilder> 
-          getDetectorFieldBuilder() {
-        if (detectorBuilder_ == null) {
-          detectorBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              com.zoson.detection.proto.ZosonProto.DetectorParameter, com.zoson.detection.proto.ZosonProto.DetectorParameter.Builder, com.zoson.detection.proto.ZosonProto.DetectorParameterOrBuilder>(
-                  detector_,
-                  getParentForChildren(),
-                  isClean());
-          detector_ = null;
-        }
-        return detectorBuilder_;
+      public Builder setPathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        path_ = value;
+        onChanged();
+        return this;
       }
 
-      // required .InputParameter input = 2;
-      private com.zoson.detection.proto.ZosonProto.InputParameter input_ = com.zoson.detection.proto.ZosonProto.InputParameter.getDefaultInstance();
+      private com.zoson.detection.proto.ZosonProto.DetectorParameter model_ = com.zoson.detection.proto.ZosonProto.DetectorParameter.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          com.zoson.detection.proto.ZosonProto.InputParameter, com.zoson.detection.proto.ZosonProto.InputParameter.Builder, com.zoson.detection.proto.ZosonProto.InputParameterOrBuilder> inputBuilder_;
+          com.zoson.detection.proto.ZosonProto.DetectorParameter, com.zoson.detection.proto.ZosonProto.DetectorParameter.Builder, com.zoson.detection.proto.ZosonProto.DetectorParameterOrBuilder> modelBuilder_;
       /**
-       * <code>required .InputParameter input = 2;</code>
+       * <code>optional .DetectorParameter model = 2;</code>
        */
-      public boolean hasInput() {
+      public boolean hasModel() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required .InputParameter input = 2;</code>
+       * <code>optional .DetectorParameter model = 2;</code>
        */
-      public com.zoson.detection.proto.ZosonProto.InputParameter getInput() {
-        if (inputBuilder_ == null) {
-          return input_;
+      public com.zoson.detection.proto.ZosonProto.DetectorParameter getModel() {
+        if (modelBuilder_ == null) {
+          return model_;
         } else {
-          return inputBuilder_.getMessage();
+          return modelBuilder_.getMessage();
         }
       }
       /**
-       * <code>required .InputParameter input = 2;</code>
+       * <code>optional .DetectorParameter model = 2;</code>
        */
-      public Builder setInput(com.zoson.detection.proto.ZosonProto.InputParameter value) {
-        if (inputBuilder_ == null) {
+      public Builder setModel(com.zoson.detection.proto.ZosonProto.DetectorParameter value) {
+        if (modelBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          input_ = value;
+          model_ = value;
           onChanged();
         } else {
-          inputBuilder_.setMessage(value);
+          modelBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>required .InputParameter input = 2;</code>
+       * <code>optional .DetectorParameter model = 2;</code>
        */
-      public Builder setInput(
-          com.zoson.detection.proto.ZosonProto.InputParameter.Builder builderForValue) {
-        if (inputBuilder_ == null) {
-          input_ = builderForValue.build();
+      public Builder setModel(
+          com.zoson.detection.proto.ZosonProto.DetectorParameter.Builder builderForValue) {
+        if (modelBuilder_ == null) {
+          model_ = builderForValue.build();
           onChanged();
         } else {
-          inputBuilder_.setMessage(builderForValue.build());
+          modelBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>required .InputParameter input = 2;</code>
+       * <code>optional .DetectorParameter model = 2;</code>
        */
-      public Builder mergeInput(com.zoson.detection.proto.ZosonProto.InputParameter value) {
-        if (inputBuilder_ == null) {
+      public Builder mergeModel(com.zoson.detection.proto.ZosonProto.DetectorParameter value) {
+        if (modelBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              input_ != com.zoson.detection.proto.ZosonProto.InputParameter.getDefaultInstance()) {
-            input_ =
-              com.zoson.detection.proto.ZosonProto.InputParameter.newBuilder(input_).mergeFrom(value).buildPartial();
+              model_ != com.zoson.detection.proto.ZosonProto.DetectorParameter.getDefaultInstance()) {
+            model_ =
+              com.zoson.detection.proto.ZosonProto.DetectorParameter.newBuilder(model_).mergeFrom(value).buildPartial();
           } else {
-            input_ = value;
+            model_ = value;
           }
           onChanged();
         } else {
-          inputBuilder_.mergeFrom(value);
+          modelBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>required .InputParameter input = 2;</code>
+       * <code>optional .DetectorParameter model = 2;</code>
        */
-      public Builder clearInput() {
-        if (inputBuilder_ == null) {
-          input_ = com.zoson.detection.proto.ZosonProto.InputParameter.getDefaultInstance();
+      public Builder clearModel() {
+        if (modelBuilder_ == null) {
+          model_ = com.zoson.detection.proto.ZosonProto.DetectorParameter.getDefaultInstance();
           onChanged();
         } else {
-          inputBuilder_.clear();
+          modelBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       /**
-       * <code>required .InputParameter input = 2;</code>
+       * <code>optional .DetectorParameter model = 2;</code>
        */
-      public com.zoson.detection.proto.ZosonProto.InputParameter.Builder getInputBuilder() {
+      public com.zoson.detection.proto.ZosonProto.DetectorParameter.Builder getModelBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
-        return getInputFieldBuilder().getBuilder();
+        return getModelFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .InputParameter input = 2;</code>
+       * <code>optional .DetectorParameter model = 2;</code>
        */
-      public com.zoson.detection.proto.ZosonProto.InputParameterOrBuilder getInputOrBuilder() {
-        if (inputBuilder_ != null) {
-          return inputBuilder_.getMessageOrBuilder();
+      public com.zoson.detection.proto.ZosonProto.DetectorParameterOrBuilder getModelOrBuilder() {
+        if (modelBuilder_ != null) {
+          return modelBuilder_.getMessageOrBuilder();
         } else {
-          return input_;
+          return model_;
         }
       }
       /**
-       * <code>required .InputParameter input = 2;</code>
+       * <code>optional .DetectorParameter model = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.zoson.detection.proto.ZosonProto.InputParameter, com.zoson.detection.proto.ZosonProto.InputParameter.Builder, com.zoson.detection.proto.ZosonProto.InputParameterOrBuilder> 
-          getInputFieldBuilder() {
-        if (inputBuilder_ == null) {
-          inputBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              com.zoson.detection.proto.ZosonProto.InputParameter, com.zoson.detection.proto.ZosonProto.InputParameter.Builder, com.zoson.detection.proto.ZosonProto.InputParameterOrBuilder>(
-                  input_,
+          com.zoson.detection.proto.ZosonProto.DetectorParameter, com.zoson.detection.proto.ZosonProto.DetectorParameter.Builder, com.zoson.detection.proto.ZosonProto.DetectorParameterOrBuilder> 
+          getModelFieldBuilder() {
+        if (modelBuilder_ == null) {
+          modelBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.zoson.detection.proto.ZosonProto.DetectorParameter, com.zoson.detection.proto.ZosonProto.DetectorParameter.Builder, com.zoson.detection.proto.ZosonProto.DetectorParameterOrBuilder>(
+                  getModel(),
                   getParentForChildren(),
                   isClean());
-          input_ = null;
+          model_ = null;
         }
-        return inputBuilder_;
+        return modelBuilder_;
       }
 
-      // optional .OutputParameter output = 3;
-      private com.zoson.detection.proto.ZosonProto.OutputParameter output_ = com.zoson.detection.proto.ZosonProto.OutputParameter.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
-          com.zoson.detection.proto.ZosonProto.OutputParameter, com.zoson.detection.proto.ZosonProto.OutputParameter.Builder, com.zoson.detection.proto.ZosonProto.OutputParameterOrBuilder> outputBuilder_;
-      /**
-       * <code>optional .OutputParameter output = 3;</code>
-       */
-      public boolean hasOutput() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>optional .OutputParameter output = 3;</code>
-       */
-      public com.zoson.detection.proto.ZosonProto.OutputParameter getOutput() {
-        if (outputBuilder_ == null) {
-          return output_;
-        } else {
-          return outputBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>optional .OutputParameter output = 3;</code>
-       */
-      public Builder setOutput(com.zoson.detection.proto.ZosonProto.OutputParameter value) {
-        if (outputBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          output_ = value;
-          onChanged();
-        } else {
-          outputBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <code>optional .OutputParameter output = 3;</code>
-       */
-      public Builder setOutput(
-          com.zoson.detection.proto.ZosonProto.OutputParameter.Builder builderForValue) {
-        if (outputBuilder_ == null) {
-          output_ = builderForValue.build();
-          onChanged();
-        } else {
-          outputBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <code>optional .OutputParameter output = 3;</code>
-       */
-      public Builder mergeOutput(com.zoson.detection.proto.ZosonProto.OutputParameter value) {
-        if (outputBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              output_ != com.zoson.detection.proto.ZosonProto.OutputParameter.getDefaultInstance()) {
-            output_ =
-              com.zoson.detection.proto.ZosonProto.OutputParameter.newBuilder(output_).mergeFrom(value).buildPartial();
-          } else {
-            output_ = value;
-          }
-          onChanged();
-        } else {
-          outputBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <code>optional .OutputParameter output = 3;</code>
-       */
-      public Builder clearOutput() {
-        if (outputBuilder_ == null) {
-          output_ = com.zoson.detection.proto.ZosonProto.OutputParameter.getDefaultInstance();
-          onChanged();
-        } else {
-          outputBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000004);
-        return this;
-      }
-      /**
-       * <code>optional .OutputParameter output = 3;</code>
-       */
-      public com.zoson.detection.proto.ZosonProto.OutputParameter.Builder getOutputBuilder() {
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return getOutputFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .OutputParameter output = 3;</code>
-       */
-      public com.zoson.detection.proto.ZosonProto.OutputParameterOrBuilder getOutputOrBuilder() {
-        if (outputBuilder_ != null) {
-          return outputBuilder_.getMessageOrBuilder();
-        } else {
-          return output_;
-        }
-      }
-      /**
-       * <code>optional .OutputParameter output = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilder<
-          com.zoson.detection.proto.ZosonProto.OutputParameter, com.zoson.detection.proto.ZosonProto.OutputParameter.Builder, com.zoson.detection.proto.ZosonProto.OutputParameterOrBuilder> 
-          getOutputFieldBuilder() {
-        if (outputBuilder_ == null) {
-          outputBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              com.zoson.detection.proto.ZosonProto.OutputParameter, com.zoson.detection.proto.ZosonProto.OutputParameter.Builder, com.zoson.detection.proto.ZosonProto.OutputParameterOrBuilder>(
-                  output_,
-                  getParentForChildren(),
-                  isClean());
-          output_ = null;
-        }
-        return outputBuilder_;
-      }
-
-      // optional .CommuParameter commu = 4;
-      private com.zoson.detection.proto.ZosonProto.CommuParameter commu_ = com.zoson.detection.proto.ZosonProto.CommuParameter.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
-          com.zoson.detection.proto.ZosonProto.CommuParameter, com.zoson.detection.proto.ZosonProto.CommuParameter.Builder, com.zoson.detection.proto.ZosonProto.CommuParameterOrBuilder> commuBuilder_;
-      /**
-       * <code>optional .CommuParameter commu = 4;</code>
-       */
-      public boolean hasCommu() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      /**
-       * <code>optional .CommuParameter commu = 4;</code>
-       */
-      public com.zoson.detection.proto.ZosonProto.CommuParameter getCommu() {
-        if (commuBuilder_ == null) {
-          return commu_;
-        } else {
-          return commuBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>optional .CommuParameter commu = 4;</code>
-       */
-      public Builder setCommu(com.zoson.detection.proto.ZosonProto.CommuParameter value) {
-        if (commuBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          commu_ = value;
-          onChanged();
-        } else {
-          commuBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000008;
-        return this;
-      }
-      /**
-       * <code>optional .CommuParameter commu = 4;</code>
-       */
-      public Builder setCommu(
-          com.zoson.detection.proto.ZosonProto.CommuParameter.Builder builderForValue) {
-        if (commuBuilder_ == null) {
-          commu_ = builderForValue.build();
-          onChanged();
-        } else {
-          commuBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000008;
-        return this;
-      }
-      /**
-       * <code>optional .CommuParameter commu = 4;</code>
-       */
-      public Builder mergeCommu(com.zoson.detection.proto.ZosonProto.CommuParameter value) {
-        if (commuBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008) &&
-              commu_ != com.zoson.detection.proto.ZosonProto.CommuParameter.getDefaultInstance()) {
-            commu_ =
-              com.zoson.detection.proto.ZosonProto.CommuParameter.newBuilder(commu_).mergeFrom(value).buildPartial();
-          } else {
-            commu_ = value;
-          }
-          onChanged();
-        } else {
-          commuBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000008;
-        return this;
-      }
-      /**
-       * <code>optional .CommuParameter commu = 4;</code>
-       */
-      public Builder clearCommu() {
-        if (commuBuilder_ == null) {
-          commu_ = com.zoson.detection.proto.ZosonProto.CommuParameter.getDefaultInstance();
-          onChanged();
-        } else {
-          commuBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000008);
-        return this;
-      }
-      /**
-       * <code>optional .CommuParameter commu = 4;</code>
-       */
-      public com.zoson.detection.proto.ZosonProto.CommuParameter.Builder getCommuBuilder() {
-        bitField0_ |= 0x00000008;
-        onChanged();
-        return getCommuFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .CommuParameter commu = 4;</code>
-       */
-      public com.zoson.detection.proto.ZosonProto.CommuParameterOrBuilder getCommuOrBuilder() {
-        if (commuBuilder_ != null) {
-          return commuBuilder_.getMessageOrBuilder();
-        } else {
-          return commu_;
-        }
-      }
-      /**
-       * <code>optional .CommuParameter commu = 4;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilder<
-          com.zoson.detection.proto.ZosonProto.CommuParameter, com.zoson.detection.proto.ZosonProto.CommuParameter.Builder, com.zoson.detection.proto.ZosonProto.CommuParameterOrBuilder> 
-          getCommuFieldBuilder() {
-        if (commuBuilder_ == null) {
-          commuBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              com.zoson.detection.proto.ZosonProto.CommuParameter, com.zoson.detection.proto.ZosonProto.CommuParameter.Builder, com.zoson.detection.proto.ZosonProto.CommuParameterOrBuilder>(
-                  commu_,
-                  getParentForChildren(),
-                  isClean());
-          commu_ = null;
-        }
-        return commuBuilder_;
-      }
-
-      // @@protoc_insertion_point(builder_scope:ContextParameter)
+      // @@protoc_insertion_point(builder_scope:DModel)
     }
 
     static {
-      defaultInstance = new ContextParameter(true);
+      defaultInstance = new DModel(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:ContextParameter)
+    // @@protoc_insertion_point(class_scope:DModel)
   }
 
-  public interface DetectorParameterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface DetectorParameterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DetectorParameter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string name = 1;
     /**
      * <code>required string name = 1;</code>
      */
@@ -1702,7 +2303,6 @@ public final class ZosonProto {
     com.google.protobuf.ByteString
         getNameBytes();
 
-    // required string model = 2;
     /**
      * <code>required string model = 2;</code>
      */
@@ -1717,7 +2317,6 @@ public final class ZosonProto {
     com.google.protobuf.ByteString
         getModelBytes();
 
-    // required string weight = 3;
     /**
      * <code>required string weight = 3;</code>
      */
@@ -1732,102 +2331,127 @@ public final class ZosonProto {
     com.google.protobuf.ByteString
         getWeightBytes();
 
-    // optional bool use_gpu = 4 [default = true];
     /**
-     * <code>optional bool use_gpu = 4 [default = true];</code>
+     * <code>optional string label = 4;</code>
      */
-    boolean hasUseGpu();
+    boolean hasLabel();
     /**
-     * <code>optional bool use_gpu = 4 [default = true];</code>
+     * <code>optional string label = 4;</code>
      */
-    boolean getUseGpu();
+    java.lang.String getLabel();
+    /**
+     * <code>optional string label = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getLabelBytes();
 
-    // optional bool do_vis = 5 [default = false];
     /**
-     * <code>optional bool do_vis = 5 [default = false];</code>
+     * <code>repeated int32 use_gpu = 5;</code>
      */
-    boolean hasDoVis();
+    java.util.List<java.lang.Integer> getUseGpuList();
     /**
-     * <code>optional bool do_vis = 5 [default = false];</code>
+     * <code>repeated int32 use_gpu = 5;</code>
      */
-    boolean getDoVis();
+    int getUseGpuCount();
+    /**
+     * <code>repeated int32 use_gpu = 5;</code>
+     */
+    int getUseGpu(int index);
 
-    // optional int32 fq_vis = 6 [default = 10];
     /**
-     * <code>optional int32 fq_vis = 6 [default = 10];</code>
-     */
-    boolean hasFqVis();
-    /**
-     * <code>optional int32 fq_vis = 6 [default = 10];</code>
-     */
-    int getFqVis();
-
-    // optional float threshold = 7 [default = 0.5];
-    /**
-     * <code>optional float threshold = 7 [default = 0.5];</code>
-     */
-    boolean hasThreshold();
-    /**
-     * <code>optional float threshold = 7 [default = 0.5];</code>
-     */
-    float getThreshold();
-
-    // optional bool shared = 8 [default = false];
-    /**
-     * <code>optional bool shared = 8 [default = false];</code>
-     */
-    boolean hasShared();
-    /**
-     * <code>optional bool shared = 8 [default = false];</code>
-     */
-    boolean getShared();
-
-    // optional bool istrain = 9 [default = false];
-    /**
-     * <code>optional bool istrain = 9 [default = false];</code>
+     * <code>optional bool istrain = 8 [default = false];</code>
      */
     boolean hasIstrain();
     /**
-     * <code>optional bool istrain = 9 [default = false];</code>
+     * <code>optional bool istrain = 8 [default = false];</code>
      */
     boolean getIstrain();
 
-    // optional string solver = 10;
     /**
-     * <code>optional string solver = 10;</code>
+     * <code>optional string solver = 9;</code>
      */
     boolean hasSolver();
     /**
-     * <code>optional string solver = 10;</code>
+     * <code>optional string solver = 9;</code>
      */
     java.lang.String getSolver();
     /**
-     * <code>optional string solver = 10;</code>
+     * <code>optional string solver = 9;</code>
      */
     com.google.protobuf.ByteString
         getSolverBytes();
 
-    // optional string snapshot = 11;
     /**
-     * <code>optional string snapshot = 11;</code>
+     * <code>optional string mean_file = 10;</code>
      */
-    boolean hasSnapshot();
+    boolean hasMeanFile();
     /**
-     * <code>optional string snapshot = 11;</code>
+     * <code>optional string mean_file = 10;</code>
      */
-    java.lang.String getSnapshot();
+    java.lang.String getMeanFile();
     /**
-     * <code>optional string snapshot = 11;</code>
+     * <code>optional string mean_file = 10;</code>
      */
     com.google.protobuf.ByteString
-        getSnapshotBytes();
+        getMeanFileBytes();
+
+    /**
+     * <code>optional .MeanValue mean = 11;</code>
+     */
+    boolean hasMean();
+    /**
+     * <code>optional .MeanValue mean = 11;</code>
+     */
+    com.zoson.detection.proto.ZosonProto.MeanValue getMean();
+    /**
+     * <code>optional .MeanValue mean = 11;</code>
+     */
+    com.zoson.detection.proto.ZosonProto.MeanValueOrBuilder getMeanOrBuilder();
+
+    /**
+     * <code>optional .DetectorParameter.Type type = 12 [default = DETECTOR];</code>
+     */
+    boolean hasType();
+    /**
+     * <code>optional .DetectorParameter.Type type = 12 [default = DETECTOR];</code>
+     */
+    com.zoson.detection.proto.ZosonProto.DetectorParameter.Type getType();
+
+    /**
+     * <code>optional string in_name = 13 [default = "data"];</code>
+     */
+    boolean hasInName();
+    /**
+     * <code>optional string in_name = 13 [default = "data"];</code>
+     */
+    java.lang.String getInName();
+    /**
+     * <code>optional string in_name = 13 [default = "data"];</code>
+     */
+    com.google.protobuf.ByteString
+        getInNameBytes();
+
+    /**
+     * <code>optional string out_name = 14 [default = "detection_out"];</code>
+     */
+    boolean hasOutName();
+    /**
+     * <code>optional string out_name = 14 [default = "detection_out"];</code>
+     */
+    java.lang.String getOutName();
+    /**
+     * <code>optional string out_name = 14 [default = "detection_out"];</code>
+     */
+    com.google.protobuf.ByteString
+        getOutNameBytes();
   }
   /**
    * Protobuf type {@code DetectorParameter}
    */
   public static final class DetectorParameter extends
-      com.google.protobuf.GeneratedMessage
-      implements DetectorParameterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:DetectorParameter)
+      DetectorParameterOrBuilder {
     // Use DetectorParameter.newBuilder() to construct.
     private DetectorParameter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -1874,58 +2498,101 @@ public final class ZosonProto {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              name_ = input.readBytes();
+              name_ = bs;
               break;
             }
             case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              model_ = input.readBytes();
+              model_ = bs;
               break;
             }
             case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              weight_ = input.readBytes();
+              weight_ = bs;
               break;
             }
-            case 32: {
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000008;
-              useGpu_ = input.readBool();
+              label_ = bs;
               break;
             }
             case 40: {
-              bitField0_ |= 0x00000010;
-              doVis_ = input.readBool();
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                useGpu_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              useGpu_.add(input.readInt32());
               break;
             }
-            case 48: {
-              bitField0_ |= 0x00000020;
-              fqVis_ = input.readInt32();
-              break;
-            }
-            case 61: {
-              bitField0_ |= 0x00000040;
-              threshold_ = input.readFloat();
+            case 42: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010) && input.getBytesUntilLimit() > 0) {
+                useGpu_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                useGpu_.add(input.readInt32());
+              }
+              input.popLimit(limit);
               break;
             }
             case 64: {
-              bitField0_ |= 0x00000080;
-              shared_ = input.readBool();
-              break;
-            }
-            case 72: {
-              bitField0_ |= 0x00000100;
+              bitField0_ |= 0x00000010;
               istrain_ = input.readBool();
               break;
             }
+            case 74: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000020;
+              solver_ = bs;
+              break;
+            }
             case 82: {
-              bitField0_ |= 0x00000200;
-              solver_ = input.readBytes();
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000040;
+              meanFile_ = bs;
               break;
             }
             case 90: {
+              com.zoson.detection.proto.ZosonProto.MeanValue.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000080) == 0x00000080)) {
+                subBuilder = mean_.toBuilder();
+              }
+              mean_ = input.readMessage(com.zoson.detection.proto.ZosonProto.MeanValue.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(mean_);
+                mean_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000080;
+              break;
+            }
+            case 96: {
+              int rawValue = input.readEnum();
+              com.zoson.detection.proto.ZosonProto.DetectorParameter.Type value = com.zoson.detection.proto.ZosonProto.DetectorParameter.Type.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(12, rawValue);
+              } else {
+                bitField0_ |= 0x00000100;
+                type_ = value;
+              }
+              break;
+            }
+            case 106: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000200;
+              inName_ = bs;
+              break;
+            }
+            case 114: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000400;
-              snapshot_ = input.readBytes();
+              outName_ = bs;
               break;
             }
           }
@@ -1936,6 +2603,9 @@ public final class ZosonProto {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          useGpu_ = java.util.Collections.unmodifiableList(useGpu_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -1967,8 +2637,89 @@ public final class ZosonProto {
       return PARSER;
     }
 
+    /**
+     * Protobuf enum {@code DetectorParameter.Type}
+     */
+    public enum Type
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>DETECTOR = 1;</code>
+       */
+      DETECTOR(0, 1),
+      /**
+       * <code>CLASSIFIER = 2;</code>
+       */
+      CLASSIFIER(1, 2),
+      ;
+
+      /**
+       * <code>DETECTOR = 1;</code>
+       */
+      public static final int DETECTOR_VALUE = 1;
+      /**
+       * <code>CLASSIFIER = 2;</code>
+       */
+      public static final int CLASSIFIER_VALUE = 2;
+
+
+      public final int getNumber() { return value; }
+
+      public static Type valueOf(int value) {
+        switch (value) {
+          case 1: return DETECTOR;
+          case 2: return CLASSIFIER;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Type>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static com.google.protobuf.Internal.EnumLiteMap<Type>
+          internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+              public Type findValueByNumber(int number) {
+                return Type.valueOf(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(index);
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return com.zoson.detection.proto.ZosonProto.DetectorParameter.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final Type[] VALUES = values();
+
+      public static Type valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int index;
+      private final int value;
+
+      private Type(int index, int value) {
+        this.index = index;
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:DetectorParameter.Type)
+    }
+
     private int bitField0_;
-    // required string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
     /**
@@ -2011,7 +2762,6 @@ public final class ZosonProto {
       }
     }
 
-    // required string model = 2;
     public static final int MODEL_FIELD_NUMBER = 2;
     private java.lang.Object model_;
     /**
@@ -2054,7 +2804,6 @@ public final class ZosonProto {
       }
     }
 
-    // required string weight = 3;
     public static final int WEIGHT_FIELD_NUMBER = 3;
     private java.lang.Object weight_;
     /**
@@ -2097,113 +2846,95 @@ public final class ZosonProto {
       }
     }
 
-    // optional bool use_gpu = 4 [default = true];
-    public static final int USE_GPU_FIELD_NUMBER = 4;
-    private boolean useGpu_;
+    public static final int LABEL_FIELD_NUMBER = 4;
+    private java.lang.Object label_;
     /**
-     * <code>optional bool use_gpu = 4 [default = true];</code>
+     * <code>optional string label = 4;</code>
      */
-    public boolean hasUseGpu() {
+    public boolean hasLabel() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional bool use_gpu = 4 [default = true];</code>
+     * <code>optional string label = 4;</code>
      */
-    public boolean getUseGpu() {
-      return useGpu_;
+    public java.lang.String getLabel() {
+      java.lang.Object ref = label_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          label_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string label = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getLabelBytes() {
+      java.lang.Object ref = label_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        label_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
-    // optional bool do_vis = 5 [default = false];
-    public static final int DO_VIS_FIELD_NUMBER = 5;
-    private boolean doVis_;
+    public static final int USE_GPU_FIELD_NUMBER = 5;
+    private java.util.List<java.lang.Integer> useGpu_;
     /**
-     * <code>optional bool do_vis = 5 [default = false];</code>
+     * <code>repeated int32 use_gpu = 5;</code>
      */
-    public boolean hasDoVis() {
+    public java.util.List<java.lang.Integer>
+        getUseGpuList() {
+      return useGpu_;
+    }
+    /**
+     * <code>repeated int32 use_gpu = 5;</code>
+     */
+    public int getUseGpuCount() {
+      return useGpu_.size();
+    }
+    /**
+     * <code>repeated int32 use_gpu = 5;</code>
+     */
+    public int getUseGpu(int index) {
+      return useGpu_.get(index);
+    }
+
+    public static final int ISTRAIN_FIELD_NUMBER = 8;
+    private boolean istrain_;
+    /**
+     * <code>optional bool istrain = 8 [default = false];</code>
+     */
+    public boolean hasIstrain() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional bool do_vis = 5 [default = false];</code>
-     */
-    public boolean getDoVis() {
-      return doVis_;
-    }
-
-    // optional int32 fq_vis = 6 [default = 10];
-    public static final int FQ_VIS_FIELD_NUMBER = 6;
-    private int fqVis_;
-    /**
-     * <code>optional int32 fq_vis = 6 [default = 10];</code>
-     */
-    public boolean hasFqVis() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
-    }
-    /**
-     * <code>optional int32 fq_vis = 6 [default = 10];</code>
-     */
-    public int getFqVis() {
-      return fqVis_;
-    }
-
-    // optional float threshold = 7 [default = 0.5];
-    public static final int THRESHOLD_FIELD_NUMBER = 7;
-    private float threshold_;
-    /**
-     * <code>optional float threshold = 7 [default = 0.5];</code>
-     */
-    public boolean hasThreshold() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
-    }
-    /**
-     * <code>optional float threshold = 7 [default = 0.5];</code>
-     */
-    public float getThreshold() {
-      return threshold_;
-    }
-
-    // optional bool shared = 8 [default = false];
-    public static final int SHARED_FIELD_NUMBER = 8;
-    private boolean shared_;
-    /**
-     * <code>optional bool shared = 8 [default = false];</code>
-     */
-    public boolean hasShared() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
-    }
-    /**
-     * <code>optional bool shared = 8 [default = false];</code>
-     */
-    public boolean getShared() {
-      return shared_;
-    }
-
-    // optional bool istrain = 9 [default = false];
-    public static final int ISTRAIN_FIELD_NUMBER = 9;
-    private boolean istrain_;
-    /**
-     * <code>optional bool istrain = 9 [default = false];</code>
-     */
-    public boolean hasIstrain() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
-    }
-    /**
-     * <code>optional bool istrain = 9 [default = false];</code>
+     * <code>optional bool istrain = 8 [default = false];</code>
      */
     public boolean getIstrain() {
       return istrain_;
     }
 
-    // optional string solver = 10;
-    public static final int SOLVER_FIELD_NUMBER = 10;
+    public static final int SOLVER_FIELD_NUMBER = 9;
     private java.lang.Object solver_;
     /**
-     * <code>optional string solver = 10;</code>
+     * <code>optional string solver = 9;</code>
      */
     public boolean hasSolver() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional string solver = 10;</code>
+     * <code>optional string solver = 9;</code>
      */
     public java.lang.String getSolver() {
       java.lang.Object ref = solver_;
@@ -2220,7 +2951,7 @@ public final class ZosonProto {
       }
     }
     /**
-     * <code>optional string solver = 10;</code>
+     * <code>optional string solver = 9;</code>
      */
     public com.google.protobuf.ByteString
         getSolverBytes() {
@@ -2236,20 +2967,19 @@ public final class ZosonProto {
       }
     }
 
-    // optional string snapshot = 11;
-    public static final int SNAPSHOT_FIELD_NUMBER = 11;
-    private java.lang.Object snapshot_;
+    public static final int MEAN_FILE_FIELD_NUMBER = 10;
+    private java.lang.Object meanFile_;
     /**
-     * <code>optional string snapshot = 11;</code>
+     * <code>optional string mean_file = 10;</code>
      */
-    public boolean hasSnapshot() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
+    public boolean hasMeanFile() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>optional string snapshot = 11;</code>
+     * <code>optional string mean_file = 10;</code>
      */
-    public java.lang.String getSnapshot() {
-      java.lang.Object ref = snapshot_;
+    public java.lang.String getMeanFile() {
+      java.lang.Object ref = meanFile_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -2257,22 +2987,142 @@ public final class ZosonProto {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          snapshot_ = s;
+          meanFile_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>optional string snapshot = 11;</code>
+     * <code>optional string mean_file = 10;</code>
      */
     public com.google.protobuf.ByteString
-        getSnapshotBytes() {
-      java.lang.Object ref = snapshot_;
+        getMeanFileBytes() {
+      java.lang.Object ref = meanFile_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        snapshot_ = b;
+        meanFile_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MEAN_FIELD_NUMBER = 11;
+    private com.zoson.detection.proto.ZosonProto.MeanValue mean_;
+    /**
+     * <code>optional .MeanValue mean = 11;</code>
+     */
+    public boolean hasMean() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>optional .MeanValue mean = 11;</code>
+     */
+    public com.zoson.detection.proto.ZosonProto.MeanValue getMean() {
+      return mean_;
+    }
+    /**
+     * <code>optional .MeanValue mean = 11;</code>
+     */
+    public com.zoson.detection.proto.ZosonProto.MeanValueOrBuilder getMeanOrBuilder() {
+      return mean_;
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 12;
+    private com.zoson.detection.proto.ZosonProto.DetectorParameter.Type type_;
+    /**
+     * <code>optional .DetectorParameter.Type type = 12 [default = DETECTOR];</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <code>optional .DetectorParameter.Type type = 12 [default = DETECTOR];</code>
+     */
+    public com.zoson.detection.proto.ZosonProto.DetectorParameter.Type getType() {
+      return type_;
+    }
+
+    public static final int IN_NAME_FIELD_NUMBER = 13;
+    private java.lang.Object inName_;
+    /**
+     * <code>optional string in_name = 13 [default = "data"];</code>
+     */
+    public boolean hasInName() {
+      return ((bitField0_ & 0x00000200) == 0x00000200);
+    }
+    /**
+     * <code>optional string in_name = 13 [default = "data"];</code>
+     */
+    public java.lang.String getInName() {
+      java.lang.Object ref = inName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          inName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string in_name = 13 [default = "data"];</code>
+     */
+    public com.google.protobuf.ByteString
+        getInNameBytes() {
+      java.lang.Object ref = inName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        inName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int OUT_NAME_FIELD_NUMBER = 14;
+    private java.lang.Object outName_;
+    /**
+     * <code>optional string out_name = 14 [default = "detection_out"];</code>
+     */
+    public boolean hasOutName() {
+      return ((bitField0_ & 0x00000400) == 0x00000400);
+    }
+    /**
+     * <code>optional string out_name = 14 [default = "detection_out"];</code>
+     */
+    public java.lang.String getOutName() {
+      java.lang.Object ref = outName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          outName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string out_name = 14 [default = "detection_out"];</code>
+     */
+    public com.google.protobuf.ByteString
+        getOutNameBytes() {
+      java.lang.Object ref = outName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        outName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -2283,19 +3133,21 @@ public final class ZosonProto {
       name_ = "";
       model_ = "";
       weight_ = "";
-      useGpu_ = true;
-      doVis_ = false;
-      fqVis_ = 10;
-      threshold_ = 0.5F;
-      shared_ = false;
+      label_ = "";
+      useGpu_ = java.util.Collections.emptyList();
       istrain_ = false;
       solver_ = "";
-      snapshot_ = "";
+      meanFile_ = "";
+      mean_ = com.zoson.detection.proto.ZosonProto.MeanValue.getDefaultInstance();
+      type_ = com.zoson.detection.proto.ZosonProto.DetectorParameter.Type.DETECTOR;
+      inName_ = "data";
+      outName_ = "detection_out";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasName()) {
         memoizedIsInitialized = 0;
@@ -2326,28 +3178,31 @@ public final class ZosonProto {
         output.writeBytes(3, getWeightBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBool(4, useGpu_);
+        output.writeBytes(4, getLabelBytes());
+      }
+      for (int i = 0; i < useGpu_.size(); i++) {
+        output.writeInt32(5, useGpu_.get(i));
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBool(5, doVis_);
+        output.writeBool(8, istrain_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeInt32(6, fqVis_);
+        output.writeBytes(9, getSolverBytes());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeFloat(7, threshold_);
+        output.writeBytes(10, getMeanFileBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeBool(8, shared_);
+        output.writeMessage(11, mean_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeBool(9, istrain_);
+        output.writeEnum(12, type_.getNumber());
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeBytes(10, getSolverBytes());
+        output.writeBytes(13, getInNameBytes());
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeBytes(11, getSnapshotBytes());
+        output.writeBytes(14, getOutNameBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -2372,35 +3227,44 @@ public final class ZosonProto {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, useGpu_);
+          .computeBytesSize(4, getLabelBytes());
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < useGpu_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(useGpu_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getUseGpuList().size();
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, doVis_);
+          .computeBoolSize(8, istrain_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, fqVis_);
+          .computeBytesSize(9, getSolverBytes());
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(7, threshold_);
+          .computeBytesSize(10, getMeanFileBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(8, shared_);
+          .computeMessageSize(11, mean_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(9, istrain_);
+          .computeEnumSize(12, type_.getNumber());
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(10, getSolverBytes());
+          .computeBytesSize(13, getInNameBytes());
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(11, getSnapshotBytes());
+          .computeBytesSize(14, getOutNameBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -2484,8 +3348,9 @@ public final class ZosonProto {
      * Protobuf type {@code DetectorParameter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.DetectorParameterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:DetectorParameter)
+        com.zoson.detection.proto.ZosonProto.DetectorParameterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.zoson.detection.proto.ZosonProto.internal_static_DetectorParameter_descriptor;
@@ -2510,6 +3375,7 @@ public final class ZosonProto {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getMeanFieldBuilder();
         }
       }
       private static Builder create() {
@@ -2524,22 +3390,28 @@ public final class ZosonProto {
         bitField0_ = (bitField0_ & ~0x00000002);
         weight_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        useGpu_ = true;
+        label_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        doVis_ = false;
+        useGpu_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000010);
-        fqVis_ = 10;
-        bitField0_ = (bitField0_ & ~0x00000020);
-        threshold_ = 0.5F;
-        bitField0_ = (bitField0_ & ~0x00000040);
-        shared_ = false;
-        bitField0_ = (bitField0_ & ~0x00000080);
         istrain_ = false;
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000020);
         solver_ = "";
+        bitField0_ = (bitField0_ & ~0x00000040);
+        meanFile_ = "";
+        bitField0_ = (bitField0_ & ~0x00000080);
+        if (meanBuilder_ == null) {
+          mean_ = com.zoson.detection.proto.ZosonProto.MeanValue.getDefaultInstance();
+        } else {
+          meanBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000100);
+        type_ = com.zoson.detection.proto.ZosonProto.DetectorParameter.Type.DETECTOR;
         bitField0_ = (bitField0_ & ~0x00000200);
-        snapshot_ = "";
+        inName_ = "data";
         bitField0_ = (bitField0_ & ~0x00000400);
+        outName_ = "detection_out";
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
@@ -2583,35 +3455,44 @@ public final class ZosonProto {
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
+        result.label_ = label_;
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          useGpu_ = java.util.Collections.unmodifiableList(useGpu_);
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
         result.useGpu_ = useGpu_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.doVis_ = doVis_;
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+        result.istrain_ = istrain_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.fqVis_ = fqVis_;
-        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+        result.solver_ = solver_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.threshold_ = threshold_;
-        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+        result.meanFile_ = meanFile_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.shared_ = shared_;
-        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+        if (meanBuilder_ == null) {
+          result.mean_ = mean_;
+        } else {
+          result.mean_ = meanBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
           to_bitField0_ |= 0x00000100;
         }
-        result.istrain_ = istrain_;
-        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+        result.type_ = type_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
           to_bitField0_ |= 0x00000200;
         }
-        result.solver_ = solver_;
-        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+        result.inName_ = inName_;
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
           to_bitField0_ |= 0x00000400;
         }
-        result.snapshot_ = snapshot_;
+        result.outName_ = outName_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -2643,32 +3524,48 @@ public final class ZosonProto {
           weight_ = other.weight_;
           onChanged();
         }
-        if (other.hasUseGpu()) {
-          setUseGpu(other.getUseGpu());
+        if (other.hasLabel()) {
+          bitField0_ |= 0x00000008;
+          label_ = other.label_;
+          onChanged();
         }
-        if (other.hasDoVis()) {
-          setDoVis(other.getDoVis());
-        }
-        if (other.hasFqVis()) {
-          setFqVis(other.getFqVis());
-        }
-        if (other.hasThreshold()) {
-          setThreshold(other.getThreshold());
-        }
-        if (other.hasShared()) {
-          setShared(other.getShared());
+        if (!other.useGpu_.isEmpty()) {
+          if (useGpu_.isEmpty()) {
+            useGpu_ = other.useGpu_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureUseGpuIsMutable();
+            useGpu_.addAll(other.useGpu_);
+          }
+          onChanged();
         }
         if (other.hasIstrain()) {
           setIstrain(other.getIstrain());
         }
         if (other.hasSolver()) {
-          bitField0_ |= 0x00000200;
+          bitField0_ |= 0x00000040;
           solver_ = other.solver_;
           onChanged();
         }
-        if (other.hasSnapshot()) {
+        if (other.hasMeanFile()) {
+          bitField0_ |= 0x00000080;
+          meanFile_ = other.meanFile_;
+          onChanged();
+        }
+        if (other.hasMean()) {
+          mergeMean(other.getMean());
+        }
+        if (other.hasType()) {
+          setType(other.getType());
+        }
+        if (other.hasInName()) {
           bitField0_ |= 0x00000400;
-          snapshot_ = other.snapshot_;
+          inName_ = other.inName_;
+          onChanged();
+        }
+        if (other.hasOutName()) {
+          bitField0_ |= 0x00000800;
+          outName_ = other.outName_;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -2710,7 +3607,6 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // required string name = 1;
       private java.lang.Object name_ = "";
       /**
        * <code>required string name = 1;</code>
@@ -2724,9 +3620,12 @@ public final class ZosonProto {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          name_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -2784,7 +3683,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // required string model = 2;
       private java.lang.Object model_ = "";
       /**
        * <code>required string model = 2;</code>
@@ -2798,9 +3696,12 @@ public final class ZosonProto {
       public java.lang.String getModel() {
         java.lang.Object ref = model_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          model_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            model_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -2858,7 +3759,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // required string weight = 3;
       private java.lang.Object weight_ = "";
       /**
        * <code>required string weight = 3;</code>
@@ -2872,9 +3772,12 @@ public final class ZosonProto {
       public java.lang.String getWeight() {
         java.lang.Object ref = weight_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          weight_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            weight_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -2932,228 +3835,206 @@ public final class ZosonProto {
         return this;
       }
 
-      // optional bool use_gpu = 4 [default = true];
-      private boolean useGpu_ = true;
+      private java.lang.Object label_ = "";
       /**
-       * <code>optional bool use_gpu = 4 [default = true];</code>
+       * <code>optional string label = 4;</code>
        */
-      public boolean hasUseGpu() {
+      public boolean hasLabel() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional bool use_gpu = 4 [default = true];</code>
+       * <code>optional string label = 4;</code>
        */
-      public boolean getUseGpu() {
-        return useGpu_;
-      }
-      /**
-       * <code>optional bool use_gpu = 4 [default = true];</code>
-       */
-      public Builder setUseGpu(boolean value) {
-        bitField0_ |= 0x00000008;
-        useGpu_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional bool use_gpu = 4 [default = true];</code>
-       */
-      public Builder clearUseGpu() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        useGpu_ = true;
-        onChanged();
-        return this;
-      }
-
-      // optional bool do_vis = 5 [default = false];
-      private boolean doVis_ ;
-      /**
-       * <code>optional bool do_vis = 5 [default = false];</code>
-       */
-      public boolean hasDoVis() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      /**
-       * <code>optional bool do_vis = 5 [default = false];</code>
-       */
-      public boolean getDoVis() {
-        return doVis_;
-      }
-      /**
-       * <code>optional bool do_vis = 5 [default = false];</code>
-       */
-      public Builder setDoVis(boolean value) {
-        bitField0_ |= 0x00000010;
-        doVis_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional bool do_vis = 5 [default = false];</code>
-       */
-      public Builder clearDoVis() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        doVis_ = false;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 fq_vis = 6 [default = 10];
-      private int fqVis_ = 10;
-      /**
-       * <code>optional int32 fq_vis = 6 [default = 10];</code>
-       */
-      public boolean hasFqVis() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
-      }
-      /**
-       * <code>optional int32 fq_vis = 6 [default = 10];</code>
-       */
-      public int getFqVis() {
-        return fqVis_;
-      }
-      /**
-       * <code>optional int32 fq_vis = 6 [default = 10];</code>
-       */
-      public Builder setFqVis(int value) {
-        bitField0_ |= 0x00000020;
-        fqVis_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 fq_vis = 6 [default = 10];</code>
-       */
-      public Builder clearFqVis() {
-        bitField0_ = (bitField0_ & ~0x00000020);
-        fqVis_ = 10;
-        onChanged();
-        return this;
-      }
-
-      // optional float threshold = 7 [default = 0.5];
-      private float threshold_ = 0.5F;
-      /**
-       * <code>optional float threshold = 7 [default = 0.5];</code>
-       */
-      public boolean hasThreshold() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
-      }
-      /**
-       * <code>optional float threshold = 7 [default = 0.5];</code>
-       */
-      public float getThreshold() {
-        return threshold_;
-      }
-      /**
-       * <code>optional float threshold = 7 [default = 0.5];</code>
-       */
-      public Builder setThreshold(float value) {
-        bitField0_ |= 0x00000040;
-        threshold_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional float threshold = 7 [default = 0.5];</code>
-       */
-      public Builder clearThreshold() {
-        bitField0_ = (bitField0_ & ~0x00000040);
-        threshold_ = 0.5F;
-        onChanged();
-        return this;
-      }
-
-      // optional bool shared = 8 [default = false];
-      private boolean shared_ ;
-      /**
-       * <code>optional bool shared = 8 [default = false];</code>
-       */
-      public boolean hasShared() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
-      }
-      /**
-       * <code>optional bool shared = 8 [default = false];</code>
-       */
-      public boolean getShared() {
-        return shared_;
-      }
-      /**
-       * <code>optional bool shared = 8 [default = false];</code>
-       */
-      public Builder setShared(boolean value) {
-        bitField0_ |= 0x00000080;
-        shared_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional bool shared = 8 [default = false];</code>
-       */
-      public Builder clearShared() {
-        bitField0_ = (bitField0_ & ~0x00000080);
-        shared_ = false;
-        onChanged();
-        return this;
-      }
-
-      // optional bool istrain = 9 [default = false];
-      private boolean istrain_ ;
-      /**
-       * <code>optional bool istrain = 9 [default = false];</code>
-       */
-      public boolean hasIstrain() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
-      }
-      /**
-       * <code>optional bool istrain = 9 [default = false];</code>
-       */
-      public boolean getIstrain() {
-        return istrain_;
-      }
-      /**
-       * <code>optional bool istrain = 9 [default = false];</code>
-       */
-      public Builder setIstrain(boolean value) {
-        bitField0_ |= 0x00000100;
-        istrain_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional bool istrain = 9 [default = false];</code>
-       */
-      public Builder clearIstrain() {
-        bitField0_ = (bitField0_ & ~0x00000100);
-        istrain_ = false;
-        onChanged();
-        return this;
-      }
-
-      // optional string solver = 10;
-      private java.lang.Object solver_ = "";
-      /**
-       * <code>optional string solver = 10;</code>
-       */
-      public boolean hasSolver() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
-      }
-      /**
-       * <code>optional string solver = 10;</code>
-       */
-      public java.lang.String getSolver() {
-        java.lang.Object ref = solver_;
+      public java.lang.String getLabel() {
+        java.lang.Object ref = label_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          solver_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            label_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>optional string solver = 10;</code>
+       * <code>optional string label = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getLabelBytes() {
+        java.lang.Object ref = label_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          label_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string label = 4;</code>
+       */
+      public Builder setLabel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        label_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string label = 4;</code>
+       */
+      public Builder clearLabel() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        label_ = getDefaultInstance().getLabel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string label = 4;</code>
+       */
+      public Builder setLabelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        label_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<java.lang.Integer> useGpu_ = java.util.Collections.emptyList();
+      private void ensureUseGpuIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          useGpu_ = new java.util.ArrayList<java.lang.Integer>(useGpu_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+      /**
+       * <code>repeated int32 use_gpu = 5;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getUseGpuList() {
+        return java.util.Collections.unmodifiableList(useGpu_);
+      }
+      /**
+       * <code>repeated int32 use_gpu = 5;</code>
+       */
+      public int getUseGpuCount() {
+        return useGpu_.size();
+      }
+      /**
+       * <code>repeated int32 use_gpu = 5;</code>
+       */
+      public int getUseGpu(int index) {
+        return useGpu_.get(index);
+      }
+      /**
+       * <code>repeated int32 use_gpu = 5;</code>
+       */
+      public Builder setUseGpu(
+          int index, int value) {
+        ensureUseGpuIsMutable();
+        useGpu_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 use_gpu = 5;</code>
+       */
+      public Builder addUseGpu(int value) {
+        ensureUseGpuIsMutable();
+        useGpu_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 use_gpu = 5;</code>
+       */
+      public Builder addAllUseGpu(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureUseGpuIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, useGpu_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 use_gpu = 5;</code>
+       */
+      public Builder clearUseGpu() {
+        useGpu_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+
+      private boolean istrain_ ;
+      /**
+       * <code>optional bool istrain = 8 [default = false];</code>
+       */
+      public boolean hasIstrain() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional bool istrain = 8 [default = false];</code>
+       */
+      public boolean getIstrain() {
+        return istrain_;
+      }
+      /**
+       * <code>optional bool istrain = 8 [default = false];</code>
+       */
+      public Builder setIstrain(boolean value) {
+        bitField0_ |= 0x00000020;
+        istrain_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool istrain = 8 [default = false];</code>
+       */
+      public Builder clearIstrain() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        istrain_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object solver_ = "";
+      /**
+       * <code>optional string solver = 9;</code>
+       */
+      public boolean hasSolver() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>optional string solver = 9;</code>
+       */
+      public java.lang.String getSolver() {
+        java.lang.Object ref = solver_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            solver_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string solver = 9;</code>
        */
       public com.google.protobuf.ByteString
           getSolverBytes() {
@@ -3169,111 +4050,416 @@ public final class ZosonProto {
         }
       }
       /**
-       * <code>optional string solver = 10;</code>
+       * <code>optional string solver = 9;</code>
        */
       public Builder setSolver(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000200;
+  bitField0_ |= 0x00000040;
         solver_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string solver = 10;</code>
+       * <code>optional string solver = 9;</code>
        */
       public Builder clearSolver() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000040);
         solver_ = getDefaultInstance().getSolver();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string solver = 10;</code>
+       * <code>optional string solver = 9;</code>
        */
       public Builder setSolverBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000200;
+  bitField0_ |= 0x00000040;
         solver_ = value;
         onChanged();
         return this;
       }
 
-      // optional string snapshot = 11;
-      private java.lang.Object snapshot_ = "";
+      private java.lang.Object meanFile_ = "";
       /**
-       * <code>optional string snapshot = 11;</code>
+       * <code>optional string mean_file = 10;</code>
        */
-      public boolean hasSnapshot() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
+      public boolean hasMeanFile() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>optional string snapshot = 11;</code>
+       * <code>optional string mean_file = 10;</code>
        */
-      public java.lang.String getSnapshot() {
-        java.lang.Object ref = snapshot_;
+      public java.lang.String getMeanFile() {
+        java.lang.Object ref = meanFile_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          snapshot_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            meanFile_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>optional string snapshot = 11;</code>
+       * <code>optional string mean_file = 10;</code>
        */
       public com.google.protobuf.ByteString
-          getSnapshotBytes() {
-        java.lang.Object ref = snapshot_;
+          getMeanFileBytes() {
+        java.lang.Object ref = meanFile_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          snapshot_ = b;
+          meanFile_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>optional string snapshot = 11;</code>
+       * <code>optional string mean_file = 10;</code>
        */
-      public Builder setSnapshot(
+      public Builder setMeanFile(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        meanFile_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string mean_file = 10;</code>
+       */
+      public Builder clearMeanFile() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        meanFile_ = getDefaultInstance().getMeanFile();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string mean_file = 10;</code>
+       */
+      public Builder setMeanFileBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        meanFile_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.zoson.detection.proto.ZosonProto.MeanValue mean_ = com.zoson.detection.proto.ZosonProto.MeanValue.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.zoson.detection.proto.ZosonProto.MeanValue, com.zoson.detection.proto.ZosonProto.MeanValue.Builder, com.zoson.detection.proto.ZosonProto.MeanValueOrBuilder> meanBuilder_;
+      /**
+       * <code>optional .MeanValue mean = 11;</code>
+       */
+      public boolean hasMean() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>optional .MeanValue mean = 11;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.MeanValue getMean() {
+        if (meanBuilder_ == null) {
+          return mean_;
+        } else {
+          return meanBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .MeanValue mean = 11;</code>
+       */
+      public Builder setMean(com.zoson.detection.proto.ZosonProto.MeanValue value) {
+        if (meanBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          mean_ = value;
+          onChanged();
+        } else {
+          meanBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000100;
+        return this;
+      }
+      /**
+       * <code>optional .MeanValue mean = 11;</code>
+       */
+      public Builder setMean(
+          com.zoson.detection.proto.ZosonProto.MeanValue.Builder builderForValue) {
+        if (meanBuilder_ == null) {
+          mean_ = builderForValue.build();
+          onChanged();
+        } else {
+          meanBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000100;
+        return this;
+      }
+      /**
+       * <code>optional .MeanValue mean = 11;</code>
+       */
+      public Builder mergeMean(com.zoson.detection.proto.ZosonProto.MeanValue value) {
+        if (meanBuilder_ == null) {
+          if (((bitField0_ & 0x00000100) == 0x00000100) &&
+              mean_ != com.zoson.detection.proto.ZosonProto.MeanValue.getDefaultInstance()) {
+            mean_ =
+              com.zoson.detection.proto.ZosonProto.MeanValue.newBuilder(mean_).mergeFrom(value).buildPartial();
+          } else {
+            mean_ = value;
+          }
+          onChanged();
+        } else {
+          meanBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000100;
+        return this;
+      }
+      /**
+       * <code>optional .MeanValue mean = 11;</code>
+       */
+      public Builder clearMean() {
+        if (meanBuilder_ == null) {
+          mean_ = com.zoson.detection.proto.ZosonProto.MeanValue.getDefaultInstance();
+          onChanged();
+        } else {
+          meanBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000100);
+        return this;
+      }
+      /**
+       * <code>optional .MeanValue mean = 11;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.MeanValue.Builder getMeanBuilder() {
+        bitField0_ |= 0x00000100;
+        onChanged();
+        return getMeanFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .MeanValue mean = 11;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.MeanValueOrBuilder getMeanOrBuilder() {
+        if (meanBuilder_ != null) {
+          return meanBuilder_.getMessageOrBuilder();
+        } else {
+          return mean_;
+        }
+      }
+      /**
+       * <code>optional .MeanValue mean = 11;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.zoson.detection.proto.ZosonProto.MeanValue, com.zoson.detection.proto.ZosonProto.MeanValue.Builder, com.zoson.detection.proto.ZosonProto.MeanValueOrBuilder> 
+          getMeanFieldBuilder() {
+        if (meanBuilder_ == null) {
+          meanBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.zoson.detection.proto.ZosonProto.MeanValue, com.zoson.detection.proto.ZosonProto.MeanValue.Builder, com.zoson.detection.proto.ZosonProto.MeanValueOrBuilder>(
+                  getMean(),
+                  getParentForChildren(),
+                  isClean());
+          mean_ = null;
+        }
+        return meanBuilder_;
+      }
+
+      private com.zoson.detection.proto.ZosonProto.DetectorParameter.Type type_ = com.zoson.detection.proto.ZosonProto.DetectorParameter.Type.DETECTOR;
+      /**
+       * <code>optional .DetectorParameter.Type type = 12 [default = DETECTOR];</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       * <code>optional .DetectorParameter.Type type = 12 [default = DETECTOR];</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.DetectorParameter.Type getType() {
+        return type_;
+      }
+      /**
+       * <code>optional .DetectorParameter.Type type = 12 [default = DETECTOR];</code>
+       */
+      public Builder setType(com.zoson.detection.proto.ZosonProto.DetectorParameter.Type value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000200;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .DetectorParameter.Type type = 12 [default = DETECTOR];</code>
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        type_ = com.zoson.detection.proto.ZosonProto.DetectorParameter.Type.DETECTOR;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object inName_ = "data";
+      /**
+       * <code>optional string in_name = 13 [default = "data"];</code>
+       */
+      public boolean hasInName() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
+      }
+      /**
+       * <code>optional string in_name = 13 [default = "data"];</code>
+       */
+      public java.lang.String getInName() {
+        java.lang.Object ref = inName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            inName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string in_name = 13 [default = "data"];</code>
+       */
+      public com.google.protobuf.ByteString
+          getInNameBytes() {
+        java.lang.Object ref = inName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          inName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string in_name = 13 [default = "data"];</code>
+       */
+      public Builder setInName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000400;
-        snapshot_ = value;
+        inName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string snapshot = 11;</code>
+       * <code>optional string in_name = 13 [default = "data"];</code>
        */
-      public Builder clearSnapshot() {
+      public Builder clearInName() {
         bitField0_ = (bitField0_ & ~0x00000400);
-        snapshot_ = getDefaultInstance().getSnapshot();
+        inName_ = getDefaultInstance().getInName();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string snapshot = 11;</code>
+       * <code>optional string in_name = 13 [default = "data"];</code>
        */
-      public Builder setSnapshotBytes(
+      public Builder setInNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000400;
-        snapshot_ = value;
+        inName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object outName_ = "detection_out";
+      /**
+       * <code>optional string out_name = 14 [default = "detection_out"];</code>
+       */
+      public boolean hasOutName() {
+        return ((bitField0_ & 0x00000800) == 0x00000800);
+      }
+      /**
+       * <code>optional string out_name = 14 [default = "detection_out"];</code>
+       */
+      public java.lang.String getOutName() {
+        java.lang.Object ref = outName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            outName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string out_name = 14 [default = "detection_out"];</code>
+       */
+      public com.google.protobuf.ByteString
+          getOutNameBytes() {
+        java.lang.Object ref = outName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          outName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string out_name = 14 [default = "detection_out"];</code>
+       */
+      public Builder setOutName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000800;
+        outName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string out_name = 14 [default = "detection_out"];</code>
+       */
+      public Builder clearOutName() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        outName_ = getDefaultInstance().getOutName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string out_name = 14 [default = "detection_out"];</code>
+       */
+      public Builder setOutNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000800;
+        outName_ = value;
         onChanged();
         return this;
       }
@@ -3289,58 +4475,52 @@ public final class ZosonProto {
     // @@protoc_insertion_point(class_scope:DetectorParameter)
   }
 
-  public interface InputParameterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface MeanValueOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:MeanValue)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required int32 fix_width = 1;
     /**
-     * <code>required int32 fix_width = 1;</code>
+     * <code>repeated float value = 1;</code>
      */
-    boolean hasFixWidth();
+    java.util.List<java.lang.Float> getValueList();
     /**
-     * <code>required int32 fix_width = 1;</code>
+     * <code>repeated float value = 1;</code>
      */
-    int getFixWidth();
+    int getValueCount();
+    /**
+     * <code>repeated float value = 1;</code>
+     */
+    float getValue(int index);
 
-    // required int32 fix_height = 2;
     /**
-     * <code>required int32 fix_height = 2;</code>
+     * <code>optional float scale = 2 [default = 1];</code>
      */
-    boolean hasFixHeight();
+    boolean hasScale();
     /**
-     * <code>required int32 fix_height = 2;</code>
+     * <code>optional float scale = 2 [default = 1];</code>
      */
-    int getFixHeight();
-
-    // optional int32 buf_num = 3 [default = 10];
-    /**
-     * <code>optional int32 buf_num = 3 [default = 10];</code>
-     */
-    boolean hasBufNum();
-    /**
-     * <code>optional int32 buf_num = 3 [default = 10];</code>
-     */
-    int getBufNum();
+    float getScale();
   }
   /**
-   * Protobuf type {@code InputParameter}
+   * Protobuf type {@code MeanValue}
    */
-  public static final class InputParameter extends
-      com.google.protobuf.GeneratedMessage
-      implements InputParameterOrBuilder {
-    // Use InputParameter.newBuilder() to construct.
-    private InputParameter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+  public static final class MeanValue extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:MeanValue)
+      MeanValueOrBuilder {
+    // Use MeanValue.newBuilder() to construct.
+    private MeanValue(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private InputParameter(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private MeanValue(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final InputParameter defaultInstance;
-    public static InputParameter getDefaultInstance() {
+    private static final MeanValue defaultInstance;
+    public static MeanValue getDefaultInstance() {
       return defaultInstance;
     }
 
-    public InputParameter getDefaultInstanceForType() {
+    public MeanValue getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -3350,7 +4530,7 @@ public final class ZosonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private InputParameter(
+    private MeanValue(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3373,19 +4553,30 @@ public final class ZosonProto {
               }
               break;
             }
-            case 8: {
+            case 13: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                value_ = new java.util.ArrayList<java.lang.Float>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              value_.add(input.readFloat());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
+                value_ = new java.util.ArrayList<java.lang.Float>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                value_.add(input.readFloat());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 21: {
               bitField0_ |= 0x00000001;
-              fixWidth_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              fixHeight_ = input.readInt32();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000004;
-              bufNum_ = input.readInt32();
+              scale_ = input.readFloat();
               break;
             }
           }
@@ -3396,104 +4587,88 @@ public final class ZosonProto {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          value_ = java.util.Collections.unmodifiableList(value_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.zoson.detection.proto.ZosonProto.internal_static_InputParameter_descriptor;
+      return com.zoson.detection.proto.ZosonProto.internal_static_MeanValue_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.zoson.detection.proto.ZosonProto.internal_static_InputParameter_fieldAccessorTable
+      return com.zoson.detection.proto.ZosonProto.internal_static_MeanValue_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.zoson.detection.proto.ZosonProto.InputParameter.class, com.zoson.detection.proto.ZosonProto.InputParameter.Builder.class);
+              com.zoson.detection.proto.ZosonProto.MeanValue.class, com.zoson.detection.proto.ZosonProto.MeanValue.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<InputParameter> PARSER =
-        new com.google.protobuf.AbstractParser<InputParameter>() {
-      public InputParameter parsePartialFrom(
+    public static com.google.protobuf.Parser<MeanValue> PARSER =
+        new com.google.protobuf.AbstractParser<MeanValue>() {
+      public MeanValue parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new InputParameter(input, extensionRegistry);
+        return new MeanValue(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<InputParameter> getParserForType() {
+    public com.google.protobuf.Parser<MeanValue> getParserForType() {
       return PARSER;
     }
 
     private int bitField0_;
-    // required int32 fix_width = 1;
-    public static final int FIX_WIDTH_FIELD_NUMBER = 1;
-    private int fixWidth_;
+    public static final int VALUE_FIELD_NUMBER = 1;
+    private java.util.List<java.lang.Float> value_;
     /**
-     * <code>required int32 fix_width = 1;</code>
+     * <code>repeated float value = 1;</code>
      */
-    public boolean hasFixWidth() {
+    public java.util.List<java.lang.Float>
+        getValueList() {
+      return value_;
+    }
+    /**
+     * <code>repeated float value = 1;</code>
+     */
+    public int getValueCount() {
+      return value_.size();
+    }
+    /**
+     * <code>repeated float value = 1;</code>
+     */
+    public float getValue(int index) {
+      return value_.get(index);
+    }
+
+    public static final int SCALE_FIELD_NUMBER = 2;
+    private float scale_;
+    /**
+     * <code>optional float scale = 2 [default = 1];</code>
+     */
+    public boolean hasScale() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required int32 fix_width = 1;</code>
+     * <code>optional float scale = 2 [default = 1];</code>
      */
-    public int getFixWidth() {
-      return fixWidth_;
-    }
-
-    // required int32 fix_height = 2;
-    public static final int FIX_HEIGHT_FIELD_NUMBER = 2;
-    private int fixHeight_;
-    /**
-     * <code>required int32 fix_height = 2;</code>
-     */
-    public boolean hasFixHeight() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required int32 fix_height = 2;</code>
-     */
-    public int getFixHeight() {
-      return fixHeight_;
-    }
-
-    // optional int32 buf_num = 3 [default = 10];
-    public static final int BUF_NUM_FIELD_NUMBER = 3;
-    private int bufNum_;
-    /**
-     * <code>optional int32 buf_num = 3 [default = 10];</code>
-     */
-    public boolean hasBufNum() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional int32 buf_num = 3 [default = 10];</code>
-     */
-    public int getBufNum() {
-      return bufNum_;
+    public float getScale() {
+      return scale_;
     }
 
     private void initFields() {
-      fixWidth_ = 0;
-      fixHeight_ = 0;
-      bufNum_ = 10;
+      value_ = java.util.Collections.emptyList();
+      scale_ = 1F;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
-      if (!hasFixWidth()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasFixHeight()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -3501,14 +4676,11 @@ public final class ZosonProto {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
+      for (int i = 0; i < value_.size(); i++) {
+        output.writeFloat(1, value_.get(i));
+      }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, fixWidth_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, fixHeight_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, bufNum_);
+        output.writeFloat(2, scale_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -3519,17 +4691,15 @@ public final class ZosonProto {
       if (size != -1) return size;
 
       size = 0;
+      {
+        int dataSize = 0;
+        dataSize = 4 * getValueList().size();
+        size += dataSize;
+        size += 1 * getValueList().size();
+      }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, fixWidth_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, fixHeight_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, bufNum_);
+          .computeFloatSize(2, scale_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -3543,53 +4713,53 @@ public final class ZosonProto {
       return super.writeReplace();
     }
 
-    public static com.zoson.detection.proto.ZosonProto.InputParameter parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.MeanValue parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.zoson.detection.proto.ZosonProto.InputParameter parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.MeanValue parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.zoson.detection.proto.ZosonProto.InputParameter parseFrom(byte[] data)
+    public static com.zoson.detection.proto.ZosonProto.MeanValue parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.zoson.detection.proto.ZosonProto.InputParameter parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.MeanValue parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.zoson.detection.proto.ZosonProto.InputParameter parseFrom(java.io.InputStream input)
+    public static com.zoson.detection.proto.ZosonProto.MeanValue parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.zoson.detection.proto.ZosonProto.InputParameter parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.MeanValue parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.zoson.detection.proto.ZosonProto.InputParameter parseDelimitedFrom(java.io.InputStream input)
+    public static com.zoson.detection.proto.ZosonProto.MeanValue parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.zoson.detection.proto.ZosonProto.InputParameter parseDelimitedFrom(
+    public static com.zoson.detection.proto.ZosonProto.MeanValue parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.zoson.detection.proto.ZosonProto.InputParameter parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.MeanValue parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.zoson.detection.proto.ZosonProto.InputParameter parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.MeanValue parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3598,7 +4768,7 @@ public final class ZosonProto {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.zoson.detection.proto.ZosonProto.InputParameter prototype) {
+    public static Builder newBuilder(com.zoson.detection.proto.ZosonProto.MeanValue prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -3610,24 +4780,25 @@ public final class ZosonProto {
       return builder;
     }
     /**
-     * Protobuf type {@code InputParameter}
+     * Protobuf type {@code MeanValue}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.InputParameterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:MeanValue)
+        com.zoson.detection.proto.ZosonProto.MeanValueOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.zoson.detection.proto.ZosonProto.internal_static_InputParameter_descriptor;
+        return com.zoson.detection.proto.ZosonProto.internal_static_MeanValue_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.zoson.detection.proto.ZosonProto.internal_static_InputParameter_fieldAccessorTable
+        return com.zoson.detection.proto.ZosonProto.internal_static_MeanValue_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.zoson.detection.proto.ZosonProto.InputParameter.class, com.zoson.detection.proto.ZosonProto.InputParameter.Builder.class);
+                com.zoson.detection.proto.ZosonProto.MeanValue.class, com.zoson.detection.proto.ZosonProto.MeanValue.Builder.class);
       }
 
-      // Construct using com.zoson.detection.proto.ZosonProto.InputParameter.newBuilder()
+      // Construct using com.zoson.detection.proto.ZosonProto.MeanValue.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3647,12 +4818,10 @@ public final class ZosonProto {
 
       public Builder clear() {
         super.clear();
-        fixWidth_ = 0;
+        value_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
-        fixHeight_ = 0;
+        scale_ = 1F;
         bitField0_ = (bitField0_ & ~0x00000002);
-        bufNum_ = 10;
-        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -3662,75 +4831,68 @@ public final class ZosonProto {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.zoson.detection.proto.ZosonProto.internal_static_InputParameter_descriptor;
+        return com.zoson.detection.proto.ZosonProto.internal_static_MeanValue_descriptor;
       }
 
-      public com.zoson.detection.proto.ZosonProto.InputParameter getDefaultInstanceForType() {
-        return com.zoson.detection.proto.ZosonProto.InputParameter.getDefaultInstance();
+      public com.zoson.detection.proto.ZosonProto.MeanValue getDefaultInstanceForType() {
+        return com.zoson.detection.proto.ZosonProto.MeanValue.getDefaultInstance();
       }
 
-      public com.zoson.detection.proto.ZosonProto.InputParameter build() {
-        com.zoson.detection.proto.ZosonProto.InputParameter result = buildPartial();
+      public com.zoson.detection.proto.ZosonProto.MeanValue build() {
+        com.zoson.detection.proto.ZosonProto.MeanValue result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.zoson.detection.proto.ZosonProto.InputParameter buildPartial() {
-        com.zoson.detection.proto.ZosonProto.InputParameter result = new com.zoson.detection.proto.ZosonProto.InputParameter(this);
+      public com.zoson.detection.proto.ZosonProto.MeanValue buildPartial() {
+        com.zoson.detection.proto.ZosonProto.MeanValue result = new com.zoson.detection.proto.ZosonProto.MeanValue(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          value_ = java.util.Collections.unmodifiableList(value_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.value_ = value_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.fixWidth_ = fixWidth_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.fixHeight_ = fixHeight_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.bufNum_ = bufNum_;
+        result.scale_ = scale_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.zoson.detection.proto.ZosonProto.InputParameter) {
-          return mergeFrom((com.zoson.detection.proto.ZosonProto.InputParameter)other);
+        if (other instanceof com.zoson.detection.proto.ZosonProto.MeanValue) {
+          return mergeFrom((com.zoson.detection.proto.ZosonProto.MeanValue)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.InputParameter other) {
-        if (other == com.zoson.detection.proto.ZosonProto.InputParameter.getDefaultInstance()) return this;
-        if (other.hasFixWidth()) {
-          setFixWidth(other.getFixWidth());
+      public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.MeanValue other) {
+        if (other == com.zoson.detection.proto.ZosonProto.MeanValue.getDefaultInstance()) return this;
+        if (!other.value_.isEmpty()) {
+          if (value_.isEmpty()) {
+            value_ = other.value_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureValueIsMutable();
+            value_.addAll(other.value_);
+          }
+          onChanged();
         }
-        if (other.hasFixHeight()) {
-          setFixHeight(other.getFixHeight());
-        }
-        if (other.hasBufNum()) {
-          setBufNum(other.getBufNum());
+        if (other.hasScale()) {
+          setScale(other.getScale());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasFixWidth()) {
-          
-          return false;
-        }
-        if (!hasFixHeight()) {
-          
-          return false;
-        }
         return true;
       }
 
@@ -3738,11 +4900,11 @@ public final class ZosonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.zoson.detection.proto.ZosonProto.InputParameter parsedMessage = null;
+        com.zoson.detection.proto.ZosonProto.MeanValue parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.zoson.detection.proto.ZosonProto.InputParameter) e.getUnfinishedMessage();
+          parsedMessage = (com.zoson.detection.proto.ZosonProto.MeanValue) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -3753,607 +4915,119 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // required int32 fix_width = 1;
-      private int fixWidth_ ;
-      /**
-       * <code>required int32 fix_width = 1;</code>
-       */
-      public boolean hasFixWidth() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+      private java.util.List<java.lang.Float> value_ = java.util.Collections.emptyList();
+      private void ensureValueIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          value_ = new java.util.ArrayList<java.lang.Float>(value_);
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
-       * <code>required int32 fix_width = 1;</code>
+       * <code>repeated float value = 1;</code>
        */
-      public int getFixWidth() {
-        return fixWidth_;
+      public java.util.List<java.lang.Float>
+          getValueList() {
+        return java.util.Collections.unmodifiableList(value_);
       }
       /**
-       * <code>required int32 fix_width = 1;</code>
+       * <code>repeated float value = 1;</code>
        */
-      public Builder setFixWidth(int value) {
-        bitField0_ |= 0x00000001;
-        fixWidth_ = value;
+      public int getValueCount() {
+        return value_.size();
+      }
+      /**
+       * <code>repeated float value = 1;</code>
+       */
+      public float getValue(int index) {
+        return value_.get(index);
+      }
+      /**
+       * <code>repeated float value = 1;</code>
+       */
+      public Builder setValue(
+          int index, float value) {
+        ensureValueIsMutable();
+        value_.set(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 fix_width = 1;</code>
+       * <code>repeated float value = 1;</code>
        */
-      public Builder clearFixWidth() {
+      public Builder addValue(float value) {
+        ensureValueIsMutable();
+        value_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated float value = 1;</code>
+       */
+      public Builder addAllValue(
+          java.lang.Iterable<? extends java.lang.Float> values) {
+        ensureValueIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, value_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated float value = 1;</code>
+       */
+      public Builder clearValue() {
+        value_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
-        fixWidth_ = 0;
         onChanged();
         return this;
       }
 
-      // required int32 fix_height = 2;
-      private int fixHeight_ ;
+      private float scale_ = 1F;
       /**
-       * <code>required int32 fix_height = 2;</code>
+       * <code>optional float scale = 2 [default = 1];</code>
        */
-      public boolean hasFixHeight() {
+      public boolean hasScale() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required int32 fix_height = 2;</code>
+       * <code>optional float scale = 2 [default = 1];</code>
        */
-      public int getFixHeight() {
-        return fixHeight_;
+      public float getScale() {
+        return scale_;
       }
       /**
-       * <code>required int32 fix_height = 2;</code>
+       * <code>optional float scale = 2 [default = 1];</code>
        */
-      public Builder setFixHeight(int value) {
+      public Builder setScale(float value) {
         bitField0_ |= 0x00000002;
-        fixHeight_ = value;
+        scale_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 fix_height = 2;</code>
+       * <code>optional float scale = 2 [default = 1];</code>
        */
-      public Builder clearFixHeight() {
+      public Builder clearScale() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        fixHeight_ = 0;
+        scale_ = 1F;
         onChanged();
         return this;
       }
 
-      // optional int32 buf_num = 3 [default = 10];
-      private int bufNum_ = 10;
-      /**
-       * <code>optional int32 buf_num = 3 [default = 10];</code>
-       */
-      public boolean hasBufNum() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>optional int32 buf_num = 3 [default = 10];</code>
-       */
-      public int getBufNum() {
-        return bufNum_;
-      }
-      /**
-       * <code>optional int32 buf_num = 3 [default = 10];</code>
-       */
-      public Builder setBufNum(int value) {
-        bitField0_ |= 0x00000004;
-        bufNum_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 buf_num = 3 [default = 10];</code>
-       */
-      public Builder clearBufNum() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        bufNum_ = 10;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:InputParameter)
+      // @@protoc_insertion_point(builder_scope:MeanValue)
     }
 
     static {
-      defaultInstance = new InputParameter(true);
+      defaultInstance = new MeanValue(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:InputParameter)
+    // @@protoc_insertion_point(class_scope:MeanValue)
   }
 
-  public interface OutputParameterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface DetectInputOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DetectInput)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional .OutputParameter.Type out_type = 1 [default = PROTO];
-    /**
-     * <code>optional .OutputParameter.Type out_type = 1 [default = PROTO];</code>
-     */
-    boolean hasOutType();
-    /**
-     * <code>optional .OutputParameter.Type out_type = 1 [default = PROTO];</code>
-     */
-    com.zoson.detection.proto.ZosonProto.OutputParameter.Type getOutType();
-  }
-  /**
-   * Protobuf type {@code OutputParameter}
-   */
-  public static final class OutputParameter extends
-      com.google.protobuf.GeneratedMessage
-      implements OutputParameterOrBuilder {
-    // Use OutputParameter.newBuilder() to construct.
-    private OutputParameter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private OutputParameter(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final OutputParameter defaultInstance;
-    public static OutputParameter getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public OutputParameter getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private OutputParameter(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              int rawValue = input.readEnum();
-              com.zoson.detection.proto.ZosonProto.OutputParameter.Type value = com.zoson.detection.proto.ZosonProto.OutputParameter.Type.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(1, rawValue);
-              } else {
-                bitField0_ |= 0x00000001;
-                outType_ = value;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.zoson.detection.proto.ZosonProto.internal_static_OutputParameter_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.zoson.detection.proto.ZosonProto.internal_static_OutputParameter_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.zoson.detection.proto.ZosonProto.OutputParameter.class, com.zoson.detection.proto.ZosonProto.OutputParameter.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<OutputParameter> PARSER =
-        new com.google.protobuf.AbstractParser<OutputParameter>() {
-      public OutputParameter parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new OutputParameter(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<OutputParameter> getParserForType() {
-      return PARSER;
-    }
-
-    /**
-     * Protobuf enum {@code OutputParameter.Type}
-     */
-    public enum Type
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>PROTO = 0;</code>
-       */
-      PROTO(0, 0),
-      /**
-       * <code>JSON = 1;</code>
-       */
-      JSON(1, 1),
-      ;
-
-      /**
-       * <code>PROTO = 0;</code>
-       */
-      public static final int PROTO_VALUE = 0;
-      /**
-       * <code>JSON = 1;</code>
-       */
-      public static final int JSON_VALUE = 1;
-
-
-      public final int getNumber() { return value; }
-
-      public static Type valueOf(int value) {
-        switch (value) {
-          case 0: return PROTO;
-          case 1: return JSON;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<Type>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static com.google.protobuf.Internal.EnumLiteMap<Type>
-          internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
-              public Type findValueByNumber(int number) {
-                return Type.valueOf(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return com.zoson.detection.proto.ZosonProto.OutputParameter.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final Type[] VALUES = values();
-
-      public static Type valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int index;
-      private final int value;
-
-      private Type(int index, int value) {
-        this.index = index;
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:OutputParameter.Type)
-    }
-
-    private int bitField0_;
-    // optional .OutputParameter.Type out_type = 1 [default = PROTO];
-    public static final int OUT_TYPE_FIELD_NUMBER = 1;
-    private com.zoson.detection.proto.ZosonProto.OutputParameter.Type outType_;
-    /**
-     * <code>optional .OutputParameter.Type out_type = 1 [default = PROTO];</code>
-     */
-    public boolean hasOutType() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>optional .OutputParameter.Type out_type = 1 [default = PROTO];</code>
-     */
-    public com.zoson.detection.proto.ZosonProto.OutputParameter.Type getOutType() {
-      return outType_;
-    }
-
-    private void initFields() {
-      outType_ = com.zoson.detection.proto.ZosonProto.OutputParameter.Type.PROTO;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeEnum(1, outType_.getNumber());
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, outType_.getNumber());
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static com.zoson.detection.proto.ZosonProto.OutputParameter parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.zoson.detection.proto.ZosonProto.OutputParameter parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.zoson.detection.proto.ZosonProto.OutputParameter parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.zoson.detection.proto.ZosonProto.OutputParameter parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.zoson.detection.proto.ZosonProto.OutputParameter parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.zoson.detection.proto.ZosonProto.OutputParameter parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static com.zoson.detection.proto.ZosonProto.OutputParameter parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static com.zoson.detection.proto.ZosonProto.OutputParameter parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static com.zoson.detection.proto.ZosonProto.OutputParameter parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.zoson.detection.proto.ZosonProto.OutputParameter parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.zoson.detection.proto.ZosonProto.OutputParameter prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code OutputParameter}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.OutputParameterOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.zoson.detection.proto.ZosonProto.internal_static_OutputParameter_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.zoson.detection.proto.ZosonProto.internal_static_OutputParameter_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.zoson.detection.proto.ZosonProto.OutputParameter.class, com.zoson.detection.proto.ZosonProto.OutputParameter.Builder.class);
-      }
-
-      // Construct using com.zoson.detection.proto.ZosonProto.OutputParameter.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        outType_ = com.zoson.detection.proto.ZosonProto.OutputParameter.Type.PROTO;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.zoson.detection.proto.ZosonProto.internal_static_OutputParameter_descriptor;
-      }
-
-      public com.zoson.detection.proto.ZosonProto.OutputParameter getDefaultInstanceForType() {
-        return com.zoson.detection.proto.ZosonProto.OutputParameter.getDefaultInstance();
-      }
-
-      public com.zoson.detection.proto.ZosonProto.OutputParameter build() {
-        com.zoson.detection.proto.ZosonProto.OutputParameter result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.zoson.detection.proto.ZosonProto.OutputParameter buildPartial() {
-        com.zoson.detection.proto.ZosonProto.OutputParameter result = new com.zoson.detection.proto.ZosonProto.OutputParameter(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.outType_ = outType_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.zoson.detection.proto.ZosonProto.OutputParameter) {
-          return mergeFrom((com.zoson.detection.proto.ZosonProto.OutputParameter)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.OutputParameter other) {
-        if (other == com.zoson.detection.proto.ZosonProto.OutputParameter.getDefaultInstance()) return this;
-        if (other.hasOutType()) {
-          setOutType(other.getOutType());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.zoson.detection.proto.ZosonProto.OutputParameter parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.zoson.detection.proto.ZosonProto.OutputParameter) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      // optional .OutputParameter.Type out_type = 1 [default = PROTO];
-      private com.zoson.detection.proto.ZosonProto.OutputParameter.Type outType_ = com.zoson.detection.proto.ZosonProto.OutputParameter.Type.PROTO;
-      /**
-       * <code>optional .OutputParameter.Type out_type = 1 [default = PROTO];</code>
-       */
-      public boolean hasOutType() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional .OutputParameter.Type out_type = 1 [default = PROTO];</code>
-       */
-      public com.zoson.detection.proto.ZosonProto.OutputParameter.Type getOutType() {
-        return outType_;
-      }
-      /**
-       * <code>optional .OutputParameter.Type out_type = 1 [default = PROTO];</code>
-       */
-      public Builder setOutType(com.zoson.detection.proto.ZosonProto.OutputParameter.Type value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000001;
-        outType_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional .OutputParameter.Type out_type = 1 [default = PROTO];</code>
-       */
-      public Builder clearOutType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        outType_ = com.zoson.detection.proto.ZosonProto.OutputParameter.Type.PROTO;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:OutputParameter)
-    }
-
-    static {
-      defaultInstance = new OutputParameter(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:OutputParameter)
-  }
-
-  public interface DetectInputOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-
-    // required int32 width = 2;
     /**
      * <code>required int32 width = 2;</code>
      */
@@ -4363,7 +5037,6 @@ public final class ZosonProto {
      */
     int getWidth();
 
-    // required int32 height = 3;
     /**
      * <code>required int32 height = 3;</code>
      */
@@ -4373,7 +5046,6 @@ public final class ZosonProto {
      */
     int getHeight();
 
-    // required bytes data = 4;
     /**
      * <code>required bytes data = 4;</code>
      */
@@ -4387,8 +5059,9 @@ public final class ZosonProto {
    * Protobuf type {@code DetectInput}
    */
   public static final class DetectInput extends
-      com.google.protobuf.GeneratedMessage
-      implements DetectInputOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:DetectInput)
+      DetectInputOrBuilder {
     // Use DetectInput.newBuilder() to construct.
     private DetectInput(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -4598,7 +5271,6 @@ public final class ZosonProto {
     }
 
     private int bitField0_;
-    // required int32 width = 2;
     public static final int WIDTH_FIELD_NUMBER = 2;
     private int width_;
     /**
@@ -4614,7 +5286,6 @@ public final class ZosonProto {
       return width_;
     }
 
-    // required int32 height = 3;
     public static final int HEIGHT_FIELD_NUMBER = 3;
     private int height_;
     /**
@@ -4630,7 +5301,6 @@ public final class ZosonProto {
       return height_;
     }
 
-    // required bytes data = 4;
     public static final int DATA_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString data_;
     /**
@@ -4654,7 +5324,8 @@ public final class ZosonProto {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasWidth()) {
         memoizedIsInitialized = 0;
@@ -4787,8 +5458,9 @@ public final class ZosonProto {
      * Protobuf type {@code DetectInput}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.DetectInputOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:DetectInput)
+        com.zoson.detection.proto.ZosonProto.DetectInputOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.zoson.detection.proto.ZosonProto.internal_static_DetectInput_descriptor;
@@ -4931,7 +5603,6 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // required int32 width = 2;
       private int width_ ;
       /**
        * <code>required int32 width = 2;</code>
@@ -4964,7 +5635,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // required int32 height = 3;
       private int height_ ;
       /**
        * <code>required int32 height = 3;</code>
@@ -4997,7 +5667,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // required bytes data = 4;
       private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>required bytes data = 4;</code>
@@ -5044,10 +5713,10 @@ public final class ZosonProto {
     // @@protoc_insertion_point(class_scope:DetectInput)
   }
 
-  public interface DetectOutputOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface DetectOutputOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:DetectOutput)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated .Result results = 1;
     /**
      * <code>repeated .Result results = 1;</code>
      */
@@ -5076,8 +5745,9 @@ public final class ZosonProto {
    * Protobuf type {@code DetectOutput}
    */
   public static final class DetectOutput extends
-      com.google.protobuf.GeneratedMessage
-      implements DetectOutputOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:DetectOutput)
+      DetectOutputOrBuilder {
     // Use DetectOutput.newBuilder() to construct.
     private DetectOutput(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -5173,7 +5843,6 @@ public final class ZosonProto {
       return PARSER;
     }
 
-    // repeated .Result results = 1;
     public static final int RESULTS_FIELD_NUMBER = 1;
     private java.util.List<com.zoson.detection.proto.ZosonProto.Result> results_;
     /**
@@ -5215,7 +5884,8 @@ public final class ZosonProto {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getResultsCount(); i++) {
         if (!getResults(i).isInitialized()) {
@@ -5328,8 +5998,9 @@ public final class ZosonProto {
      * Protobuf type {@code DetectOutput}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.DetectOutputOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:DetectOutput)
+        com.zoson.detection.proto.ZosonProto.DetectOutputOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.zoson.detection.proto.ZosonProto.internal_static_DetectOutput_descriptor;
@@ -5479,7 +6150,6 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // repeated .Result results = 1;
       private java.util.List<com.zoson.detection.proto.ZosonProto.Result> results_ =
         java.util.Collections.emptyList();
       private void ensureResultsIsMutable() {
@@ -5621,7 +6291,8 @@ public final class ZosonProto {
           java.lang.Iterable<? extends com.zoson.detection.proto.ZosonProto.Result> values) {
         if (resultsBuilder_ == null) {
           ensureResultsIsMutable();
-          super.addAll(values, results_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, results_);
           onChanged();
         } else {
           resultsBuilder_.addAllMessages(values);
@@ -5730,10 +6401,10 @@ public final class ZosonProto {
     // @@protoc_insertion_point(class_scope:DetectOutput)
   }
 
-  public interface ResultOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ResultOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Result)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required float xmin = 1;
     /**
      * <code>required float xmin = 1;</code>
      */
@@ -5743,7 +6414,6 @@ public final class ZosonProto {
      */
     float getXmin();
 
-    // required float ymin = 2;
     /**
      * <code>required float ymin = 2;</code>
      */
@@ -5753,7 +6423,6 @@ public final class ZosonProto {
      */
     float getYmin();
 
-    // required float xmax = 3;
     /**
      * <code>required float xmax = 3;</code>
      */
@@ -5763,7 +6432,6 @@ public final class ZosonProto {
      */
     float getXmax();
 
-    // required float ymax = 4;
     /**
      * <code>required float ymax = 4;</code>
      */
@@ -5773,7 +6441,6 @@ public final class ZosonProto {
      */
     float getYmax();
 
-    // required int32 clazz = 5;
     /**
      * <code>required int32 clazz = 5;</code>
      */
@@ -5783,7 +6450,6 @@ public final class ZosonProto {
      */
     int getClazz();
 
-    // required float score = 6;
     /**
      * <code>required float score = 6;</code>
      */
@@ -5797,8 +6463,9 @@ public final class ZosonProto {
    * Protobuf type {@code Result}
    */
   public static final class Result extends
-      com.google.protobuf.GeneratedMessage
-      implements ResultOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:Result)
+      ResultOrBuilder {
     // Use Result.newBuilder() to construct.
     private Result(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -5914,7 +6581,6 @@ public final class ZosonProto {
     }
 
     private int bitField0_;
-    // required float xmin = 1;
     public static final int XMIN_FIELD_NUMBER = 1;
     private float xmin_;
     /**
@@ -5930,7 +6596,6 @@ public final class ZosonProto {
       return xmin_;
     }
 
-    // required float ymin = 2;
     public static final int YMIN_FIELD_NUMBER = 2;
     private float ymin_;
     /**
@@ -5946,7 +6611,6 @@ public final class ZosonProto {
       return ymin_;
     }
 
-    // required float xmax = 3;
     public static final int XMAX_FIELD_NUMBER = 3;
     private float xmax_;
     /**
@@ -5962,7 +6626,6 @@ public final class ZosonProto {
       return xmax_;
     }
 
-    // required float ymax = 4;
     public static final int YMAX_FIELD_NUMBER = 4;
     private float ymax_;
     /**
@@ -5978,7 +6641,6 @@ public final class ZosonProto {
       return ymax_;
     }
 
-    // required int32 clazz = 5;
     public static final int CLAZZ_FIELD_NUMBER = 5;
     private int clazz_;
     /**
@@ -5994,7 +6656,6 @@ public final class ZosonProto {
       return clazz_;
     }
 
-    // required float score = 6;
     public static final int SCORE_FIELD_NUMBER = 6;
     private float score_;
     /**
@@ -6021,7 +6682,8 @@ public final class ZosonProto {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasXmin()) {
         memoizedIsInitialized = 0;
@@ -6187,8 +6849,9 @@ public final class ZosonProto {
      * Protobuf type {@code Result}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.ResultOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Result)
+        com.zoson.detection.proto.ZosonProto.ResultOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.zoson.detection.proto.ZosonProto.internal_static_Result_descriptor;
@@ -6370,7 +7033,6 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // required float xmin = 1;
       private float xmin_ ;
       /**
        * <code>required float xmin = 1;</code>
@@ -6403,7 +7065,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // required float ymin = 2;
       private float ymin_ ;
       /**
        * <code>required float ymin = 2;</code>
@@ -6436,7 +7097,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // required float xmax = 3;
       private float xmax_ ;
       /**
        * <code>required float xmax = 3;</code>
@@ -6469,7 +7129,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // required float ymax = 4;
       private float ymax_ ;
       /**
        * <code>required float ymax = 4;</code>
@@ -6502,7 +7161,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // required int32 clazz = 5;
       private int clazz_ ;
       /**
        * <code>required int32 clazz = 5;</code>
@@ -6535,7 +7193,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // required float score = 6;
       private float score_ ;
       /**
        * <code>required float score = 6;</code>
@@ -6579,10 +7236,10 @@ public final class ZosonProto {
     // @@protoc_insertion_point(class_scope:Result)
   }
 
-  public interface CommuParameterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface CommuParameterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:CommuParameter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional string address = 1 [default = "localhost"];
     /**
      * <code>optional string address = 1 [default = "localhost"];</code>
      */
@@ -6597,7 +7254,6 @@ public final class ZosonProto {
     com.google.protobuf.ByteString
         getAddressBytes();
 
-    // optional int32 port = 2 [default = 10086];
     /**
      * <code>optional int32 port = 2 [default = 10086];</code>
      */
@@ -6607,7 +7263,6 @@ public final class ZosonProto {
      */
     int getPort();
 
-    // optional string client_name = 3 [default = "web"];
     /**
      * <code>optional string client_name = 3 [default = "web"];</code>
      */
@@ -6622,7 +7277,6 @@ public final class ZosonProto {
     com.google.protobuf.ByteString
         getClientNameBytes();
 
-    // optional .CommuParameter.Type type = 4 [default = LOC];
     /**
      * <code>optional .CommuParameter.Type type = 4 [default = LOC];</code>
      */
@@ -6636,8 +7290,9 @@ public final class ZosonProto {
    * Protobuf type {@code CommuParameter}
    */
   public static final class CommuParameter extends
-      com.google.protobuf.GeneratedMessage
-      implements CommuParameterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:CommuParameter)
+      CommuParameterOrBuilder {
     // Use CommuParameter.newBuilder() to construct.
     private CommuParameter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -6684,8 +7339,9 @@ public final class ZosonProto {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              address_ = input.readBytes();
+              address_ = bs;
               break;
             }
             case 16: {
@@ -6694,8 +7350,9 @@ public final class ZosonProto {
               break;
             }
             case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              clientName_ = input.readBytes();
+              clientName_ = bs;
               break;
             }
             case 32: {
@@ -6849,7 +7506,6 @@ public final class ZosonProto {
     }
 
     private int bitField0_;
-    // optional string address = 1 [default = "localhost"];
     public static final int ADDRESS_FIELD_NUMBER = 1;
     private java.lang.Object address_;
     /**
@@ -6892,7 +7548,6 @@ public final class ZosonProto {
       }
     }
 
-    // optional int32 port = 2 [default = 10086];
     public static final int PORT_FIELD_NUMBER = 2;
     private int port_;
     /**
@@ -6908,7 +7563,6 @@ public final class ZosonProto {
       return port_;
     }
 
-    // optional string client_name = 3 [default = "web"];
     public static final int CLIENT_NAME_FIELD_NUMBER = 3;
     private java.lang.Object clientName_;
     /**
@@ -6951,7 +7605,6 @@ public final class ZosonProto {
       }
     }
 
-    // optional .CommuParameter.Type type = 4 [default = LOC];
     public static final int TYPE_FIELD_NUMBER = 4;
     private com.zoson.detection.proto.ZosonProto.CommuParameter.Type type_;
     /**
@@ -6976,7 +7629,8 @@ public final class ZosonProto {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -7104,8 +7758,9 @@ public final class ZosonProto {
      * Protobuf type {@code CommuParameter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.CommuParameterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:CommuParameter)
+        com.zoson.detection.proto.ZosonProto.CommuParameterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.zoson.detection.proto.ZosonProto.internal_static_CommuParameter_descriptor;
@@ -7249,7 +7904,6 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // optional string address = 1 [default = "localhost"];
       private java.lang.Object address_ = "localhost";
       /**
        * <code>optional string address = 1 [default = "localhost"];</code>
@@ -7263,9 +7917,12 @@ public final class ZosonProto {
       public java.lang.String getAddress() {
         java.lang.Object ref = address_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          address_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            address_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -7323,7 +7980,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // optional int32 port = 2 [default = 10086];
       private int port_ = 10086;
       /**
        * <code>optional int32 port = 2 [default = 10086];</code>
@@ -7356,7 +8012,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // optional string client_name = 3 [default = "web"];
       private java.lang.Object clientName_ = "web";
       /**
        * <code>optional string client_name = 3 [default = "web"];</code>
@@ -7370,9 +8025,12 @@ public final class ZosonProto {
       public java.lang.String getClientName() {
         java.lang.Object ref = clientName_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          clientName_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            clientName_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -7430,7 +8088,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // optional .CommuParameter.Type type = 4 [default = LOC];
       private com.zoson.detection.proto.ZosonProto.CommuParameter.Type type_ = com.zoson.detection.proto.ZosonProto.CommuParameter.Type.LOC;
       /**
        * <code>optional .CommuParameter.Type type = 4 [default = LOC];</code>
@@ -7477,10 +8134,10 @@ public final class ZosonProto {
     // @@protoc_insertion_point(class_scope:CommuParameter)
   }
 
-  public interface ClassMapsOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ClassMapsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ClassMaps)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated .ClassMap item = 1;
     /**
      * <code>repeated .ClassMap item = 1;</code>
      */
@@ -7509,8 +8166,9 @@ public final class ZosonProto {
    * Protobuf type {@code ClassMaps}
    */
   public static final class ClassMaps extends
-      com.google.protobuf.GeneratedMessage
-      implements ClassMapsOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:ClassMaps)
+      ClassMapsOrBuilder {
     // Use ClassMaps.newBuilder() to construct.
     private ClassMaps(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -7606,7 +8264,6 @@ public final class ZosonProto {
       return PARSER;
     }
 
-    // repeated .ClassMap item = 1;
     public static final int ITEM_FIELD_NUMBER = 1;
     private java.util.List<com.zoson.detection.proto.ZosonProto.ClassMap> item_;
     /**
@@ -7648,7 +8305,8 @@ public final class ZosonProto {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getItemCount(); i++) {
         if (!getItem(i).isInitialized()) {
@@ -7761,8 +8419,9 @@ public final class ZosonProto {
      * Protobuf type {@code ClassMaps}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.ClassMapsOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ClassMaps)
+        com.zoson.detection.proto.ZosonProto.ClassMapsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.zoson.detection.proto.ZosonProto.internal_static_ClassMaps_descriptor;
@@ -7912,7 +8571,6 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // repeated .ClassMap item = 1;
       private java.util.List<com.zoson.detection.proto.ZosonProto.ClassMap> item_ =
         java.util.Collections.emptyList();
       private void ensureItemIsMutable() {
@@ -8054,7 +8712,8 @@ public final class ZosonProto {
           java.lang.Iterable<? extends com.zoson.detection.proto.ZosonProto.ClassMap> values) {
         if (itemBuilder_ == null) {
           ensureItemIsMutable();
-          super.addAll(values, item_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, item_);
           onChanged();
         } else {
           itemBuilder_.addAllMessages(values);
@@ -8163,10 +8822,10 @@ public final class ZosonProto {
     // @@protoc_insertion_point(class_scope:ClassMaps)
   }
 
-  public interface ClassMapOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ClassMapOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ClassMap)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string name = 1;
     /**
      * <code>required string name = 1;</code>
      */
@@ -8181,7 +8840,6 @@ public final class ZosonProto {
     com.google.protobuf.ByteString
         getNameBytes();
 
-    // required int32 label = 2;
     /**
      * <code>required int32 label = 2;</code>
      */
@@ -8191,7 +8849,6 @@ public final class ZosonProto {
      */
     int getLabel();
 
-    // required string display_name = 3;
     /**
      * <code>required string display_name = 3;</code>
      */
@@ -8210,8 +8867,9 @@ public final class ZosonProto {
    * Protobuf type {@code ClassMap}
    */
   public static final class ClassMap extends
-      com.google.protobuf.GeneratedMessage
-      implements ClassMapOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:ClassMap)
+      ClassMapOrBuilder {
     // Use ClassMap.newBuilder() to construct.
     private ClassMap(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -8258,8 +8916,9 @@ public final class ZosonProto {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              name_ = input.readBytes();
+              name_ = bs;
               break;
             }
             case 16: {
@@ -8268,8 +8927,9 @@ public final class ZosonProto {
               break;
             }
             case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              displayName_ = input.readBytes();
+              displayName_ = bs;
               break;
             }
           }
@@ -8312,7 +8972,6 @@ public final class ZosonProto {
     }
 
     private int bitField0_;
-    // required string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
     /**
@@ -8355,7 +9014,6 @@ public final class ZosonProto {
       }
     }
 
-    // required int32 label = 2;
     public static final int LABEL_FIELD_NUMBER = 2;
     private int label_;
     /**
@@ -8371,7 +9029,6 @@ public final class ZosonProto {
       return label_;
     }
 
-    // required string display_name = 3;
     public static final int DISPLAY_NAME_FIELD_NUMBER = 3;
     private java.lang.Object displayName_;
     /**
@@ -8422,7 +9079,8 @@ public final class ZosonProto {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasName()) {
         memoizedIsInitialized = 0;
@@ -8555,8 +9213,9 @@ public final class ZosonProto {
      * Protobuf type {@code ClassMap}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.ClassMapOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ClassMap)
+        com.zoson.detection.proto.ZosonProto.ClassMapOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.zoson.detection.proto.ZosonProto.internal_static_ClassMap_descriptor;
@@ -8703,7 +9362,6 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // required string name = 1;
       private java.lang.Object name_ = "";
       /**
        * <code>required string name = 1;</code>
@@ -8717,9 +9375,12 @@ public final class ZosonProto {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          name_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -8777,7 +9438,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // required int32 label = 2;
       private int label_ ;
       /**
        * <code>required int32 label = 2;</code>
@@ -8810,7 +9470,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // required string display_name = 3;
       private java.lang.Object displayName_ = "";
       /**
        * <code>required string display_name = 3;</code>
@@ -8824,9 +9483,12 @@ public final class ZosonProto {
       public java.lang.String getDisplayName() {
         java.lang.Object ref = displayName_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          displayName_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            displayName_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -8895,10 +9557,2495 @@ public final class ZosonProto {
     // @@protoc_insertion_point(class_scope:ClassMap)
   }
 
-  public interface VFeatureMapOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface CookieOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Cookie)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required int32 width = 1;
+    /**
+     * <code>required string ID = 1;</code>
+     */
+    boolean hasID();
+    /**
+     * <code>required string ID = 1;</code>
+     */
+    java.lang.String getID();
+    /**
+     * <code>required string ID = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIDBytes();
+
+    /**
+     * <code>required string name = 2;</code>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 2;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+  }
+  /**
+   * Protobuf type {@code Cookie}
+   */
+  public static final class Cookie extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:Cookie)
+      CookieOrBuilder {
+    // Use Cookie.newBuilder() to construct.
+    private Cookie(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private Cookie(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final Cookie defaultInstance;
+    public static Cookie getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public Cookie getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Cookie(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              iD_ = bs;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              name_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.zoson.detection.proto.ZosonProto.internal_static_Cookie_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.zoson.detection.proto.ZosonProto.internal_static_Cookie_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.zoson.detection.proto.ZosonProto.Cookie.class, com.zoson.detection.proto.ZosonProto.Cookie.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<Cookie> PARSER =
+        new com.google.protobuf.AbstractParser<Cookie>() {
+      public Cookie parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Cookie(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Cookie> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private java.lang.Object iD_;
+    /**
+     * <code>required string ID = 1;</code>
+     */
+    public boolean hasID() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string ID = 1;</code>
+     */
+    public java.lang.String getID() {
+      java.lang.Object ref = iD_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          iD_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string ID = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIDBytes() {
+      java.lang.Object ref = iD_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        iD_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
+    private java.lang.Object name_;
+    /**
+     * <code>required string name = 2;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string name = 2;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string name = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      iD_ = "";
+      name_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasID()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getIDBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getNameBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getIDBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getNameBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.zoson.detection.proto.ZosonProto.Cookie parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Cookie parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Cookie parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Cookie parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Cookie parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Cookie parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Cookie parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Cookie parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Cookie parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Cookie parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.zoson.detection.proto.ZosonProto.Cookie prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Cookie}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Cookie)
+        com.zoson.detection.proto.ZosonProto.CookieOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_Cookie_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_Cookie_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.zoson.detection.proto.ZosonProto.Cookie.class, com.zoson.detection.proto.ZosonProto.Cookie.Builder.class);
+      }
+
+      // Construct using com.zoson.detection.proto.ZosonProto.Cookie.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        iD_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_Cookie_descriptor;
+      }
+
+      public com.zoson.detection.proto.ZosonProto.Cookie getDefaultInstanceForType() {
+        return com.zoson.detection.proto.ZosonProto.Cookie.getDefaultInstance();
+      }
+
+      public com.zoson.detection.proto.ZosonProto.Cookie build() {
+        com.zoson.detection.proto.ZosonProto.Cookie result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.zoson.detection.proto.ZosonProto.Cookie buildPartial() {
+        com.zoson.detection.proto.ZosonProto.Cookie result = new com.zoson.detection.proto.ZosonProto.Cookie(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.iD_ = iD_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.name_ = name_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.zoson.detection.proto.ZosonProto.Cookie) {
+          return mergeFrom((com.zoson.detection.proto.ZosonProto.Cookie)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.Cookie other) {
+        if (other == com.zoson.detection.proto.ZosonProto.Cookie.getDefaultInstance()) return this;
+        if (other.hasID()) {
+          bitField0_ |= 0x00000001;
+          iD_ = other.iD_;
+          onChanged();
+        }
+        if (other.hasName()) {
+          bitField0_ |= 0x00000002;
+          name_ = other.name_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasID()) {
+          
+          return false;
+        }
+        if (!hasName()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.zoson.detection.proto.ZosonProto.Cookie parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.zoson.detection.proto.ZosonProto.Cookie) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object iD_ = "";
+      /**
+       * <code>required string ID = 1;</code>
+       */
+      public boolean hasID() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string ID = 1;</code>
+       */
+      public java.lang.String getID() {
+        java.lang.Object ref = iD_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            iD_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string ID = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIDBytes() {
+        java.lang.Object ref = iD_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          iD_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string ID = 1;</code>
+       */
+      public Builder setID(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        iD_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string ID = 1;</code>
+       */
+      public Builder clearID() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        iD_ = getDefaultInstance().getID();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string ID = 1;</code>
+       */
+      public Builder setIDBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        iD_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:Cookie)
+    }
+
+    static {
+      defaultInstance = new Cookie(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:Cookie)
+  }
+
+  public interface BytetranferOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Bytetranfer)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int32 count = 2;</code>
+     */
+    boolean hasCount();
+    /**
+     * <code>required int32 count = 2;</code>
+     */
+    int getCount();
+  }
+  /**
+   * Protobuf type {@code Bytetranfer}
+   */
+  public static final class Bytetranfer extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:Bytetranfer)
+      BytetranferOrBuilder {
+    // Use Bytetranfer.newBuilder() to construct.
+    private Bytetranfer(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private Bytetranfer(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final Bytetranfer defaultInstance;
+    public static Bytetranfer getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public Bytetranfer getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Bytetranfer(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000001;
+              count_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.zoson.detection.proto.ZosonProto.internal_static_Bytetranfer_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.zoson.detection.proto.ZosonProto.internal_static_Bytetranfer_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.zoson.detection.proto.ZosonProto.Bytetranfer.class, com.zoson.detection.proto.ZosonProto.Bytetranfer.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<Bytetranfer> PARSER =
+        new com.google.protobuf.AbstractParser<Bytetranfer>() {
+      public Bytetranfer parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Bytetranfer(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Bytetranfer> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int COUNT_FIELD_NUMBER = 2;
+    private int count_;
+    /**
+     * <code>required int32 count = 2;</code>
+     */
+    public boolean hasCount() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 count = 2;</code>
+     */
+    public int getCount() {
+      return count_;
+    }
+
+    private void initFields() {
+      count_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasCount()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(2, count_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, count_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.zoson.detection.proto.ZosonProto.Bytetranfer parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Bytetranfer parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Bytetranfer parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Bytetranfer parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Bytetranfer parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Bytetranfer parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Bytetranfer parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Bytetranfer parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Bytetranfer parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.Bytetranfer parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.zoson.detection.proto.ZosonProto.Bytetranfer prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Bytetranfer}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Bytetranfer)
+        com.zoson.detection.proto.ZosonProto.BytetranferOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_Bytetranfer_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_Bytetranfer_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.zoson.detection.proto.ZosonProto.Bytetranfer.class, com.zoson.detection.proto.ZosonProto.Bytetranfer.Builder.class);
+      }
+
+      // Construct using com.zoson.detection.proto.ZosonProto.Bytetranfer.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        count_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_Bytetranfer_descriptor;
+      }
+
+      public com.zoson.detection.proto.ZosonProto.Bytetranfer getDefaultInstanceForType() {
+        return com.zoson.detection.proto.ZosonProto.Bytetranfer.getDefaultInstance();
+      }
+
+      public com.zoson.detection.proto.ZosonProto.Bytetranfer build() {
+        com.zoson.detection.proto.ZosonProto.Bytetranfer result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.zoson.detection.proto.ZosonProto.Bytetranfer buildPartial() {
+        com.zoson.detection.proto.ZosonProto.Bytetranfer result = new com.zoson.detection.proto.ZosonProto.Bytetranfer(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.count_ = count_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.zoson.detection.proto.ZosonProto.Bytetranfer) {
+          return mergeFrom((com.zoson.detection.proto.ZosonProto.Bytetranfer)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.Bytetranfer other) {
+        if (other == com.zoson.detection.proto.ZosonProto.Bytetranfer.getDefaultInstance()) return this;
+        if (other.hasCount()) {
+          setCount(other.getCount());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasCount()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.zoson.detection.proto.ZosonProto.Bytetranfer parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.zoson.detection.proto.ZosonProto.Bytetranfer) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int count_ ;
+      /**
+       * <code>required int32 count = 2;</code>
+       */
+      public boolean hasCount() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 count = 2;</code>
+       */
+      public int getCount() {
+        return count_;
+      }
+      /**
+       * <code>required int32 count = 2;</code>
+       */
+      public Builder setCount(int value) {
+        bitField0_ |= 0x00000001;
+        count_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 count = 2;</code>
+       */
+      public Builder clearCount() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        count_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:Bytetranfer)
+    }
+
+    static {
+      defaultInstance = new Bytetranfer(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:Bytetranfer)
+  }
+
+  public interface VLayerInfosOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:VLayerInfos)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .VLayerInfo infos = 1;</code>
+     */
+    java.util.List<com.zoson.detection.proto.ZosonProto.VLayerInfo> 
+        getInfosList();
+    /**
+     * <code>repeated .VLayerInfo infos = 1;</code>
+     */
+    com.zoson.detection.proto.ZosonProto.VLayerInfo getInfos(int index);
+    /**
+     * <code>repeated .VLayerInfo infos = 1;</code>
+     */
+    int getInfosCount();
+    /**
+     * <code>repeated .VLayerInfo infos = 1;</code>
+     */
+    java.util.List<? extends com.zoson.detection.proto.ZosonProto.VLayerInfoOrBuilder> 
+        getInfosOrBuilderList();
+    /**
+     * <code>repeated .VLayerInfo infos = 1;</code>
+     */
+    com.zoson.detection.proto.ZosonProto.VLayerInfoOrBuilder getInfosOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code VLayerInfos}
+   *
+   * <pre>
+   *for vision-qt add prefix V for Vision
+   * </pre>
+   */
+  public static final class VLayerInfos extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:VLayerInfos)
+      VLayerInfosOrBuilder {
+    // Use VLayerInfos.newBuilder() to construct.
+    private VLayerInfos(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private VLayerInfos(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final VLayerInfos defaultInstance;
+    public static VLayerInfos getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public VLayerInfos getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private VLayerInfos(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                infos_ = new java.util.ArrayList<com.zoson.detection.proto.ZosonProto.VLayerInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              infos_.add(input.readMessage(com.zoson.detection.proto.ZosonProto.VLayerInfo.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          infos_ = java.util.Collections.unmodifiableList(infos_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.zoson.detection.proto.ZosonProto.internal_static_VLayerInfos_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.zoson.detection.proto.ZosonProto.internal_static_VLayerInfos_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.zoson.detection.proto.ZosonProto.VLayerInfos.class, com.zoson.detection.proto.ZosonProto.VLayerInfos.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<VLayerInfos> PARSER =
+        new com.google.protobuf.AbstractParser<VLayerInfos>() {
+      public VLayerInfos parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new VLayerInfos(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<VLayerInfos> getParserForType() {
+      return PARSER;
+    }
+
+    public static final int INFOS_FIELD_NUMBER = 1;
+    private java.util.List<com.zoson.detection.proto.ZosonProto.VLayerInfo> infos_;
+    /**
+     * <code>repeated .VLayerInfo infos = 1;</code>
+     */
+    public java.util.List<com.zoson.detection.proto.ZosonProto.VLayerInfo> getInfosList() {
+      return infos_;
+    }
+    /**
+     * <code>repeated .VLayerInfo infos = 1;</code>
+     */
+    public java.util.List<? extends com.zoson.detection.proto.ZosonProto.VLayerInfoOrBuilder> 
+        getInfosOrBuilderList() {
+      return infos_;
+    }
+    /**
+     * <code>repeated .VLayerInfo infos = 1;</code>
+     */
+    public int getInfosCount() {
+      return infos_.size();
+    }
+    /**
+     * <code>repeated .VLayerInfo infos = 1;</code>
+     */
+    public com.zoson.detection.proto.ZosonProto.VLayerInfo getInfos(int index) {
+      return infos_.get(index);
+    }
+    /**
+     * <code>repeated .VLayerInfo infos = 1;</code>
+     */
+    public com.zoson.detection.proto.ZosonProto.VLayerInfoOrBuilder getInfosOrBuilder(
+        int index) {
+      return infos_.get(index);
+    }
+
+    private void initFields() {
+      infos_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      for (int i = 0; i < getInfosCount(); i++) {
+        if (!getInfos(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < infos_.size(); i++) {
+        output.writeMessage(1, infos_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < infos_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, infos_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfos parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfos parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfos parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfos parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfos parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfos parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfos parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfos parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfos parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfos parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.zoson.detection.proto.ZosonProto.VLayerInfos prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code VLayerInfos}
+     *
+     * <pre>
+     *for vision-qt add prefix V for Vision
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:VLayerInfos)
+        com.zoson.detection.proto.ZosonProto.VLayerInfosOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_VLayerInfos_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_VLayerInfos_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.zoson.detection.proto.ZosonProto.VLayerInfos.class, com.zoson.detection.proto.ZosonProto.VLayerInfos.Builder.class);
+      }
+
+      // Construct using com.zoson.detection.proto.ZosonProto.VLayerInfos.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getInfosFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (infosBuilder_ == null) {
+          infos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          infosBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_VLayerInfos_descriptor;
+      }
+
+      public com.zoson.detection.proto.ZosonProto.VLayerInfos getDefaultInstanceForType() {
+        return com.zoson.detection.proto.ZosonProto.VLayerInfos.getDefaultInstance();
+      }
+
+      public com.zoson.detection.proto.ZosonProto.VLayerInfos build() {
+        com.zoson.detection.proto.ZosonProto.VLayerInfos result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.zoson.detection.proto.ZosonProto.VLayerInfos buildPartial() {
+        com.zoson.detection.proto.ZosonProto.VLayerInfos result = new com.zoson.detection.proto.ZosonProto.VLayerInfos(this);
+        int from_bitField0_ = bitField0_;
+        if (infosBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            infos_ = java.util.Collections.unmodifiableList(infos_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.infos_ = infos_;
+        } else {
+          result.infos_ = infosBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.zoson.detection.proto.ZosonProto.VLayerInfos) {
+          return mergeFrom((com.zoson.detection.proto.ZosonProto.VLayerInfos)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.VLayerInfos other) {
+        if (other == com.zoson.detection.proto.ZosonProto.VLayerInfos.getDefaultInstance()) return this;
+        if (infosBuilder_ == null) {
+          if (!other.infos_.isEmpty()) {
+            if (infos_.isEmpty()) {
+              infos_ = other.infos_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureInfosIsMutable();
+              infos_.addAll(other.infos_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.infos_.isEmpty()) {
+            if (infosBuilder_.isEmpty()) {
+              infosBuilder_.dispose();
+              infosBuilder_ = null;
+              infos_ = other.infos_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              infosBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getInfosFieldBuilder() : null;
+            } else {
+              infosBuilder_.addAllMessages(other.infos_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        for (int i = 0; i < getInfosCount(); i++) {
+          if (!getInfos(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.zoson.detection.proto.ZosonProto.VLayerInfos parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.zoson.detection.proto.ZosonProto.VLayerInfos) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.zoson.detection.proto.ZosonProto.VLayerInfo> infos_ =
+        java.util.Collections.emptyList();
+      private void ensureInfosIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          infos_ = new java.util.ArrayList<com.zoson.detection.proto.ZosonProto.VLayerInfo>(infos_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.zoson.detection.proto.ZosonProto.VLayerInfo, com.zoson.detection.proto.ZosonProto.VLayerInfo.Builder, com.zoson.detection.proto.ZosonProto.VLayerInfoOrBuilder> infosBuilder_;
+
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public java.util.List<com.zoson.detection.proto.ZosonProto.VLayerInfo> getInfosList() {
+        if (infosBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(infos_);
+        } else {
+          return infosBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public int getInfosCount() {
+        if (infosBuilder_ == null) {
+          return infos_.size();
+        } else {
+          return infosBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VLayerInfo getInfos(int index) {
+        if (infosBuilder_ == null) {
+          return infos_.get(index);
+        } else {
+          return infosBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public Builder setInfos(
+          int index, com.zoson.detection.proto.ZosonProto.VLayerInfo value) {
+        if (infosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureInfosIsMutable();
+          infos_.set(index, value);
+          onChanged();
+        } else {
+          infosBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public Builder setInfos(
+          int index, com.zoson.detection.proto.ZosonProto.VLayerInfo.Builder builderForValue) {
+        if (infosBuilder_ == null) {
+          ensureInfosIsMutable();
+          infos_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          infosBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public Builder addInfos(com.zoson.detection.proto.ZosonProto.VLayerInfo value) {
+        if (infosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureInfosIsMutable();
+          infos_.add(value);
+          onChanged();
+        } else {
+          infosBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public Builder addInfos(
+          int index, com.zoson.detection.proto.ZosonProto.VLayerInfo value) {
+        if (infosBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureInfosIsMutable();
+          infos_.add(index, value);
+          onChanged();
+        } else {
+          infosBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public Builder addInfos(
+          com.zoson.detection.proto.ZosonProto.VLayerInfo.Builder builderForValue) {
+        if (infosBuilder_ == null) {
+          ensureInfosIsMutable();
+          infos_.add(builderForValue.build());
+          onChanged();
+        } else {
+          infosBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public Builder addInfos(
+          int index, com.zoson.detection.proto.ZosonProto.VLayerInfo.Builder builderForValue) {
+        if (infosBuilder_ == null) {
+          ensureInfosIsMutable();
+          infos_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          infosBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public Builder addAllInfos(
+          java.lang.Iterable<? extends com.zoson.detection.proto.ZosonProto.VLayerInfo> values) {
+        if (infosBuilder_ == null) {
+          ensureInfosIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, infos_);
+          onChanged();
+        } else {
+          infosBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public Builder clearInfos() {
+        if (infosBuilder_ == null) {
+          infos_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          infosBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public Builder removeInfos(int index) {
+        if (infosBuilder_ == null) {
+          ensureInfosIsMutable();
+          infos_.remove(index);
+          onChanged();
+        } else {
+          infosBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VLayerInfo.Builder getInfosBuilder(
+          int index) {
+        return getInfosFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VLayerInfoOrBuilder getInfosOrBuilder(
+          int index) {
+        if (infosBuilder_ == null) {
+          return infos_.get(index);  } else {
+          return infosBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public java.util.List<? extends com.zoson.detection.proto.ZosonProto.VLayerInfoOrBuilder> 
+           getInfosOrBuilderList() {
+        if (infosBuilder_ != null) {
+          return infosBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(infos_);
+        }
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VLayerInfo.Builder addInfosBuilder() {
+        return getInfosFieldBuilder().addBuilder(
+            com.zoson.detection.proto.ZosonProto.VLayerInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VLayerInfo.Builder addInfosBuilder(
+          int index) {
+        return getInfosFieldBuilder().addBuilder(
+            index, com.zoson.detection.proto.ZosonProto.VLayerInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .VLayerInfo infos = 1;</code>
+       */
+      public java.util.List<com.zoson.detection.proto.ZosonProto.VLayerInfo.Builder> 
+           getInfosBuilderList() {
+        return getInfosFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.zoson.detection.proto.ZosonProto.VLayerInfo, com.zoson.detection.proto.ZosonProto.VLayerInfo.Builder, com.zoson.detection.proto.ZosonProto.VLayerInfoOrBuilder> 
+          getInfosFieldBuilder() {
+        if (infosBuilder_ == null) {
+          infosBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.zoson.detection.proto.ZosonProto.VLayerInfo, com.zoson.detection.proto.ZosonProto.VLayerInfo.Builder, com.zoson.detection.proto.ZosonProto.VLayerInfoOrBuilder>(
+                  infos_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          infos_ = null;
+        }
+        return infosBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:VLayerInfos)
+    }
+
+    static {
+      defaultInstance = new VLayerInfos(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:VLayerInfos)
+  }
+
+  public interface VLayerInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:VLayerInfo)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int32 index = 1;</code>
+     */
+    boolean hasIndex();
+    /**
+     * <code>required int32 index = 1;</code>
+     */
+    int getIndex();
+
+    /**
+     * <code>required string name = 2;</code>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 2;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>required string type = 3;</code>
+     */
+    boolean hasType();
+    /**
+     * <code>required string type = 3;</code>
+     */
+    java.lang.String getType();
+    /**
+     * <code>required string type = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getTypeBytes();
+  }
+  /**
+   * Protobuf type {@code VLayerInfo}
+   */
+  public static final class VLayerInfo extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:VLayerInfo)
+      VLayerInfoOrBuilder {
+    // Use VLayerInfo.newBuilder() to construct.
+    private VLayerInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private VLayerInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final VLayerInfo defaultInstance;
+    public static VLayerInfo getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public VLayerInfo getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private VLayerInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              index_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              name_ = bs;
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              type_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.zoson.detection.proto.ZosonProto.internal_static_VLayerInfo_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.zoson.detection.proto.ZosonProto.internal_static_VLayerInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.zoson.detection.proto.ZosonProto.VLayerInfo.class, com.zoson.detection.proto.ZosonProto.VLayerInfo.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<VLayerInfo> PARSER =
+        new com.google.protobuf.AbstractParser<VLayerInfo>() {
+      public VLayerInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new VLayerInfo(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<VLayerInfo> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int INDEX_FIELD_NUMBER = 1;
+    private int index_;
+    /**
+     * <code>required int32 index = 1;</code>
+     */
+    public boolean hasIndex() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 index = 1;</code>
+     */
+    public int getIndex() {
+      return index_;
+    }
+
+    public static final int NAME_FIELD_NUMBER = 2;
+    private java.lang.Object name_;
+    /**
+     * <code>required string name = 2;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string name = 2;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string name = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 3;
+    private java.lang.Object type_;
+    /**
+     * <code>required string type = 3;</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string type = 3;</code>
+     */
+    public java.lang.String getType() {
+      java.lang.Object ref = type_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          type_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string type = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTypeBytes() {
+      java.lang.Object ref = type_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        type_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      index_ = 0;
+      name_ = "";
+      type_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasIndex()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasType()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, index_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getNameBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getTypeBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, index_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getNameBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getTypeBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VLayerInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.zoson.detection.proto.ZosonProto.VLayerInfo prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code VLayerInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:VLayerInfo)
+        com.zoson.detection.proto.ZosonProto.VLayerInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_VLayerInfo_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_VLayerInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.zoson.detection.proto.ZosonProto.VLayerInfo.class, com.zoson.detection.proto.ZosonProto.VLayerInfo.Builder.class);
+      }
+
+      // Construct using com.zoson.detection.proto.ZosonProto.VLayerInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        index_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        type_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_VLayerInfo_descriptor;
+      }
+
+      public com.zoson.detection.proto.ZosonProto.VLayerInfo getDefaultInstanceForType() {
+        return com.zoson.detection.proto.ZosonProto.VLayerInfo.getDefaultInstance();
+      }
+
+      public com.zoson.detection.proto.ZosonProto.VLayerInfo build() {
+        com.zoson.detection.proto.ZosonProto.VLayerInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.zoson.detection.proto.ZosonProto.VLayerInfo buildPartial() {
+        com.zoson.detection.proto.ZosonProto.VLayerInfo result = new com.zoson.detection.proto.ZosonProto.VLayerInfo(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.index_ = index_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.type_ = type_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.zoson.detection.proto.ZosonProto.VLayerInfo) {
+          return mergeFrom((com.zoson.detection.proto.ZosonProto.VLayerInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.VLayerInfo other) {
+        if (other == com.zoson.detection.proto.ZosonProto.VLayerInfo.getDefaultInstance()) return this;
+        if (other.hasIndex()) {
+          setIndex(other.getIndex());
+        }
+        if (other.hasName()) {
+          bitField0_ |= 0x00000002;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasType()) {
+          bitField0_ |= 0x00000004;
+          type_ = other.type_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasIndex()) {
+          
+          return false;
+        }
+        if (!hasName()) {
+          
+          return false;
+        }
+        if (!hasType()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.zoson.detection.proto.ZosonProto.VLayerInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.zoson.detection.proto.ZosonProto.VLayerInfo) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int index_ ;
+      /**
+       * <code>required int32 index = 1;</code>
+       */
+      public boolean hasIndex() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 index = 1;</code>
+       */
+      public int getIndex() {
+        return index_;
+      }
+      /**
+       * <code>required int32 index = 1;</code>
+       */
+      public Builder setIndex(int value) {
+        bitField0_ |= 0x00000001;
+        index_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 index = 1;</code>
+       */
+      public Builder clearIndex() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        index_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 2;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object type_ = "";
+      /**
+       * <code>required string type = 3;</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string type = 3;</code>
+       */
+      public java.lang.String getType() {
+        java.lang.Object ref = type_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            type_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string type = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTypeBytes() {
+        java.lang.Object ref = type_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          type_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string type = 3;</code>
+       */
+      public Builder setType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string type = 3;</code>
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        type_ = getDefaultInstance().getType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string type = 3;</code>
+       */
+      public Builder setTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:VLayerInfo)
+    }
+
+    static {
+      defaultInstance = new VLayerInfo(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:VLayerInfo)
+  }
+
+  public interface VFeatureMapOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:VFeatureMap)
+      com.google.protobuf.MessageOrBuilder {
+
     /**
      * <code>required int32 width = 1;</code>
      */
@@ -8908,7 +12055,6 @@ public final class ZosonProto {
      */
     int getWidth();
 
-    // required int32 height = 2;
     /**
      * <code>required int32 height = 2;</code>
      */
@@ -8918,40 +12064,40 @@ public final class ZosonProto {
      */
     int getHeight();
 
-    // required int32 count = 3;
     /**
-     * <code>required int32 count = 3;</code>
+     * <code>required int32 num = 3;</code>
      */
-    boolean hasCount();
+    boolean hasNum();
     /**
-     * <code>required int32 count = 3;</code>
+     * <code>required int32 num = 3;</code>
      */
-    int getCount();
+    int getNum();
 
-    // repeated bytes data = 4;
     /**
-     * <code>repeated bytes data = 4;</code>
+     * <code>required int32 channel = 4;</code>
      */
-    java.util.List<com.google.protobuf.ByteString> getDataList();
+    boolean hasChannel();
     /**
-     * <code>repeated bytes data = 4;</code>
+     * <code>required int32 channel = 4;</code>
      */
-    int getDataCount();
+    int getChannel();
+
     /**
-     * <code>repeated bytes data = 4;</code>
+     * <code>required bytes data = 5;</code>
      */
-    com.google.protobuf.ByteString getData(int index);
+    boolean hasData();
+    /**
+     * <code>required bytes data = 5;</code>
+     */
+    com.google.protobuf.ByteString getData();
   }
   /**
    * Protobuf type {@code VFeatureMap}
-   *
-   * <pre>
-   *for vision-qt add prefix V for Vision
-   * </pre>
    */
   public static final class VFeatureMap extends
-      com.google.protobuf.GeneratedMessage
-      implements VFeatureMapOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:VFeatureMap)
+      VFeatureMapOrBuilder {
     // Use VFeatureMap.newBuilder() to construct.
     private VFeatureMap(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -9009,15 +12155,17 @@ public final class ZosonProto {
             }
             case 24: {
               bitField0_ |= 0x00000004;
-              count_ = input.readInt32();
+              num_ = input.readInt32();
               break;
             }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                data_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              data_.add(input.readBytes());
+            case 32: {
+              bitField0_ |= 0x00000008;
+              channel_ = input.readInt32();
+              break;
+            }
+            case 42: {
+              bitField0_ |= 0x00000010;
+              data_ = input.readBytes();
               break;
             }
           }
@@ -9028,9 +12176,6 @@ public final class ZosonProto {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          data_ = java.util.Collections.unmodifiableList(data_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -9063,7 +12208,6 @@ public final class ZosonProto {
     }
 
     private int bitField0_;
-    // required int32 width = 1;
     public static final int WIDTH_FIELD_NUMBER = 1;
     private int width_;
     /**
@@ -9079,7 +12223,6 @@ public final class ZosonProto {
       return width_;
     }
 
-    // required int32 height = 2;
     public static final int HEIGHT_FIELD_NUMBER = 2;
     private int height_;
     /**
@@ -9095,55 +12238,63 @@ public final class ZosonProto {
       return height_;
     }
 
-    // required int32 count = 3;
-    public static final int COUNT_FIELD_NUMBER = 3;
-    private int count_;
+    public static final int NUM_FIELD_NUMBER = 3;
+    private int num_;
     /**
-     * <code>required int32 count = 3;</code>
+     * <code>required int32 num = 3;</code>
      */
-    public boolean hasCount() {
+    public boolean hasNum() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required int32 count = 3;</code>
+     * <code>required int32 num = 3;</code>
      */
-    public int getCount() {
-      return count_;
+    public int getNum() {
+      return num_;
     }
 
-    // repeated bytes data = 4;
-    public static final int DATA_FIELD_NUMBER = 4;
-    private java.util.List<com.google.protobuf.ByteString> data_;
+    public static final int CHANNEL_FIELD_NUMBER = 4;
+    private int channel_;
     /**
-     * <code>repeated bytes data = 4;</code>
+     * <code>required int32 channel = 4;</code>
      */
-    public java.util.List<com.google.protobuf.ByteString>
-        getDataList() {
+    public boolean hasChannel() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required int32 channel = 4;</code>
+     */
+    public int getChannel() {
+      return channel_;
+    }
+
+    public static final int DATA_FIELD_NUMBER = 5;
+    private com.google.protobuf.ByteString data_;
+    /**
+     * <code>required bytes data = 5;</code>
+     */
+    public boolean hasData() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>required bytes data = 5;</code>
+     */
+    public com.google.protobuf.ByteString getData() {
       return data_;
-    }
-    /**
-     * <code>repeated bytes data = 4;</code>
-     */
-    public int getDataCount() {
-      return data_.size();
-    }
-    /**
-     * <code>repeated bytes data = 4;</code>
-     */
-    public com.google.protobuf.ByteString getData(int index) {
-      return data_.get(index);
     }
 
     private void initFields() {
       width_ = 0;
       height_ = 0;
-      count_ = 0;
-      data_ = java.util.Collections.emptyList();
+      num_ = 0;
+      channel_ = 0;
+      data_ = com.google.protobuf.ByteString.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasWidth()) {
         memoizedIsInitialized = 0;
@@ -9153,7 +12304,15 @@ public final class ZosonProto {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasCount()) {
+      if (!hasNum()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasChannel()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasData()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -9171,10 +12330,13 @@ public final class ZosonProto {
         output.writeInt32(2, height_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, count_);
+        output.writeInt32(3, num_);
       }
-      for (int i = 0; i < data_.size(); i++) {
-        output.writeBytes(4, data_.get(i));
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, channel_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBytes(5, data_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -9195,16 +12357,15 @@ public final class ZosonProto {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, count_);
+          .computeInt32Size(3, num_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < data_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeBytesSizeNoTag(data_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getDataList().size();
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, channel_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, data_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -9286,14 +12447,11 @@ public final class ZosonProto {
     }
     /**
      * Protobuf type {@code VFeatureMap}
-     *
-     * <pre>
-     *for vision-qt add prefix V for Vision
-     * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.VFeatureMapOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:VFeatureMap)
+        com.zoson.detection.proto.ZosonProto.VFeatureMapOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.zoson.detection.proto.ZosonProto.internal_static_VFeatureMap_descriptor;
@@ -9330,10 +12488,12 @@ public final class ZosonProto {
         bitField0_ = (bitField0_ & ~0x00000001);
         height_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        count_ = 0;
+        num_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
-        data_ = java.util.Collections.emptyList();
+        channel_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
+        data_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -9373,10 +12533,13 @@ public final class ZosonProto {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.count_ = count_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          data_ = java.util.Collections.unmodifiableList(data_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+        result.num_ = num_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.channel_ = channel_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
         }
         result.data_ = data_;
         result.bitField0_ = to_bitField0_;
@@ -9401,18 +12564,14 @@ public final class ZosonProto {
         if (other.hasHeight()) {
           setHeight(other.getHeight());
         }
-        if (other.hasCount()) {
-          setCount(other.getCount());
+        if (other.hasNum()) {
+          setNum(other.getNum());
         }
-        if (!other.data_.isEmpty()) {
-          if (data_.isEmpty()) {
-            data_ = other.data_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureDataIsMutable();
-            data_.addAll(other.data_);
-          }
-          onChanged();
+        if (other.hasChannel()) {
+          setChannel(other.getChannel());
+        }
+        if (other.hasData()) {
+          setData(other.getData());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -9427,7 +12586,15 @@ public final class ZosonProto {
           
           return false;
         }
-        if (!hasCount()) {
+        if (!hasNum()) {
+          
+          return false;
+        }
+        if (!hasChannel()) {
+          
+          return false;
+        }
+        if (!hasData()) {
           
           return false;
         }
@@ -9453,7 +12620,6 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // required int32 width = 1;
       private int width_ ;
       /**
        * <code>required int32 width = 1;</code>
@@ -9486,7 +12652,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // required int32 height = 2;
       private int height_ ;
       /**
        * <code>required int32 height = 2;</code>
@@ -9519,107 +12684,101 @@ public final class ZosonProto {
         return this;
       }
 
-      // required int32 count = 3;
-      private int count_ ;
+      private int num_ ;
       /**
-       * <code>required int32 count = 3;</code>
+       * <code>required int32 num = 3;</code>
        */
-      public boolean hasCount() {
+      public boolean hasNum() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required int32 count = 3;</code>
+       * <code>required int32 num = 3;</code>
        */
-      public int getCount() {
-        return count_;
+      public int getNum() {
+        return num_;
       }
       /**
-       * <code>required int32 count = 3;</code>
+       * <code>required int32 num = 3;</code>
        */
-      public Builder setCount(int value) {
+      public Builder setNum(int value) {
         bitField0_ |= 0x00000004;
-        count_ = value;
+        num_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 count = 3;</code>
+       * <code>required int32 num = 3;</code>
        */
-      public Builder clearCount() {
+      public Builder clearNum() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        count_ = 0;
+        num_ = 0;
         onChanged();
         return this;
       }
 
-      // repeated bytes data = 4;
-      private java.util.List<com.google.protobuf.ByteString> data_ = java.util.Collections.emptyList();
-      private void ensureDataIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          data_ = new java.util.ArrayList<com.google.protobuf.ByteString>(data_);
-          bitField0_ |= 0x00000008;
-         }
+      private int channel_ ;
+      /**
+       * <code>required int32 channel = 4;</code>
+       */
+      public boolean hasChannel() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>repeated bytes data = 4;</code>
+       * <code>required int32 channel = 4;</code>
        */
-      public java.util.List<com.google.protobuf.ByteString>
-          getDataList() {
-        return java.util.Collections.unmodifiableList(data_);
+      public int getChannel() {
+        return channel_;
       }
       /**
-       * <code>repeated bytes data = 4;</code>
+       * <code>required int32 channel = 4;</code>
        */
-      public int getDataCount() {
-        return data_.size();
+      public Builder setChannel(int value) {
+        bitField0_ |= 0x00000008;
+        channel_ = value;
+        onChanged();
+        return this;
       }
       /**
-       * <code>repeated bytes data = 4;</code>
+       * <code>required int32 channel = 4;</code>
        */
-      public com.google.protobuf.ByteString getData(int index) {
-        return data_.get(index);
+      public Builder clearChannel() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        channel_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>required bytes data = 5;</code>
+       */
+      public boolean hasData() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>repeated bytes data = 4;</code>
+       * <code>required bytes data = 5;</code>
        */
-      public Builder setData(
-          int index, com.google.protobuf.ByteString value) {
+      public com.google.protobuf.ByteString getData() {
+        return data_;
+      }
+      /**
+       * <code>required bytes data = 5;</code>
+       */
+      public Builder setData(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureDataIsMutable();
-        data_.set(index, value);
+  bitField0_ |= 0x00000010;
+        data_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>repeated bytes data = 4;</code>
-       */
-      public Builder addData(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDataIsMutable();
-        data_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated bytes data = 4;</code>
-       */
-      public Builder addAllData(
-          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
-        ensureDataIsMutable();
-        super.addAll(values, data_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated bytes data = 4;</code>
+       * <code>required bytes data = 5;</code>
        */
       public Builder clearData() {
-        data_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
+        data_ = getDefaultInstance().getData();
         onChanged();
         return this;
       }
@@ -9635,10 +12794,10 @@ public final class ZosonProto {
     // @@protoc_insertion_point(class_scope:VFeatureMap)
   }
 
-  public interface VImageOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface VImageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:VImage)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required int32 width = 1;
     /**
      * <code>required int32 width = 1;</code>
      */
@@ -9648,7 +12807,6 @@ public final class ZosonProto {
      */
     int getWidth();
 
-    // required int32 height = 2;
     /**
      * <code>required int32 height = 2;</code>
      */
@@ -9658,13 +12816,21 @@ public final class ZosonProto {
      */
     int getHeight();
 
-    // required bytes data = 3;
     /**
-     * <code>required bytes data = 3;</code>
+     * <code>required int32 channel = 3;</code>
+     */
+    boolean hasChannel();
+    /**
+     * <code>required int32 channel = 3;</code>
+     */
+    int getChannel();
+
+    /**
+     * <code>required bytes data = 4;</code>
      */
     boolean hasData();
     /**
-     * <code>required bytes data = 3;</code>
+     * <code>required bytes data = 4;</code>
      */
     com.google.protobuf.ByteString getData();
   }
@@ -9672,8 +12838,9 @@ public final class ZosonProto {
    * Protobuf type {@code VImage}
    */
   public static final class VImage extends
-      com.google.protobuf.GeneratedMessage
-      implements VImageOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:VImage)
+      VImageOrBuilder {
     // Use VImage.newBuilder() to construct.
     private VImage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -9729,8 +12896,13 @@ public final class ZosonProto {
               height_ = input.readInt32();
               break;
             }
-            case 26: {
+            case 24: {
               bitField0_ |= 0x00000004;
+              channel_ = input.readInt32();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
               data_ = input.readBytes();
               break;
             }
@@ -9774,7 +12946,6 @@ public final class ZosonProto {
     }
 
     private int bitField0_;
-    // required int32 width = 1;
     public static final int WIDTH_FIELD_NUMBER = 1;
     private int width_;
     /**
@@ -9790,7 +12961,6 @@ public final class ZosonProto {
       return width_;
     }
 
-    // required int32 height = 2;
     public static final int HEIGHT_FIELD_NUMBER = 2;
     private int height_;
     /**
@@ -9806,17 +12976,31 @@ public final class ZosonProto {
       return height_;
     }
 
-    // required bytes data = 3;
-    public static final int DATA_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString data_;
+    public static final int CHANNEL_FIELD_NUMBER = 3;
+    private int channel_;
     /**
-     * <code>required bytes data = 3;</code>
+     * <code>required int32 channel = 3;</code>
      */
-    public boolean hasData() {
+    public boolean hasChannel() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required bytes data = 3;</code>
+     * <code>required int32 channel = 3;</code>
+     */
+    public int getChannel() {
+      return channel_;
+    }
+
+    public static final int DATA_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString data_;
+    /**
+     * <code>required bytes data = 4;</code>
+     */
+    public boolean hasData() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required bytes data = 4;</code>
      */
     public com.google.protobuf.ByteString getData() {
       return data_;
@@ -9825,18 +13009,24 @@ public final class ZosonProto {
     private void initFields() {
       width_ = 0;
       height_ = 0;
+      channel_ = 0;
       data_ = com.google.protobuf.ByteString.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasWidth()) {
         memoizedIsInitialized = 0;
         return false;
       }
       if (!hasHeight()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasChannel()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -9858,7 +13048,10 @@ public final class ZosonProto {
         output.writeInt32(2, height_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, data_);
+        output.writeInt32(3, channel_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, data_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -9879,7 +13072,11 @@ public final class ZosonProto {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, data_);
+          .computeInt32Size(3, channel_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, data_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -9963,8 +13160,9 @@ public final class ZosonProto {
      * Protobuf type {@code VImage}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.VImageOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:VImage)
+        com.zoson.detection.proto.ZosonProto.VImageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.zoson.detection.proto.ZosonProto.internal_static_VImage_descriptor;
@@ -10001,8 +13199,10 @@ public final class ZosonProto {
         bitField0_ = (bitField0_ & ~0x00000001);
         height_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        data_ = com.google.protobuf.ByteString.EMPTY;
+        channel_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
+        data_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -10042,6 +13242,10 @@ public final class ZosonProto {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
+        result.channel_ = channel_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
         result.data_ = data_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -10065,6 +13269,9 @@ public final class ZosonProto {
         if (other.hasHeight()) {
           setHeight(other.getHeight());
         }
+        if (other.hasChannel()) {
+          setChannel(other.getChannel());
+        }
         if (other.hasData()) {
           setData(other.getData());
         }
@@ -10078,6 +13285,10 @@ public final class ZosonProto {
           return false;
         }
         if (!hasHeight()) {
+          
+          return false;
+        }
+        if (!hasChannel()) {
           
           return false;
         }
@@ -10107,7 +13318,6 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // required int32 width = 1;
       private int width_ ;
       /**
        * <code>required int32 width = 1;</code>
@@ -10140,7 +13350,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // required int32 height = 2;
       private int height_ ;
       /**
        * <code>required int32 height = 2;</code>
@@ -10173,37 +13382,68 @@ public final class ZosonProto {
         return this;
       }
 
-      // required bytes data = 3;
-      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+      private int channel_ ;
       /**
-       * <code>required bytes data = 3;</code>
+       * <code>required int32 channel = 3;</code>
        */
-      public boolean hasData() {
+      public boolean hasChannel() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required bytes data = 3;</code>
+       * <code>required int32 channel = 3;</code>
+       */
+      public int getChannel() {
+        return channel_;
+      }
+      /**
+       * <code>required int32 channel = 3;</code>
+       */
+      public Builder setChannel(int value) {
+        bitField0_ |= 0x00000004;
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 channel = 3;</code>
+       */
+      public Builder clearChannel() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        channel_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>required bytes data = 4;</code>
+       */
+      public boolean hasData() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required bytes data = 4;</code>
        */
       public com.google.protobuf.ByteString getData() {
         return data_;
       }
       /**
-       * <code>required bytes data = 3;</code>
+       * <code>required bytes data = 4;</code>
        */
       public Builder setData(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
+  bitField0_ |= 0x00000008;
         data_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required bytes data = 3;</code>
+       * <code>required bytes data = 4;</code>
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -10220,25 +13460,19 @@ public final class ZosonProto {
     // @@protoc_insertion_point(class_scope:VImage)
   }
 
-  public interface VReqDeconvOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface VReqDeconvOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:VReqDeconv)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string i_layer = 1;
     /**
-     * <code>required string i_layer = 1;</code>
+     * <code>required int32 i_layer = 1;</code>
      */
     boolean hasILayer();
     /**
-     * <code>required string i_layer = 1;</code>
+     * <code>required int32 i_layer = 1;</code>
      */
-    java.lang.String getILayer();
-    /**
-     * <code>required string i_layer = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getILayerBytes();
+    int getILayer();
 
-    // required int32 i_map = 2;
     /**
      * <code>required int32 i_map = 2;</code>
      */
@@ -10248,7 +13482,6 @@ public final class ZosonProto {
      */
     int getIMap();
 
-    // optional bool do_deconv = 3 [default = false];
     /**
      * <code>optional bool do_deconv = 3 [default = false];</code>
      */
@@ -10262,8 +13495,9 @@ public final class ZosonProto {
    * Protobuf type {@code VReqDeconv}
    */
   public static final class VReqDeconv extends
-      com.google.protobuf.GeneratedMessage
-      implements VReqDeconvOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:VReqDeconv)
+      VReqDeconvOrBuilder {
     // Use VReqDeconv.newBuilder() to construct.
     private VReqDeconv(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -10309,9 +13543,9 @@ public final class ZosonProto {
               }
               break;
             }
-            case 10: {
+            case 8: {
               bitField0_ |= 0x00000001;
-              iLayer_ = input.readBytes();
+              iLayer_ = input.readInt32();
               break;
             }
             case 16: {
@@ -10364,50 +13598,21 @@ public final class ZosonProto {
     }
 
     private int bitField0_;
-    // required string i_layer = 1;
     public static final int I_LAYER_FIELD_NUMBER = 1;
-    private java.lang.Object iLayer_;
+    private int iLayer_;
     /**
-     * <code>required string i_layer = 1;</code>
+     * <code>required int32 i_layer = 1;</code>
      */
     public boolean hasILayer() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string i_layer = 1;</code>
+     * <code>required int32 i_layer = 1;</code>
      */
-    public java.lang.String getILayer() {
-      java.lang.Object ref = iLayer_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          iLayer_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string i_layer = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getILayerBytes() {
-      java.lang.Object ref = iLayer_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        iLayer_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getILayer() {
+      return iLayer_;
     }
 
-    // required int32 i_map = 2;
     public static final int I_MAP_FIELD_NUMBER = 2;
     private int iMap_;
     /**
@@ -10423,7 +13628,6 @@ public final class ZosonProto {
       return iMap_;
     }
 
-    // optional bool do_deconv = 3 [default = false];
     public static final int DO_DECONV_FIELD_NUMBER = 3;
     private boolean doDeconv_;
     /**
@@ -10440,14 +13644,15 @@ public final class ZosonProto {
     }
 
     private void initFields() {
-      iLayer_ = "";
+      iLayer_ = 0;
       iMap_ = 0;
       doDeconv_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasILayer()) {
         memoizedIsInitialized = 0;
@@ -10465,7 +13670,7 @@ public final class ZosonProto {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getILayerBytes());
+        output.writeInt32(1, iLayer_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, iMap_);
@@ -10484,7 +13689,7 @@ public final class ZosonProto {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getILayerBytes());
+          .computeInt32Size(1, iLayer_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -10576,8 +13781,9 @@ public final class ZosonProto {
      * Protobuf type {@code VReqDeconv}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.VReqDeconvOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:VReqDeconv)
+        com.zoson.detection.proto.ZosonProto.VReqDeconvOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.zoson.detection.proto.ZosonProto.internal_static_VReqDeconv_descriptor;
@@ -10610,7 +13816,7 @@ public final class ZosonProto {
 
       public Builder clear() {
         super.clear();
-        iLayer_ = "";
+        iLayer_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         iMap_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -10673,9 +13879,7 @@ public final class ZosonProto {
       public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.VReqDeconv other) {
         if (other == com.zoson.detection.proto.ZosonProto.VReqDeconv.getDefaultInstance()) return this;
         if (other.hasILayer()) {
-          bitField0_ |= 0x00000001;
-          iLayer_ = other.iLayer_;
-          onChanged();
+          setILayer(other.getILayer());
         }
         if (other.hasIMap()) {
           setIMap(other.getIMap());
@@ -10718,81 +13922,38 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // required string i_layer = 1;
-      private java.lang.Object iLayer_ = "";
+      private int iLayer_ ;
       /**
-       * <code>required string i_layer = 1;</code>
+       * <code>required int32 i_layer = 1;</code>
        */
       public boolean hasILayer() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string i_layer = 1;</code>
+       * <code>required int32 i_layer = 1;</code>
        */
-      public java.lang.String getILayer() {
-        java.lang.Object ref = iLayer_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          iLayer_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getILayer() {
+        return iLayer_;
       }
       /**
-       * <code>required string i_layer = 1;</code>
+       * <code>required int32 i_layer = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getILayerBytes() {
-        java.lang.Object ref = iLayer_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          iLayer_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string i_layer = 1;</code>
-       */
-      public Builder setILayer(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      public Builder setILayer(int value) {
+        bitField0_ |= 0x00000001;
         iLayer_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string i_layer = 1;</code>
+       * <code>required int32 i_layer = 1;</code>
        */
       public Builder clearILayer() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        iLayer_ = getDefaultInstance().getILayer();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string i_layer = 1;</code>
-       */
-      public Builder setILayerBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        iLayer_ = value;
+        iLayer_ = 0;
         onChanged();
         return this;
       }
 
-      // required int32 i_map = 2;
       private int iMap_ ;
       /**
        * <code>required int32 i_map = 2;</code>
@@ -10825,7 +13986,6 @@ public final class ZosonProto {
         return this;
       }
 
-      // optional bool do_deconv = 3 [default = false];
       private boolean doDeconv_ ;
       /**
        * <code>optional bool do_deconv = 3 [default = false];</code>
@@ -10869,10 +14029,10 @@ public final class ZosonProto {
     // @@protoc_insertion_point(class_scope:VReqDeconv)
   }
 
-  public interface VSettingOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface VSettingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:VSetting)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string model = 1;
     /**
      * <code>required string model = 1;</code>
      */
@@ -10887,13 +14047,40 @@ public final class ZosonProto {
     com.google.protobuf.ByteString
         getModelBytes();
 
-    // optional int32 interval = 2 [default = -1];
     /**
-     * <code>optional int32 interval = 2 [default = -1];</code>
+     * <code>required string solver = 2;</code>
+     */
+    boolean hasSolver();
+    /**
+     * <code>required string solver = 2;</code>
+     */
+    java.lang.String getSolver();
+    /**
+     * <code>required string solver = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getSolverBytes();
+
+    /**
+     * <code>required string test = 3;</code>
+     */
+    boolean hasTest();
+    /**
+     * <code>required string test = 3;</code>
+     */
+    java.lang.String getTest();
+    /**
+     * <code>required string test = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getTestBytes();
+
+    /**
+     * <code>optional int32 interval = 4 [default = -1];</code>
      */
     boolean hasInterval();
     /**
-     * <code>optional int32 interval = 2 [default = -1];</code>
+     * <code>optional int32 interval = 4 [default = -1];</code>
      */
     int getInterval();
   }
@@ -10901,8 +14088,9 @@ public final class ZosonProto {
    * Protobuf type {@code VSetting}
    */
   public static final class VSetting extends
-      com.google.protobuf.GeneratedMessage
-      implements VSettingOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:VSetting)
+      VSettingOrBuilder {
     // Use VSetting.newBuilder() to construct.
     private VSetting(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -10949,12 +14137,25 @@ public final class ZosonProto {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              model_ = input.readBytes();
+              model_ = bs;
               break;
             }
-            case 16: {
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
+              solver_ = bs;
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              test_ = bs;
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
               interval_ = input.readInt32();
               break;
             }
@@ -10998,7 +14199,6 @@ public final class ZosonProto {
     }
 
     private int bitField0_;
-    // required string model = 1;
     public static final int MODEL_FIELD_NUMBER = 1;
     private java.lang.Object model_;
     /**
@@ -11041,17 +14241,100 @@ public final class ZosonProto {
       }
     }
 
-    // optional int32 interval = 2 [default = -1];
-    public static final int INTERVAL_FIELD_NUMBER = 2;
-    private int interval_;
+    public static final int SOLVER_FIELD_NUMBER = 2;
+    private java.lang.Object solver_;
     /**
-     * <code>optional int32 interval = 2 [default = -1];</code>
+     * <code>required string solver = 2;</code>
      */
-    public boolean hasInterval() {
+    public boolean hasSolver() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional int32 interval = 2 [default = -1];</code>
+     * <code>required string solver = 2;</code>
+     */
+    public java.lang.String getSolver() {
+      java.lang.Object ref = solver_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          solver_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string solver = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSolverBytes() {
+      java.lang.Object ref = solver_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        solver_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TEST_FIELD_NUMBER = 3;
+    private java.lang.Object test_;
+    /**
+     * <code>required string test = 3;</code>
+     */
+    public boolean hasTest() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string test = 3;</code>
+     */
+    public java.lang.String getTest() {
+      java.lang.Object ref = test_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          test_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string test = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTestBytes() {
+      java.lang.Object ref = test_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        test_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int INTERVAL_FIELD_NUMBER = 4;
+    private int interval_;
+    /**
+     * <code>optional int32 interval = 4 [default = -1];</code>
+     */
+    public boolean hasInterval() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int32 interval = 4 [default = -1];</code>
      */
     public int getInterval() {
       return interval_;
@@ -11059,14 +14342,25 @@ public final class ZosonProto {
 
     private void initFields() {
       model_ = "";
+      solver_ = "";
+      test_ = "";
       interval_ = -1;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasModel()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSolver()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasTest()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -11081,7 +14375,13 @@ public final class ZosonProto {
         output.writeBytes(1, getModelBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, interval_);
+        output.writeBytes(2, getSolverBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getTestBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, interval_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -11098,7 +14398,15 @@ public final class ZosonProto {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, interval_);
+          .computeBytesSize(2, getSolverBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getTestBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, interval_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -11182,8 +14490,9 @@ public final class ZosonProto {
      * Protobuf type {@code VSetting}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.VSettingOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:VSetting)
+        com.zoson.detection.proto.ZosonProto.VSettingOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.zoson.detection.proto.ZosonProto.internal_static_VSetting_descriptor;
@@ -11218,8 +14527,12 @@ public final class ZosonProto {
         super.clear();
         model_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        interval_ = -1;
+        solver_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
+        test_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        interval_ = -1;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -11255,6 +14568,14 @@ public final class ZosonProto {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
+        result.solver_ = solver_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.test_ = test_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
         result.interval_ = interval_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -11277,6 +14598,16 @@ public final class ZosonProto {
           model_ = other.model_;
           onChanged();
         }
+        if (other.hasSolver()) {
+          bitField0_ |= 0x00000002;
+          solver_ = other.solver_;
+          onChanged();
+        }
+        if (other.hasTest()) {
+          bitField0_ |= 0x00000004;
+          test_ = other.test_;
+          onChanged();
+        }
         if (other.hasInterval()) {
           setInterval(other.getInterval());
         }
@@ -11286,6 +14617,14 @@ public final class ZosonProto {
 
       public final boolean isInitialized() {
         if (!hasModel()) {
+          
+          return false;
+        }
+        if (!hasSolver()) {
+          
+          return false;
+        }
+        if (!hasTest()) {
           
           return false;
         }
@@ -11311,7 +14650,6 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // required string model = 1;
       private java.lang.Object model_ = "";
       /**
        * <code>required string model = 1;</code>
@@ -11325,9 +14663,12 @@ public final class ZosonProto {
       public java.lang.String getModel() {
         java.lang.Object ref = model_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          model_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            model_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -11385,34 +14726,185 @@ public final class ZosonProto {
         return this;
       }
 
-      // optional int32 interval = 2 [default = -1];
-      private int interval_ = -1;
+      private java.lang.Object solver_ = "";
       /**
-       * <code>optional int32 interval = 2 [default = -1];</code>
+       * <code>required string solver = 2;</code>
        */
-      public boolean hasInterval() {
+      public boolean hasSolver() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional int32 interval = 2 [default = -1];</code>
+       * <code>required string solver = 2;</code>
+       */
+      public java.lang.String getSolver() {
+        java.lang.Object ref = solver_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            solver_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string solver = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSolverBytes() {
+        java.lang.Object ref = solver_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          solver_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string solver = 2;</code>
+       */
+      public Builder setSolver(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        solver_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string solver = 2;</code>
+       */
+      public Builder clearSolver() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        solver_ = getDefaultInstance().getSolver();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string solver = 2;</code>
+       */
+      public Builder setSolverBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        solver_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object test_ = "";
+      /**
+       * <code>required string test = 3;</code>
+       */
+      public boolean hasTest() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string test = 3;</code>
+       */
+      public java.lang.String getTest() {
+        java.lang.Object ref = test_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            test_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string test = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTestBytes() {
+        java.lang.Object ref = test_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          test_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string test = 3;</code>
+       */
+      public Builder setTest(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        test_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string test = 3;</code>
+       */
+      public Builder clearTest() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        test_ = getDefaultInstance().getTest();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string test = 3;</code>
+       */
+      public Builder setTestBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        test_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int interval_ = -1;
+      /**
+       * <code>optional int32 interval = 4 [default = -1];</code>
+       */
+      public boolean hasInterval() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int32 interval = 4 [default = -1];</code>
        */
       public int getInterval() {
         return interval_;
       }
       /**
-       * <code>optional int32 interval = 2 [default = -1];</code>
+       * <code>optional int32 interval = 4 [default = -1];</code>
        */
       public Builder setInterval(int value) {
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
         interval_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 interval = 2 [default = -1];</code>
+       * <code>optional int32 interval = 4 [default = -1];</code>
        */
       public Builder clearInterval() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         interval_ = -1;
         onChanged();
         return this;
@@ -11429,51 +14921,25 @@ public final class ZosonProto {
     // @@protoc_insertion_point(class_scope:VSetting)
   }
 
-  public interface VResponseOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface VResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:VResponse)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .VResponse.State state = 1;
     /**
-     * <code>required .VResponse.State state = 1;</code>
-     */
-    boolean hasState();
-    /**
-     * <code>required .VResponse.State state = 1;</code>
-     */
-    com.zoson.detection.proto.ZosonProto.VResponse.State getState();
-
-    // required string msg = 2;
-    /**
-     * <code>required string msg = 2;</code>
-     */
-    boolean hasMsg();
-    /**
-     * <code>required string msg = 2;</code>
-     */
-    java.lang.String getMsg();
-    /**
-     * <code>required string msg = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getMsgBytes();
-
-    // required .VResponse.Type type = 3;
-    /**
-     * <code>required .VResponse.Type type = 3;</code>
+     * <code>required .VResponse.Type type = 1;</code>
      */
     boolean hasType();
     /**
-     * <code>required .VResponse.Type type = 3;</code>
+     * <code>required .VResponse.Type type = 1;</code>
      */
     com.zoson.detection.proto.ZosonProto.VResponse.Type getType();
 
-    // required bytes data = 4;
     /**
-     * <code>required bytes data = 4;</code>
+     * <code>optional bytes data = 2;</code>
      */
     boolean hasData();
     /**
-     * <code>required bytes data = 4;</code>
+     * <code>optional bytes data = 2;</code>
      */
     com.google.protobuf.ByteString getData();
   }
@@ -11481,8 +14947,9 @@ public final class ZosonProto {
    * Protobuf type {@code VResponse}
    */
   public static final class VResponse extends
-      com.google.protobuf.GeneratedMessage
-      implements VResponseOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:VResponse)
+      VResponseOrBuilder {
     // Use VResponse.newBuilder() to construct.
     private VResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -11530,33 +14997,17 @@ public final class ZosonProto {
             }
             case 8: {
               int rawValue = input.readEnum();
-              com.zoson.detection.proto.ZosonProto.VResponse.State value = com.zoson.detection.proto.ZosonProto.VResponse.State.valueOf(rawValue);
+              com.zoson.detection.proto.ZosonProto.VResponse.Type value = com.zoson.detection.proto.ZosonProto.VResponse.Type.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
                 bitField0_ |= 0x00000001;
-                state_ = value;
+                type_ = value;
               }
               break;
             }
             case 18: {
               bitField0_ |= 0x00000002;
-              msg_ = input.readBytes();
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-              com.zoson.detection.proto.ZosonProto.VResponse.Type value = com.zoson.detection.proto.ZosonProto.VResponse.Type.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(3, rawValue);
-              } else {
-                bitField0_ |= 0x00000004;
-                type_ = value;
-              }
-              break;
-            }
-            case 34: {
-              bitField0_ |= 0x00000008;
               data_ = input.readBytes();
               break;
             }
@@ -11605,40 +15056,94 @@ public final class ZosonProto {
     public enum Type
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>DECONV = 0;</code>
+       * <code>WEIGHT = 1;</code>
        */
-      DECONV(0, 0),
+      WEIGHT(0, 1),
       /**
-       * <code>FEATUREMAP = 1;</code>
+       * <code>FEATUREMAP = 2;</code>
        */
-      FEATUREMAP(1, 1),
+      FEATUREMAP(1, 2),
       /**
-       * <code>INFO = 2;</code>
+       * <code>LAYERINFOS = 3;</code>
        */
-      INFO(2, 2),
+      LAYERINFOS(2, 3),
+      /**
+       * <code>INPUT = 4;</code>
+       */
+      INPUT(3, 4),
+      /**
+       * <code>DECONV = 5;</code>
+       */
+      DECONV(4, 5),
+      /**
+       * <code>ALL = 6;</code>
+       */
+      ALL(5, 6),
+      /**
+       * <code>STATE = 7;</code>
+       */
+      STATE(6, 7),
+      /**
+       * <code>SETTING = 8;</code>
+       */
+      SETTING(7, 8),
+      /**
+       * <code>REC = 9;</code>
+       */
+      REC(8, 9),
       ;
 
       /**
-       * <code>DECONV = 0;</code>
+       * <code>WEIGHT = 1;</code>
        */
-      public static final int DECONV_VALUE = 0;
+      public static final int WEIGHT_VALUE = 1;
       /**
-       * <code>FEATUREMAP = 1;</code>
+       * <code>FEATUREMAP = 2;</code>
        */
-      public static final int FEATUREMAP_VALUE = 1;
+      public static final int FEATUREMAP_VALUE = 2;
       /**
-       * <code>INFO = 2;</code>
+       * <code>LAYERINFOS = 3;</code>
        */
-      public static final int INFO_VALUE = 2;
+      public static final int LAYERINFOS_VALUE = 3;
+      /**
+       * <code>INPUT = 4;</code>
+       */
+      public static final int INPUT_VALUE = 4;
+      /**
+       * <code>DECONV = 5;</code>
+       */
+      public static final int DECONV_VALUE = 5;
+      /**
+       * <code>ALL = 6;</code>
+       */
+      public static final int ALL_VALUE = 6;
+      /**
+       * <code>STATE = 7;</code>
+       */
+      public static final int STATE_VALUE = 7;
+      /**
+       * <code>SETTING = 8;</code>
+       */
+      public static final int SETTING_VALUE = 8;
+      /**
+       * <code>REC = 9;</code>
+       */
+      public static final int REC_VALUE = 9;
 
 
       public final int getNumber() { return value; }
 
       public static Type valueOf(int value) {
         switch (value) {
-          case 0: return DECONV;
-          case 1: return FEATUREMAP;
-          case 2: return INFO;
+          case 1: return WEIGHT;
+          case 2: return FEATUREMAP;
+          case 3: return LAYERINFOS;
+          case 4: return INPUT;
+          case 5: return DECONV;
+          case 6: return ALL;
+          case 7: return STATE;
+          case 8: return SETTING;
+          case 9: return REC;
           default: return null;
         }
       }
@@ -11690,204 +15195,48 @@ public final class ZosonProto {
       // @@protoc_insertion_point(enum_scope:VResponse.Type)
     }
 
-    /**
-     * Protobuf enum {@code VResponse.State}
-     */
-    public enum State
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>SUCC = 0;</code>
-       */
-      SUCC(0, 0),
-      /**
-       * <code>FAIL = 1;</code>
-       */
-      FAIL(1, 1),
-      ;
-
-      /**
-       * <code>SUCC = 0;</code>
-       */
-      public static final int SUCC_VALUE = 0;
-      /**
-       * <code>FAIL = 1;</code>
-       */
-      public static final int FAIL_VALUE = 1;
-
-
-      public final int getNumber() { return value; }
-
-      public static State valueOf(int value) {
-        switch (value) {
-          case 0: return SUCC;
-          case 1: return FAIL;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<State>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static com.google.protobuf.Internal.EnumLiteMap<State>
-          internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<State>() {
-              public State findValueByNumber(int number) {
-                return State.valueOf(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return com.zoson.detection.proto.ZosonProto.VResponse.getDescriptor().getEnumTypes().get(1);
-      }
-
-      private static final State[] VALUES = values();
-
-      public static State valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int index;
-      private final int value;
-
-      private State(int index, int value) {
-        this.index = index;
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:VResponse.State)
-    }
-
     private int bitField0_;
-    // required .VResponse.State state = 1;
-    public static final int STATE_FIELD_NUMBER = 1;
-    private com.zoson.detection.proto.ZosonProto.VResponse.State state_;
+    public static final int TYPE_FIELD_NUMBER = 1;
+    private com.zoson.detection.proto.ZosonProto.VResponse.Type type_;
     /**
-     * <code>required .VResponse.State state = 1;</code>
+     * <code>required .VResponse.Type type = 1;</code>
      */
-    public boolean hasState() {
+    public boolean hasType() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .VResponse.State state = 1;</code>
-     */
-    public com.zoson.detection.proto.ZosonProto.VResponse.State getState() {
-      return state_;
-    }
-
-    // required string msg = 2;
-    public static final int MSG_FIELD_NUMBER = 2;
-    private java.lang.Object msg_;
-    /**
-     * <code>required string msg = 2;</code>
-     */
-    public boolean hasMsg() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required string msg = 2;</code>
-     */
-    public java.lang.String getMsg() {
-      java.lang.Object ref = msg_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          msg_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string msg = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getMsgBytes() {
-      java.lang.Object ref = msg_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        msg_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    // required .VResponse.Type type = 3;
-    public static final int TYPE_FIELD_NUMBER = 3;
-    private com.zoson.detection.proto.ZosonProto.VResponse.Type type_;
-    /**
-     * <code>required .VResponse.Type type = 3;</code>
-     */
-    public boolean hasType() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>required .VResponse.Type type = 3;</code>
+     * <code>required .VResponse.Type type = 1;</code>
      */
     public com.zoson.detection.proto.ZosonProto.VResponse.Type getType() {
       return type_;
     }
 
-    // required bytes data = 4;
-    public static final int DATA_FIELD_NUMBER = 4;
+    public static final int DATA_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString data_;
     /**
-     * <code>required bytes data = 4;</code>
+     * <code>optional bytes data = 2;</code>
      */
     public boolean hasData() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required bytes data = 4;</code>
+     * <code>optional bytes data = 2;</code>
      */
     public com.google.protobuf.ByteString getData() {
       return data_;
     }
 
     private void initFields() {
-      state_ = com.zoson.detection.proto.ZosonProto.VResponse.State.SUCC;
-      msg_ = "";
-      type_ = com.zoson.detection.proto.ZosonProto.VResponse.Type.DECONV;
+      type_ = com.zoson.detection.proto.ZosonProto.VResponse.Type.WEIGHT;
       data_ = com.google.protobuf.ByteString.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
-      if (!hasState()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasMsg()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       if (!hasType()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasData()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -11899,16 +15248,10 @@ public final class ZosonProto {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeEnum(1, state_.getNumber());
+        output.writeEnum(1, type_.getNumber());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getMsgBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeEnum(3, type_.getNumber());
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(4, data_);
+        output.writeBytes(2, data_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -11921,19 +15264,11 @@ public final class ZosonProto {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, state_.getNumber());
+          .computeEnumSize(1, type_.getNumber());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getMsgBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(3, type_.getNumber());
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, data_);
+          .computeBytesSize(2, data_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -12017,8 +15352,9 @@ public final class ZosonProto {
      * Protobuf type {@code VResponse}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.VResponseOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:VResponse)
+        com.zoson.detection.proto.ZosonProto.VResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.zoson.detection.proto.ZosonProto.internal_static_VResponse_descriptor;
@@ -12051,14 +15387,10 @@ public final class ZosonProto {
 
       public Builder clear() {
         super.clear();
-        state_ = com.zoson.detection.proto.ZosonProto.VResponse.State.SUCC;
+        type_ = com.zoson.detection.proto.ZosonProto.VResponse.Type.WEIGHT;
         bitField0_ = (bitField0_ & ~0x00000001);
-        msg_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
-        type_ = com.zoson.detection.proto.ZosonProto.VResponse.Type.DECONV;
-        bitField0_ = (bitField0_ & ~0x00000004);
         data_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -12090,17 +15422,9 @@ public final class ZosonProto {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.state_ = state_;
+        result.type_ = type_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
-        }
-        result.msg_ = msg_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.type_ = type_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
         }
         result.data_ = data_;
         result.bitField0_ = to_bitField0_;
@@ -12119,14 +15443,6 @@ public final class ZosonProto {
 
       public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.VResponse other) {
         if (other == com.zoson.detection.proto.ZosonProto.VResponse.getDefaultInstance()) return this;
-        if (other.hasState()) {
-          setState(other.getState());
-        }
-        if (other.hasMsg()) {
-          bitField0_ |= 0x00000002;
-          msg_ = other.msg_;
-          onChanged();
-        }
         if (other.hasType()) {
           setType(other.getType());
         }
@@ -12138,19 +15454,7 @@ public final class ZosonProto {
       }
 
       public final boolean isInitialized() {
-        if (!hasState()) {
-          
-          return false;
-        }
-        if (!hasMsg()) {
-          
-          return false;
-        }
         if (!hasType()) {
-          
-          return false;
-        }
-        if (!hasData()) {
           
           return false;
         }
@@ -12176,183 +15480,71 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // required .VResponse.State state = 1;
-      private com.zoson.detection.proto.ZosonProto.VResponse.State state_ = com.zoson.detection.proto.ZosonProto.VResponse.State.SUCC;
+      private com.zoson.detection.proto.ZosonProto.VResponse.Type type_ = com.zoson.detection.proto.ZosonProto.VResponse.Type.WEIGHT;
       /**
-       * <code>required .VResponse.State state = 1;</code>
+       * <code>required .VResponse.Type type = 1;</code>
        */
-      public boolean hasState() {
+      public boolean hasType() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required .VResponse.State state = 1;</code>
-       */
-      public com.zoson.detection.proto.ZosonProto.VResponse.State getState() {
-        return state_;
-      }
-      /**
-       * <code>required .VResponse.State state = 1;</code>
-       */
-      public Builder setState(com.zoson.detection.proto.ZosonProto.VResponse.State value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000001;
-        state_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required .VResponse.State state = 1;</code>
-       */
-      public Builder clearState() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        state_ = com.zoson.detection.proto.ZosonProto.VResponse.State.SUCC;
-        onChanged();
-        return this;
-      }
-
-      // required string msg = 2;
-      private java.lang.Object msg_ = "";
-      /**
-       * <code>required string msg = 2;</code>
-       */
-      public boolean hasMsg() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required string msg = 2;</code>
-       */
-      public java.lang.String getMsg() {
-        java.lang.Object ref = msg_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          msg_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string msg = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getMsgBytes() {
-        java.lang.Object ref = msg_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          msg_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string msg = 2;</code>
-       */
-      public Builder setMsg(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        msg_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string msg = 2;</code>
-       */
-      public Builder clearMsg() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        msg_ = getDefaultInstance().getMsg();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string msg = 2;</code>
-       */
-      public Builder setMsgBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        msg_ = value;
-        onChanged();
-        return this;
-      }
-
-      // required .VResponse.Type type = 3;
-      private com.zoson.detection.proto.ZosonProto.VResponse.Type type_ = com.zoson.detection.proto.ZosonProto.VResponse.Type.DECONV;
-      /**
-       * <code>required .VResponse.Type type = 3;</code>
-       */
-      public boolean hasType() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>required .VResponse.Type type = 3;</code>
+       * <code>required .VResponse.Type type = 1;</code>
        */
       public com.zoson.detection.proto.ZosonProto.VResponse.Type getType() {
         return type_;
       }
       /**
-       * <code>required .VResponse.Type type = 3;</code>
+       * <code>required .VResponse.Type type = 1;</code>
        */
       public Builder setType(com.zoson.detection.proto.ZosonProto.VResponse.Type value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000001;
         type_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required .VResponse.Type type = 3;</code>
+       * <code>required .VResponse.Type type = 1;</code>
        */
       public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        type_ = com.zoson.detection.proto.ZosonProto.VResponse.Type.DECONV;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        type_ = com.zoson.detection.proto.ZosonProto.VResponse.Type.WEIGHT;
         onChanged();
         return this;
       }
 
-      // required bytes data = 4;
       private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required bytes data = 4;</code>
+       * <code>optional bytes data = 2;</code>
        */
       public boolean hasData() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required bytes data = 4;</code>
+       * <code>optional bytes data = 2;</code>
        */
       public com.google.protobuf.ByteString getData() {
         return data_;
       }
       /**
-       * <code>required bytes data = 4;</code>
+       * <code>optional bytes data = 2;</code>
        */
       public Builder setData(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000002;
         data_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required bytes data = 4;</code>
+       * <code>optional bytes data = 2;</code>
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000002);
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -12369,30 +15561,1169 @@ public final class ZosonProto {
     // @@protoc_insertion_point(class_scope:VResponse)
   }
 
-  public interface VReqFeatureOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface VRecStateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:VRecState)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required string i_layer = 1;
     /**
-     * <code>required string i_layer = 1;</code>
+     * <code>required int32 state = 1;</code>
+     *
+     * <pre>
+     * 0 For succ,-1 for fail
+     * </pre>
+     */
+    boolean hasState();
+    /**
+     * <code>required int32 state = 1;</code>
+     *
+     * <pre>
+     * 0 For succ,-1 for fail
+     * </pre>
+     */
+    int getState();
+  }
+  /**
+   * Protobuf type {@code VRecState}
+   */
+  public static final class VRecState extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:VRecState)
+      VRecStateOrBuilder {
+    // Use VRecState.newBuilder() to construct.
+    private VRecState(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private VRecState(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final VRecState defaultInstance;
+    public static VRecState getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public VRecState getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private VRecState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              state_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.zoson.detection.proto.ZosonProto.internal_static_VRecState_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.zoson.detection.proto.ZosonProto.internal_static_VRecState_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.zoson.detection.proto.ZosonProto.VRecState.class, com.zoson.detection.proto.ZosonProto.VRecState.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<VRecState> PARSER =
+        new com.google.protobuf.AbstractParser<VRecState>() {
+      public VRecState parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new VRecState(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<VRecState> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int STATE_FIELD_NUMBER = 1;
+    private int state_;
+    /**
+     * <code>required int32 state = 1;</code>
+     *
+     * <pre>
+     * 0 For succ,-1 for fail
+     * </pre>
+     */
+    public boolean hasState() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 state = 1;</code>
+     *
+     * <pre>
+     * 0 For succ,-1 for fail
+     * </pre>
+     */
+    public int getState() {
+      return state_;
+    }
+
+    private void initFields() {
+      state_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasState()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, state_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, state_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.zoson.detection.proto.ZosonProto.VRecState parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VRecState parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VRecState parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VRecState parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VRecState parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VRecState parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VRecState parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VRecState parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VRecState parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VRecState parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.zoson.detection.proto.ZosonProto.VRecState prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code VRecState}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:VRecState)
+        com.zoson.detection.proto.ZosonProto.VRecStateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_VRecState_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_VRecState_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.zoson.detection.proto.ZosonProto.VRecState.class, com.zoson.detection.proto.ZosonProto.VRecState.Builder.class);
+      }
+
+      // Construct using com.zoson.detection.proto.ZosonProto.VRecState.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        state_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_VRecState_descriptor;
+      }
+
+      public com.zoson.detection.proto.ZosonProto.VRecState getDefaultInstanceForType() {
+        return com.zoson.detection.proto.ZosonProto.VRecState.getDefaultInstance();
+      }
+
+      public com.zoson.detection.proto.ZosonProto.VRecState build() {
+        com.zoson.detection.proto.ZosonProto.VRecState result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.zoson.detection.proto.ZosonProto.VRecState buildPartial() {
+        com.zoson.detection.proto.ZosonProto.VRecState result = new com.zoson.detection.proto.ZosonProto.VRecState(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.state_ = state_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.zoson.detection.proto.ZosonProto.VRecState) {
+          return mergeFrom((com.zoson.detection.proto.ZosonProto.VRecState)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.VRecState other) {
+        if (other == com.zoson.detection.proto.ZosonProto.VRecState.getDefaultInstance()) return this;
+        if (other.hasState()) {
+          setState(other.getState());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasState()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.zoson.detection.proto.ZosonProto.VRecState parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.zoson.detection.proto.ZosonProto.VRecState) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int state_ ;
+      /**
+       * <code>required int32 state = 1;</code>
+       *
+       * <pre>
+       * 0 For succ,-1 for fail
+       * </pre>
+       */
+      public boolean hasState() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 state = 1;</code>
+       *
+       * <pre>
+       * 0 For succ,-1 for fail
+       * </pre>
+       */
+      public int getState() {
+        return state_;
+      }
+      /**
+       * <code>required int32 state = 1;</code>
+       *
+       * <pre>
+       * 0 For succ,-1 for fail
+       * </pre>
+       */
+      public Builder setState(int value) {
+        bitField0_ |= 0x00000001;
+        state_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 state = 1;</code>
+       *
+       * <pre>
+       * 0 For succ,-1 for fail
+       * </pre>
+       */
+      public Builder clearState() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        state_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:VRecState)
+    }
+
+    static {
+      defaultInstance = new VRecState(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:VRecState)
+  }
+
+  public interface VAllOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:VAll)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .VResponse response = 1;</code>
+     */
+    java.util.List<com.zoson.detection.proto.ZosonProto.VResponse> 
+        getResponseList();
+    /**
+     * <code>repeated .VResponse response = 1;</code>
+     */
+    com.zoson.detection.proto.ZosonProto.VResponse getResponse(int index);
+    /**
+     * <code>repeated .VResponse response = 1;</code>
+     */
+    int getResponseCount();
+    /**
+     * <code>repeated .VResponse response = 1;</code>
+     */
+    java.util.List<? extends com.zoson.detection.proto.ZosonProto.VResponseOrBuilder> 
+        getResponseOrBuilderList();
+    /**
+     * <code>repeated .VResponse response = 1;</code>
+     */
+    com.zoson.detection.proto.ZosonProto.VResponseOrBuilder getResponseOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code VAll}
+   */
+  public static final class VAll extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:VAll)
+      VAllOrBuilder {
+    // Use VAll.newBuilder() to construct.
+    private VAll(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private VAll(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final VAll defaultInstance;
+    public static VAll getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public VAll getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private VAll(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                response_ = new java.util.ArrayList<com.zoson.detection.proto.ZosonProto.VResponse>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              response_.add(input.readMessage(com.zoson.detection.proto.ZosonProto.VResponse.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          response_ = java.util.Collections.unmodifiableList(response_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.zoson.detection.proto.ZosonProto.internal_static_VAll_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.zoson.detection.proto.ZosonProto.internal_static_VAll_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.zoson.detection.proto.ZosonProto.VAll.class, com.zoson.detection.proto.ZosonProto.VAll.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<VAll> PARSER =
+        new com.google.protobuf.AbstractParser<VAll>() {
+      public VAll parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new VAll(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<VAll> getParserForType() {
+      return PARSER;
+    }
+
+    public static final int RESPONSE_FIELD_NUMBER = 1;
+    private java.util.List<com.zoson.detection.proto.ZosonProto.VResponse> response_;
+    /**
+     * <code>repeated .VResponse response = 1;</code>
+     */
+    public java.util.List<com.zoson.detection.proto.ZosonProto.VResponse> getResponseList() {
+      return response_;
+    }
+    /**
+     * <code>repeated .VResponse response = 1;</code>
+     */
+    public java.util.List<? extends com.zoson.detection.proto.ZosonProto.VResponseOrBuilder> 
+        getResponseOrBuilderList() {
+      return response_;
+    }
+    /**
+     * <code>repeated .VResponse response = 1;</code>
+     */
+    public int getResponseCount() {
+      return response_.size();
+    }
+    /**
+     * <code>repeated .VResponse response = 1;</code>
+     */
+    public com.zoson.detection.proto.ZosonProto.VResponse getResponse(int index) {
+      return response_.get(index);
+    }
+    /**
+     * <code>repeated .VResponse response = 1;</code>
+     */
+    public com.zoson.detection.proto.ZosonProto.VResponseOrBuilder getResponseOrBuilder(
+        int index) {
+      return response_.get(index);
+    }
+
+    private void initFields() {
+      response_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      for (int i = 0; i < getResponseCount(); i++) {
+        if (!getResponse(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < response_.size(); i++) {
+        output.writeMessage(1, response_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < response_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, response_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.zoson.detection.proto.ZosonProto.VAll parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VAll parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VAll parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VAll parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VAll parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VAll parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VAll parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VAll parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VAll parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VAll parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.zoson.detection.proto.ZosonProto.VAll prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code VAll}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:VAll)
+        com.zoson.detection.proto.ZosonProto.VAllOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_VAll_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_VAll_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.zoson.detection.proto.ZosonProto.VAll.class, com.zoson.detection.proto.ZosonProto.VAll.Builder.class);
+      }
+
+      // Construct using com.zoson.detection.proto.ZosonProto.VAll.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getResponseFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (responseBuilder_ == null) {
+          response_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          responseBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_VAll_descriptor;
+      }
+
+      public com.zoson.detection.proto.ZosonProto.VAll getDefaultInstanceForType() {
+        return com.zoson.detection.proto.ZosonProto.VAll.getDefaultInstance();
+      }
+
+      public com.zoson.detection.proto.ZosonProto.VAll build() {
+        com.zoson.detection.proto.ZosonProto.VAll result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.zoson.detection.proto.ZosonProto.VAll buildPartial() {
+        com.zoson.detection.proto.ZosonProto.VAll result = new com.zoson.detection.proto.ZosonProto.VAll(this);
+        int from_bitField0_ = bitField0_;
+        if (responseBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            response_ = java.util.Collections.unmodifiableList(response_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.response_ = response_;
+        } else {
+          result.response_ = responseBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.zoson.detection.proto.ZosonProto.VAll) {
+          return mergeFrom((com.zoson.detection.proto.ZosonProto.VAll)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.VAll other) {
+        if (other == com.zoson.detection.proto.ZosonProto.VAll.getDefaultInstance()) return this;
+        if (responseBuilder_ == null) {
+          if (!other.response_.isEmpty()) {
+            if (response_.isEmpty()) {
+              response_ = other.response_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureResponseIsMutable();
+              response_.addAll(other.response_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.response_.isEmpty()) {
+            if (responseBuilder_.isEmpty()) {
+              responseBuilder_.dispose();
+              responseBuilder_ = null;
+              response_ = other.response_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              responseBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getResponseFieldBuilder() : null;
+            } else {
+              responseBuilder_.addAllMessages(other.response_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        for (int i = 0; i < getResponseCount(); i++) {
+          if (!getResponse(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.zoson.detection.proto.ZosonProto.VAll parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.zoson.detection.proto.ZosonProto.VAll) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.zoson.detection.proto.ZosonProto.VResponse> response_ =
+        java.util.Collections.emptyList();
+      private void ensureResponseIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          response_ = new java.util.ArrayList<com.zoson.detection.proto.ZosonProto.VResponse>(response_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.zoson.detection.proto.ZosonProto.VResponse, com.zoson.detection.proto.ZosonProto.VResponse.Builder, com.zoson.detection.proto.ZosonProto.VResponseOrBuilder> responseBuilder_;
+
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public java.util.List<com.zoson.detection.proto.ZosonProto.VResponse> getResponseList() {
+        if (responseBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(response_);
+        } else {
+          return responseBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public int getResponseCount() {
+        if (responseBuilder_ == null) {
+          return response_.size();
+        } else {
+          return responseBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VResponse getResponse(int index) {
+        if (responseBuilder_ == null) {
+          return response_.get(index);
+        } else {
+          return responseBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public Builder setResponse(
+          int index, com.zoson.detection.proto.ZosonProto.VResponse value) {
+        if (responseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResponseIsMutable();
+          response_.set(index, value);
+          onChanged();
+        } else {
+          responseBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public Builder setResponse(
+          int index, com.zoson.detection.proto.ZosonProto.VResponse.Builder builderForValue) {
+        if (responseBuilder_ == null) {
+          ensureResponseIsMutable();
+          response_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          responseBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public Builder addResponse(com.zoson.detection.proto.ZosonProto.VResponse value) {
+        if (responseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResponseIsMutable();
+          response_.add(value);
+          onChanged();
+        } else {
+          responseBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public Builder addResponse(
+          int index, com.zoson.detection.proto.ZosonProto.VResponse value) {
+        if (responseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResponseIsMutable();
+          response_.add(index, value);
+          onChanged();
+        } else {
+          responseBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public Builder addResponse(
+          com.zoson.detection.proto.ZosonProto.VResponse.Builder builderForValue) {
+        if (responseBuilder_ == null) {
+          ensureResponseIsMutable();
+          response_.add(builderForValue.build());
+          onChanged();
+        } else {
+          responseBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public Builder addResponse(
+          int index, com.zoson.detection.proto.ZosonProto.VResponse.Builder builderForValue) {
+        if (responseBuilder_ == null) {
+          ensureResponseIsMutable();
+          response_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          responseBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public Builder addAllResponse(
+          java.lang.Iterable<? extends com.zoson.detection.proto.ZosonProto.VResponse> values) {
+        if (responseBuilder_ == null) {
+          ensureResponseIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, response_);
+          onChanged();
+        } else {
+          responseBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public Builder clearResponse() {
+        if (responseBuilder_ == null) {
+          response_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          responseBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public Builder removeResponse(int index) {
+        if (responseBuilder_ == null) {
+          ensureResponseIsMutable();
+          response_.remove(index);
+          onChanged();
+        } else {
+          responseBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VResponse.Builder getResponseBuilder(
+          int index) {
+        return getResponseFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VResponseOrBuilder getResponseOrBuilder(
+          int index) {
+        if (responseBuilder_ == null) {
+          return response_.get(index);  } else {
+          return responseBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public java.util.List<? extends com.zoson.detection.proto.ZosonProto.VResponseOrBuilder> 
+           getResponseOrBuilderList() {
+        if (responseBuilder_ != null) {
+          return responseBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(response_);
+        }
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VResponse.Builder addResponseBuilder() {
+        return getResponseFieldBuilder().addBuilder(
+            com.zoson.detection.proto.ZosonProto.VResponse.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VResponse.Builder addResponseBuilder(
+          int index) {
+        return getResponseFieldBuilder().addBuilder(
+            index, com.zoson.detection.proto.ZosonProto.VResponse.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .VResponse response = 1;</code>
+       */
+      public java.util.List<com.zoson.detection.proto.ZosonProto.VResponse.Builder> 
+           getResponseBuilderList() {
+        return getResponseFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.zoson.detection.proto.ZosonProto.VResponse, com.zoson.detection.proto.ZosonProto.VResponse.Builder, com.zoson.detection.proto.ZosonProto.VResponseOrBuilder> 
+          getResponseFieldBuilder() {
+        if (responseBuilder_ == null) {
+          responseBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.zoson.detection.proto.ZosonProto.VResponse, com.zoson.detection.proto.ZosonProto.VResponse.Builder, com.zoson.detection.proto.ZosonProto.VResponseOrBuilder>(
+                  response_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          response_ = null;
+        }
+        return responseBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:VAll)
+    }
+
+    static {
+      defaultInstance = new VAll(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:VAll)
+  }
+
+  public interface VReqFeatureOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:VReqFeature)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int32 i_layer = 1;</code>
      */
     boolean hasILayer();
     /**
-     * <code>required string i_layer = 1;</code>
+     * <code>required int32 i_layer = 1;</code>
      */
-    java.lang.String getILayer();
+    int getILayer();
+
     /**
-     * <code>required string i_layer = 1;</code>
+     * <code>required int32 i_image = 2;</code>
      */
-    com.google.protobuf.ByteString
-        getILayerBytes();
+    boolean hasIImage();
+    /**
+     * <code>required int32 i_image = 2;</code>
+     */
+    int getIImage();
+
+    /**
+     * <code>optional bool diff = 3 [default = false];</code>
+     */
+    boolean hasDiff();
+    /**
+     * <code>optional bool diff = 3 [default = false];</code>
+     */
+    boolean getDiff();
   }
   /**
    * Protobuf type {@code VReqFeature}
    */
   public static final class VReqFeature extends
-      com.google.protobuf.GeneratedMessage
-      implements VReqFeatureOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:VReqFeature)
+      VReqFeatureOrBuilder {
     // Use VReqFeature.newBuilder() to construct.
     private VReqFeature(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -12438,9 +16769,19 @@ public final class ZosonProto {
               }
               break;
             }
-            case 10: {
+            case 8: {
               bitField0_ |= 0x00000001;
-              iLayer_ = input.readBytes();
+              iLayer_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              iImage_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              diff_ = input.readBool();
               break;
             }
           }
@@ -12483,58 +16824,67 @@ public final class ZosonProto {
     }
 
     private int bitField0_;
-    // required string i_layer = 1;
     public static final int I_LAYER_FIELD_NUMBER = 1;
-    private java.lang.Object iLayer_;
+    private int iLayer_;
     /**
-     * <code>required string i_layer = 1;</code>
+     * <code>required int32 i_layer = 1;</code>
      */
     public boolean hasILayer() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string i_layer = 1;</code>
+     * <code>required int32 i_layer = 1;</code>
      */
-    public java.lang.String getILayer() {
-      java.lang.Object ref = iLayer_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          iLayer_ = s;
-        }
-        return s;
-      }
+    public int getILayer() {
+      return iLayer_;
+    }
+
+    public static final int I_IMAGE_FIELD_NUMBER = 2;
+    private int iImage_;
+    /**
+     * <code>required int32 i_image = 2;</code>
+     */
+    public boolean hasIImage() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required string i_layer = 1;</code>
+     * <code>required int32 i_image = 2;</code>
      */
-    public com.google.protobuf.ByteString
-        getILayerBytes() {
-      java.lang.Object ref = iLayer_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        iLayer_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getIImage() {
+      return iImage_;
+    }
+
+    public static final int DIFF_FIELD_NUMBER = 3;
+    private boolean diff_;
+    /**
+     * <code>optional bool diff = 3 [default = false];</code>
+     */
+    public boolean hasDiff() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional bool diff = 3 [default = false];</code>
+     */
+    public boolean getDiff() {
+      return diff_;
     }
 
     private void initFields() {
-      iLayer_ = "";
+      iLayer_ = 0;
+      iImage_ = 0;
+      diff_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasILayer()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasIImage()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -12546,7 +16896,13 @@ public final class ZosonProto {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getILayerBytes());
+        output.writeInt32(1, iLayer_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, iImage_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBool(3, diff_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -12559,7 +16915,15 @@ public final class ZosonProto {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getILayerBytes());
+          .computeInt32Size(1, iLayer_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, iImage_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, diff_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -12643,8 +17007,9 @@ public final class ZosonProto {
      * Protobuf type {@code VReqFeature}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.VReqFeatureOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:VReqFeature)
+        com.zoson.detection.proto.ZosonProto.VReqFeatureOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.zoson.detection.proto.ZosonProto.internal_static_VReqFeature_descriptor;
@@ -12677,8 +17042,12 @@ public final class ZosonProto {
 
       public Builder clear() {
         super.clear();
-        iLayer_ = "";
+        iLayer_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
+        iImage_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        diff_ = false;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -12711,6 +17080,14 @@ public final class ZosonProto {
           to_bitField0_ |= 0x00000001;
         }
         result.iLayer_ = iLayer_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.iImage_ = iImage_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.diff_ = diff_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -12728,9 +17105,13 @@ public final class ZosonProto {
       public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.VReqFeature other) {
         if (other == com.zoson.detection.proto.ZosonProto.VReqFeature.getDefaultInstance()) return this;
         if (other.hasILayer()) {
-          bitField0_ |= 0x00000001;
-          iLayer_ = other.iLayer_;
-          onChanged();
+          setILayer(other.getILayer());
+        }
+        if (other.hasIImage()) {
+          setIImage(other.getIImage());
+        }
+        if (other.hasDiff()) {
+          setDiff(other.getDiff());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -12738,6 +17119,10 @@ public final class ZosonProto {
 
       public final boolean isInitialized() {
         if (!hasILayer()) {
+          
+          return false;
+        }
+        if (!hasIImage()) {
           
           return false;
         }
@@ -12763,76 +17148,98 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // required string i_layer = 1;
-      private java.lang.Object iLayer_ = "";
+      private int iLayer_ ;
       /**
-       * <code>required string i_layer = 1;</code>
+       * <code>required int32 i_layer = 1;</code>
        */
       public boolean hasILayer() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string i_layer = 1;</code>
+       * <code>required int32 i_layer = 1;</code>
        */
-      public java.lang.String getILayer() {
-        java.lang.Object ref = iLayer_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          iLayer_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getILayer() {
+        return iLayer_;
       }
       /**
-       * <code>required string i_layer = 1;</code>
+       * <code>required int32 i_layer = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getILayerBytes() {
-        java.lang.Object ref = iLayer_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          iLayer_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string i_layer = 1;</code>
-       */
-      public Builder setILayer(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      public Builder setILayer(int value) {
+        bitField0_ |= 0x00000001;
         iLayer_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string i_layer = 1;</code>
+       * <code>required int32 i_layer = 1;</code>
        */
       public Builder clearILayer() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        iLayer_ = getDefaultInstance().getILayer();
+        iLayer_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int iImage_ ;
+      /**
+       * <code>required int32 i_image = 2;</code>
+       */
+      public boolean hasIImage() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 i_image = 2;</code>
+       */
+      public int getIImage() {
+        return iImage_;
+      }
+      /**
+       * <code>required int32 i_image = 2;</code>
+       */
+      public Builder setIImage(int value) {
+        bitField0_ |= 0x00000002;
+        iImage_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string i_layer = 1;</code>
+       * <code>required int32 i_image = 2;</code>
        */
-      public Builder setILayerBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        iLayer_ = value;
+      public Builder clearIImage() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        iImage_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean diff_ ;
+      /**
+       * <code>optional bool diff = 3 [default = false];</code>
+       */
+      public boolean hasDiff() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional bool diff = 3 [default = false];</code>
+       */
+      public boolean getDiff() {
+        return diff_;
+      }
+      /**
+       * <code>optional bool diff = 3 [default = false];</code>
+       */
+      public Builder setDiff(boolean value) {
+        bitField0_ |= 0x00000004;
+        diff_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool diff = 3 [default = false];</code>
+       */
+      public Builder clearDiff() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        diff_ = false;
         onChanged();
         return this;
       }
@@ -12848,48 +17255,48 @@ public final class ZosonProto {
     // @@protoc_insertion_point(class_scope:VReqFeature)
   }
 
-  public interface VCommendOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface VReqWeightOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:VReqWeight)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required .VCommend.Type type = 1;
     /**
-     * <code>required .VCommend.Type type = 1;</code>
+     * <code>required int32 index = 1;</code>
      */
-    boolean hasType();
+    boolean hasIndex();
     /**
-     * <code>required .VCommend.Type type = 1;</code>
+     * <code>required int32 index = 1;</code>
      */
-    com.zoson.detection.proto.ZosonProto.VCommend.Type getType();
+    int getIndex();
 
-    // optional bytes data = 2;
     /**
-     * <code>optional bytes data = 2;</code>
+     * <code>optional bool diff = 2 [default = false];</code>
      */
-    boolean hasData();
+    boolean hasDiff();
     /**
-     * <code>optional bytes data = 2;</code>
+     * <code>optional bool diff = 2 [default = false];</code>
      */
-    com.google.protobuf.ByteString getData();
+    boolean getDiff();
   }
   /**
-   * Protobuf type {@code VCommend}
+   * Protobuf type {@code VReqWeight}
    */
-  public static final class VCommend extends
-      com.google.protobuf.GeneratedMessage
-      implements VCommendOrBuilder {
-    // Use VCommend.newBuilder() to construct.
-    private VCommend(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+  public static final class VReqWeight extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:VReqWeight)
+      VReqWeightOrBuilder {
+    // Use VReqWeight.newBuilder() to construct.
+    private VReqWeight(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private VCommend(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private VReqWeight(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final VCommend defaultInstance;
-    public static VCommend getDefaultInstance() {
+    private static final VReqWeight defaultInstance;
+    public static VReqWeight getDefaultInstance() {
       return defaultInstance;
     }
 
-    public VCommend getDefaultInstanceForType() {
+    public VReqWeight getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -12899,7 +17306,7 @@ public final class ZosonProto {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private VCommend(
+    private VReqWeight(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -12923,19 +17330,13 @@ public final class ZosonProto {
               break;
             }
             case 8: {
-              int rawValue = input.readEnum();
-              com.zoson.detection.proto.ZosonProto.VCommend.Type value = com.zoson.detection.proto.ZosonProto.VCommend.Type.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(1, rawValue);
-              } else {
-                bitField0_ |= 0x00000001;
-                type_ = value;
-              }
+              bitField0_ |= 0x00000001;
+              index_ = input.readInt32();
               break;
             }
-            case 18: {
+            case 16: {
               bitField0_ |= 0x00000002;
-              data_ = input.readBytes();
+              diff_ = input.readBool();
               break;
             }
           }
@@ -12952,183 +17353,73 @@ public final class ZosonProto {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.zoson.detection.proto.ZosonProto.internal_static_VCommend_descriptor;
+      return com.zoson.detection.proto.ZosonProto.internal_static_VReqWeight_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.zoson.detection.proto.ZosonProto.internal_static_VCommend_fieldAccessorTable
+      return com.zoson.detection.proto.ZosonProto.internal_static_VReqWeight_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.zoson.detection.proto.ZosonProto.VCommend.class, com.zoson.detection.proto.ZosonProto.VCommend.Builder.class);
+              com.zoson.detection.proto.ZosonProto.VReqWeight.class, com.zoson.detection.proto.ZosonProto.VReqWeight.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<VCommend> PARSER =
-        new com.google.protobuf.AbstractParser<VCommend>() {
-      public VCommend parsePartialFrom(
+    public static com.google.protobuf.Parser<VReqWeight> PARSER =
+        new com.google.protobuf.AbstractParser<VReqWeight>() {
+      public VReqWeight parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new VCommend(input, extensionRegistry);
+        return new VReqWeight(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<VCommend> getParserForType() {
+    public com.google.protobuf.Parser<VReqWeight> getParserForType() {
       return PARSER;
     }
 
-    /**
-     * Protobuf enum {@code VCommend.Type}
-     */
-    public enum Type
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>START = 0;</code>
-       */
-      START(0, 0),
-      /**
-       * <code>STOP = 1;</code>
-       */
-      STOP(1, 1),
-      /**
-       * <code>SETTING = 3;</code>
-       */
-      SETTING(2, 3),
-      /**
-       * <code>DECONV = 4;</code>
-       */
-      DECONV(3, 4),
-      /**
-       * <code>FEATUREMAP = 5;</code>
-       */
-      FEATUREMAP(4, 5),
-      ;
-
-      /**
-       * <code>START = 0;</code>
-       */
-      public static final int START_VALUE = 0;
-      /**
-       * <code>STOP = 1;</code>
-       */
-      public static final int STOP_VALUE = 1;
-      /**
-       * <code>SETTING = 3;</code>
-       */
-      public static final int SETTING_VALUE = 3;
-      /**
-       * <code>DECONV = 4;</code>
-       */
-      public static final int DECONV_VALUE = 4;
-      /**
-       * <code>FEATUREMAP = 5;</code>
-       */
-      public static final int FEATUREMAP_VALUE = 5;
-
-
-      public final int getNumber() { return value; }
-
-      public static Type valueOf(int value) {
-        switch (value) {
-          case 0: return START;
-          case 1: return STOP;
-          case 3: return SETTING;
-          case 4: return DECONV;
-          case 5: return FEATUREMAP;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<Type>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static com.google.protobuf.Internal.EnumLiteMap<Type>
-          internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
-              public Type findValueByNumber(int number) {
-                return Type.valueOf(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        return getDescriptor().getValues().get(index);
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return com.zoson.detection.proto.ZosonProto.VCommend.getDescriptor().getEnumTypes().get(0);
-      }
-
-      private static final Type[] VALUES = values();
-
-      public static Type valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int index;
-      private final int value;
-
-      private Type(int index, int value) {
-        this.index = index;
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:VCommend.Type)
-    }
-
     private int bitField0_;
-    // required .VCommend.Type type = 1;
-    public static final int TYPE_FIELD_NUMBER = 1;
-    private com.zoson.detection.proto.ZosonProto.VCommend.Type type_;
+    public static final int INDEX_FIELD_NUMBER = 1;
+    private int index_;
     /**
-     * <code>required .VCommend.Type type = 1;</code>
+     * <code>required int32 index = 1;</code>
      */
-    public boolean hasType() {
+    public boolean hasIndex() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .VCommend.Type type = 1;</code>
+     * <code>required int32 index = 1;</code>
      */
-    public com.zoson.detection.proto.ZosonProto.VCommend.Type getType() {
-      return type_;
+    public int getIndex() {
+      return index_;
     }
 
-    // optional bytes data = 2;
-    public static final int DATA_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString data_;
+    public static final int DIFF_FIELD_NUMBER = 2;
+    private boolean diff_;
     /**
-     * <code>optional bytes data = 2;</code>
+     * <code>optional bool diff = 2 [default = false];</code>
      */
-    public boolean hasData() {
+    public boolean hasDiff() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional bytes data = 2;</code>
+     * <code>optional bool diff = 2 [default = false];</code>
      */
-    public com.google.protobuf.ByteString getData() {
-      return data_;
+    public boolean getDiff() {
+      return diff_;
     }
 
     private void initFields() {
-      type_ = com.zoson.detection.proto.ZosonProto.VCommend.Type.START;
-      data_ = com.google.protobuf.ByteString.EMPTY;
+      index_ = 0;
+      diff_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
-      if (!hasType()) {
+      if (!hasIndex()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -13140,10 +17431,10 @@ public final class ZosonProto {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeEnum(1, type_.getNumber());
+        output.writeInt32(1, index_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, data_);
+        output.writeBool(2, diff_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -13156,11 +17447,11 @@ public final class ZosonProto {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, type_.getNumber());
+          .computeInt32Size(1, index_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, data_);
+          .computeBoolSize(2, diff_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -13174,53 +17465,53 @@ public final class ZosonProto {
       return super.writeReplace();
     }
 
-    public static com.zoson.detection.proto.ZosonProto.VCommend parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.VReqWeight parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.zoson.detection.proto.ZosonProto.VCommend parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.VReqWeight parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.zoson.detection.proto.ZosonProto.VCommend parseFrom(byte[] data)
+    public static com.zoson.detection.proto.ZosonProto.VReqWeight parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.zoson.detection.proto.ZosonProto.VCommend parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.VReqWeight parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.zoson.detection.proto.ZosonProto.VCommend parseFrom(java.io.InputStream input)
+    public static com.zoson.detection.proto.ZosonProto.VReqWeight parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.zoson.detection.proto.ZosonProto.VCommend parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.VReqWeight parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.zoson.detection.proto.ZosonProto.VCommend parseDelimitedFrom(java.io.InputStream input)
+    public static com.zoson.detection.proto.ZosonProto.VReqWeight parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.zoson.detection.proto.ZosonProto.VCommend parseDelimitedFrom(
+    public static com.zoson.detection.proto.ZosonProto.VReqWeight parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.zoson.detection.proto.ZosonProto.VCommend parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.VReqWeight parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.zoson.detection.proto.ZosonProto.VCommend parseFrom(
+    public static com.zoson.detection.proto.ZosonProto.VReqWeight parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -13229,7 +17520,7 @@ public final class ZosonProto {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.zoson.detection.proto.ZosonProto.VCommend prototype) {
+    public static Builder newBuilder(com.zoson.detection.proto.ZosonProto.VReqWeight prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -13241,24 +17532,25 @@ public final class ZosonProto {
       return builder;
     }
     /**
-     * Protobuf type {@code VCommend}
+     * Protobuf type {@code VReqWeight}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.zoson.detection.proto.ZosonProto.VCommendOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:VReqWeight)
+        com.zoson.detection.proto.ZosonProto.VReqWeightOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.zoson.detection.proto.ZosonProto.internal_static_VCommend_descriptor;
+        return com.zoson.detection.proto.ZosonProto.internal_static_VReqWeight_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.zoson.detection.proto.ZosonProto.internal_static_VCommend_fieldAccessorTable
+        return com.zoson.detection.proto.ZosonProto.internal_static_VReqWeight_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.zoson.detection.proto.ZosonProto.VCommend.class, com.zoson.detection.proto.ZosonProto.VCommend.Builder.class);
+                com.zoson.detection.proto.ZosonProto.VReqWeight.class, com.zoson.detection.proto.ZosonProto.VReqWeight.Builder.class);
       }
 
-      // Construct using com.zoson.detection.proto.ZosonProto.VCommend.newBuilder()
+      // Construct using com.zoson.detection.proto.ZosonProto.VReqWeight.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -13278,9 +17570,9 @@ public final class ZosonProto {
 
       public Builder clear() {
         super.clear();
-        type_ = com.zoson.detection.proto.ZosonProto.VCommend.Type.START;
+        index_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        data_ = com.google.protobuf.ByteString.EMPTY;
+        diff_ = false;
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
@@ -13291,61 +17583,61 @@ public final class ZosonProto {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.zoson.detection.proto.ZosonProto.internal_static_VCommend_descriptor;
+        return com.zoson.detection.proto.ZosonProto.internal_static_VReqWeight_descriptor;
       }
 
-      public com.zoson.detection.proto.ZosonProto.VCommend getDefaultInstanceForType() {
-        return com.zoson.detection.proto.ZosonProto.VCommend.getDefaultInstance();
+      public com.zoson.detection.proto.ZosonProto.VReqWeight getDefaultInstanceForType() {
+        return com.zoson.detection.proto.ZosonProto.VReqWeight.getDefaultInstance();
       }
 
-      public com.zoson.detection.proto.ZosonProto.VCommend build() {
-        com.zoson.detection.proto.ZosonProto.VCommend result = buildPartial();
+      public com.zoson.detection.proto.ZosonProto.VReqWeight build() {
+        com.zoson.detection.proto.ZosonProto.VReqWeight result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.zoson.detection.proto.ZosonProto.VCommend buildPartial() {
-        com.zoson.detection.proto.ZosonProto.VCommend result = new com.zoson.detection.proto.ZosonProto.VCommend(this);
+      public com.zoson.detection.proto.ZosonProto.VReqWeight buildPartial() {
+        com.zoson.detection.proto.ZosonProto.VReqWeight result = new com.zoson.detection.proto.ZosonProto.VReqWeight(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.type_ = type_;
+        result.index_ = index_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.data_ = data_;
+        result.diff_ = diff_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.zoson.detection.proto.ZosonProto.VCommend) {
-          return mergeFrom((com.zoson.detection.proto.ZosonProto.VCommend)other);
+        if (other instanceof com.zoson.detection.proto.ZosonProto.VReqWeight) {
+          return mergeFrom((com.zoson.detection.proto.ZosonProto.VReqWeight)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.VCommend other) {
-        if (other == com.zoson.detection.proto.ZosonProto.VCommend.getDefaultInstance()) return this;
-        if (other.hasType()) {
-          setType(other.getType());
+      public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.VReqWeight other) {
+        if (other == com.zoson.detection.proto.ZosonProto.VReqWeight.getDefaultInstance()) return this;
+        if (other.hasIndex()) {
+          setIndex(other.getIndex());
         }
-        if (other.hasData()) {
-          setData(other.getData());
+        if (other.hasDiff()) {
+          setDiff(other.getDiff());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasType()) {
+        if (!hasIndex()) {
           
           return false;
         }
@@ -13356,11 +17648,11 @@ public final class ZosonProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.zoson.detection.proto.ZosonProto.VCommend parsedMessage = null;
+        com.zoson.detection.proto.ZosonProto.VReqWeight parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.zoson.detection.proto.ZosonProto.VCommend) e.getUnfinishedMessage();
+          parsedMessage = (com.zoson.detection.proto.ZosonProto.VReqWeight) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -13371,179 +17663,1284 @@ public final class ZosonProto {
       }
       private int bitField0_;
 
-      // required .VCommend.Type type = 1;
-      private com.zoson.detection.proto.ZosonProto.VCommend.Type type_ = com.zoson.detection.proto.ZosonProto.VCommend.Type.START;
+      private int index_ ;
       /**
-       * <code>required .VCommend.Type type = 1;</code>
+       * <code>required int32 index = 1;</code>
        */
-      public boolean hasType() {
+      public boolean hasIndex() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required .VCommend.Type type = 1;</code>
+       * <code>required int32 index = 1;</code>
        */
-      public com.zoson.detection.proto.ZosonProto.VCommend.Type getType() {
-        return type_;
+      public int getIndex() {
+        return index_;
       }
       /**
-       * <code>required .VCommend.Type type = 1;</code>
+       * <code>required int32 index = 1;</code>
        */
-      public Builder setType(com.zoson.detection.proto.ZosonProto.VCommend.Type value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
+      public Builder setIndex(int value) {
         bitField0_ |= 0x00000001;
-        type_ = value;
+        index_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required .VCommend.Type type = 1;</code>
+       * <code>required int32 index = 1;</code>
        */
-      public Builder clearType() {
+      public Builder clearIndex() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        type_ = com.zoson.detection.proto.ZosonProto.VCommend.Type.START;
+        index_ = 0;
         onChanged();
         return this;
       }
 
-      // optional bytes data = 2;
-      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+      private boolean diff_ ;
       /**
-       * <code>optional bytes data = 2;</code>
+       * <code>optional bool diff = 2 [default = false];</code>
        */
-      public boolean hasData() {
+      public boolean hasDiff() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional bytes data = 2;</code>
+       * <code>optional bool diff = 2 [default = false];</code>
        */
-      public com.google.protobuf.ByteString getData() {
-        return data_;
+      public boolean getDiff() {
+        return diff_;
       }
       /**
-       * <code>optional bytes data = 2;</code>
+       * <code>optional bool diff = 2 [default = false];</code>
        */
-      public Builder setData(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        data_ = value;
+      public Builder setDiff(boolean value) {
+        bitField0_ |= 0x00000002;
+        diff_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bytes data = 2;</code>
+       * <code>optional bool diff = 2 [default = false];</code>
        */
-      public Builder clearData() {
+      public Builder clearDiff() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        data_ = getDefaultInstance().getData();
+        diff_ = false;
         onChanged();
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:VCommend)
+      // @@protoc_insertion_point(builder_scope:VReqWeight)
     }
 
     static {
-      defaultInstance = new VCommend(true);
+      defaultInstance = new VReqWeight(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:VCommend)
+    // @@protoc_insertion_point(class_scope:VReqWeight)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  public interface VStateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:VState)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional bool auto = 1 [default = true];</code>
+     */
+    boolean hasAuto();
+    /**
+     * <code>optional bool auto = 1 [default = true];</code>
+     */
+    boolean getAuto();
+
+    /**
+     * <code>optional int32 input = 2 [default = -1];</code>
+     */
+    boolean hasInput();
+    /**
+     * <code>optional int32 input = 2 [default = -1];</code>
+     */
+    int getInput();
+
+    /**
+     * <code>optional .VReqFeature map = 3;</code>
+     */
+    boolean hasMap();
+    /**
+     * <code>optional .VReqFeature map = 3;</code>
+     */
+    com.zoson.detection.proto.ZosonProto.VReqFeature getMap();
+    /**
+     * <code>optional .VReqFeature map = 3;</code>
+     */
+    com.zoson.detection.proto.ZosonProto.VReqFeatureOrBuilder getMapOrBuilder();
+
+    /**
+     * <code>optional .VReqDeconv deconv = 4;</code>
+     */
+    boolean hasDeconv();
+    /**
+     * <code>optional .VReqDeconv deconv = 4;</code>
+     */
+    com.zoson.detection.proto.ZosonProto.VReqDeconv getDeconv();
+    /**
+     * <code>optional .VReqDeconv deconv = 4;</code>
+     */
+    com.zoson.detection.proto.ZosonProto.VReqDeconvOrBuilder getDeconvOrBuilder();
+
+    /**
+     * <code>optional .VReqWeight weight = 5;</code>
+     */
+    boolean hasWeight();
+    /**
+     * <code>optional .VReqWeight weight = 5;</code>
+     */
+    com.zoson.detection.proto.ZosonProto.VReqWeight getWeight();
+    /**
+     * <code>optional .VReqWeight weight = 5;</code>
+     */
+    com.zoson.detection.proto.ZosonProto.VReqWeightOrBuilder getWeightOrBuilder();
+  }
+  /**
+   * Protobuf type {@code VState}
+   */
+  public static final class VState extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:VState)
+      VStateOrBuilder {
+    // Use VState.newBuilder() to construct.
+    private VState(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private VState(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final VState defaultInstance;
+    public static VState getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public VState getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private VState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              auto_ = input.readBool();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              input_ = input.readInt32();
+              break;
+            }
+            case 26: {
+              com.zoson.detection.proto.ZosonProto.VReqFeature.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = map_.toBuilder();
+              }
+              map_ = input.readMessage(com.zoson.detection.proto.ZosonProto.VReqFeature.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(map_);
+                map_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            case 34: {
+              com.zoson.detection.proto.ZosonProto.VReqDeconv.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = deconv_.toBuilder();
+              }
+              deconv_ = input.readMessage(com.zoson.detection.proto.ZosonProto.VReqDeconv.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(deconv_);
+                deconv_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            case 42: {
+              com.zoson.detection.proto.ZosonProto.VReqWeight.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                subBuilder = weight_.toBuilder();
+              }
+              weight_ = input.readMessage(com.zoson.detection.proto.ZosonProto.VReqWeight.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(weight_);
+                weight_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.zoson.detection.proto.ZosonProto.internal_static_VState_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.zoson.detection.proto.ZosonProto.internal_static_VState_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.zoson.detection.proto.ZosonProto.VState.class, com.zoson.detection.proto.ZosonProto.VState.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<VState> PARSER =
+        new com.google.protobuf.AbstractParser<VState>() {
+      public VState parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new VState(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<VState> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int AUTO_FIELD_NUMBER = 1;
+    private boolean auto_;
+    /**
+     * <code>optional bool auto = 1 [default = true];</code>
+     */
+    public boolean hasAuto() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional bool auto = 1 [default = true];</code>
+     */
+    public boolean getAuto() {
+      return auto_;
+    }
+
+    public static final int INPUT_FIELD_NUMBER = 2;
+    private int input_;
+    /**
+     * <code>optional int32 input = 2 [default = -1];</code>
+     */
+    public boolean hasInput() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int32 input = 2 [default = -1];</code>
+     */
+    public int getInput() {
+      return input_;
+    }
+
+    public static final int MAP_FIELD_NUMBER = 3;
+    private com.zoson.detection.proto.ZosonProto.VReqFeature map_;
+    /**
+     * <code>optional .VReqFeature map = 3;</code>
+     */
+    public boolean hasMap() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional .VReqFeature map = 3;</code>
+     */
+    public com.zoson.detection.proto.ZosonProto.VReqFeature getMap() {
+      return map_;
+    }
+    /**
+     * <code>optional .VReqFeature map = 3;</code>
+     */
+    public com.zoson.detection.proto.ZosonProto.VReqFeatureOrBuilder getMapOrBuilder() {
+      return map_;
+    }
+
+    public static final int DECONV_FIELD_NUMBER = 4;
+    private com.zoson.detection.proto.ZosonProto.VReqDeconv deconv_;
+    /**
+     * <code>optional .VReqDeconv deconv = 4;</code>
+     */
+    public boolean hasDeconv() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional .VReqDeconv deconv = 4;</code>
+     */
+    public com.zoson.detection.proto.ZosonProto.VReqDeconv getDeconv() {
+      return deconv_;
+    }
+    /**
+     * <code>optional .VReqDeconv deconv = 4;</code>
+     */
+    public com.zoson.detection.proto.ZosonProto.VReqDeconvOrBuilder getDeconvOrBuilder() {
+      return deconv_;
+    }
+
+    public static final int WEIGHT_FIELD_NUMBER = 5;
+    private com.zoson.detection.proto.ZosonProto.VReqWeight weight_;
+    /**
+     * <code>optional .VReqWeight weight = 5;</code>
+     */
+    public boolean hasWeight() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional .VReqWeight weight = 5;</code>
+     */
+    public com.zoson.detection.proto.ZosonProto.VReqWeight getWeight() {
+      return weight_;
+    }
+    /**
+     * <code>optional .VReqWeight weight = 5;</code>
+     */
+    public com.zoson.detection.proto.ZosonProto.VReqWeightOrBuilder getWeightOrBuilder() {
+      return weight_;
+    }
+
+    private void initFields() {
+      auto_ = true;
+      input_ = -1;
+      map_ = com.zoson.detection.proto.ZosonProto.VReqFeature.getDefaultInstance();
+      deconv_ = com.zoson.detection.proto.ZosonProto.VReqDeconv.getDefaultInstance();
+      weight_ = com.zoson.detection.proto.ZosonProto.VReqWeight.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (hasMap()) {
+        if (!getMap().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (hasDeconv()) {
+        if (!getDeconv().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (hasWeight()) {
+        if (!getWeight().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(1, auto_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, input_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, map_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, deconv_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(5, weight_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, auto_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, input_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, map_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, deconv_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, weight_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.zoson.detection.proto.ZosonProto.VState parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VState parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VState parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VState parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VState parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VState parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VState parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VState parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VState parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.zoson.detection.proto.ZosonProto.VState parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.zoson.detection.proto.ZosonProto.VState prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code VState}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:VState)
+        com.zoson.detection.proto.ZosonProto.VStateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_VState_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_VState_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.zoson.detection.proto.ZosonProto.VState.class, com.zoson.detection.proto.ZosonProto.VState.Builder.class);
+      }
+
+      // Construct using com.zoson.detection.proto.ZosonProto.VState.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getMapFieldBuilder();
+          getDeconvFieldBuilder();
+          getWeightFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        auto_ = true;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        input_ = -1;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (mapBuilder_ == null) {
+          map_ = com.zoson.detection.proto.ZosonProto.VReqFeature.getDefaultInstance();
+        } else {
+          mapBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        if (deconvBuilder_ == null) {
+          deconv_ = com.zoson.detection.proto.ZosonProto.VReqDeconv.getDefaultInstance();
+        } else {
+          deconvBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        if (weightBuilder_ == null) {
+          weight_ = com.zoson.detection.proto.ZosonProto.VReqWeight.getDefaultInstance();
+        } else {
+          weightBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.zoson.detection.proto.ZosonProto.internal_static_VState_descriptor;
+      }
+
+      public com.zoson.detection.proto.ZosonProto.VState getDefaultInstanceForType() {
+        return com.zoson.detection.proto.ZosonProto.VState.getDefaultInstance();
+      }
+
+      public com.zoson.detection.proto.ZosonProto.VState build() {
+        com.zoson.detection.proto.ZosonProto.VState result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.zoson.detection.proto.ZosonProto.VState buildPartial() {
+        com.zoson.detection.proto.ZosonProto.VState result = new com.zoson.detection.proto.ZosonProto.VState(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.auto_ = auto_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.input_ = input_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (mapBuilder_ == null) {
+          result.map_ = map_;
+        } else {
+          result.map_ = mapBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (deconvBuilder_ == null) {
+          result.deconv_ = deconv_;
+        } else {
+          result.deconv_ = deconvBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        if (weightBuilder_ == null) {
+          result.weight_ = weight_;
+        } else {
+          result.weight_ = weightBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.zoson.detection.proto.ZosonProto.VState) {
+          return mergeFrom((com.zoson.detection.proto.ZosonProto.VState)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.zoson.detection.proto.ZosonProto.VState other) {
+        if (other == com.zoson.detection.proto.ZosonProto.VState.getDefaultInstance()) return this;
+        if (other.hasAuto()) {
+          setAuto(other.getAuto());
+        }
+        if (other.hasInput()) {
+          setInput(other.getInput());
+        }
+        if (other.hasMap()) {
+          mergeMap(other.getMap());
+        }
+        if (other.hasDeconv()) {
+          mergeDeconv(other.getDeconv());
+        }
+        if (other.hasWeight()) {
+          mergeWeight(other.getWeight());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (hasMap()) {
+          if (!getMap().isInitialized()) {
+            
+            return false;
+          }
+        }
+        if (hasDeconv()) {
+          if (!getDeconv().isInitialized()) {
+            
+            return false;
+          }
+        }
+        if (hasWeight()) {
+          if (!getWeight().isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.zoson.detection.proto.ZosonProto.VState parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.zoson.detection.proto.ZosonProto.VState) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private boolean auto_ = true;
+      /**
+       * <code>optional bool auto = 1 [default = true];</code>
+       */
+      public boolean hasAuto() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional bool auto = 1 [default = true];</code>
+       */
+      public boolean getAuto() {
+        return auto_;
+      }
+      /**
+       * <code>optional bool auto = 1 [default = true];</code>
+       */
+      public Builder setAuto(boolean value) {
+        bitField0_ |= 0x00000001;
+        auto_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool auto = 1 [default = true];</code>
+       */
+      public Builder clearAuto() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        auto_ = true;
+        onChanged();
+        return this;
+      }
+
+      private int input_ = -1;
+      /**
+       * <code>optional int32 input = 2 [default = -1];</code>
+       */
+      public boolean hasInput() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 input = 2 [default = -1];</code>
+       */
+      public int getInput() {
+        return input_;
+      }
+      /**
+       * <code>optional int32 input = 2 [default = -1];</code>
+       */
+      public Builder setInput(int value) {
+        bitField0_ |= 0x00000002;
+        input_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 input = 2 [default = -1];</code>
+       */
+      public Builder clearInput() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        input_ = -1;
+        onChanged();
+        return this;
+      }
+
+      private com.zoson.detection.proto.ZosonProto.VReqFeature map_ = com.zoson.detection.proto.ZosonProto.VReqFeature.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.zoson.detection.proto.ZosonProto.VReqFeature, com.zoson.detection.proto.ZosonProto.VReqFeature.Builder, com.zoson.detection.proto.ZosonProto.VReqFeatureOrBuilder> mapBuilder_;
+      /**
+       * <code>optional .VReqFeature map = 3;</code>
+       */
+      public boolean hasMap() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional .VReqFeature map = 3;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VReqFeature getMap() {
+        if (mapBuilder_ == null) {
+          return map_;
+        } else {
+          return mapBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .VReqFeature map = 3;</code>
+       */
+      public Builder setMap(com.zoson.detection.proto.ZosonProto.VReqFeature value) {
+        if (mapBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          map_ = value;
+          onChanged();
+        } else {
+          mapBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .VReqFeature map = 3;</code>
+       */
+      public Builder setMap(
+          com.zoson.detection.proto.ZosonProto.VReqFeature.Builder builderForValue) {
+        if (mapBuilder_ == null) {
+          map_ = builderForValue.build();
+          onChanged();
+        } else {
+          mapBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .VReqFeature map = 3;</code>
+       */
+      public Builder mergeMap(com.zoson.detection.proto.ZosonProto.VReqFeature value) {
+        if (mapBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              map_ != com.zoson.detection.proto.ZosonProto.VReqFeature.getDefaultInstance()) {
+            map_ =
+              com.zoson.detection.proto.ZosonProto.VReqFeature.newBuilder(map_).mergeFrom(value).buildPartial();
+          } else {
+            map_ = value;
+          }
+          onChanged();
+        } else {
+          mapBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .VReqFeature map = 3;</code>
+       */
+      public Builder clearMap() {
+        if (mapBuilder_ == null) {
+          map_ = com.zoson.detection.proto.ZosonProto.VReqFeature.getDefaultInstance();
+          onChanged();
+        } else {
+          mapBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <code>optional .VReqFeature map = 3;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VReqFeature.Builder getMapBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getMapFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .VReqFeature map = 3;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VReqFeatureOrBuilder getMapOrBuilder() {
+        if (mapBuilder_ != null) {
+          return mapBuilder_.getMessageOrBuilder();
+        } else {
+          return map_;
+        }
+      }
+      /**
+       * <code>optional .VReqFeature map = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.zoson.detection.proto.ZosonProto.VReqFeature, com.zoson.detection.proto.ZosonProto.VReqFeature.Builder, com.zoson.detection.proto.ZosonProto.VReqFeatureOrBuilder> 
+          getMapFieldBuilder() {
+        if (mapBuilder_ == null) {
+          mapBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.zoson.detection.proto.ZosonProto.VReqFeature, com.zoson.detection.proto.ZosonProto.VReqFeature.Builder, com.zoson.detection.proto.ZosonProto.VReqFeatureOrBuilder>(
+                  getMap(),
+                  getParentForChildren(),
+                  isClean());
+          map_ = null;
+        }
+        return mapBuilder_;
+      }
+
+      private com.zoson.detection.proto.ZosonProto.VReqDeconv deconv_ = com.zoson.detection.proto.ZosonProto.VReqDeconv.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.zoson.detection.proto.ZosonProto.VReqDeconv, com.zoson.detection.proto.ZosonProto.VReqDeconv.Builder, com.zoson.detection.proto.ZosonProto.VReqDeconvOrBuilder> deconvBuilder_;
+      /**
+       * <code>optional .VReqDeconv deconv = 4;</code>
+       */
+      public boolean hasDeconv() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional .VReqDeconv deconv = 4;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VReqDeconv getDeconv() {
+        if (deconvBuilder_ == null) {
+          return deconv_;
+        } else {
+          return deconvBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .VReqDeconv deconv = 4;</code>
+       */
+      public Builder setDeconv(com.zoson.detection.proto.ZosonProto.VReqDeconv value) {
+        if (deconvBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          deconv_ = value;
+          onChanged();
+        } else {
+          deconvBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .VReqDeconv deconv = 4;</code>
+       */
+      public Builder setDeconv(
+          com.zoson.detection.proto.ZosonProto.VReqDeconv.Builder builderForValue) {
+        if (deconvBuilder_ == null) {
+          deconv_ = builderForValue.build();
+          onChanged();
+        } else {
+          deconvBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .VReqDeconv deconv = 4;</code>
+       */
+      public Builder mergeDeconv(com.zoson.detection.proto.ZosonProto.VReqDeconv value) {
+        if (deconvBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              deconv_ != com.zoson.detection.proto.ZosonProto.VReqDeconv.getDefaultInstance()) {
+            deconv_ =
+              com.zoson.detection.proto.ZosonProto.VReqDeconv.newBuilder(deconv_).mergeFrom(value).buildPartial();
+          } else {
+            deconv_ = value;
+          }
+          onChanged();
+        } else {
+          deconvBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>optional .VReqDeconv deconv = 4;</code>
+       */
+      public Builder clearDeconv() {
+        if (deconvBuilder_ == null) {
+          deconv_ = com.zoson.detection.proto.ZosonProto.VReqDeconv.getDefaultInstance();
+          onChanged();
+        } else {
+          deconvBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       * <code>optional .VReqDeconv deconv = 4;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VReqDeconv.Builder getDeconvBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getDeconvFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .VReqDeconv deconv = 4;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VReqDeconvOrBuilder getDeconvOrBuilder() {
+        if (deconvBuilder_ != null) {
+          return deconvBuilder_.getMessageOrBuilder();
+        } else {
+          return deconv_;
+        }
+      }
+      /**
+       * <code>optional .VReqDeconv deconv = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.zoson.detection.proto.ZosonProto.VReqDeconv, com.zoson.detection.proto.ZosonProto.VReqDeconv.Builder, com.zoson.detection.proto.ZosonProto.VReqDeconvOrBuilder> 
+          getDeconvFieldBuilder() {
+        if (deconvBuilder_ == null) {
+          deconvBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.zoson.detection.proto.ZosonProto.VReqDeconv, com.zoson.detection.proto.ZosonProto.VReqDeconv.Builder, com.zoson.detection.proto.ZosonProto.VReqDeconvOrBuilder>(
+                  getDeconv(),
+                  getParentForChildren(),
+                  isClean());
+          deconv_ = null;
+        }
+        return deconvBuilder_;
+      }
+
+      private com.zoson.detection.proto.ZosonProto.VReqWeight weight_ = com.zoson.detection.proto.ZosonProto.VReqWeight.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.zoson.detection.proto.ZosonProto.VReqWeight, com.zoson.detection.proto.ZosonProto.VReqWeight.Builder, com.zoson.detection.proto.ZosonProto.VReqWeightOrBuilder> weightBuilder_;
+      /**
+       * <code>optional .VReqWeight weight = 5;</code>
+       */
+      public boolean hasWeight() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional .VReqWeight weight = 5;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VReqWeight getWeight() {
+        if (weightBuilder_ == null) {
+          return weight_;
+        } else {
+          return weightBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .VReqWeight weight = 5;</code>
+       */
+      public Builder setWeight(com.zoson.detection.proto.ZosonProto.VReqWeight value) {
+        if (weightBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          weight_ = value;
+          onChanged();
+        } else {
+          weightBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .VReqWeight weight = 5;</code>
+       */
+      public Builder setWeight(
+          com.zoson.detection.proto.ZosonProto.VReqWeight.Builder builderForValue) {
+        if (weightBuilder_ == null) {
+          weight_ = builderForValue.build();
+          onChanged();
+        } else {
+          weightBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .VReqWeight weight = 5;</code>
+       */
+      public Builder mergeWeight(com.zoson.detection.proto.ZosonProto.VReqWeight value) {
+        if (weightBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              weight_ != com.zoson.detection.proto.ZosonProto.VReqWeight.getDefaultInstance()) {
+            weight_ =
+              com.zoson.detection.proto.ZosonProto.VReqWeight.newBuilder(weight_).mergeFrom(value).buildPartial();
+          } else {
+            weight_ = value;
+          }
+          onChanged();
+        } else {
+          weightBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .VReqWeight weight = 5;</code>
+       */
+      public Builder clearWeight() {
+        if (weightBuilder_ == null) {
+          weight_ = com.zoson.detection.proto.ZosonProto.VReqWeight.getDefaultInstance();
+          onChanged();
+        } else {
+          weightBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       * <code>optional .VReqWeight weight = 5;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VReqWeight.Builder getWeightBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getWeightFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .VReqWeight weight = 5;</code>
+       */
+      public com.zoson.detection.proto.ZosonProto.VReqWeightOrBuilder getWeightOrBuilder() {
+        if (weightBuilder_ != null) {
+          return weightBuilder_.getMessageOrBuilder();
+        } else {
+          return weight_;
+        }
+      }
+      /**
+       * <code>optional .VReqWeight weight = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.zoson.detection.proto.ZosonProto.VReqWeight, com.zoson.detection.proto.ZosonProto.VReqWeight.Builder, com.zoson.detection.proto.ZosonProto.VReqWeightOrBuilder> 
+          getWeightFieldBuilder() {
+        if (weightBuilder_ == null) {
+          weightBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.zoson.detection.proto.ZosonProto.VReqWeight, com.zoson.detection.proto.ZosonProto.VReqWeight.Builder, com.zoson.detection.proto.ZosonProto.VReqWeightOrBuilder>(
+                  getWeight(),
+                  getParentForChildren(),
+                  isClean());
+          weight_ = null;
+        }
+        return weightBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:VState)
+    }
+
+    static {
+      defaultInstance = new VState(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:VState)
+  }
+
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_TestProto_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_TestProto_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_ContextParameter_descriptor;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DContextParameter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_ContextParameter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+      internal_static_DContextParameter_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_DModel_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_DModel_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_DetectorParameter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_DetectorParameter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_InputParameter_descriptor;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_MeanValue_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_InputParameter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_OutputParameter_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_OutputParameter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+      internal_static_MeanValue_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_DetectInput_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_DetectInput_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_DetectOutput_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_DetectOutput_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Result_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_Result_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_CommuParameter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_CommuParameter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ClassMaps_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_ClassMaps_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ClassMap_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_ClassMap_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Cookie_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_Cookie_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Bytetranfer_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_Bytetranfer_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_VLayerInfos_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_VLayerInfos_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_VLayerInfo_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_VLayerInfo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_VFeatureMap_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_VFeatureMap_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_VImage_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_VImage_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_VReqDeconv_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_VReqDeconv_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_VSetting_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_VSetting_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_VResponse_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_VResponse_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_VRecState_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_VRecState_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_VAll_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_VAll_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_VReqFeature_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_VReqFeature_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_VCommend_descriptor;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_VReqWeight_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_VCommend_fieldAccessorTable;
+      internal_static_VReqWeight_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_VState_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_VState_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -13554,171 +18951,222 @@ public final class ZosonProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\013zoson.proto\"+\n\tTestProto\022\021\n\tclazz_num\030" +
-      "\001 \002(\005\022\013\n\003dim\030\002 \003(\005\"\232\001\n\020ContextParameter\022" +
-      "$\n\010detector\030\001 \002(\0132\022.DetectorParameter\022\036\n" +
-      "\005input\030\002 \002(\0132\017.InputParameter\022 \n\006output\030" +
-      "\003 \001(\0132\020.OutputParameter\022\036\n\005commu\030\004 \001(\0132\017" +
-      ".CommuParameter\"\353\001\n\021DetectorParameter\022\014\n" +
-      "\004name\030\001 \002(\t\022\r\n\005model\030\002 \002(\t\022\016\n\006weight\030\003 \002" +
-      "(\t\022\025\n\007use_gpu\030\004 \001(\010:\004true\022\025\n\006do_vis\030\005 \001(" +
-      "\010:\005false\022\022\n\006fq_vis\030\006 \001(\005:\00210\022\026\n\tthreshol" +
-      "d\030\007 \001(\002:\0030.5\022\025\n\006shared\030\010 \001(\010:\005false\022\026\n\007i",
-      "strain\030\t \001(\010:\005false\022\016\n\006solver\030\n \001(\t\022\020\n\010s" +
-      "napshot\030\013 \001(\t\"L\n\016InputParameter\022\021\n\tfix_w" +
-      "idth\030\001 \002(\005\022\022\n\nfix_height\030\002 \002(\005\022\023\n\007buf_nu" +
-      "m\030\003 \001(\005:\00210\"^\n\017OutputParameter\022.\n\010out_ty" +
-      "pe\030\001 \001(\0162\025.OutputParameter.Type:\005PROTO\"\033" +
-      "\n\004Type\022\t\n\005PROTO\020\000\022\010\n\004JSON\020\001\"y\n\013DetectInp" +
-      "ut\022\r\n\005width\030\002 \002(\005\022\016\n\006height\030\003 \002(\005\022\014\n\004dat" +
-      "a\030\004 \002(\014\"=\n\006Format\022\007\n\003JPG\020\000\022\007\n\003PNG\020\001\022\007\n\003R" +
-      "GB\020\002\022\013\n\007YOV_420\020\003\022\013\n\007YOV_422\020\004\"(\n\014Detect" +
-      "Output\022\030\n\007results\030\001 \003(\0132\007.Result\"^\n\006Resu",
-      "lt\022\014\n\004xmin\030\001 \002(\002\022\014\n\004ymin\030\002 \002(\002\022\014\n\004xmax\030\003" +
-      " \002(\002\022\014\n\004ymax\030\004 \002(\002\022\r\n\005clazz\030\005 \002(\005\022\r\n\005sco" +
-      "re\030\006 \002(\002\"\261\001\n\016CommuParameter\022\032\n\007address\030\001" +
-      " \001(\t:\tlocalhost\022\023\n\004port\030\002 \001(\005:\00510086\022\030\n\013" +
-      "client_name\030\003 \001(\t:\003web\022\'\n\004type\030\004 \001(\0162\024.C" +
-      "ommuParameter.Type:\003LOC\"+\n\004Type\022\007\n\003LOC\020\000" +
-      "\022\007\n\003IPC\020\001\022\007\n\003TCP\020\003\022\010\n\004RTMP\020\004\"$\n\tClassMap" +
-      "s\022\027\n\004item\030\001 \003(\0132\t.ClassMap\"=\n\010ClassMap\022\014" +
-      "\n\004name\030\001 \002(\t\022\r\n\005label\030\002 \002(\005\022\024\n\014display_n" +
-      "ame\030\003 \002(\t\"I\n\013VFeatureMap\022\r\n\005width\030\001 \002(\005\022",
-      "\016\n\006height\030\002 \002(\005\022\r\n\005count\030\003 \002(\005\022\014\n\004data\030\004" +
-      " \003(\014\"5\n\006VImage\022\r\n\005width\030\001 \002(\005\022\016\n\006height\030" +
-      "\002 \002(\005\022\014\n\004data\030\003 \002(\014\"F\n\nVReqDeconv\022\017\n\007i_l" +
-      "ayer\030\001 \002(\t\022\r\n\005i_map\030\002 \002(\005\022\030\n\tdo_deconv\030\003" +
-      " \001(\010:\005false\"/\n\010VSetting\022\r\n\005model\030\001 \002(\t\022\024" +
-      "\n\010interval\030\002 \001(\005:\002-1\"\261\001\n\tVResponse\022\037\n\005st" +
-      "ate\030\001 \002(\0162\020.VResponse.State\022\013\n\003msg\030\002 \002(\t" +
-      "\022\035\n\004type\030\003 \002(\0162\017.VResponse.Type\022\014\n\004data\030" +
-      "\004 \002(\014\",\n\004Type\022\n\n\006DECONV\020\000\022\016\n\nFEATUREMAP\020" +
-      "\001\022\010\n\004INFO\020\002\"\033\n\005State\022\010\n\004SUCC\020\000\022\010\n\004FAIL\020\001",
-      "\"\036\n\013VReqFeature\022\017\n\007i_layer\030\001 \002(\t\"|\n\010VCom" +
-      "mend\022\034\n\004type\030\001 \002(\0162\016.VCommend.Type\022\014\n\004da" +
-      "ta\030\002 \001(\014\"D\n\004Type\022\t\n\005START\020\000\022\010\n\004STOP\020\001\022\013\n" +
-      "\007SETTING\020\003\022\n\n\006DECONV\020\004\022\016\n\nFEATUREMAP\020\005B\'" +
-      "\n\031com.zoson.detection.protoB\nZosonProto"
+      "\001 \002(\005\022\013\n\003dim\030\002 \003(\005\"K\n\021DContextParameter\022" +
+      "\026\n\005model\030\001 \003(\0132\007.DModel\022\036\n\005commu\030\003 \001(\0132\017" +
+      ".CommuParameter\"9\n\006DModel\022\014\n\004path\030\001 \001(\t\022" +
+      "!\n\005model\030\002 \001(\0132\022.DetectorParameter\"\304\002\n\021D" +
+      "etectorParameter\022\014\n\004name\030\001 \002(\t\022\r\n\005model\030" +
+      "\002 \002(\t\022\016\n\006weight\030\003 \002(\t\022\r\n\005label\030\004 \001(\t\022\017\n\007" +
+      "use_gpu\030\005 \003(\005\022\026\n\007istrain\030\010 \001(\010:\005false\022\016\n" +
+      "\006solver\030\t \001(\t\022\021\n\tmean_file\030\n \001(\t\022\030\n\004mean" +
+      "\030\013 \001(\0132\n.MeanValue\022/\n\004type\030\014 \001(\0162\027.Detec",
+      "torParameter.Type:\010DETECTOR\022\025\n\007in_name\030\r" +
+      " \001(\t:\004data\022\037\n\010out_name\030\016 \001(\t:\rdetection_" +
+      "out\"$\n\004Type\022\014\n\010DETECTOR\020\001\022\016\n\nCLASSIFIER\020" +
+      "\002\",\n\tMeanValue\022\r\n\005value\030\001 \003(\002\022\020\n\005scale\030\002" +
+      " \001(\002:\0011\"y\n\013DetectInput\022\r\n\005width\030\002 \002(\005\022\016\n" +
+      "\006height\030\003 \002(\005\022\014\n\004data\030\004 \002(\014\"=\n\006Format\022\007\n" +
+      "\003JPG\020\000\022\007\n\003PNG\020\001\022\007\n\003RGB\020\002\022\013\n\007YOV_420\020\003\022\013\n" +
+      "\007YOV_422\020\004\"(\n\014DetectOutput\022\030\n\007results\030\001 " +
+      "\003(\0132\007.Result\"^\n\006Result\022\014\n\004xmin\030\001 \002(\002\022\014\n\004" +
+      "ymin\030\002 \002(\002\022\014\n\004xmax\030\003 \002(\002\022\014\n\004ymax\030\004 \002(\002\022\r",
+      "\n\005clazz\030\005 \002(\005\022\r\n\005score\030\006 \002(\002\"\261\001\n\016CommuPa" +
+      "rameter\022\032\n\007address\030\001 \001(\t:\tlocalhost\022\023\n\004p" +
+      "ort\030\002 \001(\005:\00510086\022\030\n\013client_name\030\003 \001(\t:\003w" +
+      "eb\022\'\n\004type\030\004 \001(\0162\024.CommuParameter.Type:\003" +
+      "LOC\"+\n\004Type\022\007\n\003LOC\020\000\022\007\n\003IPC\020\001\022\007\n\003TCP\020\003\022\010" +
+      "\n\004RTMP\020\004\"$\n\tClassMaps\022\027\n\004item\030\001 \003(\0132\t.Cl" +
+      "assMap\"=\n\010ClassMap\022\014\n\004name\030\001 \002(\t\022\r\n\005labe" +
+      "l\030\002 \002(\005\022\024\n\014display_name\030\003 \002(\t\"\"\n\006Cookie\022" +
+      "\n\n\002ID\030\001 \002(\t\022\014\n\004name\030\002 \002(\t\"\034\n\013Bytetranfer" +
+      "\022\r\n\005count\030\002 \002(\005\")\n\013VLayerInfos\022\032\n\005infos\030",
+      "\001 \003(\0132\013.VLayerInfo\"7\n\nVLayerInfo\022\r\n\005inde" +
+      "x\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\014\n\004type\030\003 \002(\t\"X\n\013V" +
+      "FeatureMap\022\r\n\005width\030\001 \002(\005\022\016\n\006height\030\002 \002(" +
+      "\005\022\013\n\003num\030\003 \002(\005\022\017\n\007channel\030\004 \002(\005\022\014\n\004data\030" +
+      "\005 \002(\014\"F\n\006VImage\022\r\n\005width\030\001 \002(\005\022\016\n\006height" +
+      "\030\002 \002(\005\022\017\n\007channel\030\003 \002(\005\022\014\n\004data\030\004 \002(\014\"F\n" +
+      "\nVReqDeconv\022\017\n\007i_layer\030\001 \002(\005\022\r\n\005i_map\030\002 " +
+      "\002(\005\022\030\n\tdo_deconv\030\003 \001(\010:\005false\"M\n\010VSettin" +
+      "g\022\r\n\005model\030\001 \002(\t\022\016\n\006solver\030\002 \002(\t\022\014\n\004test" +
+      "\030\003 \002(\t\022\024\n\010interval\030\004 \001(\005:\002-1\"\255\001\n\tVRespon",
+      "se\022\035\n\004type\030\001 \002(\0162\017.VResponse.Type\022\014\n\004dat" +
+      "a\030\002 \001(\014\"s\n\004Type\022\n\n\006WEIGHT\020\001\022\016\n\nFEATUREMA" +
+      "P\020\002\022\016\n\nLAYERINFOS\020\003\022\t\n\005INPUT\020\004\022\n\n\006DECONV" +
+      "\020\005\022\007\n\003ALL\020\006\022\t\n\005STATE\020\007\022\013\n\007SETTING\020\010\022\007\n\003R" +
+      "EC\020\t\"\032\n\tVRecState\022\r\n\005state\030\001 \002(\005\"$\n\004VAll" +
+      "\022\034\n\010response\030\001 \003(\0132\n.VResponse\"D\n\013VReqFe" +
+      "ature\022\017\n\007i_layer\030\001 \002(\005\022\017\n\007i_image\030\002 \002(\005\022" +
+      "\023\n\004diff\030\003 \001(\010:\005false\"0\n\nVReqWeight\022\r\n\005in" +
+      "dex\030\001 \002(\005\022\023\n\004diff\030\002 \001(\010:\005false\"\204\001\n\006VStat" +
+      "e\022\022\n\004auto\030\001 \001(\010:\004true\022\021\n\005input\030\002 \001(\005:\002-1",
+      "\022\031\n\003map\030\003 \001(\0132\014.VReqFeature\022\033\n\006deconv\030\004 " +
+      "\001(\0132\013.VReqDeconv\022\033\n\006weight\030\005 \001(\0132\013.VReqW" +
+      "eightB\'\n\031com.zoson.detection.protoB\nZoso" +
+      "nProto"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_TestProto_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_TestProto_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_TestProto_descriptor,
-              new java.lang.String[] { "ClazzNum", "Dim", });
-          internal_static_ContextParameter_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_ContextParameter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_ContextParameter_descriptor,
-              new java.lang.String[] { "Detector", "Input", "Output", "Commu", });
-          internal_static_DetectorParameter_descriptor =
-            getDescriptor().getMessageTypes().get(2);
-          internal_static_DetectorParameter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_DetectorParameter_descriptor,
-              new java.lang.String[] { "Name", "Model", "Weight", "UseGpu", "DoVis", "FqVis", "Threshold", "Shared", "Istrain", "Solver", "Snapshot", });
-          internal_static_InputParameter_descriptor =
-            getDescriptor().getMessageTypes().get(3);
-          internal_static_InputParameter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_InputParameter_descriptor,
-              new java.lang.String[] { "FixWidth", "FixHeight", "BufNum", });
-          internal_static_OutputParameter_descriptor =
-            getDescriptor().getMessageTypes().get(4);
-          internal_static_OutputParameter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_OutputParameter_descriptor,
-              new java.lang.String[] { "OutType", });
-          internal_static_DetectInput_descriptor =
-            getDescriptor().getMessageTypes().get(5);
-          internal_static_DetectInput_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_DetectInput_descriptor,
-              new java.lang.String[] { "Width", "Height", "Data", });
-          internal_static_DetectOutput_descriptor =
-            getDescriptor().getMessageTypes().get(6);
-          internal_static_DetectOutput_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_DetectOutput_descriptor,
-              new java.lang.String[] { "Results", });
-          internal_static_Result_descriptor =
-            getDescriptor().getMessageTypes().get(7);
-          internal_static_Result_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_Result_descriptor,
-              new java.lang.String[] { "Xmin", "Ymin", "Xmax", "Ymax", "Clazz", "Score", });
-          internal_static_CommuParameter_descriptor =
-            getDescriptor().getMessageTypes().get(8);
-          internal_static_CommuParameter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_CommuParameter_descriptor,
-              new java.lang.String[] { "Address", "Port", "ClientName", "Type", });
-          internal_static_ClassMaps_descriptor =
-            getDescriptor().getMessageTypes().get(9);
-          internal_static_ClassMaps_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_ClassMaps_descriptor,
-              new java.lang.String[] { "Item", });
-          internal_static_ClassMap_descriptor =
-            getDescriptor().getMessageTypes().get(10);
-          internal_static_ClassMap_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_ClassMap_descriptor,
-              new java.lang.String[] { "Name", "Label", "DisplayName", });
-          internal_static_VFeatureMap_descriptor =
-            getDescriptor().getMessageTypes().get(11);
-          internal_static_VFeatureMap_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_VFeatureMap_descriptor,
-              new java.lang.String[] { "Width", "Height", "Count", "Data", });
-          internal_static_VImage_descriptor =
-            getDescriptor().getMessageTypes().get(12);
-          internal_static_VImage_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_VImage_descriptor,
-              new java.lang.String[] { "Width", "Height", "Data", });
-          internal_static_VReqDeconv_descriptor =
-            getDescriptor().getMessageTypes().get(13);
-          internal_static_VReqDeconv_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_VReqDeconv_descriptor,
-              new java.lang.String[] { "ILayer", "IMap", "DoDeconv", });
-          internal_static_VSetting_descriptor =
-            getDescriptor().getMessageTypes().get(14);
-          internal_static_VSetting_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_VSetting_descriptor,
-              new java.lang.String[] { "Model", "Interval", });
-          internal_static_VResponse_descriptor =
-            getDescriptor().getMessageTypes().get(15);
-          internal_static_VResponse_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_VResponse_descriptor,
-              new java.lang.String[] { "State", "Msg", "Type", "Data", });
-          internal_static_VReqFeature_descriptor =
-            getDescriptor().getMessageTypes().get(16);
-          internal_static_VReqFeature_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_VReqFeature_descriptor,
-              new java.lang.String[] { "ILayer", });
-          internal_static_VCommend_descriptor =
-            getDescriptor().getMessageTypes().get(17);
-          internal_static_VCommend_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_VCommend_descriptor,
-              new java.lang.String[] { "Type", "Data", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_TestProto_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_TestProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_TestProto_descriptor,
+        new java.lang.String[] { "ClazzNum", "Dim", });
+    internal_static_DContextParameter_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_DContextParameter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_DContextParameter_descriptor,
+        new java.lang.String[] { "Model", "Commu", });
+    internal_static_DModel_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_DModel_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_DModel_descriptor,
+        new java.lang.String[] { "Path", "Model", });
+    internal_static_DetectorParameter_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_DetectorParameter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_DetectorParameter_descriptor,
+        new java.lang.String[] { "Name", "Model", "Weight", "Label", "UseGpu", "Istrain", "Solver", "MeanFile", "Mean", "Type", "InName", "OutName", });
+    internal_static_MeanValue_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_MeanValue_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_MeanValue_descriptor,
+        new java.lang.String[] { "Value", "Scale", });
+    internal_static_DetectInput_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_DetectInput_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_DetectInput_descriptor,
+        new java.lang.String[] { "Width", "Height", "Data", });
+    internal_static_DetectOutput_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_DetectOutput_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_DetectOutput_descriptor,
+        new java.lang.String[] { "Results", });
+    internal_static_Result_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_Result_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_Result_descriptor,
+        new java.lang.String[] { "Xmin", "Ymin", "Xmax", "Ymax", "Clazz", "Score", });
+    internal_static_CommuParameter_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_CommuParameter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_CommuParameter_descriptor,
+        new java.lang.String[] { "Address", "Port", "ClientName", "Type", });
+    internal_static_ClassMaps_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_ClassMaps_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_ClassMaps_descriptor,
+        new java.lang.String[] { "Item", });
+    internal_static_ClassMap_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_ClassMap_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_ClassMap_descriptor,
+        new java.lang.String[] { "Name", "Label", "DisplayName", });
+    internal_static_Cookie_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_Cookie_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_Cookie_descriptor,
+        new java.lang.String[] { "ID", "Name", });
+    internal_static_Bytetranfer_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_Bytetranfer_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_Bytetranfer_descriptor,
+        new java.lang.String[] { "Count", });
+    internal_static_VLayerInfos_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_VLayerInfos_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_VLayerInfos_descriptor,
+        new java.lang.String[] { "Infos", });
+    internal_static_VLayerInfo_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_VLayerInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_VLayerInfo_descriptor,
+        new java.lang.String[] { "Index", "Name", "Type", });
+    internal_static_VFeatureMap_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_VFeatureMap_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_VFeatureMap_descriptor,
+        new java.lang.String[] { "Width", "Height", "Num", "Channel", "Data", });
+    internal_static_VImage_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_VImage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_VImage_descriptor,
+        new java.lang.String[] { "Width", "Height", "Channel", "Data", });
+    internal_static_VReqDeconv_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_VReqDeconv_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_VReqDeconv_descriptor,
+        new java.lang.String[] { "ILayer", "IMap", "DoDeconv", });
+    internal_static_VSetting_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_VSetting_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_VSetting_descriptor,
+        new java.lang.String[] { "Model", "Solver", "Test", "Interval", });
+    internal_static_VResponse_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_VResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_VResponse_descriptor,
+        new java.lang.String[] { "Type", "Data", });
+    internal_static_VRecState_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_VRecState_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_VRecState_descriptor,
+        new java.lang.String[] { "State", });
+    internal_static_VAll_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_VAll_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_VAll_descriptor,
+        new java.lang.String[] { "Response", });
+    internal_static_VReqFeature_descriptor =
+      getDescriptor().getMessageTypes().get(22);
+    internal_static_VReqFeature_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_VReqFeature_descriptor,
+        new java.lang.String[] { "ILayer", "IImage", "Diff", });
+    internal_static_VReqWeight_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_VReqWeight_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_VReqWeight_descriptor,
+        new java.lang.String[] { "Index", "Diff", });
+    internal_static_VState_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_VState_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_VState_descriptor,
+        new java.lang.String[] { "Auto", "Input", "Map", "Deconv", "Weight", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

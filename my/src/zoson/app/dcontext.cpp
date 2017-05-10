@@ -1,6 +1,7 @@
 #include "app/dcontext.hpp"
 #include "detector/detector.hpp"
 #include "commu/commu.hpp"
+#include "commu/detect_reactor.hpp"
 #include <utils/common.hpp>
 #include <string>
 using namespace std;
@@ -42,10 +43,19 @@ void DContext::initByParam(const DContextParameter& param)
 	cout<<"init ing"<<endl;
 	if(param.has_commu())
 	{
+		cout<<"has commu"<<endl;
 		Communicator* commu = new Communicator(param.commu());
 		this->m_commu.reset(commu);
-		
+		DetectReactor *reactor = new DetectReactor(getDetector(0).get(),commu);
+		shared_ptr<Reactor> reactor_ptr(reactor);
+		commu->addService("detector",reactor_ptr);
+		//commu->connect();
 	}
+}
+
+shared_ptr<Communicator> DContext::getCommu()
+{
+	return m_commu;
 }
 
 shared_ptr<Detector> DContext::getDetector(int index)
@@ -68,5 +78,6 @@ shared_ptr<Detector> DContext::getDetector(string name)
 	}
 	return ptr;
 }
+
 
 }

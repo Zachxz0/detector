@@ -1,5 +1,7 @@
-/home/zoson/detector/my/java/src/com/zoson/detection/DetectorContext.java
-/home/zoson/detector/my/java/src/com/zoson/detection/jni/DetectorJni.java
-/home/zoson/detector/my/java/src/com/zoson/detection/DetectorManager.java
+/home/zoson/detector/my/java/src/com/zoson/detection/Detector.java
+/home/zoson/detector/my/java/src/com/zoson/detection/DContext.java
 /home/zoson/detector/my/java/src/com/zoson/detection/MainForTest.java
+/home/zoson/detector/my/java/src/com/zoson/detection/jni/JniInterface.java
 /home/zoson/detector/my/java/src/com/zoson/detection/proto/ZosonProto.java
+/home/zoson/detector/my/java/src/cn/edu/scut/iais/ImageRecognition.java
+/home/zoson/detector/my/java/src/cn/edu/scut/iais/proto/DetectorProto.java

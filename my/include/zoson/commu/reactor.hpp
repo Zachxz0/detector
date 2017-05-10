@@ -11,14 +11,20 @@ class Communicator;
 class Reactor
 {
 public:
-	Reactor();
-	virtual ~Reactor(){}
+	Reactor(Communicator* commu);
+	//Reactor(Reactor*);
+	virtual ~Reactor();
 	virtual void onTranact(::google::protobuf::Message& data);
-	virtual void tranact(::google::protobuf::Message& data);
+	virtual void tranact(::google::protobuf::Message& data)=0;
+	virtual void emptyReq()=0;
+	virtual void hasReq()=0;
+	// virtual Reactor* newProxy()=0;
+	// virtual void closeProxy(Reactor* proxy)=0;
 	//virtual Reactor* get()=0;
-	void setCommu(Communicator *commu){this->m_commu=commu;}
-private:
+	//void setCommu(Communicator *commu){this->m_commu=commu;}
+protected:
 	Communicator* m_commu;
+	//Reactor *m_stub;
 	// class Stub:public Reactor
 	// {
 	// friend zoson::Communicator;

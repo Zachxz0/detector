@@ -2,4 +2,4 @@ name: "detector"
 model: "models/ssd-m/train.prototxt"
 istrain: true
 solver: "models/ssd-m/solver.prototxt"
-weight: "models/ssd-m/VGG_ILSVRC_16_layers_fc_reduced.caffemodel"
+snapshot: "models/ssd-m/VGG_VOC0712_SSD_300x300_iter_10000.solverstate"

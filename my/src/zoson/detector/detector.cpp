@@ -43,6 +43,7 @@ void Detector::initByParam(const DetectorParameter &param)
 	isTrain = false;
 	model_path = param.model();
 	weight_path = param.weight();
+	snapshot_path = param.snapshot();
 	if(param.istrain())
 	{
 		isTrain = true;
@@ -196,7 +197,6 @@ shared_ptr<DetectOutput> Detector::doDetect(Mat input)
 	{
 		int width = input.rows;
 		int height = input.cols;
-		cout<<"c++------------------------"<<endl;
 		for(int i=0;i<num_det;++i){
 			if(result[i*7+2]<0.5f)continue;
 			float score = result[i*7+2];
@@ -212,16 +212,8 @@ shared_ptr<DetectOutput> Detector::doDetect(Mat input)
 			res->set_ymax(ymax);
 			res->set_ymin(ymin);
 			res->set_score(score);
-			cout<<"c++ count:"<num_det<<endl;
 			res->set_clazz(label);
-			cout<<"c++ score:"<<score<<endl;
-			cout<<"c++ label:"<<label<<endl;	
-			cout<<"c++ xmin:"<<xmin<<endl;
-			cout<<"c++ ymin:"<<ymin<<endl;
-			cout<<"c++ xman:"<<xmax<<endl;
-			cout<<"c++ yman:"<<ymax<<endl;	
 		}
-		cout<<"c++-----------------------"<<endl;	
 	}else if(m_param.type()==DetectorParameter_Type_CLASSIFIER)
 	{
 		int count = outputResult->count();
@@ -566,7 +558,7 @@ void Detector::getWeightForTest(const VReqWeight &req,VResponse* rep_ptr)
 	// }
 	// cout<<index<<endl;
 	// Blob<float>* blob = lr_param[index*2];
-	cout<<blob->num()<<" "<<blob->channels()<<" "<<blob->width()<<" "<<blob->height();
+	//cout<<blob->num()<<" "<<blob->channels()<<" "<<blob->width()<<" "<<blob->height();
 
 	int num = blob->num();
 	int w = blob->width();
@@ -601,7 +593,7 @@ void Detector::getWeightForTest(const VReqWeight &req,VResponse* rep_ptr)
 	// {
 	// 	cout<<"|"<<fl_weight[i]<<" "<<(int)weights[i]<<"|";
 	// }
-	cout<<endl;
+	//cout<<endl;
 	VFeatureMap* feature = new VFeatureMap();
 	feature->set_width(w);
 	feature->set_height(h);
@@ -642,7 +634,7 @@ void Detector::rmListeners(Callback*cb)
 		if( *iter == cb)  
 			iter = listeners.erase(iter);  
 		else  
-			iter ++ ;  
+			iter++;  
 	} 
 }
 
@@ -653,5 +645,6 @@ void Detector::setState(VState& state)
 	TextFormat::PrintToString(this->state,&msg);
 	cout<<"Set State:"<<endl<<msg<<endl;
 }
+
 
 }

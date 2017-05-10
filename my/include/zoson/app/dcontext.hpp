@@ -20,6 +20,7 @@ public:
 	virtual ~DContext();
 	boost::shared_ptr<Detector> getDetector(string name);
 	boost::shared_ptr<Detector> getDetector(int index);
+	boost::shared_ptr<Communicator> getCommu();
 protected:
 	DContext(const DContext&){};
 	void initByParam(const DContextParameter&param);

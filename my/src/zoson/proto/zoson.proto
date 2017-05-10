@@ -23,16 +23,17 @@ message DetectorParameter
 {
 	required string name = 1;
 	required string model = 2;
-	required string weight = 3;
-	optional string label = 4;
-	repeated int32 use_gpu = 5 ;
-	optional bool istrain = 8 [default = false];
-	optional string solver = 9;
-	optional string mean_file = 10;
-	optional MeanValue mean = 11;
-	optional Type type = 12 [default = DETECTOR];
-	optional string in_name = 13 [default = "data"];
-	optional string out_name = 14 [default = "detection_out"];
+	optional string weight = 3;
+	optional string snapshot = 4;
+	optional string label = 5;
+	repeated int32 use_gpu = 6 ;
+	optional bool istrain = 7 [default = false];
+	optional string solver = 8;
+	optional string mean_file = 9;
+	optional MeanValue mean = 10;
+	optional Type type = 11 [default = DETECTOR];
+	optional string in_name = 12 [default = "data"];
+	optional string out_name = 13 [default = "detection_out"];
 
 	enum Type
 	{

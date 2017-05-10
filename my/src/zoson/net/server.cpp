@@ -151,6 +151,7 @@ void Server::startServer()
 						perror("recv error.\n");
 						FD_CLR(i, &m_global_rdfs);
 						FD_CLR(i, &m_global_wdfs);
+						m_callback->hasClientClose(i);
 						continue;
 						//return ;
 					}
@@ -159,6 +160,7 @@ void Server::startServer()
 						FD_CLR(i, &m_global_rdfs);
 						FD_CLR(i, &m_global_wdfs);
 						close(i);
+						m_callback->hasClientClose(i);
 						continue;
 					}
 					if(m_callback!=NULL)

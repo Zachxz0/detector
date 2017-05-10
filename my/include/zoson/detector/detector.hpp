@@ -4,6 +4,7 @@
 #include <caffe/caffe.hpp>
 #include <string>
 #include <proto/zoson.pb.h>
+#include <commu/reactor.hpp>
 namespace boost{
 template<typename point>
 class shared_ptr;
@@ -72,8 +73,8 @@ public:
 	void on_start();
 	void on_gradients_ready();
 	//Reactor
-	//void onTranact(::google::protobuf::Message& data){};
-	//void tranact(::google::protobuf::Message& data){};
+	// void onTranact(::google::protobuf::Message& data);
+	// void tranact(::google::protobuf::Message& data);
 
 	string getName(){return m_param.name();}
 protected:

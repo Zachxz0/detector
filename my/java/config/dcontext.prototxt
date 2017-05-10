@@ -1,0 +1,6 @@
+model{
+	path:"../config/caffenet.prototxt"
+}
+model{
+	path:"../config/detector.prototxt"
+}

@@ -23,6 +23,7 @@ class ServerCallback
 public:
 	virtual void getClientMessage(int fd,const char *buf,int size) = 0;
 	virtual void hasClientConn(int fd)=0;
+	virtual void hasClientClose(int fd)=0;
 };
 
 class Server

@@ -1,0 +1,9 @@
+name: "detector"
+model: "../models/VGGNet/VOC0712/SSD_300x300_zoson/deploy.prototxt"
+weight: "../models/VGGNet/VOC0712/SSD_300x300/VGG_VOC0712_SSD_300x300_iter_84.caffemodel"
+use_gpu:0
+mean{
+    value: 104.0
+    value: 117.0
+    value: 123.0
+}

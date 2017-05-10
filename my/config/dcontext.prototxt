@@ -1,6 +1,8 @@
 model {
 	path:"/home/zoson/detector/my/config/ssd-m.prototxt"
 }
-#model {
-#	path:"/home/zoson/detector/my/config/scene.prototxt"
-#}
+commu {
+	address: "localhost"
+	port: 10200
+	type: TCP
+}

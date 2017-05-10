@@ -8,6 +8,7 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/thread/thread.hpp>
 #include <commu/reactor.hpp>
+#include <boost/thread/mutex.hpp>
 //#include <utils/block_queue.hpp>
 using namespace std;
 namespace zoson
@@ -21,12 +22,13 @@ public:
 	~Communicator(){};
 	void connect();
 	void sendMessage(::google::protobuf::Message&);
-	
 	void addService(const string& name,boost::shared_ptr<Reactor> reactor);
 	boost::shared_ptr<Reactor> getService(const string& name);
 	//ServerCallback interface
 	void getClientMessage(int fd,const char *buf,int size);
 	void hasClientConn(int fd);
+	void hasClientClose(int fd);
+	void join();
 protected:
 	void initByParam(const CommuParameter &param);
 	Communicator(const Communicator&){}
@@ -45,6 +47,7 @@ private:
 	boost::shared_ptr<boost::thread> thr_send;
 	bool isConn;
 
+	boost::mutex io_mutex;
 	//BlockingQueue<int> msg_queue;
 };
 

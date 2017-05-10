@@ -15,7 +15,7 @@ for i in $JAR_PATH/*.jar;do
 	LIB_SET="$i:$LIB_SET"
 done
 
-JNI_FILE=com.zoson.detection.jni.DetectorJni
+JNI_FILE=com.zoson.detection.jni.JniInterface
 
 #compile
 javac -d $BIN_PATH -classpath $LIB_SET @$SRC_PATH/sources.list
@@ -25,6 +25,11 @@ javah -d $JNI_PATH -classpath $BIN_PATH $JNI_FILE
 cd jni
 make
 cd ..
+
+#JAR 
+#cd bin
+#jar cvf detect.jar ./
+#cd ..
 
 # # 4. find class files
 # for f in `cd ./bin&&find . -name "*.class"`;do
