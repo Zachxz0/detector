@@ -72,6 +72,7 @@ int Detector::initForTest()
 	if(m_param.has_mean_file())
 	{
 		BlobProto blob_proto;
+		//cout<<"mean : "<<m_param.mean_file().c_str()<<endl;
 	    ReadProtoFromBinaryFileOrDie(m_param.mean_file().c_str(), &blob_proto);
 	    mean_blob.FromProto(blob_proto);
 	}
@@ -165,17 +166,62 @@ bool Detector::load_data(Mat input)
 				float mean_value = 0;
 				if(has_mean_file&&mean_data!=NULL)
 				{
-					mean_value = mean_data[c*w*h+h*w+w];
+					mean_value = mean_data[c*width*height+h*height+w];
 				}else if(has_mean)
 				{
 					mean_value = m_param.mean().value(c);
 				}
-				data_cpu[c*width*height+h*height+w] = (scale_mat.data[pixel_index++] - mean_value)*m_param.mean().scale();
+				data_cpu[c*width*height+h*height+w] = (scale_mat.data[pixel_index++]- mean_value)*m_param.mean().scale();
 			}
 		}
 	}
 	return true;
+}
 
+float* Detector::rec_data(const float *data,int width,int height,int channels)
+{
+	if(data==NULL)return NULL;
+	float* rec_data = new float[width*height*channels];
+	bool has_mean_file = m_param.has_mean_file();
+	bool has_mean = m_param.has_mean();
+	const float*mean_data = NULL;
+	if(m_param.has_mean_file())mean_data = mean_blob.cpu_data();
+	if(has_mean_file)
+	{
+		if(channels==mean_blob.channels()&&height==mean_blob.height()&&width==mean_blob.width())
+		{
+			has_mean_file = true;
+		}else{
+			has_mean_file = false;
+		}
+	}else if(has_mean){
+		if(m_param.mean().value().size()==channels)
+		{
+			has_mean = true;
+		}else{
+			has_mean = false;
+		}
+	}
+	for(int h=0;h<height;++h)
+	{
+		for(int w=0;w<width;++w)
+		{
+			for(int c=0;c<channels;++c)
+			{
+				float mean_value = 0;
+				if(has_mean_file&&mean_data!=NULL)
+				{
+					mean_value = mean_data[c*width*height+h*height+w];
+				}else if(has_mean)
+				{
+					mean_value = m_param.mean().value(c);
+				}
+				//cout<<mean_value<<endl;
+				rec_data[c*width*height+h*height+w] = data[c*width*height+h*height+w]/m_param.mean().scale() + mean_value;
+			}
+		}
+	}
+	return rec_data;
 }
 
 shared_ptr<DetectOutput> Detector::doDetect(Mat input)
@@ -409,8 +455,9 @@ void Detector::getOriginalImage(int i,VResponse* rep_ptr)
 	int size = w*h*c;
 	string features(size,1);
 	const float* fl_data = data->cpu_data();    
-
+	float* recdata = rec_data(fl_data,w,h,c);
 	normTo255((unsigned char*)const_cast<char*>(features.data()),fl_data,size);
+	//unsigned char *ret_data = (unsigned char*)const_cast<char*>(features.data());
 	VImage map;
 	map.set_width(w);
 	map.set_height(h);
@@ -420,6 +467,7 @@ void Detector::getOriginalImage(int i,VResponse* rep_ptr)
 	string map_str;
 	map.SerializeToString(&map_str);
 	rep_ptr->set_data(map_str);
+	//delete recdata;
 }
 
 void Detector::getDeconvImage(const VReqDeconv &reqDeconv,VResponse* rep_ptr)
@@ -488,6 +536,44 @@ void Detector::getDeconvImage(const VReqDeconv &reqDeconv,VResponse* rep_ptr)
 			}
 		}
 		m_caffe_net->DeconvFromTo(start_layer,0);
+		//copy code
+		if(reqDeconv.do_sub_deconv())
+		{
+			int i_layer = reqDeconv.sub_i_layer();
+			int i_map = reqDeconv.sub_i_map();
+			shared_ptr<Blob<float> > blob = m_caffe_net->blob_by_name(deconv_able_layer_names[i_layer]);
+			float* diff = blob->mutable_cpu_diff();
+			for(int i=0;i<blob->count();++i)
+			{
+				if(i>=i_map*blob->width()*blob->height()&&i<(i_map+1)*blob->width()*blob->height())continue;
+				diff[i] = 0.0f;
+			}
+			//float *dat = blob->mutable_cpu_data();
+			// for(int i=0;i<blob->width()*blob->height();++i)
+			// {
+			// 	diff[i_map*blob->width()*blob->height()+i] = dat[i_map*blob->width()*blob->height()+i];
+			// }
+			int start_layer = deconv_able_layer_index[i_layer];
+			const vector<shared_ptr <Blob<float> > > & blobs  = m_caffe_net->blobs();
+			const vector<string> & blobs_name  = m_caffe_net->blob_names();
+			int past = false;
+
+			for(int i=0;i<blobs.size();++i)
+			{
+				if(past)
+				{
+					float* up_diff =  blobs[i]->mutable_cpu_diff();
+					for(int j=0;j<blobs[i]->count();++j)
+					{
+						up_diff[i] = 0.0f;
+					}
+				}
+				if(blobs_name[i]==deconv_able_layer_names[i_layer]){
+					past = true;
+				}
+			}
+			m_caffe_net->DeconvFromTo(start_layer,0);
+		}
 
 		Blob<float> *data = m_caffe_net->blobs()[0].get();
 		int w = data->width();
@@ -556,8 +642,8 @@ void Detector::getWeightForTest(const VReqWeight &req,VResponse* rep_ptr)
 	// 		break;
 	// 	}
 	// }
-	// cout<<index<<endl;
-	// Blob<float>* blob = lr_param[index*2];
+	//cout<<index<<endl;
+	//Blob<float>* blob = lr_param[index*2];
 	//cout<<blob->num()<<" "<<blob->channels()<<" "<<blob->width()<<" "<<blob->height();
 
 	int num = blob->num();

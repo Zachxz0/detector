@@ -1,0 +1,9 @@
+name: "detector"
+model: "/home/zoson/detector/my/models/ssd-m-2/deploy.prototxt"
+weight: "/home/zoson/detector/my/models/ssd-m-2/VGG_VOC0712_SSD_300x300_iter_4.caffemodel"
+use_gpu:0
+mean {
+    value: 104.0
+    value: 117.0
+    value: 123.0
+}

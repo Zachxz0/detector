@@ -189,28 +189,44 @@ void SendThread::requestFeature(int i_layer,int i_image,bool isDiff)
     resp.set_type(VResponse_Type_STATE);
     string state_str;
     VReqFeature *req = vstate.mutable_map();
-    if(i_layer!=-1)
+    VReqDeconv *req_d = vstate.mutable_deconv();
+    if(i_layer>=0)req_d->set_sub_i_layer(i_layer);
+    if(isDiff==false&&vstate.map().diff())
     {
-        req->set_i_layer(i_layer);
-    }else if(req->i_layer()<0){
-        i_layer = 0;
-        req->set_i_layer(0);
-    }else{
-        i_layer = req->i_layer();
-    }
-    if(i_image!=-1)
-    {
-        req->set_i_image(i_image);
-    }else if(req->i_image()<0){
-        i_layer = 0;
+        //i_layer = req->i_layer();
         req->set_i_image(0);
-    }else{
-        i_image = req->i_image();
+        req->set_i_layer(i_layer);
+    }else if(isDiff){
+        if(i_layer==-1)
+        {
+            i_layer = req->i_layer();
+            req->set_i_layer(req->i_layer());
+        }else if(req->i_layer()<0){
+            i_layer = 0;
+            req->set_i_layer(0);
+        }else{
+            req->set_i_layer(i_layer);
+            i_layer = req->i_layer();
+        }
+        if(i_image!=-1)
+        {
+            req->set_i_image(i_image);
+        }else if(req->i_image()<0){
+            i_layer = 0;
+            req->set_i_image(0);
+        }else{
+            i_image = req->i_image();
+        }
+        req_d->set_do_sub_deconv(false);
+        req->set_diff(!req->diff());
+    }else if(isDiff==false&&!vstate.map().diff())
+    {
+        req->set_i_image(0);
+        req->set_i_layer(i_layer);
     }
     VReqWeight *req_weight = vstate.mutable_weight();
     req_weight->set_index(i_layer);
 
-    req->set_diff(isDiff);
     vstate.SerializeToString(&state_str);
     resp.set_data(state_str.c_str(),state_str.size());
     string out;
@@ -309,16 +325,31 @@ void SendThread::requestOutput(int l,int m)
     VResponse resp;
     resp.set_type(VResponse_Type_STATE);
     string state_str;
+    const VReqFeature &req_f = vstate.map();
     VReqDeconv *req = vstate.mutable_deconv();
-    const VReqFeature *fet = vstate.mutable_map();
-    req->set_i_layer(l);
-    if(l<0&&fet->i_layer()>=0)
+    req->set_do_sub_deconv(false);
+    if(!req_f.diff())
     {
-        req->set_i_layer(fet->i_layer());
+        cout<<"requestOutput deconv"<<endl;
+        const VReqFeature *fet = vstate.mutable_map();
+        req->set_i_layer(l);
+        if(l<0&&fet->i_layer()>=0)
+        {
+            req->set_i_layer(fet->i_layer());
+        }else{
+            return;
+        }
+        req->set_i_map(m);
+        req->set_do_sub_deconv(false);
     }else{
-        return;
+        cout<<"requestOutput sub deconv l m "<<l<<" "<<m<<endl;
+        if(m<0&&req->sub_i_layer()<0)
+        {
+            return;
+        }
+        req->set_sub_i_map(m);
+        req->set_do_sub_deconv(true);
     }
-    req->set_i_map(m);
     req->set_do_deconv(true);
     vstate.SerializeToString(&state_str);
     resp.set_data(state_str.c_str(),state_str.size());

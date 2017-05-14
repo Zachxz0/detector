@@ -151,6 +151,9 @@ message VReqDeconv
 	required int32 i_layer = 1;
 	required int32 i_map = 2;
 	optional bool do_deconv = 3 [default = false];
+	optional int32 sub_i_layer = 4;
+	optional int32 sub_i_map = 5;
+	optional bool do_sub_deconv = 6 [default = false];
 }
 
 message VSetting
@@ -177,6 +180,7 @@ message VResponse
 		STATE = 7;
 		SETTING = 8;
 		REC = 9;
+		SUBDECONV = 10;
 	}
 }
 

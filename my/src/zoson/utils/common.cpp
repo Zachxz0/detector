@@ -1,5 +1,7 @@
 #include <utils/common.hpp>
 #include <float.h> 
+#include <iostream>
+using namespace std;
 namespace zoson
 {
 
@@ -7,13 +9,18 @@ void read_proto_txt(Message *msg,const string file_path)
 {
 	ifstream in(file_path.c_str());
 	string instr;
-	char buf[256];
+	char buf[1024];
+	memset(buf,0,1024);
 	while(!in.eof())
 	{
-		in.read(buf,256);
-		instr.append(buf);
+		in.read(buf,1024);
+		instr.append(buf,1024);
+		memset(buf,0,1024);
 	}
+	//instr.append("\0",1);
 	in.close();
+	cout<<file_path<<endl;
+	cout<<instr<<endl;
 	TextFormat::ParseFromString(instr,msg);
 	in.close();
 }

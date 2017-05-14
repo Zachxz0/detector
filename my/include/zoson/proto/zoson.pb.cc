@@ -156,10 +156,11 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DModel));
   DetectorParameter_descriptor_ = file->message_type(3);
-  static const int DetectorParameter_offsets_[12] = {
+  static const int DetectorParameter_offsets_[13] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, model_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, weight_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, snapshot_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, label_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, use_gpu_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DetectorParameter, istrain_),
@@ -403,10 +404,13 @@ void protobuf_AssignDesc_zoson_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(VImage));
   VReqDeconv_descriptor_ = file->message_type(17);
-  static const int VReqDeconv_offsets_[3] = {
+  static const int VReqDeconv_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VReqDeconv, i_layer_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VReqDeconv, i_map_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VReqDeconv, do_deconv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VReqDeconv, sub_i_layer_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VReqDeconv, sub_i_map_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(VReqDeconv, do_sub_deconv_),
   };
   VReqDeconv_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -670,56 +674,58 @@ void protobuf_AddDesc_zoson_2eproto() {
     "\001 \002(\005\022\013\n\003dim\030\002 \003(\005\"K\n\021DContextParameter\022"
     "\026\n\005model\030\001 \003(\0132\007.DModel\022\036\n\005commu\030\003 \001(\0132\017"
     ".CommuParameter\"9\n\006DModel\022\014\n\004path\030\001 \001(\t\022"
-    "!\n\005model\030\002 \001(\0132\022.DetectorParameter\"\304\002\n\021D"
+    "!\n\005model\030\002 \001(\0132\022.DetectorParameter\"\326\002\n\021D"
     "etectorParameter\022\014\n\004name\030\001 \002(\t\022\r\n\005model\030"
-    "\002 \002(\t\022\016\n\006weight\030\003 \002(\t\022\r\n\005label\030\004 \001(\t\022\017\n\007"
-    "use_gpu\030\005 \003(\005\022\026\n\007istrain\030\010 \001(\010:\005false\022\016\n"
-    "\006solver\030\t \001(\t\022\021\n\tmean_file\030\n \001(\t\022\030\n\004mean"
-    "\030\013 \001(\0132\n.MeanValue\022/\n\004type\030\014 \001(\0162\027.Detec"
-    "torParameter.Type:\010DETECTOR\022\025\n\007in_name\030\r"
-    " \001(\t:\004data\022\037\n\010out_name\030\016 \001(\t:\rdetection_"
-    "out\"$\n\004Type\022\014\n\010DETECTOR\020\001\022\016\n\nCLASSIFIER\020"
-    "\002\",\n\tMeanValue\022\r\n\005value\030\001 \003(\002\022\020\n\005scale\030\002"
-    " \001(\002:\0011\"y\n\013DetectInput\022\r\n\005width\030\002 \002(\005\022\016\n"
-    "\006height\030\003 \002(\005\022\014\n\004data\030\004 \002(\014\"=\n\006Format\022\007\n"
-    "\003JPG\020\000\022\007\n\003PNG\020\001\022\007\n\003RGB\020\002\022\013\n\007YOV_420\020\003\022\013\n"
-    "\007YOV_422\020\004\"(\n\014DetectOutput\022\030\n\007results\030\001 "
-    "\003(\0132\007.Result\"^\n\006Result\022\014\n\004xmin\030\001 \002(\002\022\014\n\004"
-    "ymin\030\002 \002(\002\022\014\n\004xmax\030\003 \002(\002\022\014\n\004ymax\030\004 \002(\002\022\r"
-    "\n\005clazz\030\005 \002(\005\022\r\n\005score\030\006 \002(\002\"\261\001\n\016CommuPa"
-    "rameter\022\032\n\007address\030\001 \001(\t:\tlocalhost\022\023\n\004p"
-    "ort\030\002 \001(\005:\00510086\022\030\n\013client_name\030\003 \001(\t:\003w"
-    "eb\022\'\n\004type\030\004 \001(\0162\024.CommuParameter.Type:\003"
-    "LOC\"+\n\004Type\022\007\n\003LOC\020\000\022\007\n\003IPC\020\001\022\007\n\003TCP\020\003\022\010"
-    "\n\004RTMP\020\004\"$\n\tClassMaps\022\027\n\004item\030\001 \003(\0132\t.Cl"
-    "assMap\"=\n\010ClassMap\022\014\n\004name\030\001 \002(\t\022\r\n\005labe"
-    "l\030\002 \002(\005\022\024\n\014display_name\030\003 \002(\t\"\"\n\006Cookie\022"
-    "\n\n\002ID\030\001 \002(\t\022\014\n\004name\030\002 \002(\t\"\034\n\013Bytetranfer"
-    "\022\r\n\005count\030\002 \002(\005\")\n\013VLayerInfos\022\032\n\005infos\030"
-    "\001 \003(\0132\013.VLayerInfo\"7\n\nVLayerInfo\022\r\n\005inde"
-    "x\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\014\n\004type\030\003 \002(\t\"X\n\013V"
-    "FeatureMap\022\r\n\005width\030\001 \002(\005\022\016\n\006height\030\002 \002("
-    "\005\022\013\n\003num\030\003 \002(\005\022\017\n\007channel\030\004 \002(\005\022\014\n\004data\030"
-    "\005 \002(\014\"F\n\006VImage\022\r\n\005width\030\001 \002(\005\022\016\n\006height"
-    "\030\002 \002(\005\022\017\n\007channel\030\003 \002(\005\022\014\n\004data\030\004 \002(\014\"F\n"
-    "\nVReqDeconv\022\017\n\007i_layer\030\001 \002(\005\022\r\n\005i_map\030\002 "
-    "\002(\005\022\030\n\tdo_deconv\030\003 \001(\010:\005false\"M\n\010VSettin"
-    "g\022\r\n\005model\030\001 \002(\t\022\016\n\006solver\030\002 \002(\t\022\014\n\004test"
-    "\030\003 \002(\t\022\024\n\010interval\030\004 \001(\005:\002-1\"\255\001\n\tVRespon"
-    "se\022\035\n\004type\030\001 \002(\0162\017.VResponse.Type\022\014\n\004dat"
-    "a\030\002 \001(\014\"s\n\004Type\022\n\n\006WEIGHT\020\001\022\016\n\nFEATUREMA"
-    "P\020\002\022\016\n\nLAYERINFOS\020\003\022\t\n\005INPUT\020\004\022\n\n\006DECONV"
-    "\020\005\022\007\n\003ALL\020\006\022\t\n\005STATE\020\007\022\013\n\007SETTING\020\010\022\007\n\003R"
-    "EC\020\t\"\032\n\tVRecState\022\r\n\005state\030\001 \002(\005\"$\n\004VAll"
-    "\022\034\n\010response\030\001 \003(\0132\n.VResponse\"D\n\013VReqFe"
-    "ature\022\017\n\007i_layer\030\001 \002(\005\022\017\n\007i_image\030\002 \002(\005\022"
-    "\023\n\004diff\030\003 \001(\010:\005false\"0\n\nVReqWeight\022\r\n\005in"
-    "dex\030\001 \002(\005\022\023\n\004diff\030\002 \001(\010:\005false\"\204\001\n\006VStat"
-    "e\022\022\n\004auto\030\001 \001(\010:\004true\022\021\n\005input\030\002 \001(\005:\002-1"
-    "\022\031\n\003map\030\003 \001(\0132\014.VReqFeature\022\033\n\006deconv\030\004 "
-    "\001(\0132\013.VReqDeconv\022\033\n\006weight\030\005 \001(\0132\013.VReqW"
-    "eightB\'\n\031com.zoson.detection.protoB\nZoso"
-    "nProto", 2126);
+    "\002 \002(\t\022\016\n\006weight\030\003 \001(\t\022\020\n\010snapshot\030\004 \001(\t\022"
+    "\r\n\005label\030\005 \001(\t\022\017\n\007use_gpu\030\006 \003(\005\022\026\n\007istra"
+    "in\030\007 \001(\010:\005false\022\016\n\006solver\030\010 \001(\t\022\021\n\tmean_"
+    "file\030\t \001(\t\022\030\n\004mean\030\n \001(\0132\n.MeanValue\022/\n\004"
+    "type\030\013 \001(\0162\027.DetectorParameter.Type:\010DET"
+    "ECTOR\022\025\n\007in_name\030\014 \001(\t:\004data\022\037\n\010out_name"
+    "\030\r \001(\t:\rdetection_out\"$\n\004Type\022\014\n\010DETECTO"
+    "R\020\001\022\016\n\nCLASSIFIER\020\002\",\n\tMeanValue\022\r\n\005valu"
+    "e\030\001 \003(\002\022\020\n\005scale\030\002 \001(\002:\0011\"y\n\013DetectInput"
+    "\022\r\n\005width\030\002 \002(\005\022\016\n\006height\030\003 \002(\005\022\014\n\004data\030"
+    "\004 \002(\014\"=\n\006Format\022\007\n\003JPG\020\000\022\007\n\003PNG\020\001\022\007\n\003RGB"
+    "\020\002\022\013\n\007YOV_420\020\003\022\013\n\007YOV_422\020\004\"(\n\014DetectOu"
+    "tput\022\030\n\007results\030\001 \003(\0132\007.Result\"^\n\006Result"
+    "\022\014\n\004xmin\030\001 \002(\002\022\014\n\004ymin\030\002 \002(\002\022\014\n\004xmax\030\003 \002"
+    "(\002\022\014\n\004ymax\030\004 \002(\002\022\r\n\005clazz\030\005 \002(\005\022\r\n\005score"
+    "\030\006 \002(\002\"\261\001\n\016CommuParameter\022\032\n\007address\030\001 \001"
+    "(\t:\tlocalhost\022\023\n\004port\030\002 \001(\005:\00510086\022\030\n\013cl"
+    "ient_name\030\003 \001(\t:\003web\022\'\n\004type\030\004 \001(\0162\024.Com"
+    "muParameter.Type:\003LOC\"+\n\004Type\022\007\n\003LOC\020\000\022\007"
+    "\n\003IPC\020\001\022\007\n\003TCP\020\003\022\010\n\004RTMP\020\004\"$\n\tClassMaps\022"
+    "\027\n\004item\030\001 \003(\0132\t.ClassMap\"=\n\010ClassMap\022\014\n\004"
+    "name\030\001 \002(\t\022\r\n\005label\030\002 \002(\005\022\024\n\014display_nam"
+    "e\030\003 \002(\t\"\"\n\006Cookie\022\n\n\002ID\030\001 \002(\t\022\014\n\004name\030\002 "
+    "\002(\t\"\034\n\013Bytetranfer\022\r\n\005count\030\002 \002(\005\")\n\013VLa"
+    "yerInfos\022\032\n\005infos\030\001 \003(\0132\013.VLayerInfo\"7\n\n"
+    "VLayerInfo\022\r\n\005index\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022"
+    "\014\n\004type\030\003 \002(\t\"X\n\013VFeatureMap\022\r\n\005width\030\001 "
+    "\002(\005\022\016\n\006height\030\002 \002(\005\022\013\n\003num\030\003 \002(\005\022\017\n\007chan"
+    "nel\030\004 \002(\005\022\014\n\004data\030\005 \002(\014\"F\n\006VImage\022\r\n\005wid"
+    "th\030\001 \002(\005\022\016\n\006height\030\002 \002(\005\022\017\n\007channel\030\003 \002("
+    "\005\022\014\n\004data\030\004 \002(\014\"\214\001\n\nVReqDeconv\022\017\n\007i_laye"
+    "r\030\001 \002(\005\022\r\n\005i_map\030\002 \002(\005\022\030\n\tdo_deconv\030\003 \001("
+    "\010:\005false\022\023\n\013sub_i_layer\030\004 \001(\005\022\021\n\tsub_i_m"
+    "ap\030\005 \001(\005\022\034\n\rdo_sub_deconv\030\006 \001(\010:\005false\"M"
+    "\n\010VSetting\022\r\n\005model\030\001 \002(\t\022\016\n\006solver\030\002 \002("
+    "\t\022\014\n\004test\030\003 \002(\t\022\024\n\010interval\030\004 \001(\005:\002-1\"\275\001"
+    "\n\tVResponse\022\035\n\004type\030\001 \002(\0162\017.VResponse.Ty"
+    "pe\022\014\n\004data\030\002 \001(\014\"\202\001\n\004Type\022\n\n\006WEIGHT\020\001\022\016\n"
+    "\nFEATUREMAP\020\002\022\016\n\nLAYERINFOS\020\003\022\t\n\005INPUT\020\004"
+    "\022\n\n\006DECONV\020\005\022\007\n\003ALL\020\006\022\t\n\005STATE\020\007\022\013\n\007SETT"
+    "ING\020\010\022\007\n\003REC\020\t\022\r\n\tSUBDECONV\020\n\"\032\n\tVRecSta"
+    "te\022\r\n\005state\030\001 \002(\005\"$\n\004VAll\022\034\n\010response\030\001 "
+    "\003(\0132\n.VResponse\"D\n\013VReqFeature\022\017\n\007i_laye"
+    "r\030\001 \002(\005\022\017\n\007i_image\030\002 \002(\005\022\023\n\004diff\030\003 \001(\010:\005"
+    "false\"0\n\nVReqWeight\022\r\n\005index\030\001 \002(\005\022\023\n\004di"
+    "ff\030\002 \001(\010:\005false\"\204\001\n\006VState\022\022\n\004auto\030\001 \001(\010"
+    ":\004true\022\021\n\005input\030\002 \001(\005:\002-1\022\031\n\003map\030\003 \001(\0132\014"
+    ".VReqFeature\022\033\n\006deconv\030\004 \001(\0132\013.VReqDecon"
+    "v\022\033\n\006weight\030\005 \001(\0132\013.VReqWeightB\'\n\031com.zo"
+    "son.detection.protoB\nZosonProto", 2231);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "zoson.proto", &protobuf_RegisterTypes);
   TestProto::default_instance_ = new TestProto();
@@ -1647,6 +1653,7 @@ const int DetectorParameter::Type_ARRAYSIZE;
 const int DetectorParameter::kNameFieldNumber;
 const int DetectorParameter::kModelFieldNumber;
 const int DetectorParameter::kWeightFieldNumber;
+const int DetectorParameter::kSnapshotFieldNumber;
 const int DetectorParameter::kLabelFieldNumber;
 const int DetectorParameter::kUseGpuFieldNumber;
 const int DetectorParameter::kIstrainFieldNumber;
@@ -1681,6 +1688,7 @@ void DetectorParameter::SharedCtor() {
   name_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   model_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   weight_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  snapshot_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   label_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   istrain_ = false;
   solver_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -1706,6 +1714,9 @@ void DetectorParameter::SharedDtor() {
   }
   if (weight_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete weight_;
+  }
+  if (snapshot_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete snapshot_;
   }
   if (label_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete label_;
@@ -1749,7 +1760,7 @@ DetectorParameter* DetectorParameter::New() const {
 }
 
 void DetectorParameter::Clear() {
-  if (_has_bits_[0 / 32] & 239) {
+  if (_has_bits_[0 / 32] & 223) {
     if (has_name()) {
       if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         name_->clear();
@@ -1765,6 +1776,11 @@ void DetectorParameter::Clear() {
         weight_->clear();
       }
     }
+    if (has_snapshot()) {
+      if (snapshot_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        snapshot_->clear();
+      }
+    }
     if (has_label()) {
       if (label_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         label_->clear();
@@ -1776,13 +1792,13 @@ void DetectorParameter::Clear() {
         solver_->clear();
       }
     }
+  }
+  if (_has_bits_[8 / 32] & 7936) {
     if (has_mean_file()) {
       if (mean_file_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
         mean_file_->clear();
       }
     }
-  }
-  if (_has_bits_[8 / 32] & 3840) {
     if (has_mean()) {
       if (mean_ != NULL) mean_->::MeanValue::Clear();
     }
@@ -1846,7 +1862,7 @@ bool DetectorParameter::MergePartialFromCodedStream(
         break;
       }
 
-      // required string weight = 3;
+      // optional string weight = 3;
       case 3: {
         if (tag == 26) {
          parse_weight:
@@ -1859,13 +1875,30 @@ bool DetectorParameter::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(34)) goto parse_label;
+        if (input->ExpectTag(34)) goto parse_snapshot;
         break;
       }
 
-      // optional string label = 4;
+      // optional string snapshot = 4;
       case 4: {
         if (tag == 34) {
+         parse_snapshot:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_snapshot()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->snapshot().data(), this->snapshot().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "snapshot");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_label;
+        break;
+      }
+
+      // optional string label = 5;
+      case 5: {
+        if (tag == 42) {
          parse_label:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_label()));
@@ -1876,32 +1909,32 @@ bool DetectorParameter::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(40)) goto parse_use_gpu;
+        if (input->ExpectTag(48)) goto parse_use_gpu;
         break;
       }
 
-      // repeated int32 use_gpu = 5;
-      case 5: {
-        if (tag == 40) {
+      // repeated int32 use_gpu = 6;
+      case 6: {
+        if (tag == 48) {
          parse_use_gpu:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 40, input, this->mutable_use_gpu())));
-        } else if (tag == 42) {
+                 1, 48, input, this->mutable_use_gpu())));
+        } else if (tag == 50) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, this->mutable_use_gpu())));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(40)) goto parse_use_gpu;
-        if (input->ExpectTag(64)) goto parse_istrain;
+        if (input->ExpectTag(48)) goto parse_use_gpu;
+        if (input->ExpectTag(56)) goto parse_istrain;
         break;
       }
 
-      // optional bool istrain = 8 [default = false];
-      case 8: {
-        if (tag == 64) {
+      // optional bool istrain = 7 [default = false];
+      case 7: {
+        if (tag == 56) {
          parse_istrain:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -1910,13 +1943,13 @@ bool DetectorParameter::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(74)) goto parse_solver;
+        if (input->ExpectTag(66)) goto parse_solver;
         break;
       }
 
-      // optional string solver = 9;
-      case 9: {
-        if (tag == 74) {
+      // optional string solver = 8;
+      case 8: {
+        if (tag == 66) {
          parse_solver:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_solver()));
@@ -1927,13 +1960,13 @@ bool DetectorParameter::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(82)) goto parse_mean_file;
+        if (input->ExpectTag(74)) goto parse_mean_file;
         break;
       }
 
-      // optional string mean_file = 10;
-      case 10: {
-        if (tag == 82) {
+      // optional string mean_file = 9;
+      case 9: {
+        if (tag == 74) {
          parse_mean_file:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_mean_file()));
@@ -1944,26 +1977,26 @@ bool DetectorParameter::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(90)) goto parse_mean;
+        if (input->ExpectTag(82)) goto parse_mean;
         break;
       }
 
-      // optional .MeanValue mean = 11;
-      case 11: {
-        if (tag == 90) {
+      // optional .MeanValue mean = 10;
+      case 10: {
+        if (tag == 82) {
          parse_mean:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_mean()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(96)) goto parse_type;
+        if (input->ExpectTag(88)) goto parse_type;
         break;
       }
 
-      // optional .DetectorParameter.Type type = 12 [default = DETECTOR];
-      case 12: {
-        if (tag == 96) {
+      // optional .DetectorParameter.Type type = 11 [default = DETECTOR];
+      case 11: {
+        if (tag == 88) {
          parse_type:
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
@@ -1972,18 +2005,18 @@ bool DetectorParameter::MergePartialFromCodedStream(
           if (::DetectorParameter_Type_IsValid(value)) {
             set_type(static_cast< ::DetectorParameter_Type >(value));
           } else {
-            mutable_unknown_fields()->AddVarint(12, value);
+            mutable_unknown_fields()->AddVarint(11, value);
           }
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(106)) goto parse_in_name;
+        if (input->ExpectTag(98)) goto parse_in_name;
         break;
       }
 
-      // optional string in_name = 13 [default = "data"];
-      case 13: {
-        if (tag == 106) {
+      // optional string in_name = 12 [default = "data"];
+      case 12: {
+        if (tag == 98) {
          parse_in_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_in_name()));
@@ -1994,13 +2027,13 @@ bool DetectorParameter::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(114)) goto parse_out_name;
+        if (input->ExpectTag(106)) goto parse_out_name;
         break;
       }
 
-      // optional string out_name = 14 [default = "detection_out"];
-      case 14: {
-        if (tag == 114) {
+      // optional string out_name = 13 [default = "detection_out"];
+      case 13: {
+        if (tag == 106) {
          parse_out_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_out_name()));
@@ -2060,7 +2093,7 @@ void DetectorParameter::SerializeWithCachedSizes(
       2, this->model(), output);
   }
 
-  // required string weight = 3;
+  // optional string weight = 3;
   if (has_weight()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->weight().data(), this->weight().length(),
@@ -2070,77 +2103,87 @@ void DetectorParameter::SerializeWithCachedSizes(
       3, this->weight(), output);
   }
 
-  // optional string label = 4;
+  // optional string snapshot = 4;
+  if (has_snapshot()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->snapshot().data(), this->snapshot().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "snapshot");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->snapshot(), output);
+  }
+
+  // optional string label = 5;
   if (has_label()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->label().data(), this->label().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "label");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->label(), output);
+      5, this->label(), output);
   }
 
-  // repeated int32 use_gpu = 5;
+  // repeated int32 use_gpu = 6;
   for (int i = 0; i < this->use_gpu_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      5, this->use_gpu(i), output);
+      6, this->use_gpu(i), output);
   }
 
-  // optional bool istrain = 8 [default = false];
+  // optional bool istrain = 7 [default = false];
   if (has_istrain()) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(8, this->istrain(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteBool(7, this->istrain(), output);
   }
 
-  // optional string solver = 9;
+  // optional string solver = 8;
   if (has_solver()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->solver().data(), this->solver().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "solver");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      9, this->solver(), output);
+      8, this->solver(), output);
   }
 
-  // optional string mean_file = 10;
+  // optional string mean_file = 9;
   if (has_mean_file()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->mean_file().data(), this->mean_file().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "mean_file");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      10, this->mean_file(), output);
+      9, this->mean_file(), output);
   }
 
-  // optional .MeanValue mean = 11;
+  // optional .MeanValue mean = 10;
   if (has_mean()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      11, this->mean(), output);
+      10, this->mean(), output);
   }
 
-  // optional .DetectorParameter.Type type = 12 [default = DETECTOR];
+  // optional .DetectorParameter.Type type = 11 [default = DETECTOR];
   if (has_type()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      12, this->type(), output);
+      11, this->type(), output);
   }
 
-  // optional string in_name = 13 [default = "data"];
+  // optional string in_name = 12 [default = "data"];
   if (has_in_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->in_name().data(), this->in_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "in_name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      13, this->in_name(), output);
+      12, this->in_name(), output);
   }
 
-  // optional string out_name = 14 [default = "detection_out"];
+  // optional string out_name = 13 [default = "detection_out"];
   if (has_out_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->out_name().data(), this->out_name().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "out_name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      14, this->out_name(), output);
+      13, this->out_name(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2175,7 +2218,7 @@ void DetectorParameter::SerializeWithCachedSizes(
         2, this->model(), target);
   }
 
-  // required string weight = 3;
+  // optional string weight = 3;
   if (has_weight()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->weight().data(), this->weight().length(),
@@ -2186,7 +2229,18 @@ void DetectorParameter::SerializeWithCachedSizes(
         3, this->weight(), target);
   }
 
-  // optional string label = 4;
+  // optional string snapshot = 4;
+  if (has_snapshot()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->snapshot().data(), this->snapshot().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "snapshot");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->snapshot(), target);
+  }
+
+  // optional string label = 5;
   if (has_label()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->label().data(), this->label().length(),
@@ -2194,21 +2248,21 @@ void DetectorParameter::SerializeWithCachedSizes(
       "label");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->label(), target);
+        5, this->label(), target);
   }
 
-  // repeated int32 use_gpu = 5;
+  // repeated int32 use_gpu = 6;
   for (int i = 0; i < this->use_gpu_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(5, this->use_gpu(i), target);
+      WriteInt32ToArray(6, this->use_gpu(i), target);
   }
 
-  // optional bool istrain = 8 [default = false];
+  // optional bool istrain = 7 [default = false];
   if (has_istrain()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(8, this->istrain(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(7, this->istrain(), target);
   }
 
-  // optional string solver = 9;
+  // optional string solver = 8;
   if (has_solver()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->solver().data(), this->solver().length(),
@@ -2216,10 +2270,10 @@ void DetectorParameter::SerializeWithCachedSizes(
       "solver");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        9, this->solver(), target);
+        8, this->solver(), target);
   }
 
-  // optional string mean_file = 10;
+  // optional string mean_file = 9;
   if (has_mean_file()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->mean_file().data(), this->mean_file().length(),
@@ -2227,23 +2281,23 @@ void DetectorParameter::SerializeWithCachedSizes(
       "mean_file");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        10, this->mean_file(), target);
+        9, this->mean_file(), target);
   }
 
-  // optional .MeanValue mean = 11;
+  // optional .MeanValue mean = 10;
   if (has_mean()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        11, this->mean(), target);
+        10, this->mean(), target);
   }
 
-  // optional .DetectorParameter.Type type = 12 [default = DETECTOR];
+  // optional .DetectorParameter.Type type = 11 [default = DETECTOR];
   if (has_type()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      12, this->type(), target);
+      11, this->type(), target);
   }
 
-  // optional string in_name = 13 [default = "data"];
+  // optional string in_name = 12 [default = "data"];
   if (has_in_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->in_name().data(), this->in_name().length(),
@@ -2251,10 +2305,10 @@ void DetectorParameter::SerializeWithCachedSizes(
       "in_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        13, this->in_name(), target);
+        12, this->in_name(), target);
   }
 
-  // optional string out_name = 14 [default = "detection_out"];
+  // optional string out_name = 13 [default = "detection_out"];
   if (has_out_name()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->out_name().data(), this->out_name().length(),
@@ -2262,7 +2316,7 @@ void DetectorParameter::SerializeWithCachedSizes(
       "out_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        14, this->out_name(), target);
+        13, this->out_name(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2291,62 +2345,69 @@ int DetectorParameter::ByteSize() const {
           this->model());
     }
 
-    // required string weight = 3;
+    // optional string weight = 3;
     if (has_weight()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->weight());
     }
 
-    // optional string label = 4;
+    // optional string snapshot = 4;
+    if (has_snapshot()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->snapshot());
+    }
+
+    // optional string label = 5;
     if (has_label()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->label());
     }
 
-    // optional bool istrain = 8 [default = false];
+    // optional bool istrain = 7 [default = false];
     if (has_istrain()) {
       total_size += 1 + 1;
     }
 
-    // optional string solver = 9;
+    // optional string solver = 8;
     if (has_solver()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->solver());
     }
 
-    // optional string mean_file = 10;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional string mean_file = 9;
     if (has_mean_file()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->mean_file());
     }
 
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional .MeanValue mean = 11;
+    // optional .MeanValue mean = 10;
     if (has_mean()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           this->mean());
     }
 
-    // optional .DetectorParameter.Type type = 12 [default = DETECTOR];
+    // optional .DetectorParameter.Type type = 11 [default = DETECTOR];
     if (has_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
     }
 
-    // optional string in_name = 13 [default = "data"];
+    // optional string in_name = 12 [default = "data"];
     if (has_in_name()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->in_name());
     }
 
-    // optional string out_name = 14 [default = "detection_out"];
+    // optional string out_name = 13 [default = "detection_out"];
     if (has_out_name()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -2354,7 +2415,7 @@ int DetectorParameter::ByteSize() const {
     }
 
   }
-  // repeated int32 use_gpu = 5;
+  // repeated int32 use_gpu = 6;
   {
     int data_size = 0;
     for (int i = 0; i < this->use_gpu_size(); i++) {
@@ -2400,6 +2461,9 @@ void DetectorParameter::MergeFrom(const DetectorParameter& from) {
     if (from.has_weight()) {
       set_weight(from.weight());
     }
+    if (from.has_snapshot()) {
+      set_snapshot(from.snapshot());
+    }
     if (from.has_label()) {
       set_label(from.label());
     }
@@ -2409,11 +2473,11 @@ void DetectorParameter::MergeFrom(const DetectorParameter& from) {
     if (from.has_solver()) {
       set_solver(from.solver());
     }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_mean_file()) {
       set_mean_file(from.mean_file());
     }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_mean()) {
       mutable_mean()->::MeanValue::MergeFrom(from.mean());
     }
@@ -2443,7 +2507,7 @@ void DetectorParameter::CopyFrom(const DetectorParameter& from) {
 }
 
 bool DetectorParameter::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   return true;
 }
@@ -2453,6 +2517,7 @@ void DetectorParameter::Swap(DetectorParameter* other) {
     std::swap(name_, other->name_);
     std::swap(model_, other->model_);
     std::swap(weight_, other->weight_);
+    std::swap(snapshot_, other->snapshot_);
     std::swap(label_, other->label_);
     use_gpu_.Swap(&other->use_gpu_);
     std::swap(istrain_, other->istrain_);
@@ -6573,6 +6638,9 @@ void VImage::Swap(VImage* other) {
 const int VReqDeconv::kILayerFieldNumber;
 const int VReqDeconv::kIMapFieldNumber;
 const int VReqDeconv::kDoDeconvFieldNumber;
+const int VReqDeconv::kSubILayerFieldNumber;
+const int VReqDeconv::kSubIMapFieldNumber;
+const int VReqDeconv::kDoSubDeconvFieldNumber;
 #endif  // !_MSC_VER
 
 VReqDeconv::VReqDeconv()
@@ -6596,6 +6664,9 @@ void VReqDeconv::SharedCtor() {
   i_layer_ = 0;
   i_map_ = 0;
   do_deconv_ = false;
+  sub_i_layer_ = 0;
+  sub_i_map_ = 0;
+  do_sub_deconv_ = false;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -6641,7 +6712,9 @@ void VReqDeconv::Clear() {
     ::memset(&first, 0, n);                                \
   } while (0)
 
-  ZR_(i_layer_, do_deconv_);
+  if (_has_bits_[0 / 32] & 63) {
+    ZR_(i_layer_, sub_i_map_);
+  }
 
 #undef OFFSET_OF_FIELD_
 #undef ZR_
@@ -6700,6 +6773,51 @@ bool VReqDeconv::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(32)) goto parse_sub_i_layer;
+        break;
+      }
+
+      // optional int32 sub_i_layer = 4;
+      case 4: {
+        if (tag == 32) {
+         parse_sub_i_layer:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &sub_i_layer_)));
+          set_has_sub_i_layer();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(40)) goto parse_sub_i_map;
+        break;
+      }
+
+      // optional int32 sub_i_map = 5;
+      case 5: {
+        if (tag == 40) {
+         parse_sub_i_map:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &sub_i_map_)));
+          set_has_sub_i_map();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(48)) goto parse_do_sub_deconv;
+        break;
+      }
+
+      // optional bool do_sub_deconv = 6 [default = false];
+      case 6: {
+        if (tag == 48) {
+         parse_do_sub_deconv:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &do_sub_deconv_)));
+          set_has_do_sub_deconv();
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -6744,6 +6862,21 @@ void VReqDeconv::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->do_deconv(), output);
   }
 
+  // optional int32 sub_i_layer = 4;
+  if (has_sub_i_layer()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->sub_i_layer(), output);
+  }
+
+  // optional int32 sub_i_map = 5;
+  if (has_sub_i_map()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->sub_i_map(), output);
+  }
+
+  // optional bool do_sub_deconv = 6 [default = false];
+  if (has_do_sub_deconv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(6, this->do_sub_deconv(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -6767,6 +6900,21 @@ void VReqDeconv::SerializeWithCachedSizes(
   // optional bool do_deconv = 3 [default = false];
   if (has_do_deconv()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->do_deconv(), target);
+  }
+
+  // optional int32 sub_i_layer = 4;
+  if (has_sub_i_layer()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->sub_i_layer(), target);
+  }
+
+  // optional int32 sub_i_map = 5;
+  if (has_sub_i_map()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->sub_i_map(), target);
+  }
+
+  // optional bool do_sub_deconv = 6 [default = false];
+  if (has_do_sub_deconv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(6, this->do_sub_deconv(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6797,6 +6945,25 @@ int VReqDeconv::ByteSize() const {
 
     // optional bool do_deconv = 3 [default = false];
     if (has_do_deconv()) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 sub_i_layer = 4;
+    if (has_sub_i_layer()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->sub_i_layer());
+    }
+
+    // optional int32 sub_i_map = 5;
+    if (has_sub_i_map()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->sub_i_map());
+    }
+
+    // optional bool do_sub_deconv = 6 [default = false];
+    if (has_do_sub_deconv()) {
       total_size += 1 + 1;
     }
 
@@ -6836,6 +7003,15 @@ void VReqDeconv::MergeFrom(const VReqDeconv& from) {
     if (from.has_do_deconv()) {
       set_do_deconv(from.do_deconv());
     }
+    if (from.has_sub_i_layer()) {
+      set_sub_i_layer(from.sub_i_layer());
+    }
+    if (from.has_sub_i_map()) {
+      set_sub_i_map(from.sub_i_map());
+    }
+    if (from.has_do_sub_deconv()) {
+      set_do_sub_deconv(from.do_sub_deconv());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -6863,6 +7039,9 @@ void VReqDeconv::Swap(VReqDeconv* other) {
     std::swap(i_layer_, other->i_layer_);
     std::swap(i_map_, other->i_map_);
     std::swap(do_deconv_, other->do_deconv_);
+    std::swap(sub_i_layer_, other->sub_i_layer_);
+    std::swap(sub_i_map_, other->sub_i_map_);
+    std::swap(do_sub_deconv_, other->do_sub_deconv_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -7298,6 +7477,7 @@ bool VResponse_Type_IsValid(int value) {
     case 7:
     case 8:
     case 9:
+    case 10:
       return true;
     default:
       return false;
@@ -7314,6 +7494,7 @@ const VResponse_Type VResponse::ALL;
 const VResponse_Type VResponse::STATE;
 const VResponse_Type VResponse::SETTING;
 const VResponse_Type VResponse::REC;
+const VResponse_Type VResponse::SUBDECONV;
 const VResponse_Type VResponse::Type_MIN;
 const VResponse_Type VResponse::Type_MAX;
 const int VResponse::Type_ARRAYSIZE;

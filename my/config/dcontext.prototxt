@@ -1,5 +1,5 @@
 model {
-	path:"/home/zoson/detector/my/config/ssd-m.prototxt"
+	path:"/home/zoson/detector/my/config/detector.prototxt"
 }
 commu {
 	address: "localhost"

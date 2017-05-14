@@ -59,6 +59,7 @@ public:
 	int initForTrain();
 	int deInitForTrain();
 	bool load_data(cv::Mat input);
+	float* rec_data(const float*,int,int,int);
 
     void getFeatureMap(const VReqFeature& reqFeature,VResponse*);
 	void getDeconvAbleLayers(VResponse*);

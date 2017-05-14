@@ -695,7 +695,7 @@ bool test_dcontext()
             detector->doDetect(get);
             //while(1){
                 detector->on_gradients_ready();
-                sleep(2);
+                sleep(5);
            // }
         }
     }else{

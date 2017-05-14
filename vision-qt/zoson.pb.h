@@ -33,6 +33,8 @@ void protobuf_AssignDesc_zoson_2eproto();
 void protobuf_ShutdownFile_zoson_2eproto();
 
 class TestProto;
+class DContextParameter;
+class DModel;
 class DetectorParameter;
 class MeanValue;
 class DetectInput;
@@ -56,6 +58,25 @@ class VReqFeature;
 class VReqWeight;
 class VState;
 
+enum DetectorParameter_Type {
+  DetectorParameter_Type_DETECTOR = 1,
+  DetectorParameter_Type_CLASSIFIER = 2
+};
+bool DetectorParameter_Type_IsValid(int value);
+const DetectorParameter_Type DetectorParameter_Type_Type_MIN = DetectorParameter_Type_DETECTOR;
+const DetectorParameter_Type DetectorParameter_Type_Type_MAX = DetectorParameter_Type_CLASSIFIER;
+const int DetectorParameter_Type_Type_ARRAYSIZE = DetectorParameter_Type_Type_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* DetectorParameter_Type_descriptor();
+inline const ::std::string& DetectorParameter_Type_Name(DetectorParameter_Type value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    DetectorParameter_Type_descriptor(), value);
+}
+inline bool DetectorParameter_Type_Parse(
+    const ::std::string& name, DetectorParameter_Type* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<DetectorParameter_Type>(
+    DetectorParameter_Type_descriptor(), name, value);
+}
 enum DetectInput_Format {
   DetectInput_Format_JPG = 0,
   DetectInput_Format_PNG = 1,
@@ -108,11 +129,12 @@ enum VResponse_Type {
   VResponse_Type_ALL = 6,
   VResponse_Type_STATE = 7,
   VResponse_Type_SETTING = 8,
-  VResponse_Type_REC = 9
+  VResponse_Type_REC = 9,
+  VResponse_Type_SUBDECONV = 10
 };
 bool VResponse_Type_IsValid(int value);
 const VResponse_Type VResponse_Type_Type_MIN = VResponse_Type_WEIGHT;
-const VResponse_Type VResponse_Type_Type_MAX = VResponse_Type_REC;
+const VResponse_Type VResponse_Type_Type_MAX = VResponse_Type_SUBDECONV;
 const int VResponse_Type_Type_ARRAYSIZE = VResponse_Type_Type_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* VResponse_Type_descriptor();
@@ -219,6 +241,196 @@ class TestProto : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class DContextParameter : public ::google::protobuf::Message {
+ public:
+  DContextParameter();
+  virtual ~DContextParameter();
+
+  DContextParameter(const DContextParameter& from);
+
+  inline DContextParameter& operator=(const DContextParameter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DContextParameter& default_instance();
+
+  void Swap(DContextParameter* other);
+
+  // implements Message ----------------------------------------------
+
+  DContextParameter* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DContextParameter& from);
+  void MergeFrom(const DContextParameter& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .DModel model = 1;
+  inline int model_size() const;
+  inline void clear_model();
+  static const int kModelFieldNumber = 1;
+  inline const ::DModel& model(int index) const;
+  inline ::DModel* mutable_model(int index);
+  inline ::DModel* add_model();
+  inline const ::google::protobuf::RepeatedPtrField< ::DModel >&
+      model() const;
+  inline ::google::protobuf::RepeatedPtrField< ::DModel >*
+      mutable_model();
+
+  // optional .CommuParameter commu = 3;
+  inline bool has_commu() const;
+  inline void clear_commu();
+  static const int kCommuFieldNumber = 3;
+  inline const ::CommuParameter& commu() const;
+  inline ::CommuParameter* mutable_commu();
+  inline ::CommuParameter* release_commu();
+  inline void set_allocated_commu(::CommuParameter* commu);
+
+  // @@protoc_insertion_point(class_scope:DContextParameter)
+ private:
+  inline void set_has_commu();
+  inline void clear_has_commu();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::DModel > model_;
+  ::CommuParameter* commu_;
+  friend void  protobuf_AddDesc_zoson_2eproto();
+  friend void protobuf_AssignDesc_zoson_2eproto();
+  friend void protobuf_ShutdownFile_zoson_2eproto();
+
+  void InitAsDefaultInstance();
+  static DContextParameter* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DModel : public ::google::protobuf::Message {
+ public:
+  DModel();
+  virtual ~DModel();
+
+  DModel(const DModel& from);
+
+  inline DModel& operator=(const DModel& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DModel& default_instance();
+
+  void Swap(DModel* other);
+
+  // implements Message ----------------------------------------------
+
+  DModel* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DModel& from);
+  void MergeFrom(const DModel& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string path = 1;
+  inline bool has_path() const;
+  inline void clear_path();
+  static const int kPathFieldNumber = 1;
+  inline const ::std::string& path() const;
+  inline void set_path(const ::std::string& value);
+  inline void set_path(const char* value);
+  inline void set_path(const char* value, size_t size);
+  inline ::std::string* mutable_path();
+  inline ::std::string* release_path();
+  inline void set_allocated_path(::std::string* path);
+
+  // optional .DetectorParameter model = 2;
+  inline bool has_model() const;
+  inline void clear_model();
+  static const int kModelFieldNumber = 2;
+  inline const ::DetectorParameter& model() const;
+  inline ::DetectorParameter* mutable_model();
+  inline ::DetectorParameter* release_model();
+  inline void set_allocated_model(::DetectorParameter* model);
+
+  // @@protoc_insertion_point(class_scope:DModel)
+ private:
+  inline void set_has_path();
+  inline void clear_has_path();
+  inline void set_has_model();
+  inline void clear_has_model();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::std::string* path_;
+  ::DetectorParameter* model_;
+  friend void  protobuf_AddDesc_zoson_2eproto();
+  friend void protobuf_AssignDesc_zoson_2eproto();
+  friend void protobuf_ShutdownFile_zoson_2eproto();
+
+  void InitAsDefaultInstance();
+  static DModel* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class DetectorParameter : public ::google::protobuf::Message {
  public:
   DetectorParameter();
@@ -270,6 +482,30 @@ class DetectorParameter : public ::google::protobuf::Message {
 
   // nested types ----------------------------------------------------
 
+  typedef DetectorParameter_Type Type;
+  static const Type DETECTOR = DetectorParameter_Type_DETECTOR;
+  static const Type CLASSIFIER = DetectorParameter_Type_CLASSIFIER;
+  static inline bool Type_IsValid(int value) {
+    return DetectorParameter_Type_IsValid(value);
+  }
+  static const Type Type_MIN =
+    DetectorParameter_Type_Type_MIN;
+  static const Type Type_MAX =
+    DetectorParameter_Type_Type_MAX;
+  static const int Type_ARRAYSIZE =
+    DetectorParameter_Type_Type_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  Type_descriptor() {
+    return DetectorParameter_Type_descriptor();
+  }
+  static inline const ::std::string& Type_Name(Type value) {
+    return DetectorParameter_Type_Name(value);
+  }
+  static inline bool Type_Parse(const ::std::string& name,
+      Type* value) {
+    return DetectorParameter_Type_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   // required string name = 1;
@@ -296,7 +532,7 @@ class DetectorParameter : public ::google::protobuf::Message {
   inline ::std::string* release_model();
   inline void set_allocated_model(::std::string* model);
 
-  // required string weight = 3;
+  // optional string weight = 3;
   inline bool has_weight() const;
   inline void clear_weight();
   static const int kWeightFieldNumber = 3;
@@ -308,10 +544,34 @@ class DetectorParameter : public ::google::protobuf::Message {
   inline ::std::string* release_weight();
   inline void set_allocated_weight(::std::string* weight);
 
-  // repeated int32 use_gpu = 4;
+  // optional string snapshot = 4;
+  inline bool has_snapshot() const;
+  inline void clear_snapshot();
+  static const int kSnapshotFieldNumber = 4;
+  inline const ::std::string& snapshot() const;
+  inline void set_snapshot(const ::std::string& value);
+  inline void set_snapshot(const char* value);
+  inline void set_snapshot(const char* value, size_t size);
+  inline ::std::string* mutable_snapshot();
+  inline ::std::string* release_snapshot();
+  inline void set_allocated_snapshot(::std::string* snapshot);
+
+  // optional string label = 5;
+  inline bool has_label() const;
+  inline void clear_label();
+  static const int kLabelFieldNumber = 5;
+  inline const ::std::string& label() const;
+  inline void set_label(const ::std::string& value);
+  inline void set_label(const char* value);
+  inline void set_label(const char* value, size_t size);
+  inline ::std::string* mutable_label();
+  inline ::std::string* release_label();
+  inline void set_allocated_label(::std::string* label);
+
+  // repeated int32 use_gpu = 6;
   inline int use_gpu_size() const;
   inline void clear_use_gpu();
-  static const int kUseGpuFieldNumber = 4;
+  static const int kUseGpuFieldNumber = 6;
   inline ::google::protobuf::int32 use_gpu(int index) const;
   inline void set_use_gpu(int index, ::google::protobuf::int32 value);
   inline void add_use_gpu(::google::protobuf::int32 value);
@@ -320,17 +580,17 @@ class DetectorParameter : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_use_gpu();
 
-  // optional bool istrain = 5 [default = false];
+  // optional bool istrain = 7 [default = false];
   inline bool has_istrain() const;
   inline void clear_istrain();
-  static const int kIstrainFieldNumber = 5;
+  static const int kIstrainFieldNumber = 7;
   inline bool istrain() const;
   inline void set_istrain(bool value);
 
-  // optional string solver = 6;
+  // optional string solver = 8;
   inline bool has_solver() const;
   inline void clear_solver();
-  static const int kSolverFieldNumber = 6;
+  static const int kSolverFieldNumber = 8;
   inline const ::std::string& solver() const;
   inline void set_solver(const ::std::string& value);
   inline void set_solver(const char* value);
@@ -339,10 +599,10 @@ class DetectorParameter : public ::google::protobuf::Message {
   inline ::std::string* release_solver();
   inline void set_allocated_solver(::std::string* solver);
 
-  // optional string mean_file = 7;
+  // optional string mean_file = 9;
   inline bool has_mean_file() const;
   inline void clear_mean_file();
-  static const int kMeanFileFieldNumber = 7;
+  static const int kMeanFileFieldNumber = 9;
   inline const ::std::string& mean_file() const;
   inline void set_mean_file(const ::std::string& value);
   inline void set_mean_file(const char* value);
@@ -351,14 +611,45 @@ class DetectorParameter : public ::google::protobuf::Message {
   inline ::std::string* release_mean_file();
   inline void set_allocated_mean_file(::std::string* mean_file);
 
-  // optional .MeanValue mean = 8;
+  // optional .MeanValue mean = 10;
   inline bool has_mean() const;
   inline void clear_mean();
-  static const int kMeanFieldNumber = 8;
+  static const int kMeanFieldNumber = 10;
   inline const ::MeanValue& mean() const;
   inline ::MeanValue* mutable_mean();
   inline ::MeanValue* release_mean();
   inline void set_allocated_mean(::MeanValue* mean);
+
+  // optional .DetectorParameter.Type type = 11 [default = DETECTOR];
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 11;
+  inline ::DetectorParameter_Type type() const;
+  inline void set_type(::DetectorParameter_Type value);
+
+  // optional string in_name = 12 [default = "data"];
+  inline bool has_in_name() const;
+  inline void clear_in_name();
+  static const int kInNameFieldNumber = 12;
+  inline const ::std::string& in_name() const;
+  inline void set_in_name(const ::std::string& value);
+  inline void set_in_name(const char* value);
+  inline void set_in_name(const char* value, size_t size);
+  inline ::std::string* mutable_in_name();
+  inline ::std::string* release_in_name();
+  inline void set_allocated_in_name(::std::string* in_name);
+
+  // optional string out_name = 13 [default = "detection_out"];
+  inline bool has_out_name() const;
+  inline void clear_out_name();
+  static const int kOutNameFieldNumber = 13;
+  inline const ::std::string& out_name() const;
+  inline void set_out_name(const ::std::string& value);
+  inline void set_out_name(const char* value);
+  inline void set_out_name(const char* value, size_t size);
+  inline ::std::string* mutable_out_name();
+  inline ::std::string* release_out_name();
+  inline void set_allocated_out_name(::std::string* out_name);
 
   // @@protoc_insertion_point(class_scope:DetectorParameter)
  private:
@@ -368,6 +659,10 @@ class DetectorParameter : public ::google::protobuf::Message {
   inline void clear_has_model();
   inline void set_has_weight();
   inline void clear_has_weight();
+  inline void set_has_snapshot();
+  inline void clear_has_snapshot();
+  inline void set_has_label();
+  inline void clear_has_label();
   inline void set_has_istrain();
   inline void clear_has_istrain();
   inline void set_has_solver();
@@ -376,6 +671,12 @@ class DetectorParameter : public ::google::protobuf::Message {
   inline void clear_has_mean_file();
   inline void set_has_mean();
   inline void clear_has_mean();
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_in_name();
+  inline void clear_has_in_name();
+  inline void set_has_out_name();
+  inline void clear_has_out_name();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -384,11 +685,18 @@ class DetectorParameter : public ::google::protobuf::Message {
   ::std::string* name_;
   ::std::string* model_;
   ::std::string* weight_;
+  ::std::string* snapshot_;
+  ::std::string* label_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > use_gpu_;
   ::std::string* solver_;
   ::std::string* mean_file_;
-  ::MeanValue* mean_;
   bool istrain_;
+  int type_;
+  ::MeanValue* mean_;
+  static ::std::string* _default_in_name_;
+  ::std::string* in_name_;
+  static ::std::string* _default_out_name_;
+  ::std::string* out_name_;
   friend void  protobuf_AddDesc_zoson_2eproto();
   friend void protobuf_AssignDesc_zoson_2eproto();
   friend void protobuf_ShutdownFile_zoson_2eproto();
@@ -1851,6 +2159,27 @@ class VReqDeconv : public ::google::protobuf::Message {
   inline bool do_deconv() const;
   inline void set_do_deconv(bool value);
 
+  // optional int32 sub_i_layer = 4;
+  inline bool has_sub_i_layer() const;
+  inline void clear_sub_i_layer();
+  static const int kSubILayerFieldNumber = 4;
+  inline ::google::protobuf::int32 sub_i_layer() const;
+  inline void set_sub_i_layer(::google::protobuf::int32 value);
+
+  // optional int32 sub_i_map = 5;
+  inline bool has_sub_i_map() const;
+  inline void clear_sub_i_map();
+  static const int kSubIMapFieldNumber = 5;
+  inline ::google::protobuf::int32 sub_i_map() const;
+  inline void set_sub_i_map(::google::protobuf::int32 value);
+
+  // optional bool do_sub_deconv = 6 [default = false];
+  inline bool has_do_sub_deconv() const;
+  inline void clear_do_sub_deconv();
+  static const int kDoSubDeconvFieldNumber = 6;
+  inline bool do_sub_deconv() const;
+  inline void set_do_sub_deconv(bool value);
+
   // @@protoc_insertion_point(class_scope:VReqDeconv)
  private:
   inline void set_has_i_layer();
@@ -1859,6 +2188,12 @@ class VReqDeconv : public ::google::protobuf::Message {
   inline void clear_has_i_map();
   inline void set_has_do_deconv();
   inline void clear_has_do_deconv();
+  inline void set_has_sub_i_layer();
+  inline void clear_has_sub_i_layer();
+  inline void set_has_sub_i_map();
+  inline void clear_has_sub_i_map();
+  inline void set_has_do_sub_deconv();
+  inline void clear_has_do_sub_deconv();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -1866,7 +2201,10 @@ class VReqDeconv : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::int32 i_layer_;
   ::google::protobuf::int32 i_map_;
+  ::google::protobuf::int32 sub_i_layer_;
   bool do_deconv_;
+  bool do_sub_deconv_;
+  ::google::protobuf::int32 sub_i_map_;
   friend void  protobuf_AddDesc_zoson_2eproto();
   friend void protobuf_AssignDesc_zoson_2eproto();
   friend void protobuf_ShutdownFile_zoson_2eproto();
@@ -2061,6 +2399,7 @@ class VResponse : public ::google::protobuf::Message {
   static const Type STATE = VResponse_Type_STATE;
   static const Type SETTING = VResponse_Type_SETTING;
   static const Type REC = VResponse_Type_REC;
+  static const Type SUBDECONV = VResponse_Type_SUBDECONV;
   static inline bool Type_IsValid(int value) {
     return VResponse_Type_IsValid(value);
   }
@@ -2660,6 +2999,202 @@ TestProto::mutable_dim() {
 
 // -------------------------------------------------------------------
 
+// DContextParameter
+
+// repeated .DModel model = 1;
+inline int DContextParameter::model_size() const {
+  return model_.size();
+}
+inline void DContextParameter::clear_model() {
+  model_.Clear();
+}
+inline const ::DModel& DContextParameter::model(int index) const {
+  // @@protoc_insertion_point(field_get:DContextParameter.model)
+  return model_.Get(index);
+}
+inline ::DModel* DContextParameter::mutable_model(int index) {
+  // @@protoc_insertion_point(field_mutable:DContextParameter.model)
+  return model_.Mutable(index);
+}
+inline ::DModel* DContextParameter::add_model() {
+  // @@protoc_insertion_point(field_add:DContextParameter.model)
+  return model_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::DModel >&
+DContextParameter::model() const {
+  // @@protoc_insertion_point(field_list:DContextParameter.model)
+  return model_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::DModel >*
+DContextParameter::mutable_model() {
+  // @@protoc_insertion_point(field_mutable_list:DContextParameter.model)
+  return &model_;
+}
+
+// optional .CommuParameter commu = 3;
+inline bool DContextParameter::has_commu() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DContextParameter::set_has_commu() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DContextParameter::clear_has_commu() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DContextParameter::clear_commu() {
+  if (commu_ != NULL) commu_->::CommuParameter::Clear();
+  clear_has_commu();
+}
+inline const ::CommuParameter& DContextParameter::commu() const {
+  // @@protoc_insertion_point(field_get:DContextParameter.commu)
+  return commu_ != NULL ? *commu_ : *default_instance_->commu_;
+}
+inline ::CommuParameter* DContextParameter::mutable_commu() {
+  set_has_commu();
+  if (commu_ == NULL) commu_ = new ::CommuParameter;
+  // @@protoc_insertion_point(field_mutable:DContextParameter.commu)
+  return commu_;
+}
+inline ::CommuParameter* DContextParameter::release_commu() {
+  clear_has_commu();
+  ::CommuParameter* temp = commu_;
+  commu_ = NULL;
+  return temp;
+}
+inline void DContextParameter::set_allocated_commu(::CommuParameter* commu) {
+  delete commu_;
+  commu_ = commu;
+  if (commu) {
+    set_has_commu();
+  } else {
+    clear_has_commu();
+  }
+  // @@protoc_insertion_point(field_set_allocated:DContextParameter.commu)
+}
+
+// -------------------------------------------------------------------
+
+// DModel
+
+// optional string path = 1;
+inline bool DModel::has_path() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DModel::set_has_path() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DModel::clear_has_path() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DModel::clear_path() {
+  if (path_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    path_->clear();
+  }
+  clear_has_path();
+}
+inline const ::std::string& DModel::path() const {
+  // @@protoc_insertion_point(field_get:DModel.path)
+  return *path_;
+}
+inline void DModel::set_path(const ::std::string& value) {
+  set_has_path();
+  if (path_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    path_ = new ::std::string;
+  }
+  path_->assign(value);
+  // @@protoc_insertion_point(field_set:DModel.path)
+}
+inline void DModel::set_path(const char* value) {
+  set_has_path();
+  if (path_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    path_ = new ::std::string;
+  }
+  path_->assign(value);
+  // @@protoc_insertion_point(field_set_char:DModel.path)
+}
+inline void DModel::set_path(const char* value, size_t size) {
+  set_has_path();
+  if (path_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    path_ = new ::std::string;
+  }
+  path_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:DModel.path)
+}
+inline ::std::string* DModel::mutable_path() {
+  set_has_path();
+  if (path_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    path_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:DModel.path)
+  return path_;
+}
+inline ::std::string* DModel::release_path() {
+  clear_has_path();
+  if (path_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = path_;
+    path_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void DModel::set_allocated_path(::std::string* path) {
+  if (path_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete path_;
+  }
+  if (path) {
+    set_has_path();
+    path_ = path;
+  } else {
+    clear_has_path();
+    path_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:DModel.path)
+}
+
+// optional .DetectorParameter model = 2;
+inline bool DModel::has_model() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DModel::set_has_model() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DModel::clear_has_model() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DModel::clear_model() {
+  if (model_ != NULL) model_->::DetectorParameter::Clear();
+  clear_has_model();
+}
+inline const ::DetectorParameter& DModel::model() const {
+  // @@protoc_insertion_point(field_get:DModel.model)
+  return model_ != NULL ? *model_ : *default_instance_->model_;
+}
+inline ::DetectorParameter* DModel::mutable_model() {
+  set_has_model();
+  if (model_ == NULL) model_ = new ::DetectorParameter;
+  // @@protoc_insertion_point(field_mutable:DModel.model)
+  return model_;
+}
+inline ::DetectorParameter* DModel::release_model() {
+  clear_has_model();
+  ::DetectorParameter* temp = model_;
+  model_ = NULL;
+  return temp;
+}
+inline void DModel::set_allocated_model(::DetectorParameter* model) {
+  delete model_;
+  model_ = model;
+  if (model) {
+    set_has_model();
+  } else {
+    clear_has_model();
+  }
+  // @@protoc_insertion_point(field_set_allocated:DModel.model)
+}
+
+// -------------------------------------------------------------------
+
 // DetectorParameter
 
 // required string name = 1;
@@ -2814,7 +3349,7 @@ inline void DetectorParameter::set_allocated_model(::std::string* model) {
   // @@protoc_insertion_point(field_set_allocated:DetectorParameter.model)
 }
 
-// required string weight = 3;
+// optional string weight = 3;
 inline bool DetectorParameter::has_weight() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -2890,7 +3425,159 @@ inline void DetectorParameter::set_allocated_weight(::std::string* weight) {
   // @@protoc_insertion_point(field_set_allocated:DetectorParameter.weight)
 }
 
-// repeated int32 use_gpu = 4;
+// optional string snapshot = 4;
+inline bool DetectorParameter::has_snapshot() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void DetectorParameter::set_has_snapshot() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void DetectorParameter::clear_has_snapshot() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void DetectorParameter::clear_snapshot() {
+  if (snapshot_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    snapshot_->clear();
+  }
+  clear_has_snapshot();
+}
+inline const ::std::string& DetectorParameter::snapshot() const {
+  // @@protoc_insertion_point(field_get:DetectorParameter.snapshot)
+  return *snapshot_;
+}
+inline void DetectorParameter::set_snapshot(const ::std::string& value) {
+  set_has_snapshot();
+  if (snapshot_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    snapshot_ = new ::std::string;
+  }
+  snapshot_->assign(value);
+  // @@protoc_insertion_point(field_set:DetectorParameter.snapshot)
+}
+inline void DetectorParameter::set_snapshot(const char* value) {
+  set_has_snapshot();
+  if (snapshot_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    snapshot_ = new ::std::string;
+  }
+  snapshot_->assign(value);
+  // @@protoc_insertion_point(field_set_char:DetectorParameter.snapshot)
+}
+inline void DetectorParameter::set_snapshot(const char* value, size_t size) {
+  set_has_snapshot();
+  if (snapshot_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    snapshot_ = new ::std::string;
+  }
+  snapshot_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:DetectorParameter.snapshot)
+}
+inline ::std::string* DetectorParameter::mutable_snapshot() {
+  set_has_snapshot();
+  if (snapshot_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    snapshot_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:DetectorParameter.snapshot)
+  return snapshot_;
+}
+inline ::std::string* DetectorParameter::release_snapshot() {
+  clear_has_snapshot();
+  if (snapshot_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = snapshot_;
+    snapshot_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void DetectorParameter::set_allocated_snapshot(::std::string* snapshot) {
+  if (snapshot_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete snapshot_;
+  }
+  if (snapshot) {
+    set_has_snapshot();
+    snapshot_ = snapshot;
+  } else {
+    clear_has_snapshot();
+    snapshot_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:DetectorParameter.snapshot)
+}
+
+// optional string label = 5;
+inline bool DetectorParameter::has_label() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void DetectorParameter::set_has_label() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void DetectorParameter::clear_has_label() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void DetectorParameter::clear_label() {
+  if (label_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    label_->clear();
+  }
+  clear_has_label();
+}
+inline const ::std::string& DetectorParameter::label() const {
+  // @@protoc_insertion_point(field_get:DetectorParameter.label)
+  return *label_;
+}
+inline void DetectorParameter::set_label(const ::std::string& value) {
+  set_has_label();
+  if (label_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    label_ = new ::std::string;
+  }
+  label_->assign(value);
+  // @@protoc_insertion_point(field_set:DetectorParameter.label)
+}
+inline void DetectorParameter::set_label(const char* value) {
+  set_has_label();
+  if (label_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    label_ = new ::std::string;
+  }
+  label_->assign(value);
+  // @@protoc_insertion_point(field_set_char:DetectorParameter.label)
+}
+inline void DetectorParameter::set_label(const char* value, size_t size) {
+  set_has_label();
+  if (label_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    label_ = new ::std::string;
+  }
+  label_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:DetectorParameter.label)
+}
+inline ::std::string* DetectorParameter::mutable_label() {
+  set_has_label();
+  if (label_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    label_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:DetectorParameter.label)
+  return label_;
+}
+inline ::std::string* DetectorParameter::release_label() {
+  clear_has_label();
+  if (label_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = label_;
+    label_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void DetectorParameter::set_allocated_label(::std::string* label) {
+  if (label_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete label_;
+  }
+  if (label) {
+    set_has_label();
+    label_ = label;
+  } else {
+    clear_has_label();
+    label_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:DetectorParameter.label)
+}
+
+// repeated int32 use_gpu = 6;
 inline int DetectorParameter::use_gpu_size() const {
   return use_gpu_.size();
 }
@@ -2920,15 +3607,15 @@ DetectorParameter::mutable_use_gpu() {
   return &use_gpu_;
 }
 
-// optional bool istrain = 5 [default = false];
+// optional bool istrain = 7 [default = false];
 inline bool DetectorParameter::has_istrain() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void DetectorParameter::set_has_istrain() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void DetectorParameter::clear_has_istrain() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void DetectorParameter::clear_istrain() {
   istrain_ = false;
@@ -2944,15 +3631,15 @@ inline void DetectorParameter::set_istrain(bool value) {
   // @@protoc_insertion_point(field_set:DetectorParameter.istrain)
 }
 
-// optional string solver = 6;
+// optional string solver = 8;
 inline bool DetectorParameter::has_solver() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void DetectorParameter::set_has_solver() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void DetectorParameter::clear_has_solver() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void DetectorParameter::clear_solver() {
   if (solver_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
@@ -3020,15 +3707,15 @@ inline void DetectorParameter::set_allocated_solver(::std::string* solver) {
   // @@protoc_insertion_point(field_set_allocated:DetectorParameter.solver)
 }
 
-// optional string mean_file = 7;
+// optional string mean_file = 9;
 inline bool DetectorParameter::has_mean_file() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void DetectorParameter::set_has_mean_file() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void DetectorParameter::clear_has_mean_file() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void DetectorParameter::clear_mean_file() {
   if (mean_file_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
@@ -3096,15 +3783,15 @@ inline void DetectorParameter::set_allocated_mean_file(::std::string* mean_file)
   // @@protoc_insertion_point(field_set_allocated:DetectorParameter.mean_file)
 }
 
-// optional .MeanValue mean = 8;
+// optional .MeanValue mean = 10;
 inline bool DetectorParameter::has_mean() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 inline void DetectorParameter::set_has_mean() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000200u;
 }
 inline void DetectorParameter::clear_has_mean() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline void DetectorParameter::clear_mean() {
   if (mean_ != NULL) mean_->::MeanValue::Clear();
@@ -3135,6 +3822,183 @@ inline void DetectorParameter::set_allocated_mean(::MeanValue* mean) {
     clear_has_mean();
   }
   // @@protoc_insertion_point(field_set_allocated:DetectorParameter.mean)
+}
+
+// optional .DetectorParameter.Type type = 11 [default = DETECTOR];
+inline bool DetectorParameter::has_type() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void DetectorParameter::set_has_type() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void DetectorParameter::clear_has_type() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void DetectorParameter::clear_type() {
+  type_ = 1;
+  clear_has_type();
+}
+inline ::DetectorParameter_Type DetectorParameter::type() const {
+  // @@protoc_insertion_point(field_get:DetectorParameter.type)
+  return static_cast< ::DetectorParameter_Type >(type_);
+}
+inline void DetectorParameter::set_type(::DetectorParameter_Type value) {
+  assert(::DetectorParameter_Type_IsValid(value));
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:DetectorParameter.type)
+}
+
+// optional string in_name = 12 [default = "data"];
+inline bool DetectorParameter::has_in_name() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void DetectorParameter::set_has_in_name() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void DetectorParameter::clear_has_in_name() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void DetectorParameter::clear_in_name() {
+  if (in_name_ != _default_in_name_) {
+    in_name_->assign(*_default_in_name_);
+  }
+  clear_has_in_name();
+}
+inline const ::std::string& DetectorParameter::in_name() const {
+  // @@protoc_insertion_point(field_get:DetectorParameter.in_name)
+  return *in_name_;
+}
+inline void DetectorParameter::set_in_name(const ::std::string& value) {
+  set_has_in_name();
+  if (in_name_ == _default_in_name_) {
+    in_name_ = new ::std::string;
+  }
+  in_name_->assign(value);
+  // @@protoc_insertion_point(field_set:DetectorParameter.in_name)
+}
+inline void DetectorParameter::set_in_name(const char* value) {
+  set_has_in_name();
+  if (in_name_ == _default_in_name_) {
+    in_name_ = new ::std::string;
+  }
+  in_name_->assign(value);
+  // @@protoc_insertion_point(field_set_char:DetectorParameter.in_name)
+}
+inline void DetectorParameter::set_in_name(const char* value, size_t size) {
+  set_has_in_name();
+  if (in_name_ == _default_in_name_) {
+    in_name_ = new ::std::string;
+  }
+  in_name_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:DetectorParameter.in_name)
+}
+inline ::std::string* DetectorParameter::mutable_in_name() {
+  set_has_in_name();
+  if (in_name_ == _default_in_name_) {
+    in_name_ = new ::std::string(*_default_in_name_);
+  }
+  // @@protoc_insertion_point(field_mutable:DetectorParameter.in_name)
+  return in_name_;
+}
+inline ::std::string* DetectorParameter::release_in_name() {
+  clear_has_in_name();
+  if (in_name_ == _default_in_name_) {
+    return NULL;
+  } else {
+    ::std::string* temp = in_name_;
+    in_name_ = const_cast< ::std::string*>(_default_in_name_);
+    return temp;
+  }
+}
+inline void DetectorParameter::set_allocated_in_name(::std::string* in_name) {
+  if (in_name_ != _default_in_name_) {
+    delete in_name_;
+  }
+  if (in_name) {
+    set_has_in_name();
+    in_name_ = in_name;
+  } else {
+    clear_has_in_name();
+    in_name_ = const_cast< ::std::string*>(_default_in_name_);
+  }
+  // @@protoc_insertion_point(field_set_allocated:DetectorParameter.in_name)
+}
+
+// optional string out_name = 13 [default = "detection_out"];
+inline bool DetectorParameter::has_out_name() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void DetectorParameter::set_has_out_name() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void DetectorParameter::clear_has_out_name() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void DetectorParameter::clear_out_name() {
+  if (out_name_ != _default_out_name_) {
+    out_name_->assign(*_default_out_name_);
+  }
+  clear_has_out_name();
+}
+inline const ::std::string& DetectorParameter::out_name() const {
+  // @@protoc_insertion_point(field_get:DetectorParameter.out_name)
+  return *out_name_;
+}
+inline void DetectorParameter::set_out_name(const ::std::string& value) {
+  set_has_out_name();
+  if (out_name_ == _default_out_name_) {
+    out_name_ = new ::std::string;
+  }
+  out_name_->assign(value);
+  // @@protoc_insertion_point(field_set:DetectorParameter.out_name)
+}
+inline void DetectorParameter::set_out_name(const char* value) {
+  set_has_out_name();
+  if (out_name_ == _default_out_name_) {
+    out_name_ = new ::std::string;
+  }
+  out_name_->assign(value);
+  // @@protoc_insertion_point(field_set_char:DetectorParameter.out_name)
+}
+inline void DetectorParameter::set_out_name(const char* value, size_t size) {
+  set_has_out_name();
+  if (out_name_ == _default_out_name_) {
+    out_name_ = new ::std::string;
+  }
+  out_name_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:DetectorParameter.out_name)
+}
+inline ::std::string* DetectorParameter::mutable_out_name() {
+  set_has_out_name();
+  if (out_name_ == _default_out_name_) {
+    out_name_ = new ::std::string(*_default_out_name_);
+  }
+  // @@protoc_insertion_point(field_mutable:DetectorParameter.out_name)
+  return out_name_;
+}
+inline ::std::string* DetectorParameter::release_out_name() {
+  clear_has_out_name();
+  if (out_name_ == _default_out_name_) {
+    return NULL;
+  } else {
+    ::std::string* temp = out_name_;
+    out_name_ = const_cast< ::std::string*>(_default_out_name_);
+    return temp;
+  }
+}
+inline void DetectorParameter::set_allocated_out_name(::std::string* out_name) {
+  if (out_name_ != _default_out_name_) {
+    delete out_name_;
+  }
+  if (out_name) {
+    set_has_out_name();
+    out_name_ = out_name;
+  } else {
+    clear_has_out_name();
+    out_name_ = const_cast< ::std::string*>(_default_out_name_);
+  }
+  // @@protoc_insertion_point(field_set_allocated:DetectorParameter.out_name)
 }
 
 // -------------------------------------------------------------------
@@ -4726,6 +5590,78 @@ inline void VReqDeconv::set_do_deconv(bool value) {
   // @@protoc_insertion_point(field_set:VReqDeconv.do_deconv)
 }
 
+// optional int32 sub_i_layer = 4;
+inline bool VReqDeconv::has_sub_i_layer() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void VReqDeconv::set_has_sub_i_layer() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void VReqDeconv::clear_has_sub_i_layer() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void VReqDeconv::clear_sub_i_layer() {
+  sub_i_layer_ = 0;
+  clear_has_sub_i_layer();
+}
+inline ::google::protobuf::int32 VReqDeconv::sub_i_layer() const {
+  // @@protoc_insertion_point(field_get:VReqDeconv.sub_i_layer)
+  return sub_i_layer_;
+}
+inline void VReqDeconv::set_sub_i_layer(::google::protobuf::int32 value) {
+  set_has_sub_i_layer();
+  sub_i_layer_ = value;
+  // @@protoc_insertion_point(field_set:VReqDeconv.sub_i_layer)
+}
+
+// optional int32 sub_i_map = 5;
+inline bool VReqDeconv::has_sub_i_map() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void VReqDeconv::set_has_sub_i_map() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void VReqDeconv::clear_has_sub_i_map() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void VReqDeconv::clear_sub_i_map() {
+  sub_i_map_ = 0;
+  clear_has_sub_i_map();
+}
+inline ::google::protobuf::int32 VReqDeconv::sub_i_map() const {
+  // @@protoc_insertion_point(field_get:VReqDeconv.sub_i_map)
+  return sub_i_map_;
+}
+inline void VReqDeconv::set_sub_i_map(::google::protobuf::int32 value) {
+  set_has_sub_i_map();
+  sub_i_map_ = value;
+  // @@protoc_insertion_point(field_set:VReqDeconv.sub_i_map)
+}
+
+// optional bool do_sub_deconv = 6 [default = false];
+inline bool VReqDeconv::has_do_sub_deconv() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void VReqDeconv::set_has_do_sub_deconv() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void VReqDeconv::clear_has_do_sub_deconv() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void VReqDeconv::clear_do_sub_deconv() {
+  do_sub_deconv_ = false;
+  clear_has_do_sub_deconv();
+}
+inline bool VReqDeconv::do_sub_deconv() const {
+  // @@protoc_insertion_point(field_get:VReqDeconv.do_sub_deconv)
+  return do_sub_deconv_;
+}
+inline void VReqDeconv::set_do_sub_deconv(bool value) {
+  set_has_do_sub_deconv();
+  do_sub_deconv_ = value;
+  // @@protoc_insertion_point(field_set:VReqDeconv.do_sub_deconv)
+}
+
 // -------------------------------------------------------------------
 
 // VSetting
@@ -5459,6 +6395,11 @@ inline void VState::set_allocated_weight(::VReqWeight* weight) {
 namespace google {
 namespace protobuf {
 
+template <> struct is_proto_enum< ::DetectorParameter_Type> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::DetectorParameter_Type>() {
+  return ::DetectorParameter_Type_descriptor();
+}
 template <> struct is_proto_enum< ::DetectInput_Format> : ::google::protobuf::internal::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::DetectInput_Format>() {

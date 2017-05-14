@@ -1,3 +1,9 @@
 name:"detector"
 model:"/home/zoson/detector/my/models/deconv/DeconvNet_inference_deploy.prototxt"
 weight:"/home/zoson/detector/my/models/deconv/DeconvNet_trainval_inference.caffemodel"
+use_gpu:0
+mean {
+	value:104
+	value:117
+	value:123
+}
