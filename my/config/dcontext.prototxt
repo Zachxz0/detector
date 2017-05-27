@@ -1,5 +1,5 @@
 model {
-	path:"/home/zoson/detector/my/config/detector.prototxt"
+	path:"/home/zoson/detector/my/config/resnet.prototxt"
 }
 commu {
 	address: "localhost"

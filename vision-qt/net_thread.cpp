@@ -19,7 +19,7 @@ NetThread::NetThread(zoson::NetClient*client){
 void NetThread::run()
 {
     zoson::ConnInfo info;
-    info.server_addr = "192.168.31.206";
+    info.server_addr = "127.0.0.1";
     info.server_post = 10200;
     info.cookies = "qt";
     this->client->connectServer(info);

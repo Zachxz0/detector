@@ -198,7 +198,16 @@ void MainWindow::getFeatureMap(int w,int h,int c,int n,unsigned char* map)
 void MainWindow::getDeconv(int w,int h,int c,unsigned char* image)
 {
     delete im_deconv->scene();
-    QImage* tm_img = new QImage(image,w,h,QImage::Format_RGB888);
+    QImage *tm_img = NULL;
+    if(c==1)
+    {
+        tm_img = new QImage(image,w,h,QImage::Format_Grayscale8);
+    }else if(c==3){
+        tm_img = new QImage(image,w,h,QImage::Format_RGB888);
+    }else{
+        delete[] image;
+        return;
+    }
     QPixmap pix = QPixmap::fromImage(*tm_img);
     QPixmap sc_pix = pix.scaled(im_deconv->width(),im_deconv->height());
     QGraphicsScene *scene = new QGraphicsScene;

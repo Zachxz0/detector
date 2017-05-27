@@ -403,9 +403,14 @@ void Detector::getFeatureMap(const VReqFeature& reqFeature,VResponse* rep_ptr)
 	}else{
 		fl_top = top->cpu_diff();
 	}
-	for(int i=0;i<c;++i)
+	if(w==1&&h==1)
 	{
-		normTo255((unsigned char*)const_cast<char*>(features.data()+i*w*h),fl_top+offset+i*w*h,w*h);
+		normTo255((unsigned char*)const_cast<char*>(features.data()),fl_top+offset,w*h*c);
+	}else{
+		for(int i=0;i<c;++i)
+		{
+			normTo255((unsigned char*)const_cast<char*>(features.data()+i*w*h),fl_top+offset+i*w*h,w*h);
+		}
 	}
 	VFeatureMap map;
 	map.set_width(w);
@@ -496,7 +501,7 @@ void Detector::getDeconvImage(const VReqDeconv &reqDeconv,VResponse* rep_ptr)
 		VImage map;
 		map.set_width(w);
 		map.set_height(h);
-		map.set_channel(3);
+		map.set_channel(1);
 		map.set_data(rgbfeatures);
 		rep_ptr->set_type(VResponse_Type_DECONV);
 		string map_str;
@@ -516,6 +521,7 @@ void Detector::getDeconvImage(const VReqDeconv &reqDeconv,VResponse* rep_ptr)
 		{
 			diff[i_map*blob->width()*blob->height()+i] = dat[i_map*blob->width()*blob->height()+i];
 		}
+
 		int start_layer = deconv_able_layer_index[i_layer];
 		const vector<shared_ptr <Blob<float> > > & blobs  = m_caffe_net->blobs();
 		const vector<string> & blobs_name  = m_caffe_net->blob_names();
@@ -535,6 +541,7 @@ void Detector::getDeconvImage(const VReqDeconv &reqDeconv,VResponse* rep_ptr)
 				past = true;
 			}
 		}
+		//m_caffe_net->Deconv();
 		m_caffe_net->DeconvFromTo(start_layer,0);
 		//copy code
 		if(reqDeconv.do_sub_deconv())

@@ -9,6 +9,7 @@ THIRD_PARTY = $(CURR_DIR)/thirdparty
 INCLUDE = -I$(CURR_DIR)/include/zoson -I$(CURR_DIR)/../caffe/include -I$(CURR_DIR)/include/zoson/proto -I/usr/include/ -I/usr/local/cuda-8.0/include -I$(CURR_DIR)/../caffe/build/src
 BUILD_DIR = $(CURR_DIR)/build
 BIN_DIR = $(CURR_DIR)/bin
+SDK_DIR = $(CURR_DIR)/sdk
 SUB_DIR = src test
 
 FFMPEG_LIBS = -lavutil -lavcodec -lavformat -lswscale -lpostproc  -lswresample 
@@ -65,6 +66,18 @@ INSTALL_CAFFE:$(CAFFE_LIB)
 	sudo cp $^ /usr/local/lib/libcaffe.so
 	cp $^ $(CURR_DIR)/lib/libcaffe.so
 
+##caffe
+caffe-d:ECHO_CAFFE_D COMPILE_CAFFE_D INSTALL_CAFFE_D
+COMPILE_CAFFE_D:
+	$(MAKE) -C ../caffe-deconv-modify -j8
+ECHO_CAFFE_D:
+	@echo caffe begin compile and install
+
+CAFFE_LIB_D = ../caffe-deconv-modify/build/lib/libcaffe.so.1.0.0-rc3
+INSTALL_CAFFE_D:$(CAFFE_LIB_D)
+	sudo cp $^ /usr/local/lib/libcaffe.so
+	cp $^ $(CURR_DIR)/lib/libcaffe.so
+
 ##java
 java:ECHO_JAVA
 	$(MAKE) -C $@
@@ -76,6 +89,22 @@ clean:java_clean
 	rm $(BUILD_DIR)/*.o $(BIN_DIR)/* $(CURR_DIR)/src/zoson/module/proto/zoson.pb.cc $(CURR_DIR)/include/zoson/proto/zoson.pb.h $(CURR_DIR)/test/test $(CURR_DIR)/test/test.o
 java_clean:
 	$(MAKE) -C java clean
+
+#make sdk
+sdk:
+	rm -rf $(SDK_DIR)
+	mkdir $(SDK_DIR)
+	mkdir $(SDK_DIR)/lib
+	mkdir $(SDK_DIR)/jar
+	cp $(CURR_DIR)/sdktest/* $(SDK_DIR)/
+	cp $(CURR_DIR)/lib/* $(SDK_DIR)/lib/
+	cp $(CURR_DIR)/java/bin/detect.jar $(SDK_DIR)/jar/
+	cp $(CURR_DIR)/java/lib/*.jar $(SDK_DIR)/jar/
+	cp $(CURR_DIR)/java/lib/*.so $(SDK_DIR)/lib
+	cp -rf $(CURR_DIR)/models $(SDK_DIR)/models
+	cp -rf $(CURR_DIR)/data $(SDK_DIR)/data
+	cp -rf $(CURR_DIR)/config $(SDK_DIR)/config
+
 
 ##proto for qt
 qt-proto:$(PROTO_S)

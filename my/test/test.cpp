@@ -54,7 +54,7 @@ using namespace zoson;
 #include "boost/algorithm/string.hpp"
 #include "caffe/caffe.hpp"
 #include "caffe/util/signal_handler.h"
-#include "caffe/layers/zoson_data_layer.hpp"
+//#include "caffe/layers/zoson_data_layer.hpp"
 
 using caffe::Blob;
 using caffe::Caffe;
@@ -151,7 +151,7 @@ bool test_zoson_module_proto()
 	return re;
 }
 
-char* imageName[3] = {"./data/test/ly.jpg","./data/test/boat.jpg","./data/test/timg.jpg"};
+char* imageName[3] = {"./data/test/ly.jpg","./data/test/cat.jpg","./data/test/ly.png"};
 Mat getCVMatImage(int i)
 {
 	Mat image = imread( imageName[0], CV_LOAD_IMAGE_COLOR);
@@ -692,7 +692,23 @@ bool test_dcontext()
         for(int i=0;i<1000000;i++)
         {
             Mat get = getCVMatImage(i);
-            detector->doDetect(get);
+            shared_ptr<DetectOutput> ptr =  detector->doDetect(get);
+            int size = ptr->results_size();
+            cout<<"size:"<<size<<endl;
+             cout<<"+++++++++++++++++"<<endl;
+            for(int i=0;i <size;++i)
+            {
+                cout<<"-----------------"<<endl;
+                const Result &res = ptr->results(i);
+                cout<<"x max:"<<res.xmax()<<endl;
+                cout<<"x min:"<<res.xmin()<<endl;
+                cout<<"y max:"<<res.ymax()<<endl;
+                cout<<"y min:"<<res.ymin()<<endl;
+                cout<<"score :"<<res.score()<<endl;
+                cout<<"class:"<<res.clazz()<<endl;
+                cout<<"-----------------"<<endl;
+            }
+            cout<<"+++++++++++++++++"<<endl;
             //while(1){
                 detector->on_gradients_ready();
                 sleep(5);

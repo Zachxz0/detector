@@ -35,7 +35,7 @@ void DetectorProxy::getFeatureMap(ITCMsg* itcmsg)
     int n = map->num();
     int size = w*h;
 
-    int res = 2;
+    int res = 1;
     if(w>=3)res = 4;
     if(w>=5)res = 8;
     if(w>10)res = 20;
@@ -93,11 +93,18 @@ void DetectorProxy::getDeconv(ITCMsg* itcmsg)
     unsigned char* weights = (unsigned char*)const_cast<char*>(im->data().data());
     int image_index = 0;
     cv::Mat rgb(h,w,CV_8UC3);
+    if(c==1)
+    {
+        rgb.create(h,w,CV_8UC1);
+    }else if(c==3)
+    {
+        rgb.create(h,w,CV_8UC3);
+    }
     for(int i=0;i<h;++i)
     {
         for(int j=0;j<w;++j)
         {
-            for(int k=0;k<3;++k)
+            for(int k=0;k<c;++k)
             {
                 rgb.data[image_index++] = weights[k*w*h+h*i+j];
             }
@@ -110,6 +117,7 @@ void DetectorProxy::getDeconv(ITCMsg* itcmsg)
         num++;
     }
     for(int i=0;i<num;++i)w*=10;
+    num = 0;
     while(h>10)
     {
         h/=10;
@@ -117,7 +125,13 @@ void DetectorProxy::getDeconv(ITCMsg* itcmsg)
     }
     for(int i=0;i<num;++i)h*=10;
     cv::Mat dst;
+    if(w<200)
+    {
+        w = w*2;
+        h = h*2;
+    }
     cv::resize(rgb, dst, cv::Size(w, h ),(0, 0), (0, 0), cv::INTER_LINEAR);
+    cout<<"w "<<w<<" h "<<h<<" c "<<c<<endl;
     unsigned char* image = new unsigned char[w*h*c];
     memcpy(image,dst.data,w*h*c);
     emit this->recDeconv(w,h,c,image);

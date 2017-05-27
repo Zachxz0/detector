@@ -1,6 +1,6 @@
 name: "detector"
-model: "/home/zoson/detector/my/models/VGGNet/VOC0712/SSD_300x300_zoson/deploy.prototxt"
-weight: "/home/zoson/detector/my/models/VGGNet/VOC0712/SSD_300x300/VGG_VOC0712_SSD_300x300_iter_109000.caffemodel"
+model: "/home/zoson/detector/my/models/VGGNet/VOC0712/SSD_300x300/deploy.prototxt"
+weight: "/home/zoson/detector/caffe/models/VGGNet/VOC0712/SSD_300x300/VGG_VOC0712_SSD_300x300_iter_120000.caffemodel"
 use_gpu:0
 mean {
     value: 104.0
