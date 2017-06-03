@@ -2318,129 +2318,143 @@ public final class ZosonProto {
         getModelBytes();
 
     /**
-     * <code>required string weight = 3;</code>
+     * <code>optional string weight = 3;</code>
      */
     boolean hasWeight();
     /**
-     * <code>required string weight = 3;</code>
+     * <code>optional string weight = 3;</code>
      */
     java.lang.String getWeight();
     /**
-     * <code>required string weight = 3;</code>
+     * <code>optional string weight = 3;</code>
      */
     com.google.protobuf.ByteString
         getWeightBytes();
 
     /**
-     * <code>optional string label = 4;</code>
+     * <code>optional string snapshot = 4;</code>
+     */
+    boolean hasSnapshot();
+    /**
+     * <code>optional string snapshot = 4;</code>
+     */
+    java.lang.String getSnapshot();
+    /**
+     * <code>optional string snapshot = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getSnapshotBytes();
+
+    /**
+     * <code>optional string label = 5;</code>
      */
     boolean hasLabel();
     /**
-     * <code>optional string label = 4;</code>
+     * <code>optional string label = 5;</code>
      */
     java.lang.String getLabel();
     /**
-     * <code>optional string label = 4;</code>
+     * <code>optional string label = 5;</code>
      */
     com.google.protobuf.ByteString
         getLabelBytes();
 
     /**
-     * <code>repeated int32 use_gpu = 5;</code>
+     * <code>repeated int32 use_gpu = 6;</code>
      */
     java.util.List<java.lang.Integer> getUseGpuList();
     /**
-     * <code>repeated int32 use_gpu = 5;</code>
+     * <code>repeated int32 use_gpu = 6;</code>
      */
     int getUseGpuCount();
     /**
-     * <code>repeated int32 use_gpu = 5;</code>
+     * <code>repeated int32 use_gpu = 6;</code>
      */
     int getUseGpu(int index);
 
     /**
-     * <code>optional bool istrain = 8 [default = false];</code>
+     * <code>optional bool istrain = 7 [default = false];</code>
      */
     boolean hasIstrain();
     /**
-     * <code>optional bool istrain = 8 [default = false];</code>
+     * <code>optional bool istrain = 7 [default = false];</code>
      */
     boolean getIstrain();
 
     /**
-     * <code>optional string solver = 9;</code>
+     * <code>optional string solver = 8;</code>
      */
     boolean hasSolver();
     /**
-     * <code>optional string solver = 9;</code>
+     * <code>optional string solver = 8;</code>
      */
     java.lang.String getSolver();
     /**
-     * <code>optional string solver = 9;</code>
+     * <code>optional string solver = 8;</code>
      */
     com.google.protobuf.ByteString
         getSolverBytes();
 
     /**
-     * <code>optional string mean_file = 10;</code>
+     * <code>optional string mean_file = 9;</code>
      */
     boolean hasMeanFile();
     /**
-     * <code>optional string mean_file = 10;</code>
+     * <code>optional string mean_file = 9;</code>
      */
     java.lang.String getMeanFile();
     /**
-     * <code>optional string mean_file = 10;</code>
+     * <code>optional string mean_file = 9;</code>
      */
     com.google.protobuf.ByteString
         getMeanFileBytes();
 
     /**
-     * <code>optional .MeanValue mean = 11;</code>
+     * <code>optional .MeanValue mean = 10;</code>
      */
     boolean hasMean();
     /**
-     * <code>optional .MeanValue mean = 11;</code>
+     * <code>optional .MeanValue mean = 10;</code>
      */
     com.zoson.detection.proto.ZosonProto.MeanValue getMean();
     /**
-     * <code>optional .MeanValue mean = 11;</code>
+     * <code>optional .MeanValue mean = 10;</code>
      */
     com.zoson.detection.proto.ZosonProto.MeanValueOrBuilder getMeanOrBuilder();
 
     /**
-     * <code>optional .DetectorParameter.Type type = 12 [default = DETECTOR];</code>
+     * <code>optional .DetectorParameter.Type type = 11 [default = DETECTOR];</code>
      */
     boolean hasType();
     /**
-     * <code>optional .DetectorParameter.Type type = 12 [default = DETECTOR];</code>
+     * <code>optional .DetectorParameter.Type type = 11 [default = DETECTOR];</code>
      */
     com.zoson.detection.proto.ZosonProto.DetectorParameter.Type getType();
 
     /**
-     * <code>optional string in_name = 13 [default = "data"];</code>
+     * <code>optional string in_name = 12 [default = "data"];</code>
      */
     boolean hasInName();
     /**
-     * <code>optional string in_name = 13 [default = "data"];</code>
+     * <code>optional string in_name = 12 [default = "data"];</code>
      */
     java.lang.String getInName();
     /**
-     * <code>optional string in_name = 13 [default = "data"];</code>
+     * <code>optional string in_name = 12 [default = "data"];</code>
      */
     com.google.protobuf.ByteString
         getInNameBytes();
 
     /**
-     * <code>optional string out_name = 14 [default = "detection_out"];</code>
+     * <code>optional string out_name = 13 [default = "detection_out"];</code>
      */
     boolean hasOutName();
     /**
-     * <code>optional string out_name = 14 [default = "detection_out"];</code>
+     * <code>optional string out_name = 13 [default = "detection_out"];</code>
      */
     java.lang.String getOutName();
     /**
-     * <code>optional string out_name = 14 [default = "detection_out"];</code>
+     * <code>optional string out_name = 13 [default = "detection_out"];</code>
      */
     com.google.protobuf.ByteString
         getOutNameBytes();
@@ -2518,23 +2532,29 @@ public final class ZosonProto {
             case 34: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000008;
+              snapshot_ = bs;
+              break;
+            }
+            case 42: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000010;
               label_ = bs;
               break;
             }
-            case 40: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+            case 48: {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
                 useGpu_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000010;
+                mutable_bitField0_ |= 0x00000020;
               }
               useGpu_.add(input.readInt32());
               break;
             }
-            case 42: {
+            case 50: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010) && input.getBytesUntilLimit() > 0) {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020) && input.getBytesUntilLimit() > 0) {
                 useGpu_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000010;
+                mutable_bitField0_ |= 0x00000020;
               }
               while (input.getBytesUntilLimit() > 0) {
                 useGpu_.add(input.readInt32());
@@ -2542,26 +2562,26 @@ public final class ZosonProto {
               input.popLimit(limit);
               break;
             }
-            case 64: {
-              bitField0_ |= 0x00000010;
+            case 56: {
+              bitField0_ |= 0x00000020;
               istrain_ = input.readBool();
+              break;
+            }
+            case 66: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000040;
+              solver_ = bs;
               break;
             }
             case 74: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000020;
-              solver_ = bs;
-              break;
-            }
-            case 82: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000040;
+              bitField0_ |= 0x00000080;
               meanFile_ = bs;
               break;
             }
-            case 90: {
+            case 82: {
               com.zoson.detection.proto.ZosonProto.MeanValue.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000080) == 0x00000080)) {
+              if (((bitField0_ & 0x00000100) == 0x00000100)) {
                 subBuilder = mean_.toBuilder();
               }
               mean_ = input.readMessage(com.zoson.detection.proto.ZosonProto.MeanValue.PARSER, extensionRegistry);
@@ -2569,29 +2589,29 @@ public final class ZosonProto {
                 subBuilder.mergeFrom(mean_);
                 mean_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000080;
+              bitField0_ |= 0x00000100;
               break;
             }
-            case 96: {
+            case 88: {
               int rawValue = input.readEnum();
               com.zoson.detection.proto.ZosonProto.DetectorParameter.Type value = com.zoson.detection.proto.ZosonProto.DetectorParameter.Type.valueOf(rawValue);
               if (value == null) {
-                unknownFields.mergeVarintField(12, rawValue);
+                unknownFields.mergeVarintField(11, rawValue);
               } else {
-                bitField0_ |= 0x00000100;
+                bitField0_ |= 0x00000200;
                 type_ = value;
               }
               break;
             }
-            case 106: {
+            case 98: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000200;
+              bitField0_ |= 0x00000400;
               inName_ = bs;
               break;
             }
-            case 114: {
+            case 106: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000400;
+              bitField0_ |= 0x00000800;
               outName_ = bs;
               break;
             }
@@ -2603,7 +2623,7 @@ public final class ZosonProto {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
           useGpu_ = java.util.Collections.unmodifiableList(useGpu_);
         }
         this.unknownFields = unknownFields.build();
@@ -2807,13 +2827,13 @@ public final class ZosonProto {
     public static final int WEIGHT_FIELD_NUMBER = 3;
     private java.lang.Object weight_;
     /**
-     * <code>required string weight = 3;</code>
+     * <code>optional string weight = 3;</code>
      */
     public boolean hasWeight() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required string weight = 3;</code>
+     * <code>optional string weight = 3;</code>
      */
     public java.lang.String getWeight() {
       java.lang.Object ref = weight_;
@@ -2830,7 +2850,7 @@ public final class ZosonProto {
       }
     }
     /**
-     * <code>required string weight = 3;</code>
+     * <code>optional string weight = 3;</code>
      */
     public com.google.protobuf.ByteString
         getWeightBytes() {
@@ -2846,16 +2866,58 @@ public final class ZosonProto {
       }
     }
 
-    public static final int LABEL_FIELD_NUMBER = 4;
-    private java.lang.Object label_;
+    public static final int SNAPSHOT_FIELD_NUMBER = 4;
+    private java.lang.Object snapshot_;
     /**
-     * <code>optional string label = 4;</code>
+     * <code>optional string snapshot = 4;</code>
      */
-    public boolean hasLabel() {
+    public boolean hasSnapshot() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional string label = 4;</code>
+     * <code>optional string snapshot = 4;</code>
+     */
+    public java.lang.String getSnapshot() {
+      java.lang.Object ref = snapshot_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          snapshot_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string snapshot = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSnapshotBytes() {
+      java.lang.Object ref = snapshot_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        snapshot_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LABEL_FIELD_NUMBER = 5;
+    private java.lang.Object label_;
+    /**
+     * <code>optional string label = 5;</code>
+     */
+    public boolean hasLabel() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional string label = 5;</code>
      */
     public java.lang.String getLabel() {
       java.lang.Object ref = label_;
@@ -2872,7 +2934,7 @@ public final class ZosonProto {
       }
     }
     /**
-     * <code>optional string label = 4;</code>
+     * <code>optional string label = 5;</code>
      */
     public com.google.protobuf.ByteString
         getLabelBytes() {
@@ -2888,53 +2950,53 @@ public final class ZosonProto {
       }
     }
 
-    public static final int USE_GPU_FIELD_NUMBER = 5;
+    public static final int USE_GPU_FIELD_NUMBER = 6;
     private java.util.List<java.lang.Integer> useGpu_;
     /**
-     * <code>repeated int32 use_gpu = 5;</code>
+     * <code>repeated int32 use_gpu = 6;</code>
      */
     public java.util.List<java.lang.Integer>
         getUseGpuList() {
       return useGpu_;
     }
     /**
-     * <code>repeated int32 use_gpu = 5;</code>
+     * <code>repeated int32 use_gpu = 6;</code>
      */
     public int getUseGpuCount() {
       return useGpu_.size();
     }
     /**
-     * <code>repeated int32 use_gpu = 5;</code>
+     * <code>repeated int32 use_gpu = 6;</code>
      */
     public int getUseGpu(int index) {
       return useGpu_.get(index);
     }
 
-    public static final int ISTRAIN_FIELD_NUMBER = 8;
+    public static final int ISTRAIN_FIELD_NUMBER = 7;
     private boolean istrain_;
     /**
-     * <code>optional bool istrain = 8 [default = false];</code>
+     * <code>optional bool istrain = 7 [default = false];</code>
      */
     public boolean hasIstrain() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional bool istrain = 8 [default = false];</code>
+     * <code>optional bool istrain = 7 [default = false];</code>
      */
     public boolean getIstrain() {
       return istrain_;
     }
 
-    public static final int SOLVER_FIELD_NUMBER = 9;
+    public static final int SOLVER_FIELD_NUMBER = 8;
     private java.lang.Object solver_;
     /**
-     * <code>optional string solver = 9;</code>
+     * <code>optional string solver = 8;</code>
      */
     public boolean hasSolver() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>optional string solver = 9;</code>
+     * <code>optional string solver = 8;</code>
      */
     public java.lang.String getSolver() {
       java.lang.Object ref = solver_;
@@ -2951,7 +3013,7 @@ public final class ZosonProto {
       }
     }
     /**
-     * <code>optional string solver = 9;</code>
+     * <code>optional string solver = 8;</code>
      */
     public com.google.protobuf.ByteString
         getSolverBytes() {
@@ -2967,16 +3029,16 @@ public final class ZosonProto {
       }
     }
 
-    public static final int MEAN_FILE_FIELD_NUMBER = 10;
+    public static final int MEAN_FILE_FIELD_NUMBER = 9;
     private java.lang.Object meanFile_;
     /**
-     * <code>optional string mean_file = 10;</code>
+     * <code>optional string mean_file = 9;</code>
      */
     public boolean hasMeanFile() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
-     * <code>optional string mean_file = 10;</code>
+     * <code>optional string mean_file = 9;</code>
      */
     public java.lang.String getMeanFile() {
       java.lang.Object ref = meanFile_;
@@ -2993,7 +3055,7 @@ public final class ZosonProto {
       }
     }
     /**
-     * <code>optional string mean_file = 10;</code>
+     * <code>optional string mean_file = 9;</code>
      */
     public com.google.protobuf.ByteString
         getMeanFileBytes() {
@@ -3009,52 +3071,52 @@ public final class ZosonProto {
       }
     }
 
-    public static final int MEAN_FIELD_NUMBER = 11;
+    public static final int MEAN_FIELD_NUMBER = 10;
     private com.zoson.detection.proto.ZosonProto.MeanValue mean_;
     /**
-     * <code>optional .MeanValue mean = 11;</code>
+     * <code>optional .MeanValue mean = 10;</code>
      */
     public boolean hasMean() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>optional .MeanValue mean = 11;</code>
+     * <code>optional .MeanValue mean = 10;</code>
      */
     public com.zoson.detection.proto.ZosonProto.MeanValue getMean() {
       return mean_;
     }
     /**
-     * <code>optional .MeanValue mean = 11;</code>
+     * <code>optional .MeanValue mean = 10;</code>
      */
     public com.zoson.detection.proto.ZosonProto.MeanValueOrBuilder getMeanOrBuilder() {
       return mean_;
     }
 
-    public static final int TYPE_FIELD_NUMBER = 12;
+    public static final int TYPE_FIELD_NUMBER = 11;
     private com.zoson.detection.proto.ZosonProto.DetectorParameter.Type type_;
     /**
-     * <code>optional .DetectorParameter.Type type = 12 [default = DETECTOR];</code>
+     * <code>optional .DetectorParameter.Type type = 11 [default = DETECTOR];</code>
      */
     public boolean hasType() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
+      return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>optional .DetectorParameter.Type type = 12 [default = DETECTOR];</code>
+     * <code>optional .DetectorParameter.Type type = 11 [default = DETECTOR];</code>
      */
     public com.zoson.detection.proto.ZosonProto.DetectorParameter.Type getType() {
       return type_;
     }
 
-    public static final int IN_NAME_FIELD_NUMBER = 13;
+    public static final int IN_NAME_FIELD_NUMBER = 12;
     private java.lang.Object inName_;
     /**
-     * <code>optional string in_name = 13 [default = "data"];</code>
+     * <code>optional string in_name = 12 [default = "data"];</code>
      */
     public boolean hasInName() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
+      return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>optional string in_name = 13 [default = "data"];</code>
+     * <code>optional string in_name = 12 [default = "data"];</code>
      */
     public java.lang.String getInName() {
       java.lang.Object ref = inName_;
@@ -3071,7 +3133,7 @@ public final class ZosonProto {
       }
     }
     /**
-     * <code>optional string in_name = 13 [default = "data"];</code>
+     * <code>optional string in_name = 12 [default = "data"];</code>
      */
     public com.google.protobuf.ByteString
         getInNameBytes() {
@@ -3087,16 +3149,16 @@ public final class ZosonProto {
       }
     }
 
-    public static final int OUT_NAME_FIELD_NUMBER = 14;
+    public static final int OUT_NAME_FIELD_NUMBER = 13;
     private java.lang.Object outName_;
     /**
-     * <code>optional string out_name = 14 [default = "detection_out"];</code>
+     * <code>optional string out_name = 13 [default = "detection_out"];</code>
      */
     public boolean hasOutName() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
+      return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
-     * <code>optional string out_name = 14 [default = "detection_out"];</code>
+     * <code>optional string out_name = 13 [default = "detection_out"];</code>
      */
     public java.lang.String getOutName() {
       java.lang.Object ref = outName_;
@@ -3113,7 +3175,7 @@ public final class ZosonProto {
       }
     }
     /**
-     * <code>optional string out_name = 14 [default = "detection_out"];</code>
+     * <code>optional string out_name = 13 [default = "detection_out"];</code>
      */
     public com.google.protobuf.ByteString
         getOutNameBytes() {
@@ -3133,6 +3195,7 @@ public final class ZosonProto {
       name_ = "";
       model_ = "";
       weight_ = "";
+      snapshot_ = "";
       label_ = "";
       useGpu_ = java.util.Collections.emptyList();
       istrain_ = false;
@@ -3157,10 +3220,6 @@ public final class ZosonProto {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasWeight()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -3178,31 +3237,34 @@ public final class ZosonProto {
         output.writeBytes(3, getWeightBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(4, getLabelBytes());
-      }
-      for (int i = 0; i < useGpu_.size(); i++) {
-        output.writeInt32(5, useGpu_.get(i));
+        output.writeBytes(4, getSnapshotBytes());
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBool(8, istrain_);
+        output.writeBytes(5, getLabelBytes());
+      }
+      for (int i = 0; i < useGpu_.size(); i++) {
+        output.writeInt32(6, useGpu_.get(i));
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeBytes(9, getSolverBytes());
+        output.writeBool(7, istrain_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeBytes(10, getMeanFileBytes());
+        output.writeBytes(8, getSolverBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeMessage(11, mean_);
+        output.writeBytes(9, getMeanFileBytes());
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeEnum(12, type_.getNumber());
+        output.writeMessage(10, mean_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeBytes(13, getInNameBytes());
+        output.writeEnum(11, type_.getNumber());
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeBytes(14, getOutNameBytes());
+        output.writeBytes(12, getInNameBytes());
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        output.writeBytes(13, getOutNameBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -3227,7 +3289,11 @@ public final class ZosonProto {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, getLabelBytes());
+          .computeBytesSize(4, getSnapshotBytes());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, getLabelBytes());
       }
       {
         int dataSize = 0;
@@ -3238,33 +3304,33 @@ public final class ZosonProto {
         size += dataSize;
         size += 1 * getUseGpuList().size();
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(8, istrain_);
-      }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(9, getSolverBytes());
+          .computeBoolSize(7, istrain_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(10, getMeanFileBytes());
+          .computeBytesSize(8, getSolverBytes());
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(11, mean_);
+          .computeBytesSize(9, getMeanFileBytes());
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(12, type_.getNumber());
+          .computeMessageSize(10, mean_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(13, getInNameBytes());
+          .computeEnumSize(11, type_.getNumber());
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(14, getOutNameBytes());
+          .computeBytesSize(12, getInNameBytes());
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(13, getOutNameBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -3390,28 +3456,30 @@ public final class ZosonProto {
         bitField0_ = (bitField0_ & ~0x00000002);
         weight_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        label_ = "";
+        snapshot_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
-        useGpu_ = java.util.Collections.emptyList();
+        label_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
-        istrain_ = false;
+        useGpu_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000020);
-        solver_ = "";
+        istrain_ = false;
         bitField0_ = (bitField0_ & ~0x00000040);
-        meanFile_ = "";
+        solver_ = "";
         bitField0_ = (bitField0_ & ~0x00000080);
+        meanFile_ = "";
+        bitField0_ = (bitField0_ & ~0x00000100);
         if (meanBuilder_ == null) {
           mean_ = com.zoson.detection.proto.ZosonProto.MeanValue.getDefaultInstance();
         } else {
           meanBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000100);
-        type_ = com.zoson.detection.proto.ZosonProto.DetectorParameter.Type.DETECTOR;
         bitField0_ = (bitField0_ & ~0x00000200);
-        inName_ = "data";
+        type_ = com.zoson.detection.proto.ZosonProto.DetectorParameter.Type.DETECTOR;
         bitField0_ = (bitField0_ & ~0x00000400);
-        outName_ = "detection_out";
+        inName_ = "data";
         bitField0_ = (bitField0_ & ~0x00000800);
+        outName_ = "detection_out";
+        bitField0_ = (bitField0_ & ~0x00001000);
         return this;
       }
 
@@ -3455,42 +3523,46 @@ public final class ZosonProto {
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.label_ = label_;
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          useGpu_ = java.util.Collections.unmodifiableList(useGpu_);
-          bitField0_ = (bitField0_ & ~0x00000010);
-        }
-        result.useGpu_ = useGpu_;
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+        result.snapshot_ = snapshot_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.istrain_ = istrain_;
+        result.label_ = label_;
+        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          useGpu_ = java.util.Collections.unmodifiableList(useGpu_);
+          bitField0_ = (bitField0_ & ~0x00000020);
+        }
+        result.useGpu_ = useGpu_;
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.solver_ = solver_;
+        result.istrain_ = istrain_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.meanFile_ = meanFile_;
+        result.solver_ = solver_;
         if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000080;
+        }
+        result.meanFile_ = meanFile_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000100;
         }
         if (meanBuilder_ == null) {
           result.mean_ = mean_;
         } else {
           result.mean_ = meanBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
-          to_bitField0_ |= 0x00000100;
-        }
-        result.type_ = type_;
         if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
           to_bitField0_ |= 0x00000200;
         }
-        result.inName_ = inName_;
+        result.type_ = type_;
         if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
           to_bitField0_ |= 0x00000400;
+        }
+        result.inName_ = inName_;
+        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
+          to_bitField0_ |= 0x00000800;
         }
         result.outName_ = outName_;
         result.bitField0_ = to_bitField0_;
@@ -3524,15 +3596,20 @@ public final class ZosonProto {
           weight_ = other.weight_;
           onChanged();
         }
-        if (other.hasLabel()) {
+        if (other.hasSnapshot()) {
           bitField0_ |= 0x00000008;
+          snapshot_ = other.snapshot_;
+          onChanged();
+        }
+        if (other.hasLabel()) {
+          bitField0_ |= 0x00000010;
           label_ = other.label_;
           onChanged();
         }
         if (!other.useGpu_.isEmpty()) {
           if (useGpu_.isEmpty()) {
             useGpu_ = other.useGpu_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureUseGpuIsMutable();
             useGpu_.addAll(other.useGpu_);
@@ -3543,12 +3620,12 @@ public final class ZosonProto {
           setIstrain(other.getIstrain());
         }
         if (other.hasSolver()) {
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000080;
           solver_ = other.solver_;
           onChanged();
         }
         if (other.hasMeanFile()) {
-          bitField0_ |= 0x00000080;
+          bitField0_ |= 0x00000100;
           meanFile_ = other.meanFile_;
           onChanged();
         }
@@ -3559,12 +3636,12 @@ public final class ZosonProto {
           setType(other.getType());
         }
         if (other.hasInName()) {
-          bitField0_ |= 0x00000400;
+          bitField0_ |= 0x00000800;
           inName_ = other.inName_;
           onChanged();
         }
         if (other.hasOutName()) {
-          bitField0_ |= 0x00000800;
+          bitField0_ |= 0x00001000;
           outName_ = other.outName_;
           onChanged();
         }
@@ -3578,10 +3655,6 @@ public final class ZosonProto {
           return false;
         }
         if (!hasModel()) {
-          
-          return false;
-        }
-        if (!hasWeight()) {
           
           return false;
         }
@@ -3761,13 +3834,13 @@ public final class ZosonProto {
 
       private java.lang.Object weight_ = "";
       /**
-       * <code>required string weight = 3;</code>
+       * <code>optional string weight = 3;</code>
        */
       public boolean hasWeight() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>required string weight = 3;</code>
+       * <code>optional string weight = 3;</code>
        */
       public java.lang.String getWeight() {
         java.lang.Object ref = weight_;
@@ -3784,7 +3857,7 @@ public final class ZosonProto {
         }
       }
       /**
-       * <code>required string weight = 3;</code>
+       * <code>optional string weight = 3;</code>
        */
       public com.google.protobuf.ByteString
           getWeightBytes() {
@@ -3800,7 +3873,7 @@ public final class ZosonProto {
         }
       }
       /**
-       * <code>required string weight = 3;</code>
+       * <code>optional string weight = 3;</code>
        */
       public Builder setWeight(
           java.lang.String value) {
@@ -3813,7 +3886,7 @@ public final class ZosonProto {
         return this;
       }
       /**
-       * <code>required string weight = 3;</code>
+       * <code>optional string weight = 3;</code>
        */
       public Builder clearWeight() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -3822,7 +3895,7 @@ public final class ZosonProto {
         return this;
       }
       /**
-       * <code>required string weight = 3;</code>
+       * <code>optional string weight = 3;</code>
        */
       public Builder setWeightBytes(
           com.google.protobuf.ByteString value) {
@@ -3835,15 +3908,91 @@ public final class ZosonProto {
         return this;
       }
 
-      private java.lang.Object label_ = "";
+      private java.lang.Object snapshot_ = "";
       /**
-       * <code>optional string label = 4;</code>
+       * <code>optional string snapshot = 4;</code>
        */
-      public boolean hasLabel() {
+      public boolean hasSnapshot() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional string label = 4;</code>
+       * <code>optional string snapshot = 4;</code>
+       */
+      public java.lang.String getSnapshot() {
+        java.lang.Object ref = snapshot_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            snapshot_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string snapshot = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSnapshotBytes() {
+        java.lang.Object ref = snapshot_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          snapshot_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string snapshot = 4;</code>
+       */
+      public Builder setSnapshot(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        snapshot_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string snapshot = 4;</code>
+       */
+      public Builder clearSnapshot() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        snapshot_ = getDefaultInstance().getSnapshot();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string snapshot = 4;</code>
+       */
+      public Builder setSnapshotBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        snapshot_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object label_ = "";
+      /**
+       * <code>optional string label = 5;</code>
+       */
+      public boolean hasLabel() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional string label = 5;</code>
        */
       public java.lang.String getLabel() {
         java.lang.Object ref = label_;
@@ -3860,7 +4009,7 @@ public final class ZosonProto {
         }
       }
       /**
-       * <code>optional string label = 4;</code>
+       * <code>optional string label = 5;</code>
        */
       public com.google.protobuf.ByteString
           getLabelBytes() {
@@ -3876,36 +4025,36 @@ public final class ZosonProto {
         }
       }
       /**
-       * <code>optional string label = 4;</code>
+       * <code>optional string label = 5;</code>
        */
       public Builder setLabel(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         label_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string label = 4;</code>
+       * <code>optional string label = 5;</code>
        */
       public Builder clearLabel() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         label_ = getDefaultInstance().getLabel();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string label = 4;</code>
+       * <code>optional string label = 5;</code>
        */
       public Builder setLabelBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         label_ = value;
         onChanged();
         return this;
@@ -3913,32 +4062,32 @@ public final class ZosonProto {
 
       private java.util.List<java.lang.Integer> useGpu_ = java.util.Collections.emptyList();
       private void ensureUseGpuIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
           useGpu_ = new java.util.ArrayList<java.lang.Integer>(useGpu_);
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000020;
          }
       }
       /**
-       * <code>repeated int32 use_gpu = 5;</code>
+       * <code>repeated int32 use_gpu = 6;</code>
        */
       public java.util.List<java.lang.Integer>
           getUseGpuList() {
         return java.util.Collections.unmodifiableList(useGpu_);
       }
       /**
-       * <code>repeated int32 use_gpu = 5;</code>
+       * <code>repeated int32 use_gpu = 6;</code>
        */
       public int getUseGpuCount() {
         return useGpu_.size();
       }
       /**
-       * <code>repeated int32 use_gpu = 5;</code>
+       * <code>repeated int32 use_gpu = 6;</code>
        */
       public int getUseGpu(int index) {
         return useGpu_.get(index);
       }
       /**
-       * <code>repeated int32 use_gpu = 5;</code>
+       * <code>repeated int32 use_gpu = 6;</code>
        */
       public Builder setUseGpu(
           int index, int value) {
@@ -3948,7 +4097,7 @@ public final class ZosonProto {
         return this;
       }
       /**
-       * <code>repeated int32 use_gpu = 5;</code>
+       * <code>repeated int32 use_gpu = 6;</code>
        */
       public Builder addUseGpu(int value) {
         ensureUseGpuIsMutable();
@@ -3957,7 +4106,7 @@ public final class ZosonProto {
         return this;
       }
       /**
-       * <code>repeated int32 use_gpu = 5;</code>
+       * <code>repeated int32 use_gpu = 6;</code>
        */
       public Builder addAllUseGpu(
           java.lang.Iterable<? extends java.lang.Integer> values) {
@@ -3968,42 +4117,42 @@ public final class ZosonProto {
         return this;
       }
       /**
-       * <code>repeated int32 use_gpu = 5;</code>
+       * <code>repeated int32 use_gpu = 6;</code>
        */
       public Builder clearUseGpu() {
         useGpu_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
 
       private boolean istrain_ ;
       /**
-       * <code>optional bool istrain = 8 [default = false];</code>
+       * <code>optional bool istrain = 7 [default = false];</code>
        */
       public boolean hasIstrain() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional bool istrain = 8 [default = false];</code>
+       * <code>optional bool istrain = 7 [default = false];</code>
        */
       public boolean getIstrain() {
         return istrain_;
       }
       /**
-       * <code>optional bool istrain = 8 [default = false];</code>
+       * <code>optional bool istrain = 7 [default = false];</code>
        */
       public Builder setIstrain(boolean value) {
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
         istrain_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional bool istrain = 8 [default = false];</code>
+       * <code>optional bool istrain = 7 [default = false];</code>
        */
       public Builder clearIstrain() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         istrain_ = false;
         onChanged();
         return this;
@@ -4011,13 +4160,13 @@ public final class ZosonProto {
 
       private java.lang.Object solver_ = "";
       /**
-       * <code>optional string solver = 9;</code>
+       * <code>optional string solver = 8;</code>
        */
       public boolean hasSolver() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>optional string solver = 9;</code>
+       * <code>optional string solver = 8;</code>
        */
       public java.lang.String getSolver() {
         java.lang.Object ref = solver_;
@@ -4034,7 +4183,7 @@ public final class ZosonProto {
         }
       }
       /**
-       * <code>optional string solver = 9;</code>
+       * <code>optional string solver = 8;</code>
        */
       public com.google.protobuf.ByteString
           getSolverBytes() {
@@ -4050,36 +4199,36 @@ public final class ZosonProto {
         }
       }
       /**
-       * <code>optional string solver = 9;</code>
+       * <code>optional string solver = 8;</code>
        */
       public Builder setSolver(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000080;
         solver_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string solver = 9;</code>
+       * <code>optional string solver = 8;</code>
        */
       public Builder clearSolver() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
         solver_ = getDefaultInstance().getSolver();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string solver = 9;</code>
+       * <code>optional string solver = 8;</code>
        */
       public Builder setSolverBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000040;
+  bitField0_ |= 0x00000080;
         solver_ = value;
         onChanged();
         return this;
@@ -4087,13 +4236,13 @@ public final class ZosonProto {
 
       private java.lang.Object meanFile_ = "";
       /**
-       * <code>optional string mean_file = 10;</code>
+       * <code>optional string mean_file = 9;</code>
        */
       public boolean hasMeanFile() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>optional string mean_file = 10;</code>
+       * <code>optional string mean_file = 9;</code>
        */
       public java.lang.String getMeanFile() {
         java.lang.Object ref = meanFile_;
@@ -4110,7 +4259,7 @@ public final class ZosonProto {
         }
       }
       /**
-       * <code>optional string mean_file = 10;</code>
+       * <code>optional string mean_file = 9;</code>
        */
       public com.google.protobuf.ByteString
           getMeanFileBytes() {
@@ -4126,36 +4275,36 @@ public final class ZosonProto {
         }
       }
       /**
-       * <code>optional string mean_file = 10;</code>
+       * <code>optional string mean_file = 9;</code>
        */
       public Builder setMeanFile(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000100;
         meanFile_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string mean_file = 10;</code>
+       * <code>optional string mean_file = 9;</code>
        */
       public Builder clearMeanFile() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
         meanFile_ = getDefaultInstance().getMeanFile();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string mean_file = 10;</code>
+       * <code>optional string mean_file = 9;</code>
        */
       public Builder setMeanFileBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000100;
         meanFile_ = value;
         onChanged();
         return this;
@@ -4165,13 +4314,13 @@ public final class ZosonProto {
       private com.google.protobuf.SingleFieldBuilder<
           com.zoson.detection.proto.ZosonProto.MeanValue, com.zoson.detection.proto.ZosonProto.MeanValue.Builder, com.zoson.detection.proto.ZosonProto.MeanValueOrBuilder> meanBuilder_;
       /**
-       * <code>optional .MeanValue mean = 11;</code>
+       * <code>optional .MeanValue mean = 10;</code>
        */
       public boolean hasMean() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+        return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>optional .MeanValue mean = 11;</code>
+       * <code>optional .MeanValue mean = 10;</code>
        */
       public com.zoson.detection.proto.ZosonProto.MeanValue getMean() {
         if (meanBuilder_ == null) {
@@ -4181,7 +4330,7 @@ public final class ZosonProto {
         }
       }
       /**
-       * <code>optional .MeanValue mean = 11;</code>
+       * <code>optional .MeanValue mean = 10;</code>
        */
       public Builder setMean(com.zoson.detection.proto.ZosonProto.MeanValue value) {
         if (meanBuilder_ == null) {
@@ -4193,11 +4342,11 @@ public final class ZosonProto {
         } else {
           meanBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         return this;
       }
       /**
-       * <code>optional .MeanValue mean = 11;</code>
+       * <code>optional .MeanValue mean = 10;</code>
        */
       public Builder setMean(
           com.zoson.detection.proto.ZosonProto.MeanValue.Builder builderForValue) {
@@ -4207,15 +4356,15 @@ public final class ZosonProto {
         } else {
           meanBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         return this;
       }
       /**
-       * <code>optional .MeanValue mean = 11;</code>
+       * <code>optional .MeanValue mean = 10;</code>
        */
       public Builder mergeMean(com.zoson.detection.proto.ZosonProto.MeanValue value) {
         if (meanBuilder_ == null) {
-          if (((bitField0_ & 0x00000100) == 0x00000100) &&
+          if (((bitField0_ & 0x00000200) == 0x00000200) &&
               mean_ != com.zoson.detection.proto.ZosonProto.MeanValue.getDefaultInstance()) {
             mean_ =
               com.zoson.detection.proto.ZosonProto.MeanValue.newBuilder(mean_).mergeFrom(value).buildPartial();
@@ -4226,11 +4375,11 @@ public final class ZosonProto {
         } else {
           meanBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         return this;
       }
       /**
-       * <code>optional .MeanValue mean = 11;</code>
+       * <code>optional .MeanValue mean = 10;</code>
        */
       public Builder clearMean() {
         if (meanBuilder_ == null) {
@@ -4239,19 +4388,19 @@ public final class ZosonProto {
         } else {
           meanBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
       /**
-       * <code>optional .MeanValue mean = 11;</code>
+       * <code>optional .MeanValue mean = 10;</code>
        */
       public com.zoson.detection.proto.ZosonProto.MeanValue.Builder getMeanBuilder() {
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         onChanged();
         return getMeanFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .MeanValue mean = 11;</code>
+       * <code>optional .MeanValue mean = 10;</code>
        */
       public com.zoson.detection.proto.ZosonProto.MeanValueOrBuilder getMeanOrBuilder() {
         if (meanBuilder_ != null) {
@@ -4261,7 +4410,7 @@ public final class ZosonProto {
         }
       }
       /**
-       * <code>optional .MeanValue mean = 11;</code>
+       * <code>optional .MeanValue mean = 10;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.zoson.detection.proto.ZosonProto.MeanValue, com.zoson.detection.proto.ZosonProto.MeanValue.Builder, com.zoson.detection.proto.ZosonProto.MeanValueOrBuilder> 
@@ -4279,34 +4428,34 @@ public final class ZosonProto {
 
       private com.zoson.detection.proto.ZosonProto.DetectorParameter.Type type_ = com.zoson.detection.proto.ZosonProto.DetectorParameter.Type.DETECTOR;
       /**
-       * <code>optional .DetectorParameter.Type type = 12 [default = DETECTOR];</code>
+       * <code>optional .DetectorParameter.Type type = 11 [default = DETECTOR];</code>
        */
       public boolean hasType() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
+        return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
-       * <code>optional .DetectorParameter.Type type = 12 [default = DETECTOR];</code>
+       * <code>optional .DetectorParameter.Type type = 11 [default = DETECTOR];</code>
        */
       public com.zoson.detection.proto.ZosonProto.DetectorParameter.Type getType() {
         return type_;
       }
       /**
-       * <code>optional .DetectorParameter.Type type = 12 [default = DETECTOR];</code>
+       * <code>optional .DetectorParameter.Type type = 11 [default = DETECTOR];</code>
        */
       public Builder setType(com.zoson.detection.proto.ZosonProto.DetectorParameter.Type value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
         type_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional .DetectorParameter.Type type = 12 [default = DETECTOR];</code>
+       * <code>optional .DetectorParameter.Type type = 11 [default = DETECTOR];</code>
        */
       public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000400);
         type_ = com.zoson.detection.proto.ZosonProto.DetectorParameter.Type.DETECTOR;
         onChanged();
         return this;
@@ -4314,13 +4463,13 @@ public final class ZosonProto {
 
       private java.lang.Object inName_ = "data";
       /**
-       * <code>optional string in_name = 13 [default = "data"];</code>
+       * <code>optional string in_name = 12 [default = "data"];</code>
        */
       public boolean hasInName() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
+        return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
-       * <code>optional string in_name = 13 [default = "data"];</code>
+       * <code>optional string in_name = 12 [default = "data"];</code>
        */
       public java.lang.String getInName() {
         java.lang.Object ref = inName_;
@@ -4337,7 +4486,7 @@ public final class ZosonProto {
         }
       }
       /**
-       * <code>optional string in_name = 13 [default = "data"];</code>
+       * <code>optional string in_name = 12 [default = "data"];</code>
        */
       public com.google.protobuf.ByteString
           getInNameBytes() {
@@ -4353,36 +4502,36 @@ public final class ZosonProto {
         }
       }
       /**
-       * <code>optional string in_name = 13 [default = "data"];</code>
+       * <code>optional string in_name = 12 [default = "data"];</code>
        */
       public Builder setInName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000400;
+  bitField0_ |= 0x00000800;
         inName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string in_name = 13 [default = "data"];</code>
+       * <code>optional string in_name = 12 [default = "data"];</code>
        */
       public Builder clearInName() {
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00000800);
         inName_ = getDefaultInstance().getInName();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string in_name = 13 [default = "data"];</code>
+       * <code>optional string in_name = 12 [default = "data"];</code>
        */
       public Builder setInNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000400;
+  bitField0_ |= 0x00000800;
         inName_ = value;
         onChanged();
         return this;
@@ -4390,13 +4539,13 @@ public final class ZosonProto {
 
       private java.lang.Object outName_ = "detection_out";
       /**
-       * <code>optional string out_name = 14 [default = "detection_out"];</code>
+       * <code>optional string out_name = 13 [default = "detection_out"];</code>
        */
       public boolean hasOutName() {
-        return ((bitField0_ & 0x00000800) == 0x00000800);
+        return ((bitField0_ & 0x00001000) == 0x00001000);
       }
       /**
-       * <code>optional string out_name = 14 [default = "detection_out"];</code>
+       * <code>optional string out_name = 13 [default = "detection_out"];</code>
        */
       public java.lang.String getOutName() {
         java.lang.Object ref = outName_;
@@ -4413,7 +4562,7 @@ public final class ZosonProto {
         }
       }
       /**
-       * <code>optional string out_name = 14 [default = "detection_out"];</code>
+       * <code>optional string out_name = 13 [default = "detection_out"];</code>
        */
       public com.google.protobuf.ByteString
           getOutNameBytes() {
@@ -4429,36 +4578,36 @@ public final class ZosonProto {
         }
       }
       /**
-       * <code>optional string out_name = 14 [default = "detection_out"];</code>
+       * <code>optional string out_name = 13 [default = "detection_out"];</code>
        */
       public Builder setOutName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000800;
+  bitField0_ |= 0x00001000;
         outName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string out_name = 14 [default = "detection_out"];</code>
+       * <code>optional string out_name = 13 [default = "detection_out"];</code>
        */
       public Builder clearOutName() {
-        bitField0_ = (bitField0_ & ~0x00000800);
+        bitField0_ = (bitField0_ & ~0x00001000);
         outName_ = getDefaultInstance().getOutName();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string out_name = 14 [default = "detection_out"];</code>
+       * <code>optional string out_name = 13 [default = "detection_out"];</code>
        */
       public Builder setOutNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000800;
+  bitField0_ |= 0x00001000;
         outName_ = value;
         onChanged();
         return this;
@@ -13490,6 +13639,33 @@ public final class ZosonProto {
      * <code>optional bool do_deconv = 3 [default = false];</code>
      */
     boolean getDoDeconv();
+
+    /**
+     * <code>optional int32 sub_i_layer = 4;</code>
+     */
+    boolean hasSubILayer();
+    /**
+     * <code>optional int32 sub_i_layer = 4;</code>
+     */
+    int getSubILayer();
+
+    /**
+     * <code>optional int32 sub_i_map = 5;</code>
+     */
+    boolean hasSubIMap();
+    /**
+     * <code>optional int32 sub_i_map = 5;</code>
+     */
+    int getSubIMap();
+
+    /**
+     * <code>optional bool do_sub_deconv = 6 [default = false];</code>
+     */
+    boolean hasDoSubDeconv();
+    /**
+     * <code>optional bool do_sub_deconv = 6 [default = false];</code>
+     */
+    boolean getDoSubDeconv();
   }
   /**
    * Protobuf type {@code VReqDeconv}
@@ -13556,6 +13732,21 @@ public final class ZosonProto {
             case 24: {
               bitField0_ |= 0x00000004;
               doDeconv_ = input.readBool();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              subILayer_ = input.readInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              subIMap_ = input.readInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              doSubDeconv_ = input.readBool();
               break;
             }
           }
@@ -13643,10 +13834,58 @@ public final class ZosonProto {
       return doDeconv_;
     }
 
+    public static final int SUB_I_LAYER_FIELD_NUMBER = 4;
+    private int subILayer_;
+    /**
+     * <code>optional int32 sub_i_layer = 4;</code>
+     */
+    public boolean hasSubILayer() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int32 sub_i_layer = 4;</code>
+     */
+    public int getSubILayer() {
+      return subILayer_;
+    }
+
+    public static final int SUB_I_MAP_FIELD_NUMBER = 5;
+    private int subIMap_;
+    /**
+     * <code>optional int32 sub_i_map = 5;</code>
+     */
+    public boolean hasSubIMap() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional int32 sub_i_map = 5;</code>
+     */
+    public int getSubIMap() {
+      return subIMap_;
+    }
+
+    public static final int DO_SUB_DECONV_FIELD_NUMBER = 6;
+    private boolean doSubDeconv_;
+    /**
+     * <code>optional bool do_sub_deconv = 6 [default = false];</code>
+     */
+    public boolean hasDoSubDeconv() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional bool do_sub_deconv = 6 [default = false];</code>
+     */
+    public boolean getDoSubDeconv() {
+      return doSubDeconv_;
+    }
+
     private void initFields() {
       iLayer_ = 0;
       iMap_ = 0;
       doDeconv_ = false;
+      subILayer_ = 0;
+      subIMap_ = 0;
+      doSubDeconv_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -13678,6 +13917,15 @@ public final class ZosonProto {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBool(3, doDeconv_);
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, subILayer_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(5, subIMap_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeBool(6, doSubDeconv_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -13698,6 +13946,18 @@ public final class ZosonProto {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, doDeconv_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, subILayer_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, subIMap_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(6, doSubDeconv_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -13822,6 +14082,12 @@ public final class ZosonProto {
         bitField0_ = (bitField0_ & ~0x00000002);
         doDeconv_ = false;
         bitField0_ = (bitField0_ & ~0x00000004);
+        subILayer_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        subIMap_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        doSubDeconv_ = false;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -13862,6 +14128,18 @@ public final class ZosonProto {
           to_bitField0_ |= 0x00000004;
         }
         result.doDeconv_ = doDeconv_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.subILayer_ = subILayer_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.subIMap_ = subIMap_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.doSubDeconv_ = doSubDeconv_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -13886,6 +14164,15 @@ public final class ZosonProto {
         }
         if (other.hasDoDeconv()) {
           setDoDeconv(other.getDoDeconv());
+        }
+        if (other.hasSubILayer()) {
+          setSubILayer(other.getSubILayer());
+        }
+        if (other.hasSubIMap()) {
+          setSubIMap(other.getSubIMap());
+        }
+        if (other.hasDoSubDeconv()) {
+          setDoSubDeconv(other.getDoSubDeconv());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -14014,6 +14301,102 @@ public final class ZosonProto {
       public Builder clearDoDeconv() {
         bitField0_ = (bitField0_ & ~0x00000004);
         doDeconv_ = false;
+        onChanged();
+        return this;
+      }
+
+      private int subILayer_ ;
+      /**
+       * <code>optional int32 sub_i_layer = 4;</code>
+       */
+      public boolean hasSubILayer() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int32 sub_i_layer = 4;</code>
+       */
+      public int getSubILayer() {
+        return subILayer_;
+      }
+      /**
+       * <code>optional int32 sub_i_layer = 4;</code>
+       */
+      public Builder setSubILayer(int value) {
+        bitField0_ |= 0x00000008;
+        subILayer_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 sub_i_layer = 4;</code>
+       */
+      public Builder clearSubILayer() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        subILayer_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int subIMap_ ;
+      /**
+       * <code>optional int32 sub_i_map = 5;</code>
+       */
+      public boolean hasSubIMap() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional int32 sub_i_map = 5;</code>
+       */
+      public int getSubIMap() {
+        return subIMap_;
+      }
+      /**
+       * <code>optional int32 sub_i_map = 5;</code>
+       */
+      public Builder setSubIMap(int value) {
+        bitField0_ |= 0x00000010;
+        subIMap_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 sub_i_map = 5;</code>
+       */
+      public Builder clearSubIMap() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        subIMap_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean doSubDeconv_ ;
+      /**
+       * <code>optional bool do_sub_deconv = 6 [default = false];</code>
+       */
+      public boolean hasDoSubDeconv() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional bool do_sub_deconv = 6 [default = false];</code>
+       */
+      public boolean getDoSubDeconv() {
+        return doSubDeconv_;
+      }
+      /**
+       * <code>optional bool do_sub_deconv = 6 [default = false];</code>
+       */
+      public Builder setDoSubDeconv(boolean value) {
+        bitField0_ |= 0x00000020;
+        doSubDeconv_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool do_sub_deconv = 6 [default = false];</code>
+       */
+      public Builder clearDoSubDeconv() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        doSubDeconv_ = false;
         onChanged();
         return this;
       }
@@ -15091,6 +15474,10 @@ public final class ZosonProto {
        * <code>REC = 9;</code>
        */
       REC(8, 9),
+      /**
+       * <code>SUBDECONV = 10;</code>
+       */
+      SUBDECONV(9, 10),
       ;
 
       /**
@@ -15129,6 +15516,10 @@ public final class ZosonProto {
        * <code>REC = 9;</code>
        */
       public static final int REC_VALUE = 9;
+      /**
+       * <code>SUBDECONV = 10;</code>
+       */
+      public static final int SUBDECONV_VALUE = 10;
 
 
       public final int getNumber() { return value; }
@@ -15144,6 +15535,7 @@ public final class ZosonProto {
           case 7: return STATE;
           case 8: return SETTING;
           case 9: return REC;
+          case 10: return SUBDECONV;
           default: return null;
         }
       }
@@ -18954,56 +19346,58 @@ public final class ZosonProto {
       "\001 \002(\005\022\013\n\003dim\030\002 \003(\005\"K\n\021DContextParameter\022" +
       "\026\n\005model\030\001 \003(\0132\007.DModel\022\036\n\005commu\030\003 \001(\0132\017" +
       ".CommuParameter\"9\n\006DModel\022\014\n\004path\030\001 \001(\t\022" +
-      "!\n\005model\030\002 \001(\0132\022.DetectorParameter\"\304\002\n\021D" +
+      "!\n\005model\030\002 \001(\0132\022.DetectorParameter\"\326\002\n\021D" +
       "etectorParameter\022\014\n\004name\030\001 \002(\t\022\r\n\005model\030" +
-      "\002 \002(\t\022\016\n\006weight\030\003 \002(\t\022\r\n\005label\030\004 \001(\t\022\017\n\007" +
-      "use_gpu\030\005 \003(\005\022\026\n\007istrain\030\010 \001(\010:\005false\022\016\n" +
-      "\006solver\030\t \001(\t\022\021\n\tmean_file\030\n \001(\t\022\030\n\004mean" +
-      "\030\013 \001(\0132\n.MeanValue\022/\n\004type\030\014 \001(\0162\027.Detec",
-      "torParameter.Type:\010DETECTOR\022\025\n\007in_name\030\r" +
-      " \001(\t:\004data\022\037\n\010out_name\030\016 \001(\t:\rdetection_" +
-      "out\"$\n\004Type\022\014\n\010DETECTOR\020\001\022\016\n\nCLASSIFIER\020" +
-      "\002\",\n\tMeanValue\022\r\n\005value\030\001 \003(\002\022\020\n\005scale\030\002" +
-      " \001(\002:\0011\"y\n\013DetectInput\022\r\n\005width\030\002 \002(\005\022\016\n" +
-      "\006height\030\003 \002(\005\022\014\n\004data\030\004 \002(\014\"=\n\006Format\022\007\n" +
-      "\003JPG\020\000\022\007\n\003PNG\020\001\022\007\n\003RGB\020\002\022\013\n\007YOV_420\020\003\022\013\n" +
-      "\007YOV_422\020\004\"(\n\014DetectOutput\022\030\n\007results\030\001 " +
-      "\003(\0132\007.Result\"^\n\006Result\022\014\n\004xmin\030\001 \002(\002\022\014\n\004" +
-      "ymin\030\002 \002(\002\022\014\n\004xmax\030\003 \002(\002\022\014\n\004ymax\030\004 \002(\002\022\r",
-      "\n\005clazz\030\005 \002(\005\022\r\n\005score\030\006 \002(\002\"\261\001\n\016CommuPa" +
-      "rameter\022\032\n\007address\030\001 \001(\t:\tlocalhost\022\023\n\004p" +
-      "ort\030\002 \001(\005:\00510086\022\030\n\013client_name\030\003 \001(\t:\003w" +
-      "eb\022\'\n\004type\030\004 \001(\0162\024.CommuParameter.Type:\003" +
-      "LOC\"+\n\004Type\022\007\n\003LOC\020\000\022\007\n\003IPC\020\001\022\007\n\003TCP\020\003\022\010" +
-      "\n\004RTMP\020\004\"$\n\tClassMaps\022\027\n\004item\030\001 \003(\0132\t.Cl" +
-      "assMap\"=\n\010ClassMap\022\014\n\004name\030\001 \002(\t\022\r\n\005labe" +
-      "l\030\002 \002(\005\022\024\n\014display_name\030\003 \002(\t\"\"\n\006Cookie\022" +
-      "\n\n\002ID\030\001 \002(\t\022\014\n\004name\030\002 \002(\t\"\034\n\013Bytetranfer" +
-      "\022\r\n\005count\030\002 \002(\005\")\n\013VLayerInfos\022\032\n\005infos\030",
-      "\001 \003(\0132\013.VLayerInfo\"7\n\nVLayerInfo\022\r\n\005inde" +
-      "x\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022\014\n\004type\030\003 \002(\t\"X\n\013V" +
-      "FeatureMap\022\r\n\005width\030\001 \002(\005\022\016\n\006height\030\002 \002(" +
-      "\005\022\013\n\003num\030\003 \002(\005\022\017\n\007channel\030\004 \002(\005\022\014\n\004data\030" +
-      "\005 \002(\014\"F\n\006VImage\022\r\n\005width\030\001 \002(\005\022\016\n\006height" +
-      "\030\002 \002(\005\022\017\n\007channel\030\003 \002(\005\022\014\n\004data\030\004 \002(\014\"F\n" +
-      "\nVReqDeconv\022\017\n\007i_layer\030\001 \002(\005\022\r\n\005i_map\030\002 " +
-      "\002(\005\022\030\n\tdo_deconv\030\003 \001(\010:\005false\"M\n\010VSettin" +
-      "g\022\r\n\005model\030\001 \002(\t\022\016\n\006solver\030\002 \002(\t\022\014\n\004test" +
-      "\030\003 \002(\t\022\024\n\010interval\030\004 \001(\005:\002-1\"\255\001\n\tVRespon",
-      "se\022\035\n\004type\030\001 \002(\0162\017.VResponse.Type\022\014\n\004dat" +
-      "a\030\002 \001(\014\"s\n\004Type\022\n\n\006WEIGHT\020\001\022\016\n\nFEATUREMA" +
-      "P\020\002\022\016\n\nLAYERINFOS\020\003\022\t\n\005INPUT\020\004\022\n\n\006DECONV" +
-      "\020\005\022\007\n\003ALL\020\006\022\t\n\005STATE\020\007\022\013\n\007SETTING\020\010\022\007\n\003R" +
-      "EC\020\t\"\032\n\tVRecState\022\r\n\005state\030\001 \002(\005\"$\n\004VAll" +
-      "\022\034\n\010response\030\001 \003(\0132\n.VResponse\"D\n\013VReqFe" +
-      "ature\022\017\n\007i_layer\030\001 \002(\005\022\017\n\007i_image\030\002 \002(\005\022" +
-      "\023\n\004diff\030\003 \001(\010:\005false\"0\n\nVReqWeight\022\r\n\005in" +
-      "dex\030\001 \002(\005\022\023\n\004diff\030\002 \001(\010:\005false\"\204\001\n\006VStat" +
-      "e\022\022\n\004auto\030\001 \001(\010:\004true\022\021\n\005input\030\002 \001(\005:\002-1",
-      "\022\031\n\003map\030\003 \001(\0132\014.VReqFeature\022\033\n\006deconv\030\004 " +
-      "\001(\0132\013.VReqDeconv\022\033\n\006weight\030\005 \001(\0132\013.VReqW" +
-      "eightB\'\n\031com.zoson.detection.protoB\nZoso" +
-      "nProto"
+      "\002 \002(\t\022\016\n\006weight\030\003 \001(\t\022\020\n\010snapshot\030\004 \001(\t\022" +
+      "\r\n\005label\030\005 \001(\t\022\017\n\007use_gpu\030\006 \003(\005\022\026\n\007istra" +
+      "in\030\007 \001(\010:\005false\022\016\n\006solver\030\010 \001(\t\022\021\n\tmean_" +
+      "file\030\t \001(\t\022\030\n\004mean\030\n \001(\0132\n.MeanValue\022/\n\004",
+      "type\030\013 \001(\0162\027.DetectorParameter.Type:\010DET" +
+      "ECTOR\022\025\n\007in_name\030\014 \001(\t:\004data\022\037\n\010out_name" +
+      "\030\r \001(\t:\rdetection_out\"$\n\004Type\022\014\n\010DETECTO" +
+      "R\020\001\022\016\n\nCLASSIFIER\020\002\",\n\tMeanValue\022\r\n\005valu" +
+      "e\030\001 \003(\002\022\020\n\005scale\030\002 \001(\002:\0011\"y\n\013DetectInput" +
+      "\022\r\n\005width\030\002 \002(\005\022\016\n\006height\030\003 \002(\005\022\014\n\004data\030" +
+      "\004 \002(\014\"=\n\006Format\022\007\n\003JPG\020\000\022\007\n\003PNG\020\001\022\007\n\003RGB" +
+      "\020\002\022\013\n\007YOV_420\020\003\022\013\n\007YOV_422\020\004\"(\n\014DetectOu" +
+      "tput\022\030\n\007results\030\001 \003(\0132\007.Result\"^\n\006Result" +
+      "\022\014\n\004xmin\030\001 \002(\002\022\014\n\004ymin\030\002 \002(\002\022\014\n\004xmax\030\003 \002",
+      "(\002\022\014\n\004ymax\030\004 \002(\002\022\r\n\005clazz\030\005 \002(\005\022\r\n\005score" +
+      "\030\006 \002(\002\"\261\001\n\016CommuParameter\022\032\n\007address\030\001 \001" +
+      "(\t:\tlocalhost\022\023\n\004port\030\002 \001(\005:\00510086\022\030\n\013cl" +
+      "ient_name\030\003 \001(\t:\003web\022\'\n\004type\030\004 \001(\0162\024.Com" +
+      "muParameter.Type:\003LOC\"+\n\004Type\022\007\n\003LOC\020\000\022\007" +
+      "\n\003IPC\020\001\022\007\n\003TCP\020\003\022\010\n\004RTMP\020\004\"$\n\tClassMaps\022" +
+      "\027\n\004item\030\001 \003(\0132\t.ClassMap\"=\n\010ClassMap\022\014\n\004" +
+      "name\030\001 \002(\t\022\r\n\005label\030\002 \002(\005\022\024\n\014display_nam" +
+      "e\030\003 \002(\t\"\"\n\006Cookie\022\n\n\002ID\030\001 \002(\t\022\014\n\004name\030\002 " +
+      "\002(\t\"\034\n\013Bytetranfer\022\r\n\005count\030\002 \002(\005\")\n\013VLa",
+      "yerInfos\022\032\n\005infos\030\001 \003(\0132\013.VLayerInfo\"7\n\n" +
+      "VLayerInfo\022\r\n\005index\030\001 \002(\005\022\014\n\004name\030\002 \002(\t\022" +
+      "\014\n\004type\030\003 \002(\t\"X\n\013VFeatureMap\022\r\n\005width\030\001 " +
+      "\002(\005\022\016\n\006height\030\002 \002(\005\022\013\n\003num\030\003 \002(\005\022\017\n\007chan" +
+      "nel\030\004 \002(\005\022\014\n\004data\030\005 \002(\014\"F\n\006VImage\022\r\n\005wid" +
+      "th\030\001 \002(\005\022\016\n\006height\030\002 \002(\005\022\017\n\007channel\030\003 \002(" +
+      "\005\022\014\n\004data\030\004 \002(\014\"\214\001\n\nVReqDeconv\022\017\n\007i_laye" +
+      "r\030\001 \002(\005\022\r\n\005i_map\030\002 \002(\005\022\030\n\tdo_deconv\030\003 \001(" +
+      "\010:\005false\022\023\n\013sub_i_layer\030\004 \001(\005\022\021\n\tsub_i_m" +
+      "ap\030\005 \001(\005\022\034\n\rdo_sub_deconv\030\006 \001(\010:\005false\"M",
+      "\n\010VSetting\022\r\n\005model\030\001 \002(\t\022\016\n\006solver\030\002 \002(" +
+      "\t\022\014\n\004test\030\003 \002(\t\022\024\n\010interval\030\004 \001(\005:\002-1\"\275\001" +
+      "\n\tVResponse\022\035\n\004type\030\001 \002(\0162\017.VResponse.Ty" +
+      "pe\022\014\n\004data\030\002 \001(\014\"\202\001\n\004Type\022\n\n\006WEIGHT\020\001\022\016\n" +
+      "\nFEATUREMAP\020\002\022\016\n\nLAYERINFOS\020\003\022\t\n\005INPUT\020\004" +
+      "\022\n\n\006DECONV\020\005\022\007\n\003ALL\020\006\022\t\n\005STATE\020\007\022\013\n\007SETT" +
+      "ING\020\010\022\007\n\003REC\020\t\022\r\n\tSUBDECONV\020\n\"\032\n\tVRecSta" +
+      "te\022\r\n\005state\030\001 \002(\005\"$\n\004VAll\022\034\n\010response\030\001 " +
+      "\003(\0132\n.VResponse\"D\n\013VReqFeature\022\017\n\007i_laye" +
+      "r\030\001 \002(\005\022\017\n\007i_image\030\002 \002(\005\022\023\n\004diff\030\003 \001(\010:\005",
+      "false\"0\n\nVReqWeight\022\r\n\005index\030\001 \002(\005\022\023\n\004di" +
+      "ff\030\002 \001(\010:\005false\"\204\001\n\006VState\022\022\n\004auto\030\001 \001(\010" +
+      ":\004true\022\021\n\005input\030\002 \001(\005:\002-1\022\031\n\003map\030\003 \001(\0132\014" +
+      ".VReqFeature\022\033\n\006deconv\030\004 \001(\0132\013.VReqDecon" +
+      "v\022\033\n\006weight\030\005 \001(\0132\013.VReqWeightB\'\n\031com.zo" +
+      "son.detection.protoB\nZosonProto"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -19040,7 +19434,7 @@ public final class ZosonProto {
     internal_static_DetectorParameter_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_DetectorParameter_descriptor,
-        new java.lang.String[] { "Name", "Model", "Weight", "Label", "UseGpu", "Istrain", "Solver", "MeanFile", "Mean", "Type", "InName", "OutName", });
+        new java.lang.String[] { "Name", "Model", "Weight", "Snapshot", "Label", "UseGpu", "Istrain", "Solver", "MeanFile", "Mean", "Type", "InName", "OutName", });
     internal_static_MeanValue_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_MeanValue_fieldAccessorTable = new
@@ -19124,7 +19518,7 @@ public final class ZosonProto {
     internal_static_VReqDeconv_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_VReqDeconv_descriptor,
-        new java.lang.String[] { "ILayer", "IMap", "DoDeconv", });
+        new java.lang.String[] { "ILayer", "IMap", "DoDeconv", "SubILayer", "SubIMap", "DoSubDeconv", });
     internal_static_VSetting_descriptor =
       getDescriptor().getMessageTypes().get(18);
     internal_static_VSetting_fieldAccessorTable = new

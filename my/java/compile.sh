@@ -15,6 +15,8 @@ for i in $JAR_PATH/*.jar;do
 	LIB_SET="$i:$LIB_SET"
 done
 
+echo $LIB_SET
+
 JNI_FILE=com.zoson.detection.jni.JniInterface
 
 #compile
