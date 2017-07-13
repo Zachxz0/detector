@@ -4,6 +4,8 @@
 #include <google/protobuf/message.h>
 #include <fstream>
 #include <google/protobuf/text_format.h>
+#include <utils/block.hpp>
+#include <opencv/cv.h>
 using namespace google::protobuf;
 using namespace google::protobuf::io;
 using namespace std;
@@ -32,6 +34,11 @@ void findMin(const float* in,int count,float&min);
 void findMax(const float* in,int count,float&max);
 
 void addMean(unsigned char *,int count,int wh,int[],int);
+
+cv::Mat BlockToCVMat(const Block& bk);
+
+Block CVMatToBlock(const cv::Mat& mat);
+
 }
 
 #endif

@@ -3,7 +3,7 @@
 #include <utils/common.hpp>
 #include <boost/shared_ptr.hpp>
 #include <boost/thread/thread.hpp>
-#include "net/server.h"
+#include "net/tcp_server.h"
 namespace zoson
 {
 

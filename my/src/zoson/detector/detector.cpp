@@ -107,9 +107,6 @@ int Detector::initForTest()
 				lr_able_layer_names.push_back(layer_names[i]);
 			}
 		}
-		// if(i<layers.size()-2){
-		// 	layer_need_backward[i] = true;
-		// }
 	}
 }
 

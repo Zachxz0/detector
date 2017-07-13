@@ -34,7 +34,6 @@ message DetectorParameter
 	optional Type type = 11 [default = DETECTOR];
 	optional string in_name = 12 [default = "data"];
 	optional string out_name = 13 [default = "detection_out"];
-
 	enum Type
 	{
 		DETECTOR = 1;
@@ -216,3 +215,46 @@ message VState
 	optional VReqWeight weight = 5 ;
 }
 
+//Media
+message MMediaParameter
+{
+	
+}
+
+enum MMediaType
+{
+	RGB = 0;
+	YUV420 = 1;
+	H264 = 2;
+	H265 = 3;
+
+}
+
+//neural style
+message NSParameter
+{
+	required string input = 1;
+	required string style = 2;
+	required string output = 3;
+	optional int32 img_size = 4 [default = 512];
+	repeated int32 gpu = 5;
+
+	optional float cont_weight = 6 [default = 5e0];
+	optional float sty_weight = 7 [default = 1e2];
+	optional float tv_weight = 8 [default = 1e-3];
+	optional float num_iter = 9 [default = 1000];
+	optional Optimizer opt = 10 [default = adam];
+	optional float lr = 11 [default = 1e1];
+
+	optional int32 print_iter = 12 [default = 50];
+	optional int32 save_iter = 13 [default = 100];
+
+ 	optional float sty_scale = 14 [default = 1.0];
+ 
+
+	enum Optimizer{
+		lbfgs = 0;
+		adam = 1;
+	}
+
+}

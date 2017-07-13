@@ -12,7 +12,7 @@
 #include <google/protobuf/io/zero_copy_stream_impl.h>
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
-#include <net/server.h>
+#include <net/tcp_server.h>
 #include <net/asio_server.hpp>
 #include <net/asio_client.hpp>
 //#include <commu/commu.hpp>
@@ -37,6 +37,9 @@ extern "C"{
 #include <libavutil/mathematics.h>
 }
 //
+#include <utils/block.hpp>
+#include <media/mmedia_trans.hpp>
+#include <utils/common.hpp>
 
 using namespace cv;
 using namespace google::protobuf;
@@ -76,20 +79,19 @@ bool test_ffmpeg_rtmp();
 bool test_detecor_train();
 void WriteYuv();
 bool test_net_proto();
-bool test_glog();
+bool test_glog(char *arg);
 bool test_commu();
 bool testAsio();
 bool test_dcontext();
+bool test_block();
+bool test_mmedia();
+bool test_cvtobk();
 
-void DisplayYUV(Detector&, unsigned char**,int,int);
-int main()
+void DisplayYUV(unsigned char**,int,int);
+int main(int argc,char** argv)
 {
 
-	if(test_zoson_module_proto()){
-		cout<<"test_zoson_module_proto"<<" true"<<endl;
-	}else{
-		cout<<"test_zoson_module_proto"<<" false"<<endl;
-	}
+	//test_zoson_module_proto()
 	// if(test_zoson_module_detector())
 	// {
 	// 	cout<<"test_zoson_module_detector"<<" true"<<endl;
@@ -101,10 +103,13 @@ int main()
 	//DisplayYUV();
     //test_detecor_train();
     //test_net_proto();
-    //test_glog();
+    //test_glog(argv[0]);
     //test_commu();
     //testAsio();
-    test_dcontext();
+    //test_dcontext();
+    //test_block();
+     //test_mmedia();
+     test_cvtobk();
 }
 
 
@@ -151,7 +156,7 @@ bool test_zoson_module_proto()
 	return re;
 }
 
-char* imageName[3] = {"./data/test/ly.jpg","./data/test/cat.jpg","./data/test/ly.png"};
+char* imageName[7] = {"./data/test/ly.png","./data/test/cat2.jpg","./data/test/pite.jpg","./data/test/ai.jpg","./data/test/multi.jpg","./data/test/ly.png","./data/test/traffic.jpg"};
 Mat getCVMatImage(int i)
 {
 	Mat image = imread( imageName[0], CV_LOAD_IMAGE_COLOR);
@@ -191,7 +196,7 @@ void detect_rgb(Detector &dec,unsigned char** rgb_data,int len,int w,int h)
 
 bool test_ffmpeg_rtmp()
 {
-	Detector dec("./config/detector.prototxt");
+	//Detector dec("./config/detector.prototxt");
 	//dec.init();
 
 	AVFormatContext *pFormatCtx;  
@@ -216,9 +221,10 @@ bool test_ffmpeg_rtmp()
       
     av_register_all();  
     avformat_network_init();  
+    //avcodec_register_all();
     pFormatCtx = avformat_alloc_context();  
-  
-    if(avformat_open_input(&pFormatCtx,"rtmp://localhost/live/test",NULL,NULL)!=0){  
+    int err_code;
+    if((err_code=avformat_open_input(&pFormatCtx,"rtmp://localhost/test",NULL,NULL))!=0){  
         cout<<"Couldn't open input stream.\n";  
         return -1;  
     }  
@@ -281,7 +287,7 @@ img_convert_ctx = sws_getContext(pCodecCtx->width, pCodecCtx->height, pCodecCtx-
                 sws_scale(img_convert_ctx, (const uint8_t* const*)pFrame->data, pFrame->linesize, 0, pCodecCtx->height,   pFrameYUV->data, pFrameYUV->linesize);  
                   //sws_scale(img_convert_ctx, (const uint8_t* const*)pFrame->data, pFrame->linesize, 0, pCodecCtx->height,   pFrameYUV->data, pFrameYUV->linesize);
                 y_size=pCodecCtx->width*pCodecCtx->height; 
-                DisplayYUV(dec,pFrameYUV->data,pCodecCtx->width,pCodecCtx->height);
+                DisplayYUV(pFrameYUV->data,pCodecCtx->width,pCodecCtx->height);
                 //detect_rgb(dec,pFrameYUV->data,y_size,pCodecCtx->width,pCodecCtx->height);
                 // fwrite(pFrameYUV->data[0],1,y_size,fp_yuv);    //Y   
                 // fwrite(pFrameYUV->data[1],1,y_size/4,fp_yuv);  //U  
@@ -312,7 +318,7 @@ img_convert_ctx = sws_getContext(pCodecCtx->width, pCodecCtx->height, pCodecCtx-
         sws_scale(img_convert_ctx, (const uint8_t* const*)pFrame->data, pFrame->linesize, 0, pCodecCtx->height,   pFrameYUV->data, pFrameYUV->linesize);  
         int y_size=pCodecCtx->width*pCodecCtx->height;    
        // y_size=pCodecCtx->width*pCodecCtx->height; 
-DisplayYUV(dec,pFrameYUV->data,pCodecCtx->width,pCodecCtx->height);
+DisplayYUV(pFrameYUV->data,pCodecCtx->width,pCodecCtx->height);
         //rgb transf 
                     //sws_scale(img_convert_ctx, (const uint8_t* const*)pFrame->data, pFrame->linesize, 0, pCodecCtx->height, pFrameYUV->data, pFrameYUV->linesize);
        //detect_rgb(dec,pFrameYUV->data,y_size,pCodecCtx->width,pCodecCtx->height);
@@ -398,7 +404,7 @@ void WriteYuv()
     delete[] pYuvBuf;  
 }  
 
-void DisplayYUV(Detector&dec, unsigned char**data,int w,int h)  
+void DisplayYUV(unsigned char**data,int w,int h)  
 {  
         cv::Mat yuvImg;  
         yuvImg.create(h*3/2, w, CV_8UC1);   
@@ -636,9 +642,10 @@ bool  test_net_proto()
     
 }
 
-bool test_glog()
+bool test_glog( char* arg)
 {
-    //google::InitGoogleLogging();
+    //google::InitGoogleLogging(arg);
+   // google::SetLogDestination(google::GLOG_INFO,"/studio/myInfo");  
     LOG(INFO)<<"dsf"<<endl;
 }
 
@@ -711,7 +718,7 @@ bool test_dcontext()
             cout<<"+++++++++++++++++"<<endl;
             //while(1){
                 detector->on_gradients_ready();
-                sleep(5);
+                sleep(1);
            // }
         }
     }else{
@@ -720,4 +727,66 @@ bool test_dcontext()
     }
     commu_ptr->join();
     //th.join();
+}
+
+bool test_block()
+{
+    //google::InitGoogleLogging("test");
+    vector<int> shape;
+    shape.push_back(3);
+    //LOG(INFO)<<"New Shape";
+    Block blob(shape);
+    unsigned char* data = blob.getData();
+    data[0] = 'a';
+    data[1] = 'b';
+    data[2] = 'c';
+    //LOG(INFO)<<"New Blob1";
+    //LOG(INFO)<<"Blob1 data";
+    //blob.print();
+    Block blob2 = blob;
+    unsigned char* data2 = blob2.getData();
+    data2[0] = 'b';
+    data2[1] = 'a';
+    data2[2] = 'c';
+    //LOG(INFO)<<"Blob1 data"<<endl;
+    blob.print();
+    //blob2.print();
+    //Block b3;
+    //b3.copyFrom(blob);
+    //LOG(INFO)<<"Blob3 data"<<endl;
+    //b3.print();
+    // unsigned char* data3 = b3.getData();
+    // data3[0] = 'c';
+    // data3[1] = 'a';
+    // data3[2] = 'b';
+    //LOG(INFO)<<"Blob3 new data"<<endl;
+    //b3.print();
+    //LOG(INFO)<<"Blob1 new data"<<endl;
+    //blob.print();
+    char d[7] = "123456";
+    char d2[7] = "654321";
+    blob.loadData((unsigned char*)d,6);
+    blob.print();
+    blob2.print();
+    blob2.loadData((unsigned char*)d2,6);
+    blob2.print();
+    string a = "qwe";
+    Block b3=a;
+    b3.print();
+}
+
+bool test_mmedia()
+{
+    cout<<"md.trans"<<endl;
+    MMediaUtils md;
+    md.trans();
+}
+
+bool test_cvtobk()
+{
+    Mat get = getCVMatImage(0);
+    Block bk = CVMatToBlock(get);
+    Mat mat = BlockToCVMat(bk);
+    cv::imshow("cvtobk",mat);
+    cv::waitKey(1000);
 }

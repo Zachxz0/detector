@@ -138,4 +138,44 @@ void addMean(unsigned char* udata,int channel,int wh,int mean[],int dim)
 	}
 }
 
+cv::Mat BlockToCVMat(const Block& bk)
+{
+	cv::Mat mat;
+	std::vector<int> shape = bk.getShape();
+	if(shape.size()<=0)return mat;
+	if(shape.size()==3)
+	{
+		int h = shape[1];
+		int w = shape[2];
+		if(shape[0]==3)
+		{
+			mat.create(h,w,CV_8UC3);
+			memcpy(mat.data,bk.getData(),3*h*w);			
+		}else if(shape[0]==1){
+			mat.create(h,w,CV_8UC1);
+			memcpy(mat.data,bk.getData(),h*w);
+		}
+	}else if(shape.size()==2)
+	{
+		int h = shape[0];
+		int w = shape[1];
+		mat.create(h,w,CV_8UC1);
+		memcpy(mat.data,bk.getData(),h*w);
+	}
+	return mat;
+}
+
+Block CVMatToBlock(const cv::Mat& mat)
+{
+	int width = mat.cols;
+	int height = mat.rows;
+	int channel = mat.channels();
+	std::vector<int> shape;
+	shape.push_back(channel);
+	shape.push_back(height);
+	shape.push_back(width);
+	Block bk(mat.data,shape);
+	return bk;
+}
+
 }

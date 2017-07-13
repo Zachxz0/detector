@@ -4,7 +4,7 @@
 #include <proto/zoson.pb.h>
 #include <map>
 #include <vector>
-#include "net/server.h"
+#include "net/tcp_server.h"
 #include <boost/shared_ptr.hpp>
 #include <boost/thread/thread.hpp>
 #include <commu/reactor.hpp>

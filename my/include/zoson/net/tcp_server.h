@@ -1,8 +1,8 @@
 /*
 * Wrote by :Zhuang zhuoxin
 */
-#ifndef _SERVER_H_
-#define _SERVER_H_
+#ifndef _TCP_SERVER_H_
+#define _TCP_SERVER_H_
 
 #include <string>
 #include <error.h>
