@@ -37,7 +37,7 @@ void DContext::initByParam(const DContextParameter& param)
 			Detector* detector;
 			if(dmodel.has_path())detector = new Detector(dmodel.path());
 			if(!dmodel.has_path()&&dmodel.has_model())detector = new Detector(dmodel.model());
-			this->m_detectors.push_back(shared_ptr<Detector>(detector));
+			this->m_detectors.push_back(boost::shared_ptr<Detector>(detector));
 		}
 	}
 	cout<<"init ing"<<endl;
@@ -47,27 +47,27 @@ void DContext::initByParam(const DContextParameter& param)
 		Communicator* commu = new Communicator(param.commu());
 		this->m_commu.reset(commu);
 		DetectReactor *reactor = new DetectReactor(getDetector(0).get(),commu);
-		shared_ptr<Reactor> reactor_ptr(reactor);
+		boost::shared_ptr<Reactor> reactor_ptr(reactor);
 		commu->addService("detector",reactor_ptr);
 		//commu->connect();
 	}
 }
 
-shared_ptr<Communicator> DContext::getCommu()
+boost::shared_ptr<Communicator> DContext::getCommu()
 {
 	return m_commu;
 }
 
-shared_ptr<Detector> DContext::getDetector(int index)
+boost::shared_ptr<Detector> DContext::getDetector(int index)
 {
-	shared_ptr<Detector> ptr;
+	boost::shared_ptr<Detector> ptr;
 	if(index>m_detectors.size()+1)return ptr;
 	return m_detectors[index];
 }
 
-shared_ptr<Detector> DContext::getDetector(string name)
+boost::shared_ptr<Detector> DContext::getDetector(string name)
 {
-	shared_ptr<Detector> ptr;
+	boost::shared_ptr<Detector> ptr;
 	int size = m_detectors.size();
 	for(int i=0;i<size;++i)
 	{

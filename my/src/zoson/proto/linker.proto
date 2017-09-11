@@ -1,0 +1,77 @@
+option java_package = "com.zoson.linker.proto";
+option java_outer_classname = "Linker";
+
+message TermiusParams
+{
+	required string name = 1;
+	repeated ServerParams server = 2;
+}
+
+message ServerParams
+{
+	required string name = 1;
+	required Url addr = 2;
+	required Url mid = 3;
+	optional int32 heart = 4 [default = 100 ];
+	repeated ServiceParams service = 5;	
+}
+
+message ServiceParams
+{
+	required string name = 1;
+	repeated FunctionParams function = 2;
+}
+
+message FunctionParams
+{
+	required string name = 1;
+	repeated ParamParams params = 2;
+	repeated ParamParams return = 3;
+	repeated Type type = 4;
+	enum Type 
+	{
+		SYNCHRONIZE = 1;
+		STATIC = 2;
+		UNBLOCK = 3;
+
+		CONSTRUCTOR = 4;
+		DECONSTRUCTOR = 5;
+	}
+}
+
+message ParamParams
+{
+	optional string name = 1;
+	repeated DType data = 2;
+}
+
+message DType
+{
+	required Type type = 1;
+	optional bool arr = 2 [default = false];
+	enum Type
+	{
+		BOOL = 1;
+		CHAR = 2;
+		UCHAR = 3;
+		INT = 4;
+		UINT = 5;
+		LONG = 6;
+		ULONG = 7;
+		FLOAT = 8;
+		DOUBLE = 9;
+	}
+}
+
+message Url
+{
+	required string addr = 1;
+	optional int32 port = 2 [default = 10020];
+	optional Type type = 3 [default = TCP];
+	enum Type
+	{
+		TCP = 1;
+	}
+}
+
+

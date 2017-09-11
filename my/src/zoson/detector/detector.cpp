@@ -90,7 +90,7 @@ int Detector::initForTest()
 	m_caffe_net->CopyTrainedLayersFrom(weight_path);
 	outputResult = m_caffe_net->blob_by_name(m_param.out_name()).get();
 //copy from initFortrain
-	const vector<shared_ptr<Layer<float> > >& layers = m_caffe_net->layers();
+	const vector<boost::shared_ptr<Layer<float> > >& layers = m_caffe_net->layers();
 	const vector<string> & layer_names = m_caffe_net->layer_names();
 	inputLayer = (InputLayer<float>*)layers[0].get();//"data"
 	vector<bool>& layer_need_backward = const_cast<vector<bool>& >(m_caffe_net->layer_need_backward());
@@ -221,9 +221,9 @@ float* Detector::rec_data(const float *data,int width,int height,int channels)
 	return rec_data;
 }
 
-shared_ptr<DetectOutput> Detector::doDetect(Mat input)
+boost::shared_ptr<DetectOutput> Detector::doDetect(Mat input)
 {
-	shared_ptr<DetectOutput> ptr(new DetectOutput());
+	boost::shared_ptr<DetectOutput> ptr(new DetectOutput());
 	float iter_loss;
 	load_data(input);
 	m_caffe_net->Forward(&iter_loss);//(&iter_loss);
@@ -333,7 +333,7 @@ int Detector::initForTrain()
 
 	m_solver->add_callback(this);
 	m_caffe_net = m_solver->net().get();
-	const vector<shared_ptr<Layer<float> > >& layers = m_caffe_net->layers();
+	const vector<boost::shared_ptr<Layer<float> > >& layers = m_caffe_net->layers();
 	const vector<string> & layer_names = m_caffe_net->layer_names();
 	for(int i=0;i<layers.size();++i)
 	{
@@ -349,7 +349,7 @@ int Detector::initForTrain()
 			}
 		}
 	}
-	shared_ptr<Solver<float> > solver_ptr(m_solver);
+	boost::shared_ptr<Solver<float> > solver_ptr(m_solver);
 	if (gpus.size() > 1) {
 		caffe::P2PSync<float> sync(solver_ptr, NULL, solver_ptr->param());
 		sync.Run(gpus);
@@ -387,7 +387,7 @@ void Detector::getFeatureMap(const VReqFeature& reqFeature,VResponse* rep_ptr)
 	bool isDiff = reqFeature.diff();
 	int layer_id = deconv_able_layer_index[i_layer];
 	//int blob_id = m_caffe_net->top_ids(layer_id)[0];
-	shared_ptr<Blob<float> >top = m_caffe_net->blob_by_name(deconv_able_layer_names[i_layer]);
+	boost::shared_ptr<Blob<float> >top = m_caffe_net->blob_by_name(deconv_able_layer_names[i_layer]);
 	int w = top->width();
 	int h = top->height();
 	int c = top->channels();
@@ -485,7 +485,7 @@ void Detector::getDeconvImage(const VReqDeconv &reqDeconv,VResponse* rep_ptr)
 		int i_map = reqDeconv.i_map();
 		int layer_id = deconv_able_layer_index[i_layer];
 		//int blob_id = m_caffe_net->top_ids(layer_id)[0];
-		shared_ptr<Blob<float> >top = m_caffe_net->blob_by_name(deconv_able_layer_names[i_layer]);
+		boost::shared_ptr<Blob<float> >top = m_caffe_net->blob_by_name(deconv_able_layer_names[i_layer]);
 		int w = top->width();
 		int h = top->height();
 		int c = top->channels();
@@ -507,7 +507,7 @@ void Detector::getDeconvImage(const VReqDeconv &reqDeconv,VResponse* rep_ptr)
 	}else{
 		int i_layer = reqDeconv.i_layer();
 		int i_map = reqDeconv.i_map();
-		shared_ptr<Blob<float> > blob = m_caffe_net->blob_by_name(deconv_able_layer_names[i_layer]);
+		boost::shared_ptr<Blob<float> > blob = m_caffe_net->blob_by_name(deconv_able_layer_names[i_layer]);
 		float* diff = blob->mutable_cpu_diff();
 		for(int i=0;i<blob->count();++i)
 		{
@@ -520,7 +520,7 @@ void Detector::getDeconvImage(const VReqDeconv &reqDeconv,VResponse* rep_ptr)
 		}
 
 		int start_layer = deconv_able_layer_index[i_layer];
-		const vector<shared_ptr <Blob<float> > > & blobs  = m_caffe_net->blobs();
+		const vector<boost::shared_ptr <Blob<float> > > & blobs  = m_caffe_net->blobs();
 		const vector<string> & blobs_name  = m_caffe_net->blob_names();
 		int past = false;
 
@@ -545,7 +545,7 @@ void Detector::getDeconvImage(const VReqDeconv &reqDeconv,VResponse* rep_ptr)
 		{
 			int i_layer = reqDeconv.sub_i_layer();
 			int i_map = reqDeconv.sub_i_map();
-			shared_ptr<Blob<float> > blob = m_caffe_net->blob_by_name(deconv_able_layer_names[i_layer]);
+			boost::shared_ptr<Blob<float> > blob = m_caffe_net->blob_by_name(deconv_able_layer_names[i_layer]);
 			float* diff = blob->mutable_cpu_diff();
 			for(int i=0;i<blob->count();++i)
 			{
@@ -558,7 +558,7 @@ void Detector::getDeconvImage(const VReqDeconv &reqDeconv,VResponse* rep_ptr)
 			// 	diff[i_map*blob->width()*blob->height()+i] = dat[i_map*blob->width()*blob->height()+i];
 			// }
 			int start_layer = deconv_able_layer_index[i_layer];
-			const vector<shared_ptr <Blob<float> > > & blobs  = m_caffe_net->blobs();
+			const vector<boost::shared_ptr <Blob<float> > > & blobs  = m_caffe_net->blobs();
 			const vector<string> & blobs_name  = m_caffe_net->blob_names();
 			int past = false;
 
@@ -609,7 +609,7 @@ void Detector::on_start()
 void Detector::on_gradients_ready()
 {
 	if(listeners.size()==0)return;
-	shared_ptr<VAll> all_ptr(new VAll());
+	boost::shared_ptr<VAll> all_ptr(new VAll());
 	if(state.has_input()&&state.input()>=0)getOriginalImage(state.input(),all_ptr->add_response());
 	if(state.has_deconv()&&state.deconv().do_deconv())getDeconvImage(state.deconv(),all_ptr->add_response());
 	if(state.has_map())getFeatureMap(state.map(),all_ptr->add_response());
@@ -633,7 +633,7 @@ void Detector::getWeightForTest(const VReqWeight &req,VResponse* rep_ptr)
 		cerr<<"getWeightForTest VResponse point is null"<<endl;
 		return ;
 	}
-	shared_ptr<Blob<float> > blob = deconv_able_layers[req.index()]->blobs()[0]; //todo
+	boost::shared_ptr<Blob<float> > blob = deconv_able_layers[req.index()]->blobs()[0]; //todo
 	// string layer_name = deconv_able_layer_names[req.index()];
 	// int lr_able_layers_size = lr_able_layer_names.size();
 	// int index = -1;
